@@ -1,31 +1,49 @@
-name: Deploy to GitHub Pages
+name: CI + Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [18.x]
+
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
-      - name: Instalar dependências
-        run: npm install
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
 
-      - name: Build do projeto
-        run: npm run build
-
-      - name: Deploy no GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: dist
+          path: dist  # ou sua pasta final do build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy para GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
