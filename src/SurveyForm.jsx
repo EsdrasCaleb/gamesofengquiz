@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 
 const { TextArea } = Input;
@@ -6,6 +7,8 @@ const { Option } = Select;
 
 const SurveyForm = () => {
     const [form] = Form.useForm();
+
+    const { t } = useTranslation();
 
     const onFinish = (values) => {
         console.log('Respostas:', values);
@@ -24,117 +27,121 @@ const SurveyForm = () => {
                 </Checkbox>
             </Form.Item>
 
-            <Form.Item name="formacao" label="Qual o seu maior nível de formação?" rules={[{ required: true }]}>
+            <Form.Item name="formacao" label={t('formacao')} rules={[{ required: true }]}>
                 <Select>
-                    <Option value="fundamental">Fundamental</Option>
-                    <Option value="medio">Médio</Option>
-                    <Option value="graduacao">Graduação</Option>
-                    <Option value="especializacao">Especialização</Option>
-                    <Option value="mestrado">Mestrado</Option>
-                    <Option value="doutorado">Doutorado</Option>
+                    <Option value="fundamental">{t('formacao_opcoes.fundamental')}</Option>
+                    <Option value="medio">{t('formacao_opcoes.medio')}</Option>
+                    <Option value="graduacao">{t('formacao_opcoes.graduacao')}</Option>
+                    <Option value="especializacao">{t('formacao_opcoes.especializacao')}</Option>
+                    <Option value="mestrado">{t('formacao_opcoes.mestrado')}</Option>
+                    <Option value="doutorado">{t('formacao_opcoes.doutorado')}</Option>
                 </Select>
             </Form.Item>
 
-            <Form.Item name="area_formacao" label="Qual a sua principal área de formação?" rules={[{ required: true }]}>
+            <Form.Item name="where_from" label="{t('ufrom')}" rules={[{ required: true }]}>
                 <Input />
             </Form.Item>
 
-            <Form.Item name="anos_experiencia" label="A quantos anos você trabalha com desenvolvimento de jogos?" rules={[{ required: true }]}>
+            <Form.Item name="area_formacao" label={t('area_formacao')} rules={[{ required: true }]}>
+                <Input />
+            </Form.Item>
+
+            <Form.Item name="anos_experiencia" label={t('anos_experiencia')} rules={[{ required: true }]}>
                 <InputNumber min={0} />
             </Form.Item>
 
-            <Form.Item name="tamanho_maior_time" label="Incluindo você, quantas pessoas tinham no maior time que você trabalhou desenvolvendo jogos?" rules={[{ required: true }]}>
+            <Form.Item name="tamanho_maior_time" label={t('tamanho_maior_time')} rules={[{ required: true }]}>
                 <InputNumber min={1} />
             </Form.Item>
 
-            <Form.Item name="qtd_projetos" label="Em quantos projetos (jogos) você já trabalhou? (inclua os que não foram efetivamente lançados)" rules={[{ required: true }]}>
+            <Form.Item name="qtd_projetos" label={t('qtd_projetos')} rules={[{ required: true }]}>
                 <InputNumber min={0} />
             </Form.Item>
 
-            <Form.Item name="qtd_lancados" label="Em quantos projetos (jogos) foram lançados?" rules={[{ required: true }]}>
+            <Form.Item name="qtd_lancados" label={t('qtd_lancados')} rules={[{ required: true }]}>
                 <InputNumber min={0} />
             </Form.Item>
 
-            <Form.Item name="papel_principal" label="Seu principal papel (o que você mais faz) no desenvolvimento de jogos?" rules={[{ required: true }]}>
+            <Form.Item name="papel_principal" label={t('papel_principal')} rules={[{ required: true }]}>
                 <Input />
             </Form.Item>
 
-            <Form.Item name="ferramentas_desenvolvimento" label="O que você costuma usar para desenvolver jogos?" rules={[{ required: true }]}>
-                <Select mode="tags" placeholder="Ex: Unity, Godot, Unreal">
+            <Form.Item name="ferramentas_desenvolvimento" label={t('ferramentas_desenvolvimento')} rules={[{ required: true }]}>
+                <Select mode="tags" placeholder={t('placeholder_ferramentas')}>
                 </Select>
             </Form.Item>
 
-            <Form.Item name="tipos_jogos" label="Quais tipos de jogos você costuma produzir?" rules={[{ required: true }]}>
+            <Form.Item name="tipos_jogos" label={t('tipos_jogos')} rules={[{ required: true }]}>
                 <Select mode="tags" />
             </Form.Item>
 
-            <Form.Item name="processos_engenharia" label="Quais Processos de Engenharia de Software você costuma usar?" rules={[{ required: true }]}>
+            <Form.Item name="processos_engenharia" label={t('processos_engenharia')} rules={[{ required: true }]}>
                 <Select mode="tags" />
             </Form.Item>
 
-            <Form.Item name="opiniao_praticas" label="O que você acha dessas práticas?" rules={[{ required: true }]}>
+            <Form.Item name="opiniao_praticas" label={t('opiniao_praticas')} rules={[{ required: true }]}>
                 <TextArea rows={3} />
             </Form.Item>
 
-            <Form.Item name="testes" label="Seus testes:" rules={[{ required: true }]}>
+            <Form.Item name="testes" label={t('testes')} rules={[{ required: true }]}>
                 <TextArea rows={2} />
             </Form.Item>
 
-            <Form.Item name="usa_framework_teste" label="Você usa algum framework para testar os jogos?" rules={[{ required: true }]}>
+            <Form.Item name="usa_framework_teste" label={t('usa_framework_teste')} rules={[{ required: true }]}>
                 <Radio.Group>
-                    <Radio value="sim">Sim</Radio>
-                    <Radio value="nao">Não</Radio>
+                    <Radio value="sim">{t('sim')}</Radio>
+                    <Radio value="nao">{t('nao')}</Radio>
                 </Radio.Group>
             </Form.Item>
 
-            <Form.Item name="qual_framework" label="Se sim, diga qual (engine inclusa):">
+            <Form.Item name="qual_framework" label={t('qual_framework')}>
                 <Input />
             </Form.Item>
 
-            <Form.Item name="como_testou" label="O que você já usou para realizar os testes?" rules={[{ required: true }]}>
+            <Form.Item name="como_testou" label={t('como_testou')} rules={[{ required: true }]}>
                 <TextArea rows={2} />
             </Form.Item>
 
-            <Form.Item name="o_que_e_testado" label="O que é testado nos testes automatizados?" rules={[{ required: true }]}>
+            <Form.Item name="o_que_e_testado" label={t('o_que_e_testado')} rules={[{ required: true }]}>
                 <TextArea rows={2} />
             </Form.Item>
 
-            <Form.Item name="inicio_testes" label="Os testes automatizados começam a ser criados em que etapa?" rules={[{ required: true }]}>
+            <Form.Item name="inicio_testes" label={t('inicio_testes')} rules={[{ required: true }]}>
                 <Input />
             </Form.Item>
 
-            <Form.Item name="como_faz_teste" label="Para fazer os testes automatizados:" rules={[{ required: true }]}>
+            <Form.Item name="como_faz_teste" label={t('como_faz_teste')} rules={[{ required: true }]}>
                 <TextArea rows={2} />
             </Form.Item>
 
-            <Form.Item name="framework_teste_2" label="Se usa um framework, diga qual (engine inclusa):">
+            <Form.Item name="framework_teste_2" label={t('framework_teste_2')}>
                 <Input />
             </Form.Item>
 
-            <Form.Item name="teste_como_requisito" label="Você usa testes passando como requisito para algo?" rules={[{ required: true }]}>
+            <Form.Item name="teste_como_requisito" label={t('teste_como_requisito')} rules={[{ required: true }]}>
                 <Radio.Group>
-                    <Radio value="sim">Sim</Radio>
-                    <Radio value="nao">Não</Radio>
+                    <Radio value="sim">{t('sim')}</Radio>
+                    <Radio value="nao">{t('nao')}</Radio>
                 </Radio.Group>
             </Form.Item>
 
-            <Form.Item name="consideracoes_finais" label="Alguma consideração final?">
+            <Form.Item name="consideracoes_finais" label={t('consideracoes_finais')}>
                 <TextArea rows={2} />
             </Form.Item>
 
-            <Form.Item name="contato_entrevista" label="Você quer ser contactado para uma entrevista detalhada?" rules={[{ required: true }]}>
+            <Form.Item name="contato_entrevista" label={t('contato_entrevista')} rules={[{ required: true }]}>
                 <Radio.Group>
-                    <Radio value="sim">Sim</Radio>
-                    <Radio value="nao">Não</Radio>
+                    <Radio value="sim">{t('sim')}</Radio>
+                    <Radio value="nao">{t('nao')}</Radio>
                 </Radio.Group>
             </Form.Item>
 
-            <Form.Item name="email" label="Seu e-mail? (opcional)">
+            <Form.Item name="email" label={t('email')}>
                 <Input type="email" />
             </Form.Item>
 
             <Form.Item>
-                <Button type="primary" htmlType="submit">Enviar</Button>
+                <Button type="primary" htmlType="submit">{t('enviar')}</Button>
             </Form.Item>
         </Form>
     );
