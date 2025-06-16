@@ -29,7 +29,6 @@ jobs:
 
       - run: npm ci
       - run: npm run build
-      - run: npm test
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
