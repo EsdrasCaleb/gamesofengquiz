@@ -24,12 +24,6 @@ const SurveyForm = () => {
 
     return (
         <Form form={form} layout="vertical" onFinish={onFinish}>
-            <Form.Item name="termo" valuePropName="checked" rules={[{ required: true, message: 'Aceite o termo' }]}>
-                <Checkbox>
-                    Declaro, por meio deste termo, que concordei em participar na pesquisa intitulada "<strong>Práticas de Engenharia de Software no Desenvolvimento de Jogos Digitais</strong>", etc...
-                </Checkbox>
-            </Form.Item>
-
             <Form.Item name="formacao" label={t('formacao')} rules={[{ required: true }]}>
                 <Select>
                     <Option value="fundamental">{t('formacao_opcoes.fundamental')}</Option>

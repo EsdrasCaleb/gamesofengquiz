@@ -1,5 +1,32 @@
-{
-  "aceite_termo": "Declaro, por meio deste termo, que concordei em participar na pesquisa intitulada \"Práticas de Engenharia de Software no Desenvolvimento de Jogos Digitais\", TCL",
+  {
+   "consent": {
+    "title": "Termo de Consentimento",
+    "paragraphs": [
+      "Você está sendo convidado(a) a participar da pesquisa <strong>“Engenharia de Software e Testes Automatizados em Jogos Digitais: Um Levantamento Internacional”</strong>, conduzida por Esdras Caleb Oliveira Silva, pesquisador responsável.",
+      "Esta pesquisa é destinada exclusivamente a pessoas com 18 anos ou mais, que atuam no desenvolvimento de jogos digitais.",
+      "Buscamos identificar formas de integrar práticas de engenharia de software no desenvolvimento de jogos, especialmente em contextos de equipes independentes.",
+      "Caso decida participar, você responderá a <strong>25 questões</strong> sobre seu perfil como desenvolvedor de jogos, as práticas de engenharia de software que utiliza e os tipos de testes empregados na validação dos jogos.",
+      "Pode haver leve desconforto pelo tempo de preenchimento, mas o formulário salva suas respostas automaticamente no navegador, permitindo continuar depois.",
+      "Sua participação contribuirá para o desenvolvimento de um framework gratuito e de código aberto, voltado à melhoria dos processos de engenharia de software aplicados a jogos digitais.",
+      "Em caso de dúvidas, entre em contato com:<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-970<br />E-mail: <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Telefone: +55 (84) 99688-8803",
+      "Você pode recusar sua participação ou desistir a qualquer momento, sem prejuízo ou penalização.",
+      "Os dados fornecidos serão anônimos e confidenciais, usados exclusivamente para fins acadêmicos. Não será coletada nenhuma informação que permita identificá-lo(a). Os dados ficarão armazenados por 5 anos em local seguro sob responsabilidade do pesquisador.",
+      "Dúvidas éticas podem ser esclarecidas com o Comitê de Ética em Pesquisa da UFRN (CEP Central/UFRN):<br />WhatsApp: (84) 99193-6266<br />E-mail: <a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a><br />Endereço: UFRN – Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-900",
+      "Também é possível contatar a Comissão Nacional de Ética em Pesquisa (Conep):<br />Telefone: (61) 3315-5877<br />E-mail: <a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
+    ],    
+    "agree": "Concordo e desejo participar da pesquisa",
+    "decline": "Eu Recuso"
+  },
+  "thankyou": {
+    "title": "Obrigado pelo seu tempo",
+    "text": "Sua decisão foi registrada. Agradecemos sua atenção."
+  },
+  "survey": {
+    "title": "Formulário de Pesquisa",
+    "name": "Seu nome",
+    "required": "Campo obrigatório",
+    "submit": "Enviar"
+  },
   "ufrom": "De onde você é?",
   "formacao": "Qual o seu maior nível de formação?",
   "area_formacao": "Qual a sua principal área de formação?",
@@ -35,4 +62,5 @@
     "mestrado": "Mestrado",
     "doutorado": "Doutorado"
   }
+
 }

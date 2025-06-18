@@ -1,4 +1,32 @@
 {
+  "consent": {
+    "title": "Consent Form",
+    "paragraphs": [
+    "You are invited to participate in the research <strong>“Software Engineering and Automated Testing in Digital Games: An International Survey”</strong>, conducted by Esdras Caleb Oliveira Silva, the responsible researcher.",
+    "This research is intended exclusively for people aged 18 or older who work in digital game development.",
+    "We seek to identify ways to integrate software engineering practices into game development, especially in independent team contexts.",
+    "If you decide to participate, you will answer <strong>25 questions</strong> about your profile as a game developer, the software engineering practices you use, and the types of tests employed in game validation.",
+    "There may be slight discomfort due to the time required to complete the survey, but the form automatically saves your answers in the browser, allowing you to continue later.",
+    "Your participation will contribute to the development of a free and open-source framework aimed at improving software engineering processes applied to digital games.",
+    "If you have any questions, please contact:<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, ZIP 59078-970<br />Email: <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Phone: +55 (84) 99688-8803",
+    "You may refuse to participate or withdraw at any time without penalty or prejudice.",
+    "The data provided will be anonymous and confidential, used exclusively for academic purposes. No information that allows your identification will be collected. The data will be stored securely for 5 years under the responsibility of the researcher.",
+    "Ethical questions can be clarified with the Research Ethics Committee of UFRN (CEP Central/UFRN):<br />WhatsApp: (84) 99193-6266<br />Email: <a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a><br />Address: UFRN – Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, ZIP 59078-900",
+    "It is also possible to contact the National Research Ethics Commission (Conep):<br />Phone: (61) 3315-5877<br />Email: <a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
+  ],
+  "agree": "I agree and wish to participate in the research",
+    "decline": "I Decline"
+  },
+  "thankyou": {
+    "title": "Thank You for Your Time",
+    "text": "Your decision has been recorded. We appreciate your attention."
+  },
+  "survey": {
+    "title": "Survey Form",
+    "name": "Your Name",
+    "required": "This field is required",
+    "submit": "Submit"
+  },
   "aceite_termo": "I hereby declare that I agree to participate in the research entitled \"Software Engineering Practices in Digital Game Development\", etc...",
   "ufrom": "Where are you from?",
   "formacao": "What is your highest level of education?",
