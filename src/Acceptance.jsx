@@ -5,6 +5,8 @@ const { Title, Paragraph } = Typography;
 
 export default function Acceptance({ onAccept, onDecline }) {
   const { t } = useTranslation();
+  
+  const paragraphs = t('consent.paragraphs', { returnObjects: true });
 
   return (
     <div style={{ maxWidth: 800, margin: '0 auto', padding: 24 }}>
