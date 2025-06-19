@@ -1,8 +1,6 @@
 import { Typography, Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-const { Title, Paragraph } = Typography;
-
 export default function Acceptance({ onAccept, onDecline }) {
   const { t } = useTranslation();
   
@@ -10,9 +8,11 @@ export default function Acceptance({ onAccept, onDecline }) {
 
   return (
     <div style={{ maxWidth: 800, margin: '0 auto', padding: 24 }}>
-      <Title>{t('consent.title')}</Title>
+      <Typography.Title>{t('consent.title')}</Typography.Title>
       {paragraphs.map((p, idx) => (
-        <Paragraph key={idx} dangerouslySetInnerHTML={{ __html: p }} />
+        <Typography.Paragraph key={idx} style={{ marginBottom: 16 }} >
+            <span dangerouslySetInnerHTML={{ __html: p }} />
+        </Typography.Paragraph>
       ))}
       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 32 }}>
         <Button type="primary" onClick={onAccept}>
