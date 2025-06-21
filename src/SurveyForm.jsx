@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { v4 as uuidv4 } from 'uuid';
 import { Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 
 const { TextArea } = Input;
@@ -14,8 +13,6 @@ const SurveyForm = () => {
     const [form] = Form.useForm();
 
     const { t } = useTranslation();
-
-    const idUnico = uuidv4();
 
     //TODO mudar
     const autoSelectred = true;
