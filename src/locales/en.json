@@ -180,7 +180,7 @@
     "inicio_testes_outro_required": "Please describe the stage.",
     "como_automatiza_required": "Please select at least one option.",
     "como_automatiza_options": {
-      "framework_proprio": "I use a custom framework I developed",
+      "framework_proprio": "I use a proprietary framework or system, developed internally by me or by the company I work for.",
       "framework_engine": "I use the engine's built-in framework",
       "framework_aparte": "I use an external framework",
       "outro": "Other:"
@@ -196,6 +196,7 @@
       "outro": "Other:"
     },
     "teste_como_requisito_outro_descricao": "Describe another use of tests as requirement",
-    "teste_como_requisito_outro_required": "Please describe the other use."
+    "teste_como_requisito_outro_required": "Please describe the other use.",
+    "desistir": "Reset"
   }
 }

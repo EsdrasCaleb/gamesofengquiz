@@ -19,16 +19,15 @@ export default function App() {
       const parsed = JSON.parse(saved);
       setUid(parsed.uid);
       setData(parsed.data || {});
-      setStatus(parsed.status)
     }
   }, []);
 
   useEffect(() => {
     if (uid) {
+      console.log(data)
       const toSave = {
         uid,
-        data,
-        status
+        data
       };
       localStorage.setItem("survey_data", JSON.stringify(toSave));
     }
@@ -36,7 +35,7 @@ export default function App() {
 
   if(!uid){
     if (status === null) {
-      return <Acceptance onAccept={() => {setStatus('accepted');setUid(uuidv4())}} onDecline={() => setStatus('declined')} />;
+      return <Acceptance onAccept={() => {setStatus('accepted');setUid(uuidv4());}} onDecline={() => setStatus('declined')} />;
     }
 
     if (status === 'declined') {
@@ -44,12 +43,18 @@ export default function App() {
         <div style={{ padding: 24 }}>
           <Title>{t('thankyou.title')}</Title>
           <Paragraph>{t('thankyou.text')}</Paragraph>
+           <Button danger onCLick={()=>{setData(null);setUid(null);setStatus(null)}}>
+              {t('thankyou.newSurvey')}
+            </Button>
         </div>
       );
     }
   }
   if (status === 'accepted') {
-    return <SurveyForm onAnswer={()=>setStatus('concluded')} uiid={uid} data={data}/>;
+    return <SurveyForm 
+    onReset={()=>{setData(null);setUid(null);setStatus(null)}} 
+    onAnswer={()=>setStatus('concluded')} 
+    setData={setData} uiid={uid} data={data}/>;
   }
   if(status === 'concluded') {
     return (

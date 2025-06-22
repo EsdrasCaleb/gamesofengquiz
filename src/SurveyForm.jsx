@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 
@@ -9,13 +9,18 @@ const setOtherSelected = () =>null;
 const handleChange = () =>null
 const onChange = () =>null
 
-const SurveyForm = ({ data, uiid, onAnswer }) => {
+const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const [form] = Form.useForm();
 
     const { t } = useTranslation();
 
-    const [selecteds, setSelecteds] = useState({});
+    const [selecteds, setSelecteds] = useState(data);
 
+    useEffect(() => {
+        if (uid) {
+          setData(selecteds)
+        }
+      }, [selecteds])
 
     //TODO mudar
     const autoSelectred = true;
@@ -56,6 +61,12 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
             }}
             form={form} layout="vertical" onFinish={onFinish}
         >
+            <Form.Item name="uid" initialValue={uiid} hidden>
+                <Input value={uiid} type="hidden" />
+            </Form.Item>
+            <Form.Item>
+                <Button block danger onClick={onReset}>{t('enviar')}</Button>
+            </Form.Item>
             <Form.Item name="formacao" label={t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
                <Radio.Group>
                 <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
@@ -157,7 +168,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
 
-            {otherSelected && (
+            {selecteds['ferramentas_desenvolvimento']=='outro' && (
                 <Form.Item
                 name="ferramentas_outro_descricao"
                 label={t('ferramentas_outro_descricao')}
@@ -190,7 +201,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                 ]} onChange={onChange} />
             </Form.Item>
 
-            {otherSelected && (
+            {selecteds['tipos_jogos']=='outro' && (
                 <Form.Item
                 name="tipos_jogos_outro_descricao"
                 label={t('tipos_jogos_outro_descricao')}
@@ -215,7 +226,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
 
-            {otherSelected && (
+            {selecteds['processos_engenharia']=='outro' && (
                 <Form.Item
                 name="processos_outro_descricao"
                 label={t('processos_outro_descricao')}
@@ -243,7 +254,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
             </Form.Item>
             );
 
-             {otherSelected && (
+             {selecteds['testes']=='outro' && (
                 <Form.Item
                 name="testes_outro"
                 label={t('testes_outro_descricao')}
@@ -258,7 +269,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                 label={t('usa_framework_teste')}
                 rules={[{ required: true, message: t('usa_framework_teste_required') }]}
             >
-                <Radio.Group onChange={onChange}>
+                <Radio.Group>
                 {[
                     { value: 'engine', label: t('usa_framework_teste_options.engine') },
                     { value: 'framework_aparte', label: t('usa_framework_teste_options.framework_aparte') },
@@ -272,7 +283,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                 </Radio.Group>
             </Form.Item>
 
-            {otherSelected && (
+            {selecteds['usa_framework_teste']=='outro' && (
                 <Form.Item
                 name="usa_framework_teste_outro"
                 label={t('usa_framework_teste_outro_descricao')}
@@ -281,7 +292,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                 <Input />
                 </Form.Item>
             )}
-            {frameSelected && (
+            {selecteds['usa_framework_teste']=='framework_aparte' && (
                 <Form.Item name="qual_framework" label={t('qual_framework')}>
                     <Input />
                 </Form.Item>
@@ -297,10 +308,10 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                     { value: 'assistentes_debug', label: t('como_testou_options.assistentes_debug') },
                     { value: 'automatizados', label: t('como_testou_options.automatizados') },
                     { value: 'outro', label: t('como_testou_options.outro') }
-                ]} onChange={onChange} />
+                ]}  />
             </Form.Item>
 
-            {otherSelected && (
+            {selecteds['como_testou']=='outro' && (
                 <Form.Item
                 name="como_testou_outro"
                 label={t('como_testou_outro_descricao')}
@@ -309,7 +320,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                 <Input />
                 </Form.Item>
             )}
-            {autoSelectred &&(
+            {selecteds['como_testou']=='automatizados' &&(
             <>
                 <Form.Item
                     name="o_que_e_testado"
@@ -322,10 +333,10 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                         { value: 'acoes_personagem', label: t('o_que_e_testado_options.acoes_personagem') },
                         { value: 'teste_fumaca', label: t('o_que_e_testado_options.teste_fumaca') },
                         { value: 'outro', label: t('o_que_e_testado_options.outro') }
-                    ]} onChange={onChange} />
+                    ]}  />
                 </Form.Item>
 
-                {otherSelected && (
+                {selecteds['o_que_e_testado']=='outro' && (
                     <Form.Item
                     name="o_que_e_testado_outro"
                     label={t('o_que_e_testado_outro_descricao')}
@@ -340,7 +351,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                     label={t('inicio_testes')}
                     rules={[{ required: true, message: t('inicio_testes_required') }]}
                 >
-                    <Radio.Group onChange={onChange}>
+                    <Radio.Group>
                     {[
                         { value: 'antes_funcionalidade', label: t('inicio_testes_options.antes_funcionalidade') },
                         { value: 'durante_funcionalidade', label: t('inicio_testes_options.durante_funcionalidade') },
@@ -358,7 +369,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                     </Radio.Group>
                 </Form.Item>
 
-                {otherSelected && (
+                {selecteds['inicio_testes']=='outro'  && (
                     <Form.Item
                     name="inicio_testes_outro"
                     label={t('inicio_testes_outro_descricao')}
@@ -382,7 +393,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                     ]} onChange={onChange} />
                 </Form.Item>
 
-                {otherSelected && (
+                {selecteds['como_automatiza']=='outro'  && (
                     <Form.Item
                     name="como_automatiza_outro"
                     label={t('como_automatiza_outro_descricao')}
@@ -392,7 +403,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                     </Form.Item>
                 )}
 
-                 {otherSelected && (
+                 {selecteds['como_automatiza']=='framework_aparte' && (
                     <Form.Item name="framework_teste_2" label={t('framework_teste_2')}>
                         <Input />
                     </Form.Item>
@@ -403,7 +414,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                     label={t('teste_como_requisito')}
                     rules={[{ required: true, message: t('teste_como_requisito_required') }]}
                 >
-                    <Radio.Group onChange={onChange}>
+                    <Radio.Group>
                     {[
                         { value: 'no', label: t('no') },
                         { value: 'aceitar_atualizacao', label: t('teste_como_requisito_options.aceitar_atualizacao') },
@@ -419,7 +430,7 @@ const SurveyForm = ({ data, uiid, onAnswer }) => {
                     </Radio.Group>
                 </Form.Item>
 
-                {otherSelected && (
+                {selecteds['teste_como_requisito'] == 'outro' && (
                     <Form.Item
                     name="teste_como_requisito_outro"
                     label={t('teste_como_requisito_outro_descricao')}
