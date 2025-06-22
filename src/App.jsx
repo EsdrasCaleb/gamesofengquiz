@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Acceptance from './Acceptance.jsx';
 import SurveyForm from './SurveyForm.jsx';
-import { Typography } from 'antd';
+import { Typography,Button, Popconfirm } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -19,6 +19,7 @@ export default function App() {
       const parsed = JSON.parse(saved);
       setUid(parsed.uid);
       setData(parsed.data || {});
+      setStatus(parsed.status)
     }
   }, []);
 
@@ -27,6 +28,7 @@ export default function App() {
       const toSave = {
         uid,
         data,
+        status
       };
       localStorage.setItem("survey_data", JSON.stringify(toSave));
     }
@@ -47,6 +49,25 @@ export default function App() {
     }
   }
   if (status === 'accepted') {
-    return <SurveyForm onFinish={()=>setStatus('concluded')}/>;
+    return <SurveyForm onAnswer={()=>setStatus('concluded')} uiid={uid} data={data}/>;
+  }
+  if(status === 'concluded') {
+    return (
+        <div style={{ padding: 24 }}>
+          <Title>{t('thankyou.title')}</Title>
+          <Paragraph>{t('thankyou.text')}</Paragraph>
+          <Paragraph>{t('thankyou.removal', { uid })}</Paragraph>
+          <Popconfirm
+            title={t('thankyou.confirmReset', { uid })}
+            onConfirm={()=>{setData(null);setUid(null);setStatus(null)}}
+            okText="Sim"
+            cancelText="Cancelar"
+          >
+            <Button danger>
+              {t('thankyou.newSurvey')}
+            </Button>
+          </Popconfirm>
+        </div>
+      );
   }
 }

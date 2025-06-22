@@ -9,27 +9,53 @@ const setOtherSelected = () =>null;
 const handleChange = () =>null
 const onChange = () =>null
 
-const SurveyForm = () => {
+const SurveyForm = ({ data, uiid, onAnswer }) => {
     const [form] = Form.useForm();
 
     const { t } = useTranslation();
+
+    const [selecteds, setSelecteds] = useState({});
+
 
     //TODO mudar
     const autoSelectred = true;
     const otherSelected = true
     const frameSelected = true;
 
-    const onFinish = (values) => {
+    const onFinish = async (values) => {
         console.log('Respostas:', values);
-        // Aqui você envia para seu endpoint Google Apps Script
-        // fetch('https://script.google.com/macros/s/SEU_ID/exec', {
-        //   method: 'POST',
-        //   body: JSON.stringify(values),
-        // });
+
+        try {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbyOT3aRqac-aTy2Huzno439QHC0nZf_Svf--3TuTQRZn15OJ8n1NO0KEoKj3vU87xVX/exec', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+            });
+
+            const result = await response.json();
+
+            if (result.result === 'success') {
+            onAnswer(values); // Chama a função de callback passando os dados
+            } else {
+            console.error('Erro na resposta do servidor:', result.message);
+            }
+        } catch (error) {
+            console.error('Erro ao enviar dados:', error.message);
+        }
     };
 
+
+
+
     return (
-        <Form form={form} layout="vertical" onFinish={onFinish}>
+        <Form
+            onValuesChange={(changed, all) => {
+                setSelecteds(all);
+            }}
+            form={form} layout="vertical" onFinish={onFinish}
+        >
             <Form.Item name="formacao" label={t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
                <Radio.Group>
                 <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
@@ -54,7 +80,7 @@ const SurveyForm = () => {
                 label={t('area_formacao')}
                 rules={[{ required: true, message: t('area_formacao_required') }]}
             >
-                <Radio.Group onChange={e => setOtherSelected(e.target.value === 'outro')}>
+                <Radio.Group>
                     <Radio value="jogos_digitais">{t('area_formacao_jogos_digitais')}</Radio>
                     <Radio value="computacao">{t('area_formacao_computacao')}</Radio>
                     <Radio value="artes_visuais">{t('area_formacao_artes_visuais')}</Radio>
@@ -63,7 +89,7 @@ const SurveyForm = () => {
                 </Radio.Group>
             </Form.Item>
 
-            {otherSelected && (
+            {selecteds['area_formacao']=='outro' && (
                 <Form.Item
                 name="area_formacao_outro"
                 label={t('area_formacao_outro_descreva')}
@@ -94,7 +120,7 @@ const SurveyForm = () => {
                 label={t('papel_principal')}
                 rules={[{ required: true, message: t('papel_principal_required') }]}
             >
-                <Radio.Group onChange={e => setOtherSelected(e.target.value === 'outro')}>
+                <Radio.Group>
                 <Radio value="programador">{t('papel_programador')}</Radio>
                 <Radio value="artista">{t('papel_artista')}</Radio>
                 <Radio value="game_designer">{t('papel_game_designer')}</Radio>
@@ -105,7 +131,7 @@ const SurveyForm = () => {
                 </Radio.Group>
             </Form.Item>
 
-            {otherSelected && (
+            {selecteds['papel_principal']=='outro' && (
                 <Form.Item
                 name="papel_principal_outro"
                 label={t('papel_outro_descreva')}

@@ -19,7 +19,10 @@
   },
   "thankyou": {
     "title": "Obrigado pelo seu tempo",
-    "text": "Sua decisão foi registrada. Agradecemos sua atenção."
+    "text": "Sua decisão foi registrada. Agradecemos sua atenção.",
+    "removal": "Se quiser remover seus dados, entre em contato com acheicaleb@gmail.com e envie o seu ID único: {{uid}}.",
+    "newSurvey": "Fazer uma nova pesquisa",
+    "confirmReset": "Tem certeza? Isso apagará os dados anteriores do seu navegador (incluindo o ID {{uid}}) e não será possível recuperá-los."
   },
   "survey": {
     "title": "Formulário de Pesquisa",

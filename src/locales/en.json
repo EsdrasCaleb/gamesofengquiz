@@ -19,7 +19,10 @@
   },
   "thankyou": {
     "title": "Thank You for Your Time",
-    "text": "Your decision has been recorded. We appreciate your attention."
+    "text": "Your decision has been recorded. We appreciate your attention.",
+    "removal": "If you want your data removed, contact acheicaleb@gmail.com and send your unique ID: {{uid}}.",
+    "newSurvey": "Start a new survey",
+    "confirmReset": "Are you sure? This will erase your previous data from the browser (including ID {{uid}}) and it cannot be recovered."
   },
   "survey": {
     "title": "Survey Form",
