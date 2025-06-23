@@ -12,7 +12,7 @@ export default function App() {
   const [status, setStatus] = useState(null); // null | 'accepted' | 'declined'
   const [uid,setUid] = useState(null);
   const [data, setData] = useState({});
-
+  console.log(status)
   useEffect(() => {
     const saved = localStorage.getItem("survey_data");
     if (saved) {
@@ -43,7 +43,7 @@ export default function App() {
         <div style={{ padding: 24 }}>
           <Title>{t('thankyou.title')}</Title>
           <Paragraph>{t('thankyou.text')}</Paragraph>
-           <Button danger onCLick={()=>{setData(null);setUid(null);setStatus(null)}}>
+           <Button danger onClick={()=>{setData(null);setUid(null);setStatus(null)}}>
               {t('thankyou.newSurvey')}
             </Button>
         </div>

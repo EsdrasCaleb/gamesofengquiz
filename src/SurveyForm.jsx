@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 
@@ -22,10 +22,6 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         }
       }, [selecteds])
 
-    //TODO mudar
-    const autoSelectred = true;
-    const otherSelected = true
-    const frameSelected = true;
 
     const onFinish = async (values) => {
         console.log('Respostas:', values);
@@ -52,8 +48,6 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     };
 
 
-
-
     return (
         <Form
             onValuesChange={(changed, all) => {
@@ -65,7 +59,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Input value={uiid} type="hidden" />
             </Form.Item>
             <Form.Item>
-                <Button block danger onClick={onReset}>{t('enviar')}</Button>
+                <Button block danger onClick={onReset}>{t('desistir')}</Button>
             </Form.Item>
             <Form.Item name="formacao" label={t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
                <Radio.Group>
