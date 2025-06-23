@@ -53,10 +53,10 @@ export default function App() {
       );
     }
     if (status === 'accepted') {
-        return <SurveyForm
+        return <div style={{ padding: 24 }}><SurveyForm
             onReset={()=>{setData({});setStatus(null); console.log("reset");}}
             onAnswer={()=>setStatus('concluded')}
-            setData={setData} uiid={uid} data={data}/>;
+            setData={setData} uiid={uid} data={data}/></div>;
     }
     if(status === 'concluded') {
         return (

@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FloatButton,Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
+import { Card, FloatButton, Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
@@ -50,15 +50,10 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
 
     return (
-        <Form
-            onValuesChange={(changed, all) => {
-                setSelecteds(all);
-            }}
-            form={form} layout="vertical" onFinish={onFinish}
+        <Card
+            style={{ maxWidth: 600, margin: '2rem auto' }}
+            bodyStyle={{ padding: '1.5rem' }}
         >
-            <Form.Item name="uid" initialValue={uiid} hidden>
-                <Input value={uiid} type="hidden" />
-            </Form.Item>
             <Popconfirm
                 title={t('confirmReset')}
                 description={t('confirmResetDescription')}
@@ -78,6 +73,16 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     className="float-button-danger"
                 />
             </Popconfirm>
+        <Form
+            onValuesChange={(changed, all) => {
+                setSelecteds(all);
+            }}
+            form={form} layout="vertical" onFinish={onFinish}
+        >
+            <Form.Item name="uid" initialValue={uiid} hidden>
+                <Input value={uiid} type="hidden" />
+            </Form.Item>
+
             <Form.Item name="formacao" label={t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
                <Radio.Group>
                 <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
@@ -554,9 +559,10 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Form.Item>
 
             <Form.Item>
-                <Button type="primary" htmlType="submit">{t('enviar')}</Button>
+                <Button type="primary" block htmlType="submit">{t('enviar')}</Button>
             </Form.Item>
         </Form>
+        </Card>
     );
 };
 
