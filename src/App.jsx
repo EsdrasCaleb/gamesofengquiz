@@ -12,28 +12,31 @@ export default function App() {
   const [status, setStatus] = useState(null); // null | 'accepted' | 'declined'
   const [uid,setUid] = useState(null);
   const [data, setData] = useState({});
-  console.log(status)
+    console.log(data)
+    console.log(uid)
+    console.log(status)
   useEffect(() => {
     const saved = localStorage.getItem("survey_data");
     if (saved) {
       const parsed = JSON.parse(saved);
       setUid(parsed.uid);
       setData(parsed.data || {});
+      setStatus(parsed.status);
     }
   }, []);
 
   useEffect(() => {
     if (uid) {
-      console.log(data)
       const toSave = {
         uid,
-        data
+        data,
+        status
       };
       localStorage.setItem("survey_data", JSON.stringify(toSave));
     }
   }, [uid, data]);
 
-  if(!uid){
+
     if (status === null) {
       return <Acceptance onAccept={() => {setStatus('accepted');setUid(uuidv4());}} onDecline={() => setStatus('declined')} />;
     }
@@ -43,36 +46,39 @@ export default function App() {
         <div style={{ padding: 24 }}>
           <Title>{t('thankyou.title')}</Title>
           <Paragraph>{t('thankyou.text')}</Paragraph>
-           <Button danger onClick={()=>{setData(null);setUid(null);setStatus(null)}}>
+           <Button danger onClick={()=>{setData({});setUid(null);setStatus(null)}}>
               {t('thankyou.newSurvey')}
             </Button>
         </div>
       );
     }
-  }
-  if (status === 'accepted') {
-    return <SurveyForm 
-    onReset={()=>{setData(null);setUid(null);setStatus(null)}} 
-    onAnswer={()=>setStatus('concluded')} 
-    setData={setData} uiid={uid} data={data}/>;
-  }
-  if(status === 'concluded') {
-    return (
-        <div style={{ padding: 24 }}>
-          <Title>{t('thankyou.title')}</Title>
-          <Paragraph>{t('thankyou.text')}</Paragraph>
-          <Paragraph>{t('thankyou.removal', { uid })}</Paragraph>
-          <Popconfirm
-            title={t('thankyou.confirmReset', { uid })}
-            onConfirm={()=>{setData(null);setUid(null);setStatus(null)}}
-            okText="Sim"
-            cancelText="Cancelar"
-          >
-            <Button danger>
-              {t('thankyou.newSurvey')}
-            </Button>
-          </Popconfirm>
-        </div>
-      );
-  }
+    if (status === 'accepted') {
+        return <SurveyForm
+            onReset={()=>{setData({});setStatus(null); console.log("reset");}}
+            onAnswer={()=>setStatus('concluded')}
+            setData={setData} uiid={uid} data={data}/>;
+    }
+    if(status === 'concluded') {
+        return (
+            <div style={{padding: 24}}>
+                <Title>{t('thankyou.title')}</Title>
+                <Paragraph>{t('thankyou.text')}</Paragraph>
+                <Paragraph>{t('thankyou.removal', {uid})}</Paragraph>
+                <Popconfirm
+                    title={t('thankyou.confirmReset', {uid})}
+                    onConfirm={() => {
+                        setData(null);
+                        setUid(null);
+                        setStatus(null)
+                    }}
+                    okText="Sim"
+                    cancelText="Cancelar"
+                >
+                    <Button danger>
+                        {t('thankyou.newSurvey')}
+                    </Button>
+                </Popconfirm>
+            </div>
+        )
+    }
 }

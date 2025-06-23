@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
+import { FloatButton,Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
+import { CloseOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -15,7 +16,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const { t } = useTranslation();
 
     const [selecteds, setSelecteds] = useState(data);
-
+    form.setFieldsValue(data);
     useEffect(() => {
         if (uid) {
           setData(selecteds)
@@ -58,9 +59,25 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item name="uid" initialValue={uiid} hidden>
                 <Input value={uiid} type="hidden" />
             </Form.Item>
-            <Form.Item>
-                <Button block danger onClick={onReset}>{t('desistir')}</Button>
-            </Form.Item>
+            <Popconfirm
+                title={t('confirmReset')}
+                description={t('confirmResetDescription')}
+                onConfirm={onReset}
+                okText={t('sim')}
+                cancelText={t('nao')}
+                okType={"danger"}
+            >
+                <FloatButton
+                    icon={<CloseOutlined />}
+                    tooltip={t('desistir')}
+                    style={{
+                        backgroundColor: '#ff4d4f',
+                        color: '#fff',
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+                    }}
+                    className="float-button-danger"
+                />
+            </Popconfirm>
             <Form.Item name="formacao" label={t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
                <Radio.Group>
                 <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
@@ -77,7 +94,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Input />
             </Form.Item>
             <Form.Item name="how_old" label={t('howold')} >
-                <Input />
+                <InputNumber />
             </Form.Item>
 
             <Form.Item
@@ -104,6 +121,14 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 </Form.Item>
             )}
 
+            <Form.Item
+                name="is_independent_developer"
+                valuePropName="checked"
+                label={t('independent')}
+            >
+                <Checkbox />
+            </Form.Item>
+
             <Form.Item name="anos_experiencia" label={t('anos_experiencia')} rules={[{ required: true }]}>
                 <InputNumber min={0} />
             </Form.Item>
@@ -119,6 +144,35 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item name="qtd_lancados" label={t('qtd_lancados')} rules={[{ required: true }]}>
                 <InputNumber min={0} />
             </Form.Item>
+            {/**
+             Perifl testador e QA
+             Perfil geral
+             **/}
+            <Form.Item
+                name="papel"
+                label={t('papel')}
+                rules={[{ required: true, message: t('papel_principal_required') }]}
+            >
+                <Radio.Group>
+                    <Radio value="programador">{t('papel_programador')}</Radio>
+                    <Radio value="artista">{t('papel_artista')}</Radio>
+                    <Radio value="game_designer">{t('papel_game_designer')}</Radio>
+                    <Radio value="level_designer">{t('papel_level_designer')}</Radio>
+                    <Radio value="qa">{t('papel_qa')}</Radio>
+                    <Radio value="artista_som">{t('papel_artista_som')}</Radio>
+                    <Radio value="outro">{t('papel_outro')}</Radio>
+                </Radio.Group>
+            </Form.Item>
+            {selecteds['papel']=='outro' && (
+                <Form.Item
+                    name="papel_outro"
+                    label={t('papel_outro_descreva')}
+                    rules={[{ required: true, message: t('papel_outro_required') }]}
+                >
+                    <Input />
+                </Form.Item>
+            )}
+
 
             <Form.Item
                 name="papel_principal"
@@ -139,8 +193,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['papel_principal']=='outro' && (
                 <Form.Item
                 name="papel_principal_outro"
-                label={t('papel_outro_descreva')}
-                rules={[{ required: true, message: t('papel_outro_required') }]}
+                label={t('papel_principal_outro_descreva')}
+                rules={[{ required: true, message: t('papel_principal_outro_required') }]}
                 >
                 <Input />
                 </Form.Item>
@@ -157,7 +211,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     { value: 'godot', label: t('ferramentas_options.godot') },
                     { value: 'gamemaker', label: t('ferramentas_options.gamemaker') },
                     { value: 'rpgmaker', label: t('ferramentas_options.rpgmaker') },
-                    { value: 'framework_baixo_nivel', label: t('ferramentas_options.framework_baixo_nivel') },
+                    { value: 'propria_pessoal', label: t('ferramentas_options.propria_pessoal') },
+                    { value: 'propria_corporativa', label: t('ferramentas_options.propria_corporativa') },
                     { value: 'outro', label: t('ferramentas_options.outro') }
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
@@ -231,9 +286,48 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             )}
 
             <Form.Item name="opiniao_praticas" label={t('opiniao_praticas')} rules={[{ required: true }]}>
+                <Checkbox.Group options={[
+                    { label: t('processos_options.controle_versao'), value: 'controle_versao' },
+                    { label: t('processos_options.padroes_design'), value: 'padroes_design' },
+                    { label: t('processos_options.modelagem_projeto'), value: 'modelagem_projeto' },
+                    { label: t('processos_options.prototipacao'), value: 'prototipacao' },
+                    { label: t('processos_options.tdd'), value: 'tdd' },
+                    { label: t('processos_options.outro'), value: 'outro' },
+                ].map(opt => ({ label: opt.label, value: opt.value }))} />
+            </Form.Item>
+
+            {selecteds['opiniao_praticas']=='outro' && (
+                <Form.Item
+                    name="opiniao_praticas_outro_descricao"
+                    label={t('processos_outro_descricao')}
+                    rules={[{ required: true, message: t('processos_outro_required') }]}
+                >
+                    <Input />
+                </Form.Item>
+            )}
+            <Form.Item name="opiniao_praticas_porque" label={t('opiniao_praticas_porque')} rules={[{ required: true }]}>
                 <TextArea rows={3} />
             </Form.Item>
 
+            <Form.Item
+                name="asset_testes"
+                label={t('asset_testes')}
+                rules={[{ required: true, message: t('asset_testes_required') }]}
+            >
+                <Checkbox.Group options={[
+                    { value: 'exploratorio', label: t('testes_options.exploratorio') },
+                    { value: 'roteiro_qa', label: t('testes_options.roteiro_qa') },
+                    { value: 'outro', label: t('testes_options.outro') }
+                ]} />
+            </Form.Item>
+
+            {/*
+            quem
+            o que é testado
+            como é testado
+            estrategias de testes
+            Filtrar so programadores e QA
+            */}
             <Form.Item
                 name="testes"
                 label={t('testes')}
@@ -246,9 +340,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     { value: 'outro', label: t('testes_options.outro') }
                 ]} />
             </Form.Item>
-            );
 
-             {selecteds['testes']=='outro' && (
+            {selecteds['testes']=='outro' && (
                 <Form.Item
                 name="testes_outro"
                 label={t('testes_outro_descricao')}
@@ -258,6 +351,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 </Form.Item>
             )}
 
+            {/*
+            Colocar os framerworks de teste aqui e não na pergunta a parte
+            */}
             <Form.Item
                 name="usa_framework_teste"
                 label={t('usa_framework_teste')}
@@ -434,8 +530,14 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </Form.Item>
                 )}
             </>
-            )}    
+            )}
+            {/*
+            uma pergunta sobre problemas?
 
+            testar testes integração?
+            Se não marcou teste automatizado perguntar o por que?
+            Perguntar dificuldade nos testes automatizados?
+            */}
             <Form.Item name="consideracoes_finais" label={t('consideracoes_finais')}>
                 <TextArea rows={2} />
             </Form.Item>
