@@ -51,7 +51,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
     return (
         <Card
-            style={{ maxWidth: 600, margin: '2rem auto' }}
+            style={{ maxWidth: "93%", margin: '2rem auto' }}
             bodyStyle={{ padding: '1.5rem' }}
         >
             <Popconfirm
