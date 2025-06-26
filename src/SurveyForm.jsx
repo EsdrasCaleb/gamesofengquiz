@@ -23,7 +23,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         const dataCollums = ['uid','formacao','where_from','how_old','area_formacao','area_formacao_outro',
             'is_independent_developer','anos_experiencia','tamanho_maior_time','qtd_projetos',
             'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',
-            'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro']
+            'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro','papel_principal',
+            'papel_principal_outro','papel_favorito','papel_favorito_outro']
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
             dataCollums.map(key => [key, values[key]])
@@ -225,7 +226,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
              **/}
             <Form.Item
                 name="papel"
-                label={t('papel')}
+                label={'14-'+t('papel')}
                 rules={[{ required: true, message: t('papel_required') }]}
             >
                 <Checkbox.Group>
@@ -241,7 +242,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['papel']=='outro' && (
                 <Form.Item
                     name="papel_outro"
-                    label={t('papel_outro_descreva')}
+                    label={'14a-'+t('papel_outro_descreva')}
                     rules={[{ required: true, message: t('papel_outro_required') }]}
                 >
                     <Input />
@@ -251,7 +252,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
             <Form.Item
                 name="papel_principal"
-                label={t('papel_principal')}
+                label={'15-'+ t('papel_principal')}
                 rules={[{ required: true, message: t('papel_principal_required') }]}
             >
                 <Radio.Group>
@@ -268,10 +269,36 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['papel_principal']=='outro' && (
                 <Form.Item
                 name="papel_principal_outro"
-                label={t('papel_principal_outro_descreva')}
+                label={'15a-'+t('papel_principal_outro_descreva')}
                 rules={[{ required: true, message: t('papel_principal_outro_required') }]}
                 >
                 <Input />
+                </Form.Item>
+            )}
+
+            <Form.Item
+                name="papel_favorito"
+                label={'16-'+t('papel_favorito')}
+                rules={[{ required: true, message: t('papel_required') }]}
+            >
+                <Radio.Group>
+                    <Radio value="programador">{t('papel_programador')}</Radio>
+                    <Radio value="artista">{t('papel_artista')}</Radio>
+                    <Radio value="game_designer">{t('papel_game_designer')}</Radio>
+                    <Radio value="level_designer">{t('papel_level_designer')}</Radio>
+                    <Radio value="qa">{t('papel_qa')}</Radio>
+                    <Radio value="artista_som">{t('papel_artista_som')}</Radio>
+                    <Radio value="outro">{t('papel_outro')}</Radio>
+                </Radio.Group>
+            </Form.Item>
+
+            {selecteds['papel_favorito']=='outro' && (
+                <Form.Item
+                    name="papel_favorito_outro"
+                    label={'16a-'+t('papel_outro_descreva')}
+                    rules={[{ required: true, message: t('papel_outro_required') }]}
+                >
+                    <Input />
                 </Form.Item>
             )}
 
