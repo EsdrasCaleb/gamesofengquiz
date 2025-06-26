@@ -26,7 +26,10 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
     const onFinish = async (values) => {
         console.log('Respostas:', values);
-
+        const dataCollums = ['uid','formacao','where_from','how_old','area_formacao','area_formacao_outro',
+            'is_independent_developer','anos_experiencia','tamanho_maior_time','qtd_projetos',
+            'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',
+            'problema_dificuldade_manutencao']
         try {
             const response = await fetch('https://script.google.com/macros/s/AKfycbyOT3aRqac-aTy2Huzno439QHC0nZf_Svf--3TuTQRZn15OJ8n1NO0KEoKj3vU87xVX/exec', {
             method: 'POST',
@@ -82,8 +85,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item name="uid" initialValue={uiid} hidden>
                 <Input value={uiid} type="hidden" />
             </Form.Item>
-
-            <Form.Item name="formacao" label={t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
+            <Card  title={t("pessoal")} >
+            <Form.Item name="formacao" label={"1-"+t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
                <Radio.Group>
                 <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
                 <Radio value="fundamental">{t('formacao_opcoes.fundamental')}</Radio>
@@ -95,16 +98,16 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Radio.Group>
             </Form.Item>
 
-            <Form.Item name="where_from" label={t('ufrom')} >
+            <Form.Item name="where_from" label={"2-"+t('ufrom')} >
                 <Input />
             </Form.Item>
-            <Form.Item name="how_old" label={t('howold')} >
+            <Form.Item name="how_old" label={"3-"+t('howold')} >
                 <InputNumber />
             </Form.Item>
 
             <Form.Item
                 name="area_formacao"
-                label={t('area_formacao')}
+                label={t("4-"+'area_formacao')}
                 rules={[{ required: true, message: t('area_formacao_required') }]}
             >
                 <Radio.Group>
@@ -120,7 +123,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Form.Item
                 name="area_formacao_outro"
                 label={t('area_formacao_outro_descreva')}
-                rules={[{ required: true, message: t('area_formacao_outro_required') }]}
+                rules={[{ required: true, message: t('4a-'+'area_formacao_outro_required') }]}
                 >
                 <Input />
                 </Form.Item>
@@ -129,25 +132,91 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item
                 name="is_independent_developer"
                 valuePropName="checked"
-                label={t('independent')}
+                label={'5-'+t('independent')}
             >
                 <Checkbox />
             </Form.Item>
 
-            <Form.Item name="anos_experiencia" label={t('anos_experiencia')} rules={[{ required: true }]}>
+            <Form.Item name="anos_experiencia" label={'6-'+t('anos_experiencia')} rules={[{ required: true }]}>
                 <InputNumber min={0} />
             </Form.Item>
-
-            <Form.Item name="tamanho_maior_time" label={t('tamanho_maior_time')} rules={[{ required: true }]}>
+            </Card>
+            <Card title={t('team')}>
+            <Form.Item name="tamanho_maior_time" label={'7-'+t('tamanho_maior_time')} rules={[{ required: true }]}>
                 <InputNumber min={1} />
             </Form.Item>
 
-            <Form.Item name="qtd_projetos" label={t('qtd_projetos')} rules={[{ required: true }]}>
+            <Form.Item name="qtd_projetos" label={'8-'+t('qtd_projetos')} rules={[{ required: true }]}>
                 <InputNumber min={0} />
             </Form.Item>
 
-            <Form.Item name="qtd_lancados" label={t('qtd_lancados')} rules={[{ required: true }]}>
-                <InputNumber min={0} />
+            <Form.Item
+                name="frequencia_problemas_tecnicos"
+                label={'9-'+t('frequencia_problemas_tecnicos')}
+                rules={[{ required: true, message: t('option_required') }]}
+            >
+                <Radio.Group>
+                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
+                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
+                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
+                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
+                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
+                </Radio.Group>
+            </Form.Item>
+
+            <Form.Item
+                name="problema_codigo_confuso"
+                label={'10-'+t('problema_codigo_confuso')}
+                rules={[{ required: true, message: t('option_required') }]}
+            >
+                <Radio.Group>
+                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
+                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
+                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
+                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
+                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
+                </Radio.Group>
+            </Form.Item>
+
+            <Form.Item
+                name="problema_muitas_features"
+                label={'11-'+t('problema_muitas_features')}
+                rules={[{ required: true, message: t('option_required') }]}
+            >
+                <Radio.Group>
+                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
+                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
+                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
+                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
+                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
+                </Radio.Group>
+            </Form.Item>
+
+            <Form.Item
+                name="problema_dificuldade_manutencao"
+                label={'12-'+t('problema_dificuldade_manutencao')}
+                rules={[{ required: true, message: t('option_required') }]}
+            >
+                <Radio.Group>
+                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
+                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
+                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
+                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
+                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
+                </Radio.Group>
+            </Form.Item>
+            <Form.Item
+                name="problema_dificuldade_testar"
+                label={'13-'+t('problema_dificuldade_testar')}
+                rules={[{ required: true, message: t('option_required') }]}
+            >
+                <Radio.Group>
+                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
+                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
+                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
+                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
+                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
+                </Radio.Group>
             </Form.Item>
             {/**
              Perifl testador e QA
@@ -158,15 +227,15 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 label={t('papel')}
                 rules={[{ required: true, message: t('papel_principal_required') }]}
             >
-                <Radio.Group>
-                    <Radio value="programador">{t('papel_programador')}</Radio>
-                    <Radio value="artista">{t('papel_artista')}</Radio>
-                    <Radio value="game_designer">{t('papel_game_designer')}</Radio>
-                    <Radio value="level_designer">{t('papel_level_designer')}</Radio>
-                    <Radio value="qa">{t('papel_qa')}</Radio>
-                    <Radio value="artista_som">{t('papel_artista_som')}</Radio>
-                    <Radio value="outro">{t('papel_outro')}</Radio>
-                </Radio.Group>
+                <Checkbox.Group>
+                    <Checkbox value="programador">{t('papel_programador')}</Checkbox>
+                    <Checkbox value="artista">{t('papel_artista')}</Checkbox>
+                    <Checkbox value="game_designer">{t('papel_game_designer')}</Checkbox>
+                    <Checkbox value="level_designer">{t('papel_level_designer')}</Checkbox>
+                    <Checkbox value="qa">{t('papel_qa')}</Checkbox>
+                    <Checkbox value="artista_som">{t('papel_artista_som')}</Checkbox>
+                    <Checkbox value="outro">{t('papel_outro')}</Checkbox>
+                </Checkbox.Group>
             </Form.Item>
             {selecteds['papel']=='outro' && (
                 <Form.Item
@@ -313,7 +382,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item name="opiniao_praticas_porque" label={t('opiniao_praticas_porque')} rules={[{ required: true }]}>
                 <TextArea rows={3} />
             </Form.Item>
-
+            </Card>
             <Form.Item
                 name="asset_testes"
                 label={t('asset_testes')}
@@ -362,7 +431,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item
                 name="usa_framework_teste"
                 label={t('usa_framework_teste')}
-                rules={[{ required: true, message: t('usa_framework_teste_required') }]}
+                rules={[{ required: true, message: t('option_required') }]}
             >
                 <Radio.Group>
                 {[
@@ -444,7 +513,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Form.Item
                     name="inicio_testes"
                     label={t('inicio_testes')}
-                    rules={[{ required: true, message: t('inicio_testes_required') }]}
+                    rules={[{ required: true, message: t('option_required') }]}
                 >
                     <Radio.Group>
                     {[
@@ -507,7 +576,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Form.Item
                     name="teste_como_requisito"
                     label={t('teste_como_requisito')}
-                    rules={[{ required: true, message: t('teste_como_requisito_required') }]}
+                    rules={[{ required: true, message: t('option_required') }]}
                 >
                     <Radio.Group>
                     {[
