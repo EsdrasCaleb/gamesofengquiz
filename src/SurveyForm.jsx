@@ -26,7 +26,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro','papel_principal',
             'papel_principal_outro','papel_favorito','papel_favorito_outro','ferramentas_desenvolvimento',
             "ferramentas_outro_descricao","tipos_jogos","tipos_jogos_outro_descricao","processos_engenharia",
-            "processos_outro_descricao"]
+            "processos_outro_descricao","opiniao_praticas","opiniao_praticas_outro_descricao","opiniao_praticas_porque"]
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
             dataCollums.map(key => [key, values[key]])
@@ -401,14 +401,14 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['processos_engenharia']=='outro' && (
                 <Form.Item
                 name="processos_outro_descricao"
-                label={'19-'+t('processos_outro_descricao')}
+                label={'19a-'+t('processos_outro_descricao')}
                 rules={[{ required: true, message: t('processos_outro_required') }]}
                 >
                 <Input />
                 </Form.Item>
             )}
 
-            <Form.Item name="opiniao_praticas" label={t('opiniao_praticas')} rules={[{ required: true }]}>
+            <Form.Item name="opiniao_praticas" label={'20-'+t('opiniao_praticas')} rules={[{ required: true }]}>
                 <Checkbox.Group options={[
                     { label: t('processos_options.controle_versao'), value: 'controle_versao' },
                     { label: t('processos_options.padroes_design'), value: 'padroes_design' },
@@ -422,14 +422,14 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['opiniao_praticas']=='outro' && (
                 <Form.Item
                     name="opiniao_praticas_outro_descricao"
-                    label={t('processos_outro_descricao')}
+                    label={'20a-'+t('processos_outro_descricao')}
                     rules={[{ required: true, message: t('processos_outro_required') }]}
                 >
                     <Input />
                 </Form.Item>
             )}
             { selecteds['opiniao_praticas']?.length >0 && (
-            <Form.Item name="opiniao_praticas_porque" label={t('opiniao_praticas_porque')} rules={[{ required: true }]}>
+            <Form.Item name="opiniao_praticas_porque" label={'21-'+t('opiniao_praticas_porque')} rules={[{ required: true }]}>
                 <Input.TextArea rows={3} />
             </Form.Item>
             )}

@@ -77,7 +77,7 @@
   "sim": "Sim",
   "nao": "Não",
   "formacao_opcoes": {
-    "none": "nenhum",
+    "none": "Nenhum",
     "fundamental": "Fundamental",
     "medio": "Médio",
     "graduacao": "Graduação",
@@ -113,7 +113,7 @@
   "ferramentas_outro_descricao": "Qual a outra engine?",
   "ferramentas_outro_required": "Por favor, diga ao menos um nome.",
   "tipos_jogos_required": "Por favor, selecione pelo menos um tipo de jogo.",
-  "tipos_jogos_outro_descricao": "Descreva o outro tipo",
+  "tipos_jogos_outro_descricao": "Descreva o outro tipo:",
   "tipos_jogos_outro_required": "Por favor, descreva o outro tipo.",
   "tipos_jogos_options": {
     "fps": "FPS",
@@ -132,7 +132,7 @@
   "processos_engenharia_required": "Por favor, informe pelo menos um processo.",
   "placeholder_processos": "Selecione ou digite os processos",
   "processos_outro": "Outro:",
-  "processos_outro_descricao": "Descreva outro processo",
+  "processos_outro_descricao": "Descreva a outra prática de Engenharia de Software:",
   "processos_outro_required": "Por favor, descreva o outro processo.",
   "processos_options": {
     "controle_versao": "Controle de versão (Git e etc)",
