@@ -21,10 +21,11 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const onFinish = async (values) => {
         console.log('Respostas:', values);
         const dataCollums = ['uid','formacao','where_from','how_old','area_formacao','area_formacao_outro',
-            'is_independent_developer','anos_experiencia','tamanho_maior_time','qtd_projetos',
+            'independent','anos_experiencia','tamanho_maior_time','qtd_projetos',
             'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',
             'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro','papel_principal',
-            'papel_principal_outro','papel_favorito','papel_favorito_outro']
+            'papel_principal_outro','papel_favorito','papel_favorito_outro','ferramentas_desenvolvimento',
+            "ferramentas_outro_descricao","tipos_jogos","tipos_jogos_outro_descricao"]
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
             dataCollums.map(key => [key, values[key]])
@@ -129,11 +130,24 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             )}
 
             <Form.Item
-                name="is_independent_developer"
-                valuePropName="checked"
-                label={'5-'+t('independent')}
+                name="independent"
+                label={'5 - ' + t('independent.label')}
+                rules={[{ required: true, message: t('option_required') }]}
             >
-                <Checkbox />
+                <Radio.Group>
+                    <Radio value="atuacao_indie_horas_vagas">
+                        {t('independent.atuacao_indie_horas_vagas')}
+                    </Radio>
+                    <Radio value="atuacao_indie_renda_principal">
+                        {t('independent.atuacao_indie_renda_principal')}
+                    </Radio>
+                    <Radio value="atuacao_nao_indie_mas_participo">
+                        {t('independent.atuacao_nao_indie_mas_participo')}
+                    </Radio>
+                    <Radio value="atuacao_nao_trabalho_com_desenvolvimento">
+                        {t('independent.atuacao_nao_trabalho_com_desenvolvimento')}
+                    </Radio>
+                </Radio.Group>
             </Form.Item>
 
             <Form.Item name="anos_experiencia" label={'6-'+t('anos_experiencia')} rules={[{ required: true }]}>
@@ -256,13 +270,15 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 rules={[{ required: true, message: t('papel_principal_required') }]}
             >
                 <Radio.Group>
-                <Radio value="programador">{t('papel_programador')}</Radio>
-                <Radio value="artista">{t('papel_artista')}</Radio>
-                <Radio value="game_designer">{t('papel_game_designer')}</Radio>
-                <Radio value="level_designer">{t('papel_level_designer')}</Radio>
-                <Radio value="qa">{t('papel_qa')}</Radio>
-                <Radio value="artista_som">{t('papel_artista_som')}</Radio>
-                <Radio value="outro">{t('papel_outro')}</Radio>
+                    {['programador', 'artista', 'game_designer', 'level_designer', 'qa', 'artista_som', 'outro'].map((papel) => (
+                        <Radio
+                            key={papel}
+                            value={papel}
+                            disabled={!selecteds['papel'].includes(papel)}
+                        >
+                            {t(`papel_${papel}`)}
+                        </Radio>
+                    ))}
                 </Radio.Group>
             </Form.Item>
 
@@ -282,13 +298,15 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 rules={[{ required: true, message: t('papel_required') }]}
             >
                 <Radio.Group>
-                    <Radio value="programador">{t('papel_programador')}</Radio>
-                    <Radio value="artista">{t('papel_artista')}</Radio>
-                    <Radio value="game_designer">{t('papel_game_designer')}</Radio>
-                    <Radio value="level_designer">{t('papel_level_designer')}</Radio>
-                    <Radio value="qa">{t('papel_qa')}</Radio>
-                    <Radio value="artista_som">{t('papel_artista_som')}</Radio>
-                    <Radio value="outro">{t('papel_outro')}</Radio>
+                    {['programador', 'artista', 'game_designer', 'level_designer', 'qa', 'artista_som', 'outro'].map((papel) => (
+                        <Radio
+                            key={papel}
+                            value={papel}
+                            disabled={!selecteds['papel'].includes(papel)}
+                        >
+                            {t(`papel_${papel}`)}
+                        </Radio>
+                    ))}
                 </Radio.Group>
             </Form.Item>
 
@@ -304,7 +322,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
             <Form.Item
                 name="ferramentas_desenvolvimento"
-                label={t('ferramentas_desenvolvimento')}
+                label={'17-'+t('ferramentas_desenvolvimento')}
                 rules={[{ required: true, message: t('ferramentas_desenvolvimento_required') }]}
             >
                   <Checkbox.Group options={[
@@ -322,18 +340,16 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['ferramentas_desenvolvimento']=='outro' && (
                 <Form.Item
                 name="ferramentas_outro_descricao"
-                label={t('ferramentas_outro_descricao')}
+                label={'17a-'+t('ferramentas_outro_descricao')}
                 rules={[{ required: true, message: t('ferramentas_outro_required') }]}
                 >
                 <Input />
                 </Form.Item>
             )}
 
-            
-
             <Form.Item
                 name="tipos_jogos"
-                label={t('tipos_jogos')}
+                label={'18-'+t('tipos_jogos')}
                 rules={[{ required: true, message: t('tipos_jogos_required') }]}
             >
                 <Checkbox.Group options={[
@@ -355,7 +371,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['tipos_jogos']=='outro' && (
                 <Form.Item
                 name="tipos_jogos_outro_descricao"
-                label={t('tipos_jogos_outro_descricao')}
+                label={'18a-'+t('tipos_jogos_outro_descricao')}
                 rules={[{ required: true, message: t('tipos_jogos_outro_required') }]}
                 >
                 <Input />
@@ -364,7 +380,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
             <Form.Item
                 name="processos_engenharia"
-                label={t('processos_engenharia')}
+                label={'19-'+t('processos_engenharia')}
                 rules={[{ required: true, message: t('processos_engenharia_required') }]}
             >
                   <Checkbox.Group options={[
@@ -407,23 +423,77 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Input />
                 </Form.Item>
             )}
+            { selecteds['opiniao_praticas']?.length >0 && (
             <Form.Item name="opiniao_praticas_porque" label={t('opiniao_praticas_porque')} rules={[{ required: true }]}>
                 <Input.TextArea rows={3} />
             </Form.Item>
+            )}
             </Card>
+            {(selecteds['papel'].includes('artista')||selecteds['papel'].includes('artista_som')) &&(
             <Card title={t("artistis_profile")}>
-            <Form.Item
-                name="asset_testes"
-                label={t('asset_testes')}
-                rules={[{ required: true, message: t('asset_testes_required') }]}
-            >
-                <Checkbox.Group options={[
-                    { value: 'exploratorio', label: t('testes_options.exploratorio') },
-                    { value: 'roteiro_qa', label: t('testes_options.roteiro_qa') },
-                    { value: 'outro', label: t('testes_options.outro') }
-                ]} />
-            </Form.Item>
+                <Form.Item
+                    name="asset_testes"
+                    label={t('asset_testes')}
+                    rules={[{ required: true, message: t('asset_testes_required') }]}
+                >
+                    <Checkbox.Group options={[
+                        { value: 'teste_visual_manual', label: t('asset_testes_options.teste_visual_manual') },
+                        { value: 'teste_com_equipe', label: t('asset_testes_options.teste_com_equipe') },
+                        { value: 'teste_automatizado', label: t('asset_testes_options.teste_automatizado') },
+                        { value: 'teste_nao_sei', label: t('asset_testes_options.teste_nao_sei') },
+                        { value: 'teste_nao_sao_testados', label: t('asset_testes_options.teste_nao_sao_testados') },
+                        { value: 'teste_outro', label: t('asset_testes_options.teste_outro') },
+                    ]} />
+                </Form.Item>
+                    {selecteds['asset_testes']=='outro' && (
+                        <Form.Item
+                            name="asset_testes_outro_descricao"
+                            label={t('asset_testes_outro_descricao')}
+                            rules={[{ required: true, message: t('asset_testes_outro_descricao_required') }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                    )}
+                {selecteds['asset_testes']=='teste_automatizado' && (
+                    <Form.Item
+                        name="asset_testes_automatizado_descricao"
+                        label={t('asset_testes_automatizado_descricao')}
+                        rules={[{ required: true, message: t('asset_testes_automatizado_required') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
             </Card>
+            )}
+
+            {(selecteds['papel'].includes('game_designer')||selecteds['papel'].includes('level_designer')) &&(
+                <Card title={t("designer_profile")}>
+                    <Form.Item
+                        name="asset_testes"
+                        label={t('asset_testes')}
+                        rules={[{ required: true, message: t('asset_testes_required') }]}
+                    >
+                        <Checkbox.Group options={[
+                            { value: 'teste_visual_manual', label: t('asset_testes_options.teste_visual_manual') },
+                            { value: 'teste_com_equipe', label: t('asset_testes_options.teste_com_equipe') },
+                            { value: 'teste_automatizado', label: t('asset_testes_options.teste_automatizado') },
+                            { value: 'teste_nao_sei', label: t('asset_testes_options.teste_nao_sei') },
+                            { value: 'teste_nao_sao_testados', label: t('asset_testes_options.teste_nao_sao_testados') },
+                            { value: 'teste_outro', label: t('asset_testes_options.teste_outro') },
+                        ]} />
+                    </Form.Item>
+                    {selecteds['asset_testes']=='outro' && (
+                        <Form.Item
+                            name="asset_testes_outro_descricao"
+                            label={t('asset_testes_outro_descricao')}
+                            rules={[{ required: true, message: t('asset_testes_outro_descricao_required') }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                    )}
+                </Card>
+            )}
+
             {/*
             quem
             o que é testado
