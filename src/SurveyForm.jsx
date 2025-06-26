@@ -3,12 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Card, FloatButton, Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 
-const { TextArea } = Input;
-const { Option } = Select;
-
-const setOtherSelected = () =>null;
-const handleChange = () =>null
-const onChange = () =>null
 
 const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const [form] = Form.useForm();
@@ -18,7 +12,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const [selecteds, setSelecteds] = useState(data);
     form.setFieldsValue(data);
     useEffect(() => {
-        if (uid) {
+        if (uiid) {
           setData(selecteds)
         }
       }, [selecteds])
@@ -29,14 +23,18 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         const dataCollums = ['uid','formacao','where_from','how_old','area_formacao','area_formacao_outro',
             'is_independent_developer','anos_experiencia','tamanho_maior_time','qtd_projetos',
             'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',
-            'problema_dificuldade_manutencao']
+            'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro']
+        // Filtrar os valores para manter apenas as chaves de dataCollums
+        const filteredValues = Object.fromEntries(
+            dataCollums.map(key => [key, values[key]])
+        );
         try {
             const response = await fetch('https://script.google.com/macros/s/AKfycbyOT3aRqac-aTy2Huzno439QHC0nZf_Svf--3TuTQRZn15OJ8n1NO0KEoKj3vU87xVX/exec', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(values),
+            body: JSON.stringify(filteredValues),
             });
 
             const result = await response.json();
@@ -205,6 +203,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
                 </Radio.Group>
             </Form.Item>
+
             <Form.Item
                 name="problema_dificuldade_testar"
                 label={'13-'+t('problema_dificuldade_testar')}
@@ -218,6 +217,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
                 </Radio.Group>
             </Form.Item>
+            </Card>
+            <Card title={t('game_dev_profile')}>
             {/**
              Perifl testador e QA
              Perfil geral
@@ -225,7 +226,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item
                 name="papel"
                 label={t('papel')}
-                rules={[{ required: true, message: t('papel_principal_required') }]}
+                rules={[{ required: true, message: t('papel_required') }]}
             >
                 <Checkbox.Group>
                     <Checkbox value="programador">{t('papel_programador')}</Checkbox>
@@ -321,7 +322,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     { label: t('tipos_jogos_options.simulacao'), value: 'simulacao' },
                     { label: t('tipos_jogos_options.manager'), value: 'manager' },
                     { label: t('tipos_jogos_options.outro'), value: 'outro' },
-                ]} onChange={onChange} />
+                ]} />
             </Form.Item>
 
             {selecteds['tipos_jogos']=='outro' && (
@@ -380,9 +381,10 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 </Form.Item>
             )}
             <Form.Item name="opiniao_praticas_porque" label={t('opiniao_praticas_porque')} rules={[{ required: true }]}>
-                <TextArea rows={3} />
+                <Input.TextArea rows={3} />
             </Form.Item>
             </Card>
+            <Card title={t("artistis_profile")}>
             <Form.Item
                 name="asset_testes"
                 label={t('asset_testes')}
@@ -394,7 +396,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     { value: 'outro', label: t('testes_options.outro') }
                 ]} />
             </Form.Item>
-
+            </Card>
             {/*
             quem
             o que é testado
@@ -554,7 +556,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'framework_engine', label: t('como_automatiza_options.framework_engine') },
                         { value: 'framework_aparte', label: t('como_automatiza_options.framework_aparte') },
                         { value: 'outro', label: t('como_automatiza_options.outro') }
-                    ]} onChange={onChange} />
+                    ]}  />
                 </Form.Item>
 
                 {selecteds['como_automatiza']=='outro'  && (
@@ -613,7 +615,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             Perguntar dificuldade nos testes automatizados?
             */}
             <Form.Item name="consideracoes_finais" label={t('consideracoes_finais')}>
-                <TextArea rows={2} />
+                <Input.TextArea rows={2} />
             </Form.Item>
 
             <Form.Item name="contato_entrevista" label={t('contato_entrevista')} rules={[{ required: true }]}>
