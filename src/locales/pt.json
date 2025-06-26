@@ -238,5 +238,12 @@
     "confirmResetDescription": "Isso apagará suas respostas salvas. Se quiser continuar depois, basta voltar mais tarde enquanto não clicar aqui.",
     "sim": "Sim",
     "nao": "Não",
-    "independent":"Você atua como desenvolvedor independente?"
+    "independent": {
+      "label": "Sua atuação no desenvolvimento de jogos pode ser caracterizada como:",
+      "required": "Por favor, selecione uma opção",
+      "atuacao_indie_horas_vagas": "Trabalho como desenvolvedor independente de jogos nas horas vagas",
+      "atuacao_indie_renda_principal": "Trabalho como desenvolvedor independente de jogos, sendo essa minha principal fonte de renda",
+      "atuacao_nao_indie_mas_participo": "Não sou desenvolvedor independente, mas participo de projetos como contratado, freelancer ou membro de equipe",
+      "atuacao_nao_trabalho_com_desenvolvimento": "Atualmente não trabalho com desenvolvimento de jogos"
+    }
 }

@@ -7,7 +7,7 @@ import { CloseOutlined } from '@ant-design/icons';
 const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const [form] = Form.useForm();
 
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const [selecteds, setSelecteds] = useState(data);
     form.setFieldsValue(data);
@@ -20,12 +20,13 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
     const onFinish = async (values) => {
         console.log('Respostas:', values);
-        const dataCollums = ['uid','formacao','where_from','how_old','area_formacao','area_formacao_outro',
-            'independent','anos_experiencia','tamanho_maior_time','qtd_projetos',
+        const dataCollums = ['uid',"language",'formacao','where_from','how_old','area_formacao',
+            'area_formacao_outro','independent','anos_experiencia','tamanho_maior_time','qtd_projetos',
             'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',
             'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro','papel_principal',
             'papel_principal_outro','papel_favorito','papel_favorito_outro','ferramentas_desenvolvimento',
-            "ferramentas_outro_descricao","tipos_jogos","tipos_jogos_outro_descricao"]
+            "ferramentas_outro_descricao","tipos_jogos","tipos_jogos_outro_descricao","processos_engenharia",
+            "processos_outro_descricao"]
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
             dataCollums.map(key => [key, values[key]])
@@ -85,6 +86,10 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item name="uid" initialValue={uiid} hidden>
                 <Input value={uiid} type="hidden" />
             </Form.Item>
+            <Form.Item name="language" initialValue={i18n.languages[0]} hidden>
+                <Input value={i18n.languages[0]} type="hidden" />
+            </Form.Item>
+
             <Card  title={t("pessoal")} >
             <Form.Item name="formacao" label={"1-"+t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
                <Radio.Group>
@@ -107,7 +112,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
             <Form.Item
                 name="area_formacao"
-                label={t("4-"+'area_formacao')}
+                label={"4-"+t('area_formacao')}
                 rules={[{ required: true, message: t('area_formacao_required') }]}
             >
                 <Radio.Group>
@@ -122,7 +127,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['area_formacao']=='outro' && (
                 <Form.Item
                 name="area_formacao_outro"
-                label={t('area_formacao_outro_descreva')}
+                label={"4a-"+t('area_formacao_outro_descreva')}
                 rules={[{ required: true, message: t('4a-'+'area_formacao_outro_required') }]}
                 >
                 <Input />
@@ -396,7 +401,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             {selecteds['processos_engenharia']=='outro' && (
                 <Form.Item
                 name="processos_outro_descricao"
-                label={t('processos_outro_descricao')}
+                label={'19-'+t('processos_outro_descricao')}
                 rules={[{ required: true, message: t('processos_outro_required') }]}
                 >
                 <Input />
