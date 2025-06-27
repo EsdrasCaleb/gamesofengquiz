@@ -363,7 +363,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
 
-            {selecteds['ferramentas_desenvolvimento'].includes('outro') && (
+            {selecteds['ferramentas_desenvolvimento']?.includes('outro') && (
                 <Form.Item
                 name="ferramentas_outro_descricao"
                 label={'17a-'+t('ferramentas_outro_descricao')}
@@ -394,7 +394,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 ]} />
             </Form.Item>
 
-            {selecteds['tipos_jogos'].includes('outro') && (
+            {selecteds['tipos_jogos']?.includes('outro') && (
                 <Form.Item
                 name="tipos_jogos_outro_descricao"
                 label={'18a-'+t('tipos_jogos_outro_descricao')}
@@ -419,7 +419,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
 
-            {selecteds['processos_engenharia'].includes('outro') && (
+            {selecteds['processos_engenharia']?.includes('outro') && (
                 <Form.Item
                 name="processos_outro_descricao"
                 label={'19a-'+t('processos_outro_descricao')}
@@ -440,7 +440,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
 
-            {selecteds['opiniao_praticas'].includes('outro') && (
+            {selecteds['opiniao_praticas']?.includes('outro') && (
                 <Form.Item
                     name="opiniao_praticas_outro_descricao"
                     label={'20a-'+t('processos_outro_descricao')}
