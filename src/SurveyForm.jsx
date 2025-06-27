@@ -10,6 +10,12 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const { t, i18n } = useTranslation();
 
     const [selecteds, setSelecteds] = useState(data);
+
+    const artist_selcted = (selecteds['papel'].includes('artista')||selecteds['papel'].includes('artista_som'))
+    const design_selected = selecteds['papel'].includes('game_designer')||selecteds['papel'].includes('level_designer')
+    const offset_design = ((selecteds['opiniao_praticas']?.length >0)+selecteds['asset_testes'].includes('automatizado')+21)
+    const tester_selected = selecteds['papel'].includes('programador')||selecteds['papel'].includes('qa')
+    const offset_test = offset_design+(2*design_selected)
     form.setFieldsValue(data);
     useEffect(() => {
         if (uiid) {
@@ -26,7 +32,12 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro','papel_principal',
             'papel_principal_outro','papel_favorito','papel_favorito_outro','ferramentas_desenvolvimento',
             "ferramentas_outro_descricao","tipos_jogos","tipos_jogos_outro_descricao","processos_engenharia",
-            "processos_outro_descricao","opiniao_praticas","opiniao_praticas_outro_descricao","opiniao_praticas_porque"]
+            "processos_outro_descricao","opiniao_praticas","opiniao_praticas_outro_descricao","opiniao_praticas_porque",
+            "asset_testes","asset_testes_outro_descricao","asset_testes_automatizado_descricao","design_modelagem",
+            "design_modelagem_outro_descricao","design_validacao","design_validacao_outro_descricao","testes_jogo",
+            "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro",
+
+        ]
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
             dataCollums.map(key => [key, values[key]])
@@ -258,7 +269,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Checkbox value="outro">{t('papel_outro')}</Checkbox>
                 </Checkbox.Group>
             </Form.Item>
-            {selecteds['papel']=='outro' && (
+            {selecteds['papel'].includes('outro') && (
                 <Form.Item
                     name="papel_outro"
                     label={'14a-'+t('papel_outro_descreva')}
@@ -342,7 +353,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
 
-            {selecteds['ferramentas_desenvolvimento']=='outro' && (
+            {selecteds['ferramentas_desenvolvimento'].includes('outro') && (
                 <Form.Item
                 name="ferramentas_outro_descricao"
                 label={'17a-'+t('ferramentas_outro_descricao')}
@@ -373,7 +384,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 ]} />
             </Form.Item>
 
-            {selecteds['tipos_jogos']=='outro' && (
+            {selecteds['tipos_jogos'].includes('outro') && (
                 <Form.Item
                 name="tipos_jogos_outro_descricao"
                 label={'18a-'+t('tipos_jogos_outro_descricao')}
@@ -398,7 +409,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
 
-            {selecteds['processos_engenharia']=='outro' && (
+            {selecteds['processos_engenharia'].includes('outro') && (
                 <Form.Item
                 name="processos_outro_descricao"
                 label={'19a-'+t('processos_outro_descricao')}
@@ -419,7 +430,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 ].map(opt => ({ label: opt.label, value: opt.value }))} />
             </Form.Item>
 
-            {selecteds['opiniao_praticas']=='outro' && (
+            {selecteds['opiniao_praticas'].includes('outro') && (
                 <Form.Item
                     name="opiniao_praticas_outro_descricao"
                     label={'20a-'+t('processos_outro_descricao')}
@@ -434,35 +445,35 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Form.Item>
             )}
             </Card>
-            {(selecteds['papel'].includes('artista')||selecteds['papel'].includes('artista_som')) &&(
+            {artist_selcted &&(
             <Card title={t("artistis_profile")}>
                 <Form.Item
                     name="asset_testes"
-                    label={t('asset_testes')}
+                    label={((selecteds['opiniao_praticas']?.length >0)+21)+"-"+t('asset_testes')}
                     rules={[{ required: true, message: t('asset_testes_required') }]}
                 >
                     <Checkbox.Group options={[
-                        { value: 'teste_visual_manual', label: t('asset_testes_options.teste_visual_manual') },
-                        { value: 'teste_com_equipe', label: t('asset_testes_options.teste_com_equipe') },
-                        { value: 'teste_automatizado', label: t('asset_testes_options.teste_automatizado') },
-                        { value: 'teste_nao_sei', label: t('asset_testes_options.teste_nao_sei') },
-                        { value: 'teste_nao_sao_testados', label: t('asset_testes_options.teste_nao_sao_testados') },
-                        { value: 'teste_outro', label: t('asset_testes_options.teste_outro') },
+                        { value: 'visual_manual', label: t('asset_testes_options.teste_visual_manual') },
+                        { value: 'com_equipe', label: t('asset_testes_options.teste_com_equipe') },
+                        { value: 'automatizado', label: t('asset_testes_options.teste_automatizado') },
+                        { value: 'nao_sei', label: t('asset_testes_options.teste_nao_sei') },
+                        { value: 'nao_sao_testados', label: t('asset_testes_options.teste_nao_sao_testados') },
+                        { value: 'outro', label: t('asset_testes_options.teste_outro') },
                     ]} />
                 </Form.Item>
-                    {selecteds['asset_testes']=='outro' && (
+                    {selecteds['asset_testes'].includes('outro') && (
                         <Form.Item
                             name="asset_testes_outro_descricao"
-                            label={t('asset_testes_outro_descricao')}
+                            label={((selecteds['opiniao_praticas']?.length >0?1:0)+21)+"a-"+t('asset_testes_outro_descricao')}
                             rules={[{ required: true, message: t('asset_testes_outro_descricao_required') }]}
                         >
                             <Input />
                         </Form.Item>
                     )}
-                {selecteds['asset_testes']=='teste_automatizado' && (
+                {selecteds['asset_testes'].includes('automatizado') && (
                     <Form.Item
                         name="asset_testes_automatizado_descricao"
-                        label={t('asset_testes_automatizado_descricao')}
+                        label={((selecteds['opiniao_praticas']?.length >0?1:0)+22)+"-"+t('asset_testes_automatizado_descricao')}
                         rules={[{ required: true, message: t('asset_testes_automatizado_required') }]}
                     >
                         <Input />
@@ -471,251 +482,218 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Card>
             )}
 
-            {(selecteds['papel'].includes('game_designer')||selecteds['papel'].includes('level_designer')) &&(
+            {(design_selected) &&(
                 <Card title={t("designer_profile")}>
                     <Form.Item
-                        name="asset_testes"
-                        label={t('asset_testes')}
-                        rules={[{ required: true, message: t('asset_testes_required') }]}
+                        name="design_modelagem"
+                        label={(offset_design+1)+"-"+t('design_modelagem')}
+                        rules={[{ required: true, message: t('design_modelagem_required') }]}
                     >
                         <Checkbox.Group options={[
-                            { value: 'teste_visual_manual', label: t('asset_testes_options.teste_visual_manual') },
-                            { value: 'teste_com_equipe', label: t('asset_testes_options.teste_com_equipe') },
-                            { value: 'teste_automatizado', label: t('asset_testes_options.teste_automatizado') },
-                            { value: 'teste_nao_sei', label: t('asset_testes_options.teste_nao_sei') },
-                            { value: 'teste_nao_sao_testados', label: t('asset_testes_options.teste_nao_sao_testados') },
-                            { value: 'teste_outro', label: t('asset_testes_options.teste_outro') },
+                            { value: 'uml', label: t('design_modelagem_options.uml') },
+                            { value: 'prototipo_real', label: t('design_modelagem_options.prototipo_real') },
+                            { value: 'prototipo_ferramenta', label: t('design_modelagem_options.prototipo_ferramenta') },
+                            { value: 'anotacoes_simples', label: t('design_modelagem_options.anotacoes_simples') },
+                            { value: 'mental', label: t('design_modelagem_options.mental') },
+                            { value: 'outro', label: t('design_modelagem_options.outro') },
                         ]} />
                     </Form.Item>
-                    {selecteds['asset_testes']=='outro' && (
+
+                    {selecteds['design_modelagem']?.includes('outro') && (
                         <Form.Item
-                            name="asset_testes_outro_descricao"
-                            label={t('asset_testes_outro_descricao')}
-                            rules={[{ required: true, message: t('asset_testes_outro_descricao_required') }]}
+                            name="design_modelagem_outro_descricao"
+                            label={(offset_design+1)+"a-"+t('design_modelagem_outro_descricao')}
+                            rules={[{ required: true, message: t('design_modelagem_outro_descricao_required') }]}
                         >
                             <Input />
                         </Form.Item>
                     )}
+
+                    <Form.Item
+                        name="design_validacao"
+                        label={(offset_design+2)+"-"+t('design_validacao')}
+                        rules={[{ required: true, message: t('design_validacao_required') }]}
+                    >
+                        <Checkbox.Group options={[
+                            { value: 'prototipo_simplificado', label: t('design_validacao_options.prototipo_simplificado') },
+                            { value: 'prototipo_real', label: t('design_validacao_options.prototipo_real') },
+                            { value: 'machinations', label: t('design_validacao_options.machinations') },
+                            { value: 'outro', label: t('design_validacao_options.outro') },
+                        ]} />
+                    </Form.Item>
+
+                    {selecteds['design_validacao']?.includes('outro') && (
+                        <Form.Item
+                            name="design_validacao_outro_descricao"
+                            label={(offset_design+2)+"a-"+t('design_validacao_outro_descricao')}
+                            rules={[{ required: true, message: t('design_validacao_outro_descricao_required') }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                    )}
+
+
                 </Card>
             )}
 
-            {/*
-            quem
-            o que é testado
-            como é testado
-            estrategias de testes
-            Filtrar so programadores e QA
-            */}
-            <Form.Item
-                name="testes"
-                label={t('testes')}
-                rules={[{ required: true, message: t('testes_required') }]}
-            >
-                <Checkbox.Group options={[
-                    { value: 'exploratorio', label: t('testes_options.exploratorio') },
-                    { value: 'roteiro_qa', label: t('testes_options.roteiro_qa') },
-                    { value: 'feedback_massivo', label: t('testes_options.feedback_massivo') },
-                    { value: 'outro', label: t('testes_options.outro') }
-                ]} />
-            </Form.Item>
-
-            {selecteds['testes']=='outro' && (
+            {(tester_selected) &&(
+            <Card title={t("tecnical_profile")}>
                 <Form.Item
-                name="testes_outro"
-                label={t('testes_outro_descricao')}
-                rules={[{ required: true, message: t('testes_outro_required') }]}
-                >
-                <Input />
-                </Form.Item>
-            )}
-
-            {/*
-            Colocar os framerworks de teste aqui e não na pergunta a parte
-            */}
-            <Form.Item
-                name="usa_framework_teste"
-                label={t('usa_framework_teste')}
-                rules={[{ required: true, message: t('option_required') }]}
-            >
-                <Radio.Group>
-                {[
-                    { value: 'engine', label: t('usa_framework_teste_options.engine') },
-                    { value: 'framework_aparte', label: t('usa_framework_teste_options.framework_aparte') },
-                    { value: 'manual_console', label: t('usa_framework_teste_options.manual_console') },
-                    { value: 'outro', label: t('usa_framework_teste_options.outro') }
-                ].map((opt) => (
-                    <Radio key={opt.value} value={opt.value}>
-                    {opt.label}
-                    </Radio>
-                ))}
-                </Radio.Group>
-            </Form.Item>
-
-            {selecteds['usa_framework_teste']=='outro' && (
-                <Form.Item
-                name="usa_framework_teste_outro"
-                label={t('usa_framework_teste_outro_descricao')}
-                rules={[{ required: true, message: t('usa_framework_teste_outro_required') }]}
-                >
-                <Input />
-                </Form.Item>
-            )}
-            {selecteds['usa_framework_teste']=='framework_aparte' && (
-                <Form.Item name="qual_framework" label={t('qual_framework')}>
-                    <Input />
-                </Form.Item>
-            )}
-
-             <Form.Item
-                name="como_testou"
-                label={t('como_testou')}
-                rules={[{ required: true, message: t('como_testou_required') }]}
-            >
-                <Checkbox.Group options={[
-                    { value: 'somente_jogo', label: t('como_testou_options.somente_jogo') },
-                    { value: 'assistentes_debug', label: t('como_testou_options.assistentes_debug') },
-                    { value: 'automatizados', label: t('como_testou_options.automatizados') },
-                    { value: 'outro', label: t('como_testou_options.outro') }
-                ]}  />
-            </Form.Item>
-
-            {selecteds['como_testou']=='outro' && (
-                <Form.Item
-                name="como_testou_outro"
-                label={t('como_testou_outro_descricao')}
-                rules={[{ required: true, message: t('como_testou_outro_required') }]}
-                >
-                <Input />
-                </Form.Item>
-            )}
-            {selecteds['como_testou']=='automatizados' &&(
-            <>
-                <Form.Item
-                    name="o_que_e_testado"
-                    label={t('o_que_e_testado')}
-                    rules={[{ required: true, message: t('o_que_e_testado_required') }]}
+                    name="testes_jogo"
+                    label={(offset_test+1)+"-"+t('testes_jogo')}
+                    rules={[{ required: true, message: t('testes_jogo_required') }]}
                 >
                     <Checkbox.Group options={[
-                        { value: 'componentes', label: t('o_que_e_testado_options.componentes') },
-                        { value: 'cenarios', label: t('o_que_e_testado_options.cenarios') },
-                        { value: 'acoes_personagem', label: t('o_que_e_testado_options.acoes_personagem') },
-                        { value: 'teste_fumaca', label: t('o_que_e_testado_options.teste_fumaca') },
-                        { value: 'outro', label: t('o_que_e_testado_options.outro') }
-                    ]}  />
+                        { value: 'exploratorio', label: t('testes_jogo_options.exploratorio') },
+                        { value: 'roteiro', label: t('testes_jogo_options.roteiro') },
+                        { value: 'automatizado', label: t('testes_jogo_options.automatizado') },
+                        { value: 'outro', label: t('testes_jogo_options.outro') },
+                    ]} />
                 </Form.Item>
 
-                {selecteds['o_que_e_testado']=='outro' && (
+                {selecteds['testes_jogo']?.includes('outro') && (
                     <Form.Item
-                    name="o_que_e_testado_outro"
-                    label={t('o_que_e_testado_outro_descricao')}
-                    rules={[{ required: true, message: t('o_que_e_testado_outro_required') }]}
+                        name="testes_jogo_outro"
+                        label={(offset_test+1)+"a-"+t('testes_jogo_outro')}
+                        rules={[{ required: true, message: t('testes_jogo_outro_required') }]}
                     >
-                    <Input />
-                    </Form.Item>
-                )}
-
-                <Form.Item
-                    name="inicio_testes"
-                    label={t('inicio_testes')}
-                    rules={[{ required: true, message: t('option_required') }]}
-                >
-                    <Radio.Group>
-                    {[
-                        { value: 'antes_funcionalidade', label: t('inicio_testes_options.antes_funcionalidade') },
-                        { value: 'durante_funcionalidade', label: t('inicio_testes_options.durante_funcionalidade') },
-                        { value: 'apos_prototipo', label: t('inicio_testes_options.apos_prototipo') },
-                        { value: 'apos_funcionalidades_principais', label: t('inicio_testes_options.apos_funcionalidades_principais') },
-                        { value: 'fim', label: t('inicio_testes_options.fim') },
-                        { value: 'quando_possivel', label: t('inicio_testes_options.quando_possivel') },
-                        { value: 'nunca', label: t('inicio_testes_options.nunca') },
-                        { value: 'outro', label: t('inicio_testes_options.outro') }
-                    ].map((opt) => (
-                        <Radio key={opt.value} value={opt.value}>
-                        {opt.label}
-                        </Radio>
-                    ))}
-                    </Radio.Group>
-                </Form.Item>
-
-                {selecteds['inicio_testes']=='outro'  && (
-                    <Form.Item
-                    name="inicio_testes_outro"
-                    label={t('inicio_testes_outro_descricao')}
-                    rules={[{ required: true, message: t('inicio_testes_outro_required') }]}
-                    >
-                    <Input />
-                    </Form.Item>
-                )}
-
-               
-                <Form.Item
-                    name="como_automatiza"
-                    label={t('como_automatiza')}
-                    rules={[{ required: true, message: t('como_automatiza_required') }]}
-                >
-                    <Checkbox.Group options={[
-                        { value: 'framework_proprio', label: t('como_automatiza_options.framework_proprio') },
-                        { value: 'framework_engine', label: t('como_automatiza_options.framework_engine') },
-                        { value: 'framework_aparte', label: t('como_automatiza_options.framework_aparte') },
-                        { value: 'outro', label: t('como_automatiza_options.outro') }
-                    ]}  />
-                </Form.Item>
-
-                {selecteds['como_automatiza']=='outro'  && (
-                    <Form.Item
-                    name="como_automatiza_outro"
-                    label={t('como_automatiza_outro_descricao')}
-                    rules={[{ required: true, message: t('como_automatiza_outro_required') }]}
-                    >
-                    <Input />
-                    </Form.Item>
-                )}
-
-                 {selecteds['como_automatiza']=='framework_aparte' && (
-                    <Form.Item name="framework_teste_2" label={t('framework_teste_2')}>
                         <Input />
                     </Form.Item>
                 )}
-
                 <Form.Item
-                    name="teste_como_requisito"
-                    label={t('teste_como_requisito')}
-                    rules={[{ required: true, message: t('option_required') }]}
+                    name="dificuldades_testes"
+                    label={(offset_test+2)+"-"+t('dificuldades_testes')}
+                    rules={[{ required: true, message: t('dificuldades_testes_required') }]}
                 >
-                    <Radio.Group>
-                    {[
-                        { value: 'no', label: t('no') },
-                        { value: 'aceitar_atualizacao', label: t('teste_como_requisito_options.aceitar_atualizacao') },
-                        { value: 'definir_bom_para_fase', label: t('teste_como_requisito_options.definir_bom_para_fase') },
-                        { value: 'iniciar_nova_funcionalidade', label: t('teste_como_requisito_options.iniciar_nova_funcionalidade') },
-                        { value: 'nunca_trabalhei', label: t('teste_como_requisito_options.nunca_trabalhei') },
-                        { value: 'outro', label: t('teste_como_requisito_options.outro') }
-                    ].map(opt => (
-                        <Radio key={opt.value} value={opt.value}>
-                        {opt.label}
-                        </Radio>
-                    ))}
-                    </Radio.Group>
+                    <Checkbox.Group options={[
+                        { value: 'entendimento_frameworks', label: t('dificuldades_testes_options.entendimento_frameworks') },
+                        { value: 'preferencia_humanos', label: t('dificuldades_testes_options.preferencia_humanos') },
+                        { value: 'implementacao_dificil', label: t('dificuldades_testes_options.implementacao_dificil') },
+                        { value: 'nao_encontram_erros_reais', label: t('dificuldades_testes_options.nao_encontram_erros_reais') },
+                        { value: 'outro', label: t('dificuldades_testes_options.outro') }
+                    ]} />
                 </Form.Item>
 
-                {selecteds['teste_como_requisito'] == 'outro' && (
+                {selecteds['dificuldades_testes']?.includes('outro') && (
                     <Form.Item
-                    name="teste_como_requisito_outro"
-                    label={t('teste_como_requisito_outro_descricao')}
-                    rules={[{ required: true, message: t('teste_como_requisito_outro_required') }]}
+                        name="dificuldades_testes_outro"
+                        label={(offset_test+2)+"a-"+t('dificuldades_testes_outro')}
+                        rules={[{ required: true, message: t('dificuldades_testes_outro_required') }]}
                     >
-                    <Input />
+                        <Input />
                     </Form.Item>
                 )}
-            </>
-            )}
-            {/*
-            uma pergunta sobre problemas?
+                {selecteds['testes_jogo']?.includes('automatizado') && (
+                    <>
+                        <Form.Item
+                            name="ferramentas_teste"
+                            label={(offset_test+3)+"-"+t('ferramentas_teste')}
+                            rules={[{ required: true, message: t('ferramentas_teste_required') }]}
+                        >
+                            <Checkbox.Group options={[
+                                { value: 'robotframework', label: t('ferramentas_teste_options.robotframework') },
+                                { value: 'selenium', label: t('ferramentas_teste_options.selenium') },
+                                { value: 'appium', label: t('ferramentas_teste_options.appium') },
+                                { value: 'unity', label: t('ferramentas_teste_options.unity') },
+                                { value: 'unreal_functional', label: t('ferramentas_teste_options.unreal_functional') },
+                                { value: 'unreal_gauntlet', label: t('ferramentas_teste_options.unreal_gauntlet') },
+                                { value: 'outro', label: t('ferramentas_teste_options.outro') }
+                            ]} />
+                        </Form.Item>
 
-            testar testes integração?
-            Se não marcou teste automatizado perguntar o por que?
-            Perguntar dificuldade nos testes automatizados?
-            */}
+                        {selecteds['ferramentas_teste']?.includes('outro') && (
+                            <Form.Item
+                                name="ferramentas_teste_outro"
+                                label={t('ferramentas_teste_outro')}
+                                rules={[{ required: true, message: t('ferramentas_teste_outro_required') }]}
+                            >
+                                <Input />
+                            </Form.Item>
+                        )}
+
+                        <Form.Item
+                            name="conteudo_testado"
+                            label={t('conteudo_testado')}
+                            rules={[{ required: true, message: t('conteudo_testado_required') }]}
+                        >
+                            <Checkbox.Group options={[
+                                { value: 'componentes', label: t('conteudo_testado_options.componentes') },
+                                { value: 'performance', label: t('conteudo_testado_options.performance') },
+                                { value: 'cenarios', label: t('conteudo_testado_options.cenarios') },
+                                { value: 'acoes_personagem', label: t('conteudo_testado_options.acoes_personagem') },
+                                { value: 'teste_fumaca', label: t('conteudo_testado_options.teste_fumaca') },
+                                { value: 'outro', label: t('conteudo_testado_options.outro') }
+                            ]} />
+                        </Form.Item>
+
+                        {selecteds['conteudo_testado']?.includes('outro') && (
+                            <Form.Item
+                                name="conteudo_testado_outro"
+                                label={t('conteudo_testado_outro')}
+                                rules={[{ required: true, message: t('conteudo_testado_outro_required') }]}
+                            >
+                                <Input />
+                            </Form.Item>
+                        )}
+                        <Form.Item
+                            name="etapa_testes"
+                            label={t('etapa_testes')}
+                            rules={[{ required: true, message: t('etapa_testes_required') }]}
+                        >
+                            <Checkbox.Group options={[
+                                { value: 'antes_funcionalidade', label: t('etapa_testes_options.antes_funcionalidade') },
+                                { value: 'durante_funcionalidade', label: t('etapa_testes_options.durante_funcionalidade') },
+                                { value: 'pos_prototipo', label: t('etapa_testes_options.pos_prototipo') },
+                                { value: 'pos_funcionalidades', label: t('etapa_testes_options.pos_funcionalidades') },
+                                { value: 'no_fim', label: t('etapa_testes_options.no_fim') },
+                                { value: 'quando_possivel', label: t('etapa_testes_options.quando_possivel') },
+                                { value: 'outro', label: t('etapa_testes_options.outro') }
+                            ]} />
+                        </Form.Item>
+
+                        {selecteds['etapa_testes']?.includes('outro') && (
+                            <Form.Item
+                                name="etapa_testes_outro"
+                                label={t('etapa_testes_outro')}
+                                rules={[{ required: true, message: t('etapa_testes_outro_required') }]}
+                            >
+                                <Input />
+                            </Form.Item>
+                        )}
+
+                        <Form.Item
+                            name="uso_testes"
+                            label={t('uso_testes')}
+                            rules={[{ required: true, message: t('uso_testes_required') }]}
+                        >
+                            <Checkbox.Group options={[
+                                { value: 'nao', label: t('uso_testes_options.nao') },
+                                { value: 'atualizacao', label: t('uso_testes_options.atualizacao') },
+                                { value: 'proxima_fase', label: t('uso_testes_options.proxima_fase') },
+                                { value: 'nova_funcionalidade', label: t('uso_testes_options.nova_funcionalidade') },
+                                { value: 'outro', label: t('uso_testes_options.outro') }
+                            ]} />
+                        </Form.Item>
+
+                        {selecteds['uso_testes']?.includes('outro') && (
+                            <Form.Item
+                                name="uso_testes_outro"
+                                label={t('uso_testes_outro')}
+                                rules={[{ required: true, message: t('uso_testes_outro_required') }]}
+                            >
+                                <Input />
+                            </Form.Item>
+                        )}
+
+
+                    </>
+                )}
+
+
+            </Card>
+            )}
+
+
             <Form.Item name="consideracoes_finais" label={t('consideracoes_finais')}>
                 <Input.TextArea rows={2} />
             </Form.Item>
@@ -727,7 +705,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 </Radio.Group>
             </Form.Item>
 
-            <Form.Item name="email" label={t('email')}>
+            <Form.Item name="email" required={selecteds["contato_entrevista"]==="sim"}
+                       label={selecteds["contato_entrevista"]==="sim"?t('email_contato'):t('email')}>
                 <Input type="email" />
             </Form.Item>
 

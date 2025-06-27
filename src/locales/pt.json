@@ -35,6 +35,7 @@
   "game_dev_profile": "Perfil de Desenvolvedor",
   "artistis_profile": "Artista",
   "designer_profile": "Designer",
+  "tecnical_profile": "Técnico",
   "ufrom": "Qual é a cidade e o país onde você concluiu seu maior  nível de formação?",
   "howold": "Em que ano você nasceu?",
   "formacao": "Qual o seu maior nível de formação?",
@@ -61,18 +62,10 @@
   "processos_engenharia": "Quais práticas de Engenharia de Software você já participou ou acompanhou no desenvolvimento de jogos?",
   "opiniao_praticas": "Quais dessas práticas você considera dispensáveis no desenvolvimento de jogos?",
   "opiniao_praticas_porque": "Por que você considera essas práticas dispensáveis?",
-  "testes": "Seus testes:",
-  "usa_framework_teste": "Você usa algum framework para testar os jogos?",
-  "qual_framework": "Se sim, diga qual (engine inclusa):",
-  "como_testou": "O que você já usou para realizar os testes?",
-  "o_que_e_testado": "O que é testado nos testes automatizados?",
-  "inicio_testes": "Os testes automatizados começam a ser criados em que etapa (caso varie marque a mais comum)?",
-  "como_faz_teste": "Para fazer os testes automatizados:",
-  "framework_teste_2": "Se usa um framework, diga qual (engine inclusa):",
-  "teste_como_requisito": "Você usa testes passando como requisito para algo?",
-  "consideracoes_finais": "Alguma consideração final sobre como os testes nos projetos que você participa são realizados?",
+  "consideracoes_finais": "Gostaria de deixar algum comentário final sobre os testes nos projetos que você participa?",
   "contato_entrevista": "Nós gostariamos saber mais sobre os testes realizados no desenvolvimento de jogos. Você gostaria de ser contactado para uma entrevista?",
-  "email": "Seu e-mail? (opcional)",
+  "email": "E-mail para referência (opcional):",
+  "email_contato": "E-mail para contato ou referência:",
   "enviar": "Enviar",
   "sim": "Sim",
   "nao": "Não",
@@ -153,13 +146,6 @@
       "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
       "outro": "Outro:"
     },
-    "testes_required": "Por favor, selecione uma opção sobre seus testes.",
-    "testes_options": {
-      "exploratorio": "São puramente exploratórios, escolho uma cena e vou explorando ela",
-      "roteiro_qa": "Seguem roteiros que eu passo para o QA",
-      "feedback_massivo": "Eu simplesmente envio o jogo para o máximo de pessoas e recebo os bugs como feedback",
-      "outro": "Outro:"
-    },
     "asset_testes": "Como são testados os assets que você desenvolve?",
     "asset_testes_required": "Selecione ao menos uma opção",
     "asset_testes_outro_descricao":"Especifique o que é feito",
@@ -174,65 +160,6 @@
       "teste_nao_sao_testados": "Os assets não são formalmente testados",
       "teste_outro": "Outro"
     },
-
-    "usa_framework_teste_options": {
-      "engine": "Uso somente framework da Engine",
-      "framework_aparte": "Eu uso um framework à parte para testes",
-      "manual_console": "Eu só testo o projeto executando ele com alguns indicadores de colisão e console",
-      "outro": "Outro:"
-    },
-    "usa_framework_teste_outro_descricao": "Descreva outro tipo de abordagem",
-    "usa_framework_teste_outro_required": "Por favor, descreva a outra abordagem.",
-    "como_testou_required": "Por favor, selecione pelo menos uma opção.",
-    "como_testou_options": {
-      "somente_jogo": "Apenas uso o próprio jogo",
-      "assistentes_debug": "Assistentes no jogo/engine para facilitar o teste (debugs visuais, alertas etc...)",
-      "automatizados": "Testes automatizados",
-      "outro": "Outro:"
-    },
-    "como_testou_outro_descricao": "Descreva outro recurso que você utilizou para testar",
-    "como_testou_outro_required": "Por favor, descreva o outro recurso utilizado.",
-    "o_que_e_testado_required": "Por favor, selecione pelo menos uma opção.",
-    "o_que_e_testado_options": {
-      "componentes": "Componentes",
-      "cenarios": "Cenários específicos de jogo",
-      "acoes_personagem": "Ações de um personagem",
-      "teste_fumaca": "Teste de Fumaça (rodo o jogo e vejo se não acontece algum bug catastrófico)",
-      "outro": "Outro:"
-    },
-    "o_que_e_testado_outro_descricao": "Descreva outro tipo de verificação feita nos testes",
-    "o_que_e_testado_outro_required": "Por favor, descreva a outra verificação feita nos testes.",
-    "inicio_testes_options": {
-      "antes_funcionalidade": "Antes da funcionalidade (Test Driven)",
-      "durante_funcionalidade": "Logo após ou durante a criação de uma funcionalidade",
-      "apos_prototipo": "Após completar um protótipo funcional",
-      "apos_funcionalidades_principais": "Após as principais funcionalidades serem implementadas",
-      "fim": "No fim, após todas as funcionalidades serem implementadas",
-      "quando_possivel": "Quando tem oportunidade",
-      "nunca": "Nunca trabalhei com testes automatizados",
-      "outro": "Outro:"
-    },
-    "inicio_testes_outro_descricao": "Descreva outra etapa em que você começa a testar",
-    "inicio_testes_outro_required": "Por favor, descreva a etapa.",
-    "como_automatiza": "O que .",
-    "como_automatiza_required": "Por favor, selecione pelo menos uma opção.",
-    "como_automatiza_options": {
-      "framework_proprio": "Utilizo um framework ou sistema proprietário, desenvolvido internamente por mim ou pela empresa em que trabalho.",
-      "framework_engine": "Uso o framework da engine",
-      "framework_aparte": "Uso um framework à parte",
-      "outro": "Outro:"
-    },
-    "como_automatiza_outro_descricao": "Descreva outro meio que você usa",
-    "como_automatiza_outro_required": "Por favor, descreva o outro meio que você usa.",
-    "teste_como_requisito_options": {
-      "aceitar_atualizacao": "Para aceitar uma nova atualização feita por um colaborador",
-      "definir_bom_para_fase": "Para definir que o jogo está bom para próxima fase de desenvolvimento (alfa, beta, gold etc...)",
-      "iniciar_nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade",
-      "nunca_trabalhei": "Nunca trabalhei com testes automatizados",
-      "outro": "Outro:"
-    },
-    "teste_como_requisito_outro_descricao": "Descreva outro uso dos testes como requisito",
-    "teste_como_requisito_outro_required": "Por favor, descreva o outro uso.",
     "desistir": "Desistir",
     "confirmReset": "Tem certeza que deseja sair?",
     "confirmResetDescription": "Isso apagará suas respostas salvas. Se quiser continuar depois, basta voltar mais tarde enquanto não clicar aqui.",
@@ -245,5 +172,99 @@
       "atuacao_indie_renda_principal": "Trabalho como desenvolvedor independente de jogos, sendo essa minha principal fonte de renda",
       "atuacao_nao_indie_mas_participo": "Não sou desenvolvedor independente, mas participo de projetos como contratado, freelancer ou membro de equipe",
       "atuacao_nao_trabalho_com_desenvolvimento": "Atualmente não trabalho com desenvolvimento de jogos"
-    }
-}
+    },
+    "design_modelagem": "Como você projeta o seu design?",
+    "design_modelagem_required": "Por favor, selecione pelo menos uma opção",
+    "design_modelagem_options": {
+      "uml": "Uso um modelo numa notação especial, ex UML",
+      "prototipo_real": "Uso um protótipo no mundo real",
+      "prototipo_ferramenta": "Uso um protótipo numa ferramenta",
+      "anotacoes_simples": "Anotações simples",
+      "mental": "Tudo da minha cabeça",
+      "outro": "Outro"
+    },
+    "design_modelagem_outro_descricao": "Descreva o outro método de modelagem",
+    "design_modelagem_outro_descricao_required": "Por favor, descreva o outro método",
+
+    "design_validacao": "Como você valida o seu design?",
+    "design_validacao_required": "Por favor, selecione pelo menos uma opção",
+    "design_validacao_options": {
+      "prototipo_simplificado": "Implementando num protótipo menos elaborado",
+      "prototipo_real": "Através de protótipos do mundo real",
+      "machinations": "Machinations",
+      "outro": "Outro"
+    },
+    "design_validacao_outro_descricao": "Descreva o outro método de validação",
+    "design_validacao_outro_descricao_required": "Por favor, descreva o outro método",
+    "testes_jogo": "Como os jogos são testados?",
+    "testes_jogo_required": "Selecione pelo menos uma opção",
+    "testes_jogo_options": {
+      "exploratorio": "Testes exploratórios (navego livremente pelo jogo)",
+      "roteiro": "Testes seguindo um roteiro ou checklist",
+      "automatizado": "Testes automatizados",
+      "outro": "Outro"
+    },
+    "testes_jogo_outro": "Descreva outro método de teste utilizado",
+    "testes_jogo_outro_required": "Por favor, descreva o outro método",
+    "ferramentas_teste": "Quais ferramentas você já utilizou para automatizar testes?",
+    "ferramentas_teste_required": "Selecione pelo menos uma opção",
+    "ferramentas_teste_options": {
+      "robotframework": "Robot Framework",
+      "selenium": "Selenium",
+      "appium": "Appium",
+      "unity": "Unity Test Framework",
+      "unreal_functional": "Unreal Functional Testing Framework",
+      "unreal_gauntlet": "Unreal Gauntlet",
+      "outro": "Outro"
+    },
+    "ferramentas_teste_outro": "Descreva a outra ferramenta utilizada",
+    "ferramentas_teste_outro_required": "Por favor, descreva a ferramenta",
+    "conteudo_testado": "O que é testado nos testes automatizados?",
+    "conteudo_testado_required": "Selecione pelo menos uma opção",
+    "conteudo_testado_options": {
+      "componentes": "Componentes isolados",
+      "performance": "Performance básica (tempo de carregamento, FPS mínimo)",
+      "cenarios": "Cenários específicos do jogo",
+      "acoes_personagem": "Ações de um personagem",
+      "teste_fumaca": "Testes de fumaça (verifico se o jogo roda sem falhas críticas)",
+      "outro": "Outro"
+    },
+    "conteudo_testado_outro": "Descreva o que mais é testado",
+    "conteudo_testado_outro_required": "Por favor, descreva",
+    "etapa_testes": "Em que etapa os testes automatizados costumam ser criados?",
+    "etapa_testes_required": "Selecione pelo menos uma opção",
+    "etapa_testes_options": {
+      "antes_funcionalidade": "Antes da funcionalidade (Test Driven)",
+      "durante_funcionalidade": "Durante ou logo após a criação da funcionalidade",
+      "pos_prototipo": "Após a criação de um protótipo funcional",
+      "pos_funcionalidades": "Após as principais funcionalidades estarem implementadas",
+      "no_fim": "Somente ao final do projeto",
+      "quando_possivel": "Quando há oportunidade",
+      "outro": "Outro"
+    },
+    "etapa_testes_outro": "Descreva outra etapa",
+    "etapa_testes_outro_required": "Por favor, descreva a etapa",
+    "uso_testes": "Para que você usa testes automatizados como requisito?",
+    "uso_testes_required": "Selecione pelo menos uma opção",
+    "uso_testes_options": {
+      "nao": "Não uso como requisito",
+      "atualizacao": "Para aceitar atualizações feitas por colaboradores",
+      "proxima_fase": "Para definir se o jogo pode seguir para a próxima fase (alfa, beta, gold)",
+      "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade",
+      "outro": "Outro"
+    },
+    "uso_testes_outro": "Descreva outro uso como requisito",
+    "uso_testes_outro_required": "Por favor, descreva",
+    "dificuldades_testes": "Você já teve dificuldades com testes automatizados?",
+    "dificuldades_testes_required": "Selecione pelo menos uma opção",
+    "dificuldades_testes_options": {
+      "entendimento_frameworks": "Tive dificuldade de entender os frameworks",
+      "preferencia_humanos": "Prefiro testes humanos, acho mais úteis",
+      "implementacao_dificil": "Achei muito difícil de implementar",
+      "nao_encontram_erros_reais": "Os testes não encontram os erros que os jogadores realmente encontram",
+      "outro": "Outro"
+    },
+    "dificuldades_testes_outro": "Descreva outra dificuldade",
+    "dificuldades_testes_outro_required": "Por favor, descreva"
+
+  }
