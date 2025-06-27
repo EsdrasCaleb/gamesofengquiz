@@ -16,6 +16,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const offset_design = ((selecteds['opiniao_praticas']?.length >0)+selecteds['asset_testes'].includes('automatizado')+21)
     const tester_selected = selecteds['papel'].includes('programador')||selecteds['papel'].includes('qa')
     const offset_test = offset_design+(2*design_selected)
+    const final_test = offset_test+2+(4*(selecteds['testes_jogo']?.includes('automatizado')))
     form.setFieldsValue(data);
     useEffect(() => {
         if (uiid) {
@@ -35,8 +36,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             "processos_outro_descricao","opiniao_praticas","opiniao_praticas_outro_descricao","opiniao_praticas_porque",
             "asset_testes","asset_testes_outro_descricao","asset_testes_automatizado_descricao","design_modelagem",
             "design_modelagem_outro_descricao","design_validacao","design_validacao_outro_descricao","testes_jogo",
-            "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro",
-
+            "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro","ferramentas_teste",
+            "ferramentas_teste_outro","conteudo_testado","conteudo_testado_outro","etapa_testes","etapa_testes_outro",
+            "uso_testes","uso_testes_outro"
         ]
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
@@ -604,7 +606,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         {selecteds['ferramentas_teste']?.includes('outro') && (
                             <Form.Item
                                 name="ferramentas_teste_outro"
-                                label={t('ferramentas_teste_outro')}
+                                label={(offset_test+3)+"a-"+t('ferramentas_teste_outro')}
                                 rules={[{ required: true, message: t('ferramentas_teste_outro_required') }]}
                             >
                                 <Input />
@@ -613,7 +615,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                         <Form.Item
                             name="conteudo_testado"
-                            label={t('conteudo_testado')}
+                            label={(offset_test+4)+"-"+t('conteudo_testado')}
                             rules={[{ required: true, message: t('conteudo_testado_required') }]}
                         >
                             <Checkbox.Group options={[
@@ -629,7 +631,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         {selecteds['conteudo_testado']?.includes('outro') && (
                             <Form.Item
                                 name="conteudo_testado_outro"
-                                label={t('conteudo_testado_outro')}
+                                label={(offset_test+4)+"a-"+t('conteudo_testado_outro')}
                                 rules={[{ required: true, message: t('conteudo_testado_outro_required') }]}
                             >
                                 <Input />
@@ -637,7 +639,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         )}
                         <Form.Item
                             name="etapa_testes"
-                            label={t('etapa_testes')}
+                            label={(offset_test+5)+"-"+t('etapa_testes')}
                             rules={[{ required: true, message: t('etapa_testes_required') }]}
                         >
                             <Checkbox.Group options={[
@@ -654,7 +656,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         {selecteds['etapa_testes']?.includes('outro') && (
                             <Form.Item
                                 name="etapa_testes_outro"
-                                label={t('etapa_testes_outro')}
+                                label={(offset_test+5)+"a-"+t('etapa_testes_outro')}
                                 rules={[{ required: true, message: t('etapa_testes_outro_required') }]}
                             >
                                 <Input />
@@ -663,7 +665,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                         <Form.Item
                             name="uso_testes"
-                            label={t('uso_testes')}
+                            label={(offset_test+6)+"-"+t('uso_testes')}
                             rules={[{ required: true, message: t('uso_testes_required') }]}
                         >
                             <Checkbox.Group options={[
@@ -678,27 +680,23 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         {selecteds['uso_testes']?.includes('outro') && (
                             <Form.Item
                                 name="uso_testes_outro"
-                                label={t('uso_testes_outro')}
+                                label={(offset_test+6)+"a-"+t('uso_testes_outro')}
                                 rules={[{ required: true, message: t('uso_testes_outro_required') }]}
                             >
                                 <Input />
                             </Form.Item>
                         )}
-
-
                     </>
                 )}
-
-
             </Card>
             )}
 
 
-            <Form.Item name="consideracoes_finais" label={t('consideracoes_finais')}>
+            <Form.Item name="consideracoes_finais" label={(final_test+1)+"-"+t('consideracoes_finais')}>
                 <Input.TextArea rows={2} />
             </Form.Item>
 
-            <Form.Item name="contato_entrevista" label={t('contato_entrevista')} rules={[{ required: true }]}>
+            <Form.Item name="contato_entrevista" label={(final_test+2)+"-"+t('contato_entrevista')} rules={[{ required: true }]}>
                 <Radio.Group>
                     <Radio value="sim">{t('sim')}</Radio>
                     <Radio value="nao">{t('nao')}</Radio>
@@ -706,7 +704,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Form.Item>
 
             <Form.Item name="email" required={selecteds["contato_entrevista"]==="sim"}
-                       label={selecteds["contato_entrevista"]==="sim"?t('email_contato'):t('email')}>
+                       label={(final_test+3)+"-"+
+                           (selecteds["contato_entrevista"]==="sim"?t('email_contato'):t('email'))}>
                 <Input type="email" />
             </Form.Item>
 

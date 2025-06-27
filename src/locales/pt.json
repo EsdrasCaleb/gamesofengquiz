@@ -5,7 +5,7 @@
       "Você está sendo convidado(a) a participar da pesquisa <strong>“Survey on Automated Tests in Game Development”</strong>, conduzida por Esdras Caleb Oliveira Silva (pesquisador responsável) e Lyrene Fernandes da Silva (oreientadora).",
       "Esta pesquisa é destinada exclusivamente a pessoas com <strong>18 anos ou mais, que atuam no desenvolvimento de jogos digitais</strong>.",
       "Buscamos identificar formas de integrar práticas de testes de testes automatizados no desenvolvimento de jogos, especialmente em contextos de equipes independentes.",
-      "Caso decida participar, você responderá a <strong>27 questões</strong> sobre seu perfil como desenvolvedor de jogos, as práticas de engenharia de software que utiliza e os tipos de testes empregados na validação dos jogos.",
+      "Caso decida participar, você responderá a <strong>26-34 questões</strong> sobre seu perfil como desenvolvedor de jogos, as práticas de engenharia de software que utiliza e os tipos de testes empregados na validação dos jogos.",
       "O tempo estimado para responder todas as perguntas é de 15 minutos. Você pode sentir um leve desconforto pelo tempo necessário para responder todas as perguntas, mas o formulário salva suas respostas automaticamente no navegador, permitindo você continuar posteriormente.",
       "Sua participação contribuirá para o desenvolvimento de um framework gratuito e de código aberto, voltado à melhoria dos processos de engenharia de software aplicados a jogos digitais.",
       "Em caso de dúvidas, entre em contato com:<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-970<br />E-mail: <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Telefone: +55 (84) 99688-8803",
@@ -186,7 +186,7 @@
     "design_modelagem_outro_descricao": "Descreva o outro método de modelagem",
     "design_modelagem_outro_descricao_required": "Por favor, descreva o outro método",
 
-    "design_validacao": "Como você valida o seu design?",
+    "design_validacao": "Como você testa o seu design?",
     "design_validacao_required": "Por favor, selecione pelo menos uma opção",
     "design_validacao_options": {
       "prototipo_simplificado": "Implementando num protótipo menos elaborado",
@@ -194,7 +194,7 @@
       "machinations": "Machinations",
       "outro": "Outro"
     },
-    "design_validacao_outro_descricao": "Descreva o outro método de validação",
+    "design_validacao_outro_descricao": "Descreva o outro método de teste",
     "design_validacao_outro_descricao_required": "Por favor, descreva o outro método",
     "testes_jogo": "Como os jogos são testados?",
     "testes_jogo_required": "Selecione pelo menos uma opção",
@@ -244,10 +244,10 @@
     },
     "etapa_testes_outro": "Descreva outra etapa",
     "etapa_testes_outro_required": "Por favor, descreva a etapa",
-    "uso_testes": "Para que você usa testes automatizados como requisito?",
+    "uso_testes": "Em quais situações os testes automatizados são ou já foram utilizados como requisito obrigatório nos seus projetos?",
     "uso_testes_required": "Selecione pelo menos uma opção",
     "uso_testes_options": {
-      "nao": "Não uso como requisito",
+      "nao": "Nunca os usei como requisito",
       "atualizacao": "Para aceitar atualizações feitas por colaboradores",
       "proxima_fase": "Para definir se o jogo pode seguir para a próxima fase (alfa, beta, gold)",
       "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade",
