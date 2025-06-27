@@ -279,7 +279,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Checkbox value="outro">{t('papel_outro')}</Checkbox>
                 </Checkbox.Group>
             </Form.Item>
-            {selecteds['papel'].includes('outro') && (
+            {selecteds['papel']?.includes('outro') && (
                 <Form.Item
                     name="papel_outro"
                     label={'14a-'+t('papel_outro_descreva')}
@@ -300,7 +300,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         <Radio
                             key={papel}
                             value={papel}
-                            disabled={!selecteds['papel'].includes(papel)}
+                            disabled={!selecteds['papel']?.includes(papel)}
                         >
                             {t(`papel_${papel}`)}
                         </Radio>
@@ -328,7 +328,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         <Radio
                             key={papel}
                             value={papel}
-                            disabled={!selecteds['papel'].includes(papel)}
+                            disabled={!selecteds['papel']?.includes(papel)}
                         >
                             {t(`papel_${papel}`)}
                         </Radio>
