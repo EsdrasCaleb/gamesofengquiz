@@ -11,12 +11,12 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
     const [selecteds, setSelecteds] = useState(data);
 
-    const artist_selcted = (selecteds['papel'].includes('artista')||selecteds['papel'].includes('artista_som'))
-    const design_selected = selecteds['papel'].includes('game_designer')||selecteds['papel'].includes('level_designer')
-    const offset_design = ((selecteds['opiniao_praticas']?.length >0)+selecteds['asset_testes'].includes('automatizado')+21)
-    const tester_selected = selecteds['papel'].includes('programador')||selecteds['papel'].includes('qa')
+    const artist_selcted = (selecteds['papel']?.includes('artista')||selecteds['papel']?.includes('artista_som'))
+    const design_selected = selecteds['papel']?.includes('game_designer')||selecteds['papel']?.includes('level_designer')
+    const offset_design = ((selecteds['opiniao_praticas']?.length >0)+selecteds['asset_testes']?.includes('automatizado')+21)
+    const tester_selected = selecteds['papel']?.includes('programador')||selecteds['papel']?.includes('qa')
     const offset_test = offset_design+(2*design_selected)
-    const final_test = offset_test+2+(4*(selecteds['testes_jogo']?.includes('automatizado')))
+    const final_test = offset_test+(selecteds['testes_jogo']?(2+4*(selecteds['testes_jogo']?.includes('automatizado'))):0)
     form.setFieldsValue(data);
     useEffect(() => {
         if (uiid) {
@@ -691,7 +691,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Card>
             )}
 
-
+            <Card title={t("final_remarks")}>
             <Form.Item name="consideracoes_finais" label={(final_test+1)+"-"+t('consideracoes_finais')}>
                 <Input.TextArea rows={2} />
             </Form.Item>
@@ -708,10 +708,11 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                            (selecteds["contato_entrevista"]==="sim"?t('email_contato'):t('email'))}>
                 <Input type="email" />
             </Form.Item>
-
+            </Card>
             <Form.Item>
                 <Button type="primary" block htmlType="submit">{t('enviar')}</Button>
             </Form.Item>
+
         </Form>
         </Card>
     );
