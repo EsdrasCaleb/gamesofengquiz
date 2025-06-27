@@ -12,9 +12,7 @@ export default function App() {
   const [status, setStatus] = useState(null); // null | 'accepted' | 'declined'
   const [uid,setUid] = useState(null);
   const [data, setData] = useState({});
-    console.log(data)
-    console.log(uid)
-    console.log(status)
+
   useEffect(() => {
     const saved = localStorage.getItem("survey_data");
     if (saved) {
@@ -64,6 +62,9 @@ export default function App() {
                 <Title>{t('thankyou.title')}</Title>
                 <Paragraph>{t('thankyou.text')}</Paragraph>
                 <Paragraph>{t('thankyou.removal', {uid})}</Paragraph>
+                <Button block onClick={()=>setStatus('accepted')} info>
+                    {t('thankyou.change')}
+                </Button>
                 <Popconfirm
                     title={t('thankyou.confirmReset', {uid})}
                     onConfirm={() => {
@@ -74,7 +75,7 @@ export default function App() {
                     okText="Sim"
                     cancelText="Cancelar"
                 >
-                    <Button danger>
+                    <Button block danger>
                         {t('thankyou.newSurvey')}
                     </Button>
                 </Popconfirm>

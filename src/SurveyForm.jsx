@@ -10,10 +10,12 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const { t, i18n } = useTranslation();
 
     const [selecteds, setSelecteds] = useState(data);
+    const [loading, setLoading] = useState(false);
 
     const artist_selcted = (selecteds['papel']?.includes('artista')||selecteds['papel']?.includes('artista_som'))
     const design_selected = selecteds['papel']?.includes('game_designer')||selecteds['papel']?.includes('level_designer')
-    const offset_design = ((selecteds['opiniao_praticas']?.length >0)+selecteds['asset_testes']?.includes('automatizado')+21)
+    const offset_design = ((selecteds['opiniao_praticas']?.length >0)+design_selected+
+        (selecteds['asset_testes']?.includes('automatizado')??0)+20)
     const tester_selected = selecteds['papel']?.includes('programador')||selecteds['papel']?.includes('qa')
     const offset_test = offset_design+(2*design_selected)
     const final_test = offset_test+(selecteds['testes_jogo']?(2+4*(selecteds['testes_jogo']?.includes('automatizado'))):0)
@@ -26,7 +28,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
 
     const onFinish = async (values) => {
-        console.log('Respostas:', values);
+        setLoading(true)
         const dataCollums = ['uid',"language",'formacao','where_from','how_old','area_formacao',
             'area_formacao_outro','independent','anos_experiencia','tamanho_maior_time','qtd_projetos',
             'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',
@@ -38,30 +40,37 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             "design_modelagem_outro_descricao","design_validacao","design_validacao_outro_descricao","testes_jogo",
             "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro","ferramentas_teste",
             "ferramentas_teste_outro","conteudo_testado","conteudo_testado_outro","etapa_testes","etapa_testes_outro",
-            "uso_testes","uso_testes_outro"
+            "uso_testes","uso_testes_outro","consideracoes_finais",'contato_entrevista',"email"
         ]
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
             dataCollums.map(key => [key, values[key]])
         );
+
+        const body_request = JSON.stringify(filteredValues);
+        const url = 'https://script.google.com/macros/s/AKfycbw3MdZWgRR5C5ETJLKsTITbsS_BnQAPeS1BbgG9glKm7DNYju93oeC4-VgI6vMenicn/exec';
+
         try {
-            const response = await fetch('https://script.google.com/macros/s/AKfycbyOT3aRqac-aTy2Huzno439QHC0nZf_Svf--3TuTQRZn15OJ8n1NO0KEoKj3vU87xVX/exec', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(filteredValues),
-            });
-
-            const result = await response.json();
-
-            if (result.result === 'success') {
-            onAnswer(values); // Chama a função de callback passando os dados
-            } else {
-            console.error('Erro na resposta do servidor:', result.message);
-            }
+            fetch(url, {
+                method: 'POST',
+                mode: "no-cors",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: body_request
+            }).then((response) => {
+                console.log(response);
+            })
+                .then((data) => {
+                    console.log("Success:", data)
+                    onAnswer();
+                        setLoading(false)
+                }
+                )
+                .catch((error) => {console.error("Error:", error);setLoading(false)});
         } catch (error) {
             console.error('Erro ao enviar dados:', error.message);
+            setLoading(false)
         }
     };
 
@@ -69,7 +78,6 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     return (
         <Card
             style={{ maxWidth: "93%", margin: '2rem auto' }}
-            bodyStyle={{ padding: '1.5rem' }}
         >
             <Popconfirm
                 title={t('confirmReset')}
@@ -421,7 +429,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 </Form.Item>
             )}
 
-            <Form.Item name="opiniao_praticas" label={'20-'+t('opiniao_praticas')} rules={[{ required: true }]}>
+            <Form.Item name="opiniao_praticas" label={'20-'+t('opiniao_praticas')} >
                 <Checkbox.Group options={[
                     { label: t('processos_options.controle_versao'), value: 'controle_versao' },
                     { label: t('processos_options.padroes_design'), value: 'padroes_design' },
@@ -442,7 +450,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 </Form.Item>
             )}
             { selecteds['opiniao_praticas']?.length >0 && (
-            <Form.Item name="opiniao_praticas_porque" label={'21-'+t('opiniao_praticas_porque')} rules={[{ required: true }]}>
+            <Form.Item name="opiniao_praticas_porque" label={'21-'+t('opiniao_praticas_porque')}
+                       rules={[{ required: true,message:t("asset_testes_automatizado_required") }]}>
                 <Input.TextArea rows={3} />
             </Form.Item>
             )}
@@ -463,7 +472,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'outro', label: t('asset_testes_options.teste_outro') },
                     ]} />
                 </Form.Item>
-                    {selecteds['asset_testes'].includes('outro') && (
+                    {selecteds['asset_testes']?.includes('outro') && (
                         <Form.Item
                             name="asset_testes_outro_descricao"
                             label={((selecteds['opiniao_praticas']?.length >0?1:0)+21)+"a-"+t('asset_testes_outro_descricao')}
@@ -472,7 +481,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                             <Input />
                         </Form.Item>
                     )}
-                {selecteds['asset_testes'].includes('automatizado') && (
+                {selecteds['asset_testes']?.includes('automatizado') && (
                     <Form.Item
                         name="asset_testes_automatizado_descricao"
                         label={((selecteds['opiniao_praticas']?.length >0?1:0)+22)+"-"+t('asset_testes_automatizado_descricao')}
@@ -519,7 +528,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         <Checkbox.Group options={[
                             { value: 'prototipo_simplificado', label: t('design_validacao_options.prototipo_simplificado') },
                             { value: 'prototipo_real', label: t('design_validacao_options.prototipo_real') },
+                            { value: 'excel', label: t('design_validacao_options.excel') },
                             { value: 'machinations', label: t('design_validacao_options.machinations') },
+                            { value: 'mental', label: t('design_validacao_options.mental') },
                             { value: 'outro', label: t('design_validacao_options.outro') },
                         ]} />
                     </Form.Item>
@@ -710,7 +721,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Form.Item>
             </Card>
             <Form.Item>
-                <Button type="primary" block htmlType="submit">{t('enviar')}</Button>
+                <Button loading={loading} type="primary" block htmlType="submit">{t('enviar')}</Button>
             </Form.Item>
 
         </Form>
