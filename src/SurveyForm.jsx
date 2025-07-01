@@ -28,16 +28,16 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         setLoading(true)
         const dataCollums = ['uid',"language",'formacao','where_from','how_old','area_formacao',
             'area_formacao_outro','situacao','anos_experiencia','tamanho_maior_time','qtd_projetos',
-            'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',
-            'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro',
+            'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',"temores_uso_ia",
+            'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro',"areas_uso_ia_outro",
             'ferramentas_desenvolvimento', "ferramentas_outro_descricao","tipos_jogos","tipos_jogos_outro_descricao",
-            "plataformas_desenvolvimento","plataformas_outro_descricao","processos_engenharia",
+            "plataformas_desenvolvimento","plataformas_outro_descricao","processos_engenharia","areas_uso_ia",
             "processos_outro_descricao","opiniao_praticas","opiniao_praticas_outro_descricao","opiniao_praticas_porque",
             "asset_testes","asset_testes_outro_descricao","asset_testes_automatizado_descricao","design_modelagem",
             "design_modelagem_outro_descricao","design_validacao","design_validacao_outro_descricao","testes_jogo",
             "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro","ferramentas_teste",
             "ferramentas_teste_outro","conteudo_testado","conteudo_testado_outro","etapa_testes","etapa_testes_outro",
-            "uso_testes","uso_testes_outro","consideracoes_finais",'contato_entrevista',"email"
+            "uso_testes","uso_testes_outro","consideracoes_finais",'contato_entrevista',"email","temores_uso_ia_outro"
         ]
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
