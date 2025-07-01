@@ -295,6 +295,8 @@
     "dificuldades_testes_outro_required": "Por favor, descreva",
     "areas_uso_ia": {
       "label": "Em quais áreas do desenvolvimento de jogos você utiliza IAs/LLMs generativas?",
+      "outro_descreva": "Descreva a outra área:",
+      "required": "Por favor, selecione ao menos uma área de uso",
       "options": {
         "arte": "Arte",
         "vfx": "Efeitos visuais (VFX)",
@@ -308,8 +310,6 @@
         "outro": "Outro"
       }
     },
-    "outro_descreva": "Descreva a outra área:",
-    "required": "Por favor, selecione ao menos uma área de uso",
     "temores_uso_ia": {
       "label": "Quais são suas preocupações ao usar IAs/LLMs generativas?",
       "options": {
