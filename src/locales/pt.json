@@ -32,7 +32,8 @@
     "atuacao_nao_trabalho_com_desenvolvimento": "Atualmente não trabalho com desenvolvimento de jogos"
   },
   "pessoal": "Pessoal",
-  "desafios": "DESAFIOS ENFRENTADOS DURANTE O DESENVOLVIMENTO DE JOGOS",
+  "desafios": "Desafios Enfretados Durante o Desenvolvimento de Jogos",
+  "uso_ia_generativa":"Uso de IA Generativa",
   "game_dev_profile": "Perfil de Desenvolvedor",
   "artistis_profile": "Artista",
   "designer_profile": "Designer",
@@ -61,12 +62,9 @@
   },
   "qtd_projetos": "Em quantos projetos de jogos você já trabalhou? Considere todos os projetos de jogos nos quais você trabalhou, mesmo que eles não tenham sido lançados.",
   "option_required": "Por favor, selecione uma opção.",
-  "papel": "Quais funções você desempenha no desenvolvimento de jogos?",
+  "papel": "Quais funções você costuma desempenhar no desenvolvimento de jogos?",
   "ferramentas_desenvolvimento": "Quais engines você costuma usar nos projetos em que trabalha ou já trabalhou?",
   "tipos_jogos": "Quais tipos de jogos você costuma desenvolver (gênero, estilo ou formato)?",
-  "processos_engenharia": "Quais práticas de Engenharia de Software você já participou ou acompanhou no desenvolvimento de jogos?",
-  "opiniao_praticas": "Quais dessas práticas você considera dispensáveis no desenvolvimento de jogos?",
-  "opiniao_praticas_porque": "Por que você considera essas práticas dispensáveis?",
   "consideracoes_finais": "Gostaria de deixar algum comentário final sobre os testes nos projetos que você participa?",
   "contato_entrevista": "Nós gostariamos saber mais sobre os testes realizados no desenvolvimento de jogos. Você gostaria de ser contactado para uma entrevista?",
   "email": "E-mail para referência (opcional):",
@@ -100,11 +98,16 @@
   "area_formacao_outro_required": "Por favor, descreva sua área de formação.",
   "papel_required": "Por favor, selecione uma função.",
   "papel_programador": "Programador",
-  "papel_artista": "Artista",
+  "papel_artista": "Artista Visual",
+  "papel_design_ux": "Design de Interface do Usuário",
+  "papel_roteiro_narrativa": "Roteiro/Narrativa",
+  "papel_gerente": "Gerenciamento de projeto",
+  "papel_marketing": "Marketing/Publicação",
   "papel_game_designer": "Game Designer",
   "papel_level_designer": "Level Designer",
   "papel_qa": "Testador (QA)",
   "papel_artista_som": "Artista de Som",
+  "papel_animacao": "Animação",
   "papel_outro": "Outro:",
   "papel_outro_descreva": "Descreva a(s) outra(s)",
   "papel_outro_required": "Por favor, especifique o outro(s).",
@@ -153,6 +156,38 @@
     },
     "outro_descreva": "Descreva o outro fator:"
   },
+  "desafios_testes": {
+    "label": "Ao testar seus jogos durante o desenvolvimento, quais são os principais desafios que você costuma enfrentar? (Considere tanto testes manuais quanto automatizados. Escolha no máximo duas alternativas que mais representam sua situação.)",
+    "required": "Por favor, selecione até 2 alternativas.",
+    "options": {
+      "nao_testa": "Não costumo testar meus jogos (por falta de tempo, ferramentas ou conhecimento)",
+      "manual_demorado": "Testar manualmente leva muito tempo e é difícil verificar tudo com confiança",
+      "manual_repetitivo": "Os testes manuais são simples, mas repetitivos e propensos a erros",
+      "auto_dificil_aplicar": "Já tentei usar testes automatizados, mas tive dificuldade para aplicar na prática",
+      "auto_incompleto": "Uso testes automatizados, mas eles não cobrem tudo ou dão muito trabalho para manter",
+      "auto_desafios_complexos": "Uso testes automatizados com sucesso, mas ainda enfrento desafios em cenários complexos (ex: gameplay, interfaces, interações com física ou tempo)",
+      "sem_desafios": "Não enfrento grandes desafios com testes no momento"
+    }
+  },
+  "uso_praticas": {
+    "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",
+    "required": "Por favor, selecione uma opção para cada prática.",
+    "praticas": {
+      "controle_versao": "Controle de versão (ex: Git)",
+      "padroes_design": "Padrões de design (ex: ECS, componentes)",
+      "modelagem_projeto": "Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
+      "prototipacao": "Prototipação técnica",
+      "tdd": "Desenvolvimento orientado a testes (TDD)",
+      "integracao_continua": "Integração contínua (builds, pipelines)"
+    },
+    "opcoes": {
+      "uso_atualmente": "Uso atualmente",
+      "nao_conhece": "Não uso porque não conheço bem",
+      "nao_util": "Não vejo utilidade para meus projetos",
+      "ja_tentou": "Já tentei usar, mas achei complicado ou exagerado",
+      "prefere_outros": "Prefiro focar em outras áreas do desenvolvimento"
+    }
+  },
   "tipos_jogos_required": "Por favor, selecione pelo menos um tipo de jogo.",
   "tipos_jogos_outro_descricao": "Descreva o outro tipo:",
   "tipos_jogos_outro_required": "Por favor, descreva o outro tipo.",
@@ -170,30 +205,19 @@
     "manager": "Manager",
     "outro": "Outro"
   },
-  "processos_engenharia_required": "Por favor, informe pelo menos um processo.",
-  "placeholder_processos": "Selecione ou digite os processos",
-  "processos_outro": "Outro:",
-  "processos_outro_descricao": "Descreva a outra prática de Engenharia de Software:",
-  "processos_outro_required": "Por favor, descreva o outro processo.",
-  "processos_options": {
-    "controle_versao": "Controle de versão (Git e etc)",
-    "padroes_design": "Padrões de Design (ECS, Game Objects, Components e etc)",
-    "modelagem_projeto": "Modelagem do Projeto (UML)",
-    "prototipacao": "Prototipação",
-    "tdd": "Test-Driven Development (TDD)",
-    "outro": "Outro"
+
+  "ferramentas_options": {
+    "unity": "Unity",
+    "unreal": "Unreal",
+    "godot": "Godot",
+    "gamemaker": "Game Maker",
+    "rpgmaker": "RPG Maker",
+    "framework_baixo_nivel": "Framework de baixo nível (LOVE, MonoGame, Heaps  etc...)",
+    "propria_pessoal": "Engine Própria, feita por mim",
+    "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
+    "nada": "Não utilizo motores de jogo (programação com libs básicas como SDL)",
+    "outro": "Outro:"
   },
-    "ferramentas_options": {
-      "unity": "Unity",
-      "unreal": "Unreal",
-      "godot": "Godot",
-      "gamemaker": "Game Maker",
-      "rpgmaker": "RPG Maker",
-      "framework_baixo_nivel": "Framework de baixo nível (LOVE, MonoGame, SDL etc...)",
-      "propria_pessoal": "Engine Própria, feita por mim",
-      "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
-      "outro": "Outro:"
-    },
     "asset_testes": "Como são testados os assets que você desenvolve?",
     "asset_testes_required": "Selecione ao menos uma opção",
     "asset_testes_outro_descricao":"Especifique o que é feito",
@@ -317,34 +341,34 @@
     "dificuldades_testes_outro": "Descreva outra dificuldade",
     "dificuldades_testes_outro_required": "Por favor, descreva",
     "areas_uso_ia": {
-      "label": "Em quais áreas do desenvolvimento de jogos você utiliza IAs/LLMs generativas?",
-      "outro_descreva": "Descreva a outra área:",
-      "required": "Por favor, selecione ao menos uma área de uso",
+      "label": "De que formas você tem utilizado IAs/LLMs generativas no desenvolvimento de jogos?",
+      "outro_descreva": "Descreva outra forma de uso:",
+      "required": "Por favor, selecione ao menos uma forma de uso",
       "options": {
-        "arte": "Arte",
-        "vfx": "Efeitos visuais (VFX)",
-        "sfx": "Efeitos sonoros (SFX)",
-        "voz": "Dublagem/voz",
-        "localizacao": "Localização/tradução",
-        "programacao": "Programação",
-        "design": "Design do jogo",
-        "historia": "Narrativa/roteiro",
-        "dialogo": "Geração de falas ou textos do mundo do jogo",
-        "outro": "Outro"
+        "ideias_criativas": "Para gerar ideias criativas (ex: personagens, mecânicas, narrativas, diálogos)",
+        "conteudo_visual_sonoro": "Para criar conteúdos visuais ou sonoros (ex: artes conceituais, vozes, trilhas, efeitos)",
+        "implementacao": "Para auxiliar na implementação (ex: escrever ou revisar código, sugerir soluções técnicas)",
+        "planejamento": "Para planejar ou estruturar o jogo (ex: documentação, arquitetura de sistemas, balanceamento)",
+        "testes": "Para criar ou sugerir testes automatizados (ex: geração de casos de teste, scripts de validação)",
+        "validacao": "Para revisar ou validar funcionalidades do jogo (ex: encontrar erros, verificar lógicas)",
+        "curioso": "Ainda não usei IA, mas tenho curiosidade ou interesse",
+        "nao_usado": "Não tenho utilizado IA nos meus projetos de jogos",
+        "outro": "Outra atividade"
       }
     },
     "temores_uso_ia": {
-      "label": "Quais são suas preocupações ao usar IAs/LLMs generativas?",
-      "options": {
-        "dados_treinamento": "Elas são treinadas com dados de outras pessoas sem permissão",
-        "uso_indesejado": "Minhas entradas podem ser usadas para coisas que não quero",
-        "substituicao": "Tenho receio de ser substituído por IA",
-        "falta_transparencia": "Falta de transparência no funcionamento da IA",
-        "outro": "Outro"
-      },
+      "label": "Quais são suas principais preocupações em relação ao uso de IAs generativas no desenvolvimento de jogos? (Marque no máximo 2)",
+      "required": "Por favor, selecione até 2 preocupações",
       "outro_descreva": "Descreva outra preocupação:",
-      "required": "Por favor, selecione ao menos uma preocupação"
+      "options": {
+        "dados_copyright": "Uso de dados protegidos por direitos autorais sem consentimento (para treinar a IA)",
+        "privacidade": "Preocupações com privacidade: minhas entradas podem ser reutilizadas sem controle",
+        "substituicao": "Medo de que profissionais da área sejam substituídos por IA",
+        "transparencia": "Falta de transparência sobre como a IA funciona ou toma decisões",
+        "originalidade": "Dificuldade em validar a originalidade ou a confiabilidade do que é gerado",
+        "etica": "Ética no uso da IA (ex: autoria, créditos, plágio)",
+        "outro": "Outro",
+        "sem_preocupacoes": "Não tenho preocupações significativas no momento"
+      }
     }
-
-
   }
