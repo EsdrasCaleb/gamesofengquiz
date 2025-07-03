@@ -32,7 +32,7 @@
     "atuacao_nao_trabalho_com_desenvolvimento": "Atualmente não trabalho com desenvolvimento de jogos"
   },
   "pessoal": "Pessoal",
-  "desafios": "Desafios",
+  "desafios": "DESAFIOS ENFRENTADOS DURANTE O DESENVOLVIMENTO DE JOGOS",
   "game_dev_profile": "Perfil de Desenvolvedor",
   "artistis_profile": "Artista",
   "designer_profile": "Designer",
@@ -41,8 +41,7 @@
   "ufrom": "Qual é a cidade e o país onde você concluiu seu maior  nível de formação?",
   "howold": "Em que ano você nasceu?",
   "formacao": "Qual o seu maior nível de formação?",
-  "area_formacao": "Qual a sua principal área de formação?",
-  "anos_experiencia": "Há quantos anos você atua no desenvolvimento de jogos digitais (em qualquer papel)?",
+  "anos_experiencia": "Há quantos anos você atua no desenvolvimento de jogos digitais (desempenhando qualquer papel)?",
   "tamanho_maior_time": "Com que tipo de equipe você costuma trabalhar nos projetos de desenvolvimento de jogos? Considere a maioria dos projetos em que você participa",
   "situacao_equipe": {
     "individual": "Trabalho sozinho (projetos individuais)",
@@ -50,20 +49,18 @@
     "media": "Em equipe média (6 a 15 pessoas)",
     "grande": "Em equipe grande (mais de 15 pessoas)",
     "varia": "Varia bastante de projeto para projeto",
-    "nao_participa": "Não participo diretamente do desenvolvimento em equipe"
+    "nao_participa": "Trabalho de forma independente e não tenho contato direto com a equipe do projeto"
   },
-  "qtd_projetos": "Em quantos projetos de jogos você já trabalhou? Considere todos os projetos de jogos nos quais você trabalhou mesmo que eles não tenham sido lançados.",
-  "frequencia_problemas_tecnicos": "Com que frequência você encontra problemas técnicos nos projetos?",
-  "problema_codigo_confuso": "Com que frequência você percebe que o código do projeto está difícil de entender ou acompanhar?",
-  "problema_muitas_features": "Com que frequência o projeto tem tantas funcionalidades que fica difícil garantir que tudo continue funcionando bem?",
-  "problema_dificuldade_manutencao": "Com que frequência você sente que fazer mudanças no projeto é arriscado ou leva muito tempo por causa da complexidade atual?",
-  "problema_dificuldade_testar": "Com que frequência é difícil ou demorado testar se o jogo está funcionando corretamente após mudanças?",
+  "duracao_media_projetos": "Em média, qual é a duração dos projetos em que você participa?",
+  "duracao_projetos": {
+    "menos_1_mes": "Menos de 1 mês",
+    "1a3_meses": "De 1 a 3 meses",
+    "4a6_meses": "De 4 a 6 meses",
+    "7a12_meses": "De 7 a 12 meses",
+    "mais_1_ano": "Mais de 1 ano"
+  },
+  "qtd_projetos": "Em quantos projetos de jogos você já trabalhou? Considere todos os projetos de jogos nos quais você trabalhou, mesmo que eles não tenham sido lançados.",
   "option_required": "Por favor, selecione uma opção.",
-  "frequencia_nunca": "Nunca",
-  "frequencia_raramente": "Raramente",
-  "frequencia_as_vezes": "Às vezes",
-  "frequencia_frequentemente": "Frequentemente",
-  "frequencia_quase_sempre": "Quase sempre",
   "papel": "Quais funções você desempenha no desenvolvimento de jogos?",
   "ferramentas_desenvolvimento": "Quais engines você costuma usar nos projetos em que trabalha ou já trabalhou?",
   "tipos_jogos": "Quais tipos de jogos você costuma desenvolver (gênero, estilo ou formato)?",
@@ -128,6 +125,34 @@
     "xr": "Realidade virtual / aumentada",
     "outro": "Outras (especifique):"
   },
+  "dificuldades_manutencao": {
+    "label": "Na sua experiência com desenvolvimento de jogos, quais destes fatores mais dificultam a evolução e manutenção do projeto ao longo do tempo? (Escolha no máximo 3 opções)",
+    "required": "Por favor, selecione até 3 opções.",
+    "options": {
+      "codigo_dificil": "O código se torna difícil de entender com o tempo",
+      "mudancas_quebram": "Fazer mudanças causa erros inesperados em outras partes do jogo",
+      "quebra_existente": "É difícil saber se uma funcionalidade nova quebra algo existente",
+      "teste_demorado": "Testar o jogo manualmente leva muito tempo",
+      "crescimento_ferramental": "As funcionalidades vão crescendo e fica difícil garantir estabilidade",
+      "sem_dificuldades": "Não enfrento dificuldades significativas nesse aspecto",
+      "outro": "Outro (especifique)"
+    },
+    "outro_descreva": "Descreva o outro fator:"
+  },
+  "causas_problemas_tecnicos": {
+    "label": "Na sua opinião, o que mais contribui para o surgimento de problemas técnicos nos projetos de jogos que você desenvolve? (Escolha no máximo 3 opções)",
+    "required": "Por favor, selecione até 3 opções.",
+    "options": {
+      "falta_tempo": "Falta de tempo ou prazos apertados",
+      "codigo_desorganizado": "Código pouco organizado ou sem padrão",
+      "comunicacao_dificil": "Dificuldade de comunicação entre os membros da equipe",
+      "sem_testes": "Ausência de testes automatizados",
+      "mudancas_escopo": "Mudanças de escopo ou funcionalidades no meio do projeto",
+      "sem_ferramentas": "Falta de ferramentas ou processos adequados",
+      "outro": "Outro (especifique)"
+    },
+    "outro_descreva": "Descreva o outro fator:"
+  },
   "tipos_jogos_required": "Por favor, selecione pelo menos um tipo de jogo.",
   "tipos_jogos_outro_descricao": "Descreva o outro tipo:",
   "tipos_jogos_outro_required": "Por favor, descreva o outro tipo.",
@@ -186,8 +211,6 @@
     "desistir": "Desistir",
     "confirmReset": "Tem certeza que deseja sair?",
     "confirmResetDescription": "Isso apagará suas respostas salvas. Se quiser continuar depois, basta voltar mais tarde enquanto não clicar aqui.",
-    "sim": "Sim",
-    "nao": "Não",
     "situacao": {
       "label": "Qual é a sua principal forma de atuação no desenvolvimento de jogos digitais atualmente? (Marque a alternativa que melhor descreve sua situação atual.)",
       "required": "Por favor, selecione uma opção",
@@ -196,7 +219,7 @@
       "atuacao_freelancer": "Desenvolvo jogos como freelancer/autônomo regularmente",
       "atuacao_indie_horas_vagas": "Desenvolvo jogos de forma independente nas horas vagas (sem remuneração ou com remuneração eventual)",
       "atuacao_eventual": "Desenvolvo jogos eventualmente, em projetos pontuais ou colaborativos",
-      "atuacao_nao_envolvido": "Não estou atualmente envolvido com desenvolvimento de jogos digitais"
+      "atuacao_nao_envolvido": "Não estou atualmente envolvido com desenvolvimento de jogos digitais, mas pretendo voltar a atuar nesta área."
     },
     "design_modelagem": "Como você projeta o seu design?",
     "design_modelagem_required": "Por favor, selecione pelo menos uma opção",

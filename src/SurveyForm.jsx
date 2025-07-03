@@ -26,14 +26,21 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
     const onFinish = async (values) => {
         setLoading(true)
-        const dataCollums = ['uid',"language",'formacao','where_from','how_old','area_formacao',
-            'area_formacao_outro','situacao','anos_experiencia','tamanho_maior_time','qtd_projetos',
-            'frequencia_problemas_tecnicos','problema_codigo_confuso','problema_muitas_features',
-            'problema_dificuldade_manutencao','problema_dificuldade_testar','papel','papel_outro',
+        const dataCollums = ['uid',"language",
+
+            'where_from','how_old','formacao','area_formacao',
+            'area_formacao_outro','anos_experiencia', 'qtd_projetos', 'situacao','tamanho_maior_time',
+            "duracao_media_projetos",
+
+            'papel','papel_outro',
             'ferramentas_desenvolvimento', "ferramentas_outro_descricao","tipos_jogos","tipos_jogos_outro_descricao",
             "plataformas_desenvolvimento","plataformas_outro_descricao","processos_engenharia","areas_uso_ia",
-            "areas_uso_ia_outro","temores_uso_ia","temores_uso_ia_outro",
             "processos_outro_descricao","opiniao_praticas","opiniao_praticas_outro_descricao","opiniao_praticas_porque",
+            "areas_uso_ia_outro","temores_uso_ia","temores_uso_ia_outro",
+
+            "dificuldades_manutencao","dificuldades_manutencao_outro","causas_problemas_tecnicos",
+            "causas_problemas_tecnicos_outro",
+
             "asset_testes","asset_testes_outro_descricao","asset_testes_automatizado_descricao","design_modelagem",
             "design_modelagem_outro_descricao","design_validacao","design_validacao_outro_descricao","testes_jogo",
             "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro","ferramentas_teste",
@@ -118,14 +125,14 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Input />
                 </Form.Item>
                 <Form.Item name="formacao" label={(index++)+"-"+t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
-                   <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}>
-                    <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
-                    <Radio value="fundamental">{t('formacao_opcoes.fundamental')}</Radio>
-                    <Radio value="medio">{t('formacao_opcoes.medio')}</Radio>
-                    <Radio value="graduacao">{t('formacao_opcoes.graduacao')}</Radio>
-                    <Radio value="especializacao">{t('formacao_opcoes.especializacao')}</Radio>
-                    <Radio value="mestrado">{t('formacao_opcoes.mestrado')}</Radio>
-                    <Radio value="doutorado">{t('formacao_opcoes.doutorado')}</Radio>
+                   <Radio.Group>
+                    <Radio.Button value="nenhum">{t('formacao_opcoes.none')}</Radio.Button>
+                    <Radio.Button value="fundamental">{t('formacao_opcoes.fundamental')}</Radio.Button>
+                    <Radio.Button value="medio">{t('formacao_opcoes.medio')}</Radio.Button>
+                    <Radio.Button value="graduacao">{t('formacao_opcoes.graduacao')}</Radio.Button>
+                    <Radio.Button value="especializacao">{t('formacao_opcoes.especializacao')}</Radio.Button>
+                    <Radio.Button value="mestrado">{t('formacao_opcoes.mestrado')}</Radio.Button>
+                    <Radio.Button value="doutorado">{t('formacao_opcoes.doutorado')}</Radio.Button>
                 </Radio.Group>
                 </Form.Item>
 
@@ -201,79 +208,18 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </Radio.Group>
                 </Form.Item>
 
+                <Form.Item name="duracao_media_projetos" label={(index++) + '-' + t('duracao_media_projetos')} rules={[{ required: true }]}>
+                    <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Radio value="menos_1_mes">{t('duracao_projetos.menos_1_mes')}</Radio>
+                        <Radio value="1a3_meses">{t('duracao_projetos.1a3_meses')}</Radio>
+                        <Radio value="4a6_meses">{t('duracao_projetos.4a6_meses')}</Radio>
+                        <Radio value="7a12_meses">{t('duracao_projetos.7a12_meses')}</Radio>
+                        <Radio value="mais_1_ano">{t('duracao_projetos.mais_1_ano')}</Radio>
+                    </Radio.Group>
+                </Form.Item>
+
             </Card>
-            <Card title={t('desafios')}>
 
-            <Form.Item
-                name="frequencia_problemas_tecnicos"
-                label={(index++)+"-"+t('frequencia_problemas_tecnicos')}
-                rules={[{ required: true, message: t('option_required') }]}
-            >
-                <Radio.Group>
-                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
-                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
-                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
-                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
-                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
-                </Radio.Group>
-            </Form.Item>
-
-            <Form.Item
-                name="problema_codigo_confuso"
-                label={(index++)+"-"+t('problema_codigo_confuso')}
-                rules={[{ required: true, message: t('option_required') }]}
-            >
-                <Radio.Group>
-                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
-                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
-                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
-                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
-                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
-                </Radio.Group>
-            </Form.Item>
-
-            <Form.Item
-                name="problema_muitas_features"
-                label={(index++)+"-"+t('problema_muitas_features')}
-                rules={[{ required: true, message: t('option_required') }]}
-            >
-                <Radio.Group>
-                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
-                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
-                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
-                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
-                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
-                </Radio.Group>
-            </Form.Item>
-
-            <Form.Item
-                name="problema_dificuldade_manutencao"
-                label={(index++)+"-"+t('problema_dificuldade_manutencao')}
-                rules={[{ required: true, message: t('option_required') }]}
-            >
-                <Radio.Group>
-                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
-                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
-                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
-                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
-                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
-                </Radio.Group>
-            </Form.Item>
-
-            <Form.Item
-                name="problema_dificuldade_testar"
-                label={(index++)+"-"+t('problema_dificuldade_testar')}
-                rules={[{ required: true, message: t('option_required') }]}
-            >
-                <Radio.Group>
-                    <Radio.Button value="nunca">{t('frequencia_nunca')}</Radio.Button>
-                    <Radio.Button value="raramente">{t('frequencia_raramente')}</Radio.Button>
-                    <Radio.Button value="as_vezes">{t('frequencia_as_vezes')}</Radio.Button>
-                    <Radio.Button value="frequentemente">{t('frequencia_frequentemente')}</Radio.Button>
-                    <Radio.Button value="quase_sempre">{t('frequencia_quase_sempre')}</Radio.Button>
-                </Radio.Group>
-            </Form.Item>
-            </Card>
             <Card title={t('game_dev_profile')}>
                 <Form.Item
                     name="papel"
@@ -488,7 +434,78 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </Form.Item>
                 )}
             </Card>
+            <Card title={t('desafios')}>
+                <Form.Item
+                    name="dificuldades_manutencao"
+                    label={(index++) + '-' + t('dificuldades_manutencao.label')}
+                    rules={[{ required: true, message: t('dificuldades_manutencao.required') }]}
+                >
+                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                        {['codigo_dificil', 'mudancas_quebram', 'quebra_existente', 'teste_demorado', 'crescimento_ferramental', 'sem_dificuldades', 'outro'].map((value) => (
+                            <Checkbox
+                                key={value}
+                                value={value}
+                                disabled={
+                                    selecteds["dificuldades_manutencao"]?.length >= 3 &&
+                                    !selecteds["dificuldades_manutencao"].includes(value)
+                                }
+                            >
+                                {t(`dificuldades_manutencao.options.${value}`)}
+                            </Checkbox>
+                        ))}
+                    </Checkbox.Group>
+                </Form.Item>
 
+                {selecteds.dificuldades_manutencao?.includes('outro') && (
+                    <Form.Item
+                        name="dificuldades_manutencao_outro"
+                        label={(index - 1) + 'a-' + t('dificuldades_manutencao.outro_descreva')}
+                        rules={[{ required: true, message: t('dificuldades_manutencao.outro_descreva') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
+
+                <Form.Item
+                    name="causas_problemas_tecnicos"
+                    label={(index++) + '-' + t('causas_problemas_tecnicos.label')}
+                    rules={[{ required: true, message: t('causas_problemas_tecnicos.required') }]}
+                >
+                    <Checkbox.Group>
+                        {[
+                            'falta_tempo',
+                            'codigo_desorganizado',
+                            'comunicacao_dificil',
+                            'sem_testes',
+                            'mudancas_escopo',
+                            'sem_ferramentas',
+                            'outro'
+                        ].map((value) => (
+                            <Checkbox
+                                key={value}
+                                value={value}
+                                disabled={
+                                    selecteds["causas_problemas_tecnicos"]?.length >= 3 &&
+                                    !selecteds["causas_problemas_tecnicos"].includes(value)
+                                }
+                            >
+                                {t(`causas_problemas_tecnicos.options.${value}`)}
+                            </Checkbox>
+                        ))}
+                    </Checkbox.Group>
+                </Form.Item>
+
+                {selecteds.causas_problemas_tecnicos?.includes('outro') && (
+                    <Form.Item
+                        name="causas_problemas_tecnicos_outro"
+                        label={(index - 1) + 'a-' + t('causas_problemas_tecnicos.outro_descreva')}
+                        rules={[{ required: true, message: t('causas_problemas_tecnicos.outro_descreva') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
+
+            </Card>
             <Card title={t("artistis_profile")}>
                 <Form.Item
                     name="asset_testes"
