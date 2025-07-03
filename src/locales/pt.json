@@ -25,12 +25,6 @@
     "change": "Alterar Respostas",
     "confirmReset": "Tem certeza? Isso apagará os dados anteriores do seu navegador (incluindo o ID {{uid}}) e não será possível recuperá-los."
   },
-  "independent": {
-    "atuacao_indie_horas_vagas": "Trabalho como desenvolvedor independente de jogos nas horas vagas",
-    "atuacao_indie_renda_principal": "Trabalho como desenvolvedor independente de jogos, sendo essa minha principal fonte de renda",
-    "atuacao_nao_indie_mas_participo": "Não sou desenvolvedor independente, mas participo de projetos como contratado, freelancer ou membro de equipe",
-    "atuacao_nao_trabalho_com_desenvolvimento": "Atualmente não trabalho com desenvolvimento de jogos"
-  },
   "pessoal": "Pessoal",
   "desafios": "Desafios Enfretados Durante o Desenvolvimento de Jogos",
   "uso_ia_generativa":"Uso de IA Generativa",
@@ -108,12 +102,9 @@
   "papel_qa": "Testador (QA)",
   "papel_artista_som": "Artista de Som",
   "papel_animacao": "Animação",
-  "papel_outro": "Outro:",
   "papel_outro_descreva": "Descreva a(s) outra(s)",
   "papel_outro_required": "Por favor, especifique o outro(s).",
   "ferramentas_desenvolvimento_required": "Por favor, informe pelo menos uma ferramenta.",
-  "placeholder_ferramentas": "Selecione ou digite suas ferramentas",
-  "ferramentas_outro": "Outro:",
   "ferramentas_outro_descricao": "Qual a outra engine?",
   "ferramentas_outro_required": "Por favor, diga ao menos um nome.",
   "plataformas": "Para quais plataformas você costuma desenvolver jogos?",
@@ -202,10 +193,9 @@
     "boardgame": "BoardGame",
     "puzzle": "Puzzle",
     "simulacao": "Simulação",
-    "manager": "Manager",
-    "outro": "Outro"
+    "manager": "Manager"
   },
-
+  "outro": "Outro",
   "ferramentas_options": {
     "unity": "Unity",
     "unreal": "Unreal",
@@ -215,8 +205,7 @@
     "framework_baixo_nivel": "Framework de baixo nível (LOVE, MonoGame, Heaps  etc...)",
     "propria_pessoal": "Engine Própria, feita por mim",
     "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
-    "nada": "Não utilizo motores de jogo (programação com libs básicas como SDL)",
-    "outro": "Outro:"
+    "nada": "Não utilizo motores de jogo (programação com libs básicas como SDL)"
   },
     "asset_testes": "Como são testados os assets que você desenvolve?",
     "asset_testes_required": "Selecione ao menos uma opção",
@@ -237,7 +226,6 @@
     "confirmResetDescription": "Isso apagará suas respostas salvas. Se quiser continuar depois, basta voltar mais tarde enquanto não clicar aqui.",
     "situacao": {
       "label": "Qual é a sua principal forma de atuação no desenvolvimento de jogos digitais atualmente? (Marque a alternativa que melhor descreve sua situação atual.)",
-      "required": "Por favor, selecione uma opção",
       "atuacao_industria_integral": "Trabalho em tempo integral em uma empresa da indústria de jogos digitais",
       "atuacao_industria_parcial": "Trabalho em tempo parcial em uma empresa da indústria de jogos digitais",
       "atuacao_freelancer": "Desenvolvo jogos como freelancer/autônomo regularmente",
@@ -252,8 +240,7 @@
       "prototipo_real": "Uso um protótipo no mundo real",
       "prototipo_ferramenta": "Uso um protótipo numa ferramenta",
       "anotacoes_simples": "Anotações simples",
-      "mental": "Tudo da minha cabeça",
-      "outro": "Outro"
+      "mental": "Tudo da minha cabeça"
     },
     "design_modelagem_outro_descricao": "Descreva o outro método de modelagem",
     "design_modelagem_outro_descricao_required": "Por favor, descreva o outro método",
@@ -265,8 +252,7 @@
       "prototipo_real": "Através de protótipos do mundo real",
       "excel": "Simulação com Planilha",
       "machinations": "Machinations",
-      "mental": "Simulo Mentalmente",
-      "outro": "Outro"
+      "mental": "Simulo Mentalmente"
     },
     "design_validacao_outro_descricao": "Descreva o outro método de teste",
     "design_validacao_outro_descricao_required": "Por favor, descreva o outro método",
@@ -275,8 +261,7 @@
     "testes_jogo_options": {
       "exploratorio": "Testes exploratórios (navego livremente pelo jogo)",
       "roteiro": "Testes seguindo um roteiro ou checklist",
-      "automatizado": "Testes automatizados",
-      "outro": "Outro"
+      "automatizado": "Testes automatizados"
     },
     "testes_jogo_outro": "Descreva outro método de teste utilizado",
     "testes_jogo_outro_required": "Por favor, descreva o outro método",
@@ -288,8 +273,7 @@
       "appium": "Appium",
       "unity": "Unity Test Framework",
       "unreal_functional": "Unreal Functional Testing Framework",
-      "unreal_gauntlet": "Unreal Gauntlet",
-      "outro": "Outro"
+      "unreal_gauntlet": "Unreal Gauntlet"
     },
     "ferramentas_teste_outro": "Descreva a outra ferramenta utilizada",
     "ferramentas_teste_outro_required": "Por favor, descreva a ferramenta",
@@ -300,8 +284,7 @@
       "performance": "Performance básica (tempo de carregamento, FPS mínimo)",
       "cenarios": "Cenários específicos do jogo",
       "acoes_personagem": "Ações de um personagem",
-      "teste_fumaca": "Testes de fumaça (verifico se o jogo roda sem falhas críticas)",
-      "outro": "Outro"
+      "teste_fumaca": "Testes de fumaça (verifico se o jogo roda sem falhas críticas)"
     },
     "conteudo_testado_outro": "Descreva o que mais é testado",
     "conteudo_testado_outro_required": "Por favor, descreva",
@@ -313,8 +296,7 @@
       "pos_prototipo": "Após a criação de um protótipo funcional",
       "pos_funcionalidades": "Após as principais funcionalidades estarem implementadas",
       "no_fim": "Somente ao final do projeto",
-      "quando_possivel": "Quando há oportunidade",
-      "outro": "Outro"
+      "quando_possivel": "Quando há oportunidade"
     },
     "etapa_testes_outro": "Descreva outra etapa",
     "etapa_testes_outro_required": "Por favor, descreva a etapa",
@@ -324,8 +306,7 @@
       "nao": "Nunca os usei como requisito",
       "atualizacao": "Para aceitar atualizações feitas por colaboradores",
       "proxima_fase": "Para definir se o jogo pode seguir para a próxima fase (alfa, beta, gold)",
-      "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade",
-      "outro": "Outro"
+      "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade"
     },
     "uso_testes_outro": "Descreva outro uso como requisito",
     "uso_testes_outro_required": "Por favor, descreva",
@@ -335,8 +316,7 @@
       "entendimento_frameworks": "Tive dificuldade de entender os frameworks",
       "preferencia_humanos": "Prefiro testes humanos, acho mais úteis",
       "implementacao_dificil": "Achei muito difícil de implementar",
-      "nao_encontram_erros_reais": "Os testes não encontram os erros que os jogadores realmente encontram",
-      "outro": "Outro"
+      "nao_encontram_erros_reais": "Os testes não encontram os erros que os jogadores realmente encontram"
     },
     "dificuldades_testes_outro": "Descreva outra dificuldade",
     "dificuldades_testes_outro_required": "Por favor, descreva",

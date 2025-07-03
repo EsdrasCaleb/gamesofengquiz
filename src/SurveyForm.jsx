@@ -161,7 +161,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Form.Item
                     name="area_formacao_outro"
                     label={(index-1)+"a-"+t('area_formacao_outro_descreva')}
-                    rules={[{ required: true, message: t('4a-'+'area_formacao_outro_required') }]}
+                    rules={[{ required: true, message: t('area_formacao_outro_required') }]}
                     >
                     <Input />
                     </Form.Item>
@@ -242,7 +242,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         <Checkbox value="artista_som">{t('papel_artista_som')}</Checkbox>
                         <Checkbox value="roteiro_narrativa">{t('papel_roteiro_narrativa')}</Checkbox>
                         <Checkbox value="marketing">{t('papel_marketing')}</Checkbox>
-                        <Checkbox value="outro">{t('papel_outro')}</Checkbox>
+                        <Checkbox value="outro">{t('outro')}</Checkbox>
                     </Checkbox.Group>
                 </Form.Item>
                 {selecteds['papel']?.includes('outro') && (
@@ -272,7 +272,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { label: t('tipos_jogos_options.puzzle'), value: 'puzzle' },
                         { label: t('tipos_jogos_options.simulacao'), value: 'simulacao' },
                         { label: t('tipos_jogos_options.manager'), value: 'manager' },
-                        { label: t('tipos_jogos_options.outro'), value: 'outro' },
+                        { label: t('outro'), value: 'outro' },
                     ]} />
                 </Form.Item>
 
@@ -329,7 +329,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'propria_corporativa', label: t('ferramentas_options.propria_corporativa') },
                         { value: 'framework_baixo_nivel', label: t('ferramentas_options.framework_baixo_nivel') },
                         { value: 'nada', label: t('ferramentas_options.nada') },
-                        { value: 'outro', label: t('ferramentas_options.outro') }
+                        { value: 'outro', label: t('outro') }
                     ].map(opt => ({ label: opt.label, value: opt.value }))} />
                 </Form.Item>
 
@@ -608,7 +608,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'prototipo_ferramenta', label: t('design_modelagem_options.prototipo_ferramenta') },
                         { value: 'anotacoes_simples', label: t('design_modelagem_options.anotacoes_simples') },
                         { value: 'mental', label: t('design_modelagem_options.mental') },
-                        { value: 'outro', label: t('design_modelagem_options.outro') },
+                        { value: 'outro', label: t('outro') },
                     ]} />
                 </Form.Item>
 
@@ -633,7 +633,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'excel', label: t('design_validacao_options.excel') },
                         { value: 'machinations', label: t('design_validacao_options.machinations') },
                         { value: 'mental', label: t('design_validacao_options.mental') },
-                        { value: 'outro', label: t('design_validacao_options.outro') },
+                        { value: 'outro', label: t('outro') },
                     ]} />
                 </Form.Item>
 
@@ -661,7 +661,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'exploratorio', label: t('testes_jogo_options.exploratorio') },
                         { value: 'roteiro', label: t('testes_jogo_options.roteiro') },
                         { value: 'automatizado', label: t('testes_jogo_options.automatizado') },
-                        { value: 'outro', label: t('testes_jogo_options.outro') },
+                        { value: 'outro', label: t('outro') },
                     ]} />
                 </Form.Item>
 
@@ -684,7 +684,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'preferencia_humanos', label: t('dificuldades_testes_options.preferencia_humanos') },
                         { value: 'implementacao_dificil', label: t('dificuldades_testes_options.implementacao_dificil') },
                         { value: 'nao_encontram_erros_reais', label: t('dificuldades_testes_options.nao_encontram_erros_reais') },
-                        { value: 'outro', label: t('dificuldades_testes_options.outro') }
+                        { value: 'outro', label: t('outro') }
                     ]} />
                 </Form.Item>
 
@@ -710,7 +710,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'unity', label: t('ferramentas_teste_options.unity') },
                         { value: 'unreal_functional', label: t('ferramentas_teste_options.unreal_functional') },
                         { value: 'unreal_gauntlet', label: t('ferramentas_teste_options.unreal_gauntlet') },
-                        { value: 'outro', label: t('ferramentas_teste_options.outro') }
+                        { value: 'outro', label: t('outro') }
                     ]} />
                 </Form.Item>
 
@@ -735,7 +735,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'cenarios', label: t('conteudo_testado_options.cenarios') },
                         { value: 'acoes_personagem', label: t('conteudo_testado_options.acoes_personagem') },
                         { value: 'teste_fumaca', label: t('conteudo_testado_options.teste_fumaca') },
-                        { value: 'outro', label: t('conteudo_testado_options.outro') }
+                        { value: 'outro', label: t('outro') }
                     ]} />
                 </Form.Item>
 
@@ -760,7 +760,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'pos_funcionalidades', label: t('etapa_testes_options.pos_funcionalidades') },
                         { value: 'no_fim', label: t('etapa_testes_options.no_fim') },
                         { value: 'quando_possivel', label: t('etapa_testes_options.quando_possivel') },
-                        { value: 'outro', label: t('etapa_testes_options.outro') }
+                        { value: 'outro', label: t('outro') }
                     ]} />
                 </Form.Item>
 
@@ -784,7 +784,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         { value: 'atualizacao', label: t('uso_testes_options.atualizacao') },
                         { value: 'proxima_fase', label: t('uso_testes_options.proxima_fase') },
                         { value: 'nova_funcionalidade', label: t('uso_testes_options.nova_funcionalidade') },
-                        { value: 'outro', label: t('uso_testes_options.outro') }
+                        { value: 'outro', label: t('outro') }
                     ]} />
                 </Form.Item>
 
