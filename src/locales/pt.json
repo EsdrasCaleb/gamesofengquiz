@@ -27,6 +27,7 @@
   },
   "pessoal": "Pessoal",
   "desafios": "Desafios Enfretados Durante o Desenvolvimento de Jogos",
+  "option_area":"Responda se essa área fizer parte da sua experiência",
   "uso_ia_generativa":"Uso de IA Generativa",
   "game_dev_profile": "Perfil de Desenvolvedor",
   "artistis_profile": "Artista",
@@ -265,7 +266,7 @@
     },
     "testes_jogo_outro": "Descreva outro método de teste utilizado",
     "testes_jogo_outro_required": "Por favor, descreva o outro método",
-    "ferramentas_teste": "Quais ferramentas você já utilizou para automatizar testes?",
+    "ferramentas_teste": "Quais ferramentas você já utilizou para automatizar testes? (deixe em branco se não usar)",
     "ferramentas_teste_required": "Selecione pelo menos uma opção",
     "ferramentas_teste_options": {
       "robotframework": "Robot Framework",
@@ -277,7 +278,7 @@
     },
     "ferramentas_teste_outro": "Descreva a outra ferramenta utilizada",
     "ferramentas_teste_outro_required": "Por favor, descreva a ferramenta",
-    "conteudo_testado": "O que é testado nos testes automatizados?",
+    "conteudo_testado": "O que é testado nos testes automatizados? (deixe em branco se não usar)",
     "conteudo_testado_required": "Selecione pelo menos uma opção",
     "conteudo_testado_options": {
       "componentes": "Componentes isolados",
@@ -288,7 +289,7 @@
     },
     "conteudo_testado_outro": "Descreva o que mais é testado",
     "conteudo_testado_outro_required": "Por favor, descreva",
-    "etapa_testes": "Em que etapa os testes automatizados costumam ser criados?",
+    "etapa_testes": "Em que etapa os testes automatizados costumam ser criados? (deixe em branco se não usar)",
     "etapa_testes_required": "Selecione pelo menos uma opção",
     "etapa_testes_options": {
       "antes_funcionalidade": "Antes da funcionalidade (Test Driven)",
@@ -300,7 +301,7 @@
     },
     "etapa_testes_outro": "Descreva outra etapa",
     "etapa_testes_outro_required": "Por favor, descreva a etapa",
-    "uso_testes": "Em quais situações os testes automatizados são ou já foram utilizados como requisito obrigatório nos seus projetos?",
+    "uso_testes": "Em quais situações os testes automatizados são ou já foram utilizados como requisito obrigatório nos seus projetos?(deixe em branco se não usar)",
     "uso_testes_required": "Selecione pelo menos uma opção",
     "uso_testes_options": {
       "nao": "Nunca os usei como requisito",

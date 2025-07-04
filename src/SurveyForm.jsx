@@ -1,12 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Table, Typography, Card, FloatButton, Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
+import { Grid, Collapse, Table, Typography, Card, FloatButton, Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 
 
 const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const [form] = Form.useForm();
-
+    const screens = Grid.useBreakpoint();
     const { t, i18n } = useTranslation();
 
     const [selecteds, setSelecteds] = useState(data);
@@ -15,7 +15,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const artist_selcted = ["artista","artista_som","roteiro_narrativa","design_ux"].some(role => selecteds['papel']?.includes(role));
     const design_selected = ["game_designer","level_designer"].some(role => selecteds['papel']?.includes(role));
     const tester_selected = ["programador","qa"].some(role => selecteds['papel']?.includes(role));
-    const problemas_selected = ["programador","qa"].some(role => selecteds['papel']?.includes(role));
+    const problemas_selected = ["gerente","programador","qa"].some(role => selecteds['papel']?.includes(role));
 
     useEffect(() => {
         form.setFieldsValue(data);
@@ -129,14 +129,14 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Input />
                 </Form.Item>
                 <Form.Item name="formacao" label={(index++)+"-"+t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
-                   <Radio.Group>
-                    <Radio.Button value="nenhum">{t('formacao_opcoes.none')}</Radio.Button>
-                    <Radio.Button value="fundamental">{t('formacao_opcoes.fundamental')}</Radio.Button>
-                    <Radio.Button value="medio">{t('formacao_opcoes.medio')}</Radio.Button>
-                    <Radio.Button value="graduacao">{t('formacao_opcoes.graduacao')}</Radio.Button>
-                    <Radio.Button value="especializacao">{t('formacao_opcoes.especializacao')}</Radio.Button>
-                    <Radio.Button value="mestrado">{t('formacao_opcoes.mestrado')}</Radio.Button>
-                    <Radio.Button value="doutorado">{t('formacao_opcoes.doutorado')}</Radio.Button>
+                   <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
+                    <Radio value="fundamental">{t('formacao_opcoes.fundamental')}</Radio>
+                    <Radio value="medio">{t('formacao_opcoes.medio')}</Radio>
+                    <Radio value="graduacao">{t('formacao_opcoes.graduacao')}</Radio>
+                    <Radio value="especializacao">{t('formacao_opcoes.especializacao')}</Radio>
+                    <Radio value="mestrado">{t('formacao_opcoes.mestrado')}</Radio>
+                    <Radio value="doutorado">{t('formacao_opcoes.doutorado')}</Radio>
                 </Radio.Group>
                 </Form.Item>
 
@@ -345,6 +345,34 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Typography.Title level={5}>
                     {(index++) + ' - ' + t('uso_praticas.label')}
                 </Typography.Title>
+                {screens.xs ? (
+  ['controle_versao',
+    'padroes_design',
+    'modelagem_projeto',
+    'prototipacao',
+    'tdd',
+    'integracao_continua'].map((key) => (
+    <Card key={key} style={{ marginBottom: 12 }}>
+      <Typography.Text strong>{t(`uso_praticas.praticas.${key}`)}</Typography.Text>
+      <Form.Item
+        name={'uso_praticas_'+key}
+        rules={[{ required: true, message: t('uso_praticas.required') }]}
+      >
+        <Radio.Group>
+          {[
+            'uso_atualmente',
+            'nao_conhece',
+            'nao_util',
+            'ja_tentou',
+            'prefere_outros'
+        ].map((optionKey) => (
+            <Radio  key={key+"_"+optionKey} value={optionKey}>{t(`uso_praticas.opcoes.${optionKey}`)}</Radio>
+          ))}
+        </Radio.Group>
+      </Form.Item>
+    </Card>
+  ))
+) : (
                 <Table
                     bordered
                     pagination={false}
@@ -388,6 +416,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         />
                     ))}
                 </Table>
+                )}
             </Card>
             <Card title={t('uso_ia_generativa')}>
                 <Form.Item
@@ -459,6 +488,12 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 )}
             </Card>
             <Card title={t('desafios')}>
+            <Collapse 
+            {...(problemas_selected
+                    ? { activeKey: ['tecnico'] }
+                    : { defaultActiveKey: [] })}
+                ghost={problemas_selected}>
+            <Collapse.Panel header={!problemas_selected&&t("option_area")} showArrow={!problemas_selected} collapsible={problemas_selected&&"icon"} key="tecnico">
                 <Form.Item
                     name="dificuldades_manutencao"
                     label={(index++) + '-' + t('dificuldades_manutencao.label')}
@@ -557,9 +592,17 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         ))}
                     </Checkbox.Group>
                 </Form.Item>
-
+                </Collapse.Panel>
+            </Collapse>
             </Card>
             <Card title={t("artistis_profile")}>
+            <Collapse 
+            {...(artist_selcted
+                    ? { activeKey: ['artista'] }
+                    : { defaultActiveKey: [] })} ghost={artist_selcted}>
+            <Collapse.Panel header={!artist_selcted&&t("option_area")} 
+                showArrow={!artist_selcted} 
+                collapsible={artist_selcted&&"icon"} key="artista">
                 <Form.Item
                     name="asset_testes"
                     label={(index++)+"-"+t('asset_testes')}
@@ -592,11 +635,19 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         <Input />
                     </Form.Item>
                 )}
+                </Collapse.Panel>
+            </Collapse>
             </Card>
 
 
 
             <Card title={t("designer_profile")}>
+            <Collapse {...(design_selected
+                    ? { activeKey: ['designer'] }
+                    : { defaultActiveKey: [] })} ghost={design_selected}>
+            <Collapse.Panel header={!design_selected&&t("option_area")} 
+                showArrow={!design_selected} 
+                collapsible={design_selected&&"icon"} key="desiner">
                 <Form.Item
                     name="design_modelagem"
                     label={(index++)+"-"+t('design_modelagem')}
@@ -646,12 +697,19 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         <Input />
                     </Form.Item>
                 )}
-
+                </Collapse.Panel>
+            </Collapse>
             </Card>
 
 
 
             <Card title={t("tecnical_profile")}>
+            <Collapse {...(tester_selected
+                    ? { activeKey: ['tester'] }
+                    : { defaultActiveKey: [] })} ghost={tester_selected}>
+            <Collapse.Panel header={!tester_selected&&t("option_area")} 
+                showArrow={!tester_selected} 
+                collapsible={tester_selected&&"icon"} key="tester">
                 <Form.Item
                     name="testes_jogo"
                     label={(index++)+"-"+t('testes_jogo')}
@@ -797,6 +855,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         <Input />
                     </Form.Item>
                 )}
+                </Collapse.Panel>
+            </Collapse>
             </Card>
 
 
