@@ -1,5 +1,5 @@
-  {
-   "consent": {
+{
+  "consent": {
     "title": "Termo de Consentimento",
     "paragraphs": [
       "Você está sendo convidado(a) a participar da pesquisa <strong>“Survey on Automated Tests in Game Development”</strong>, conduzida por Esdras Caleb Oliveira Silva (pesquisador responsável) e Lyrene Fernandes da Silva (oreientadora).",
@@ -13,10 +13,10 @@
       "Os dados fornecidos serão anônimos e confidenciais, usados exclusivamente para fins acadêmicos. Não será coletada nenhuma informação que permita identificá-lo(a). Os dados ficarão armazenados por 5 anos em local seguro sob responsabilidade do pesquisador.",
       "Dúvidas éticas podem ser esclarecidas com o Comitê de Ética em Pesquisa da UFRN (CEP Central/UFRN):<br />WhatsApp: (84) 99193-6266<br />E-mail: <a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a><br />Endereço: UFRN – Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-900",
       "Também é possível contatar a Comissão Nacional de Ética em Pesquisa (Conep):<br />Telefone: (61) 3315-5877<br />E-mail: <a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
-    ],    
+    ],
     "agree": "Concordo e desejo participar da pesquisa",
     "decline": "Eu Recuso"
-  },
+},
   "thankyou": {
     "title": "Obrigado pelo seu tempo",
     "text": "Sua decisão foi registrada. Agradecemos sua atenção.",
@@ -161,25 +161,25 @@
       "sem_desafios": "Não enfrento grandes desafios com testes no momento"
     }
   },
-  "uso_praticas": {
-    "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",
-    "required": "Por favor, selecione uma opção para cada prática.",
-    "praticas": {
-      "controle_versao": "Controle de versão (ex: Git)",
-      "padroes_design": "Padrões de design (ex: ECS, componentes)",
-      "modelagem_projeto": "Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
-      "prototipacao": "Prototipação técnica",
-      "tdd": "Desenvolvimento orientado a testes (TDD)",
-      "integracao_continua": "Integração contínua (builds, pipelines)"
-    },
-    "opcoes": {
-      "uso_atualmente": "Uso atualmente",
-      "nao_conhece": "Não uso porque não conheço bem",
-      "nao_util": "Não vejo utilidade para meus projetos",
-      "ja_tentou": "Já tentei usar, mas achei complicado ou exagerado",
-      "prefere_outros": "Prefiro focar em outras áreas do desenvolvimento"
-    }
+"uso_praticas": {
+  "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",
+  "required": "Por favor, selecione uma opção para cada prática.",
+  "praticas": {
+    "controle_versao": "Controle de versão (ex: Git)",
+    "padroes_design": "Padrões de design (ex: ECS, componentes)",
+    "modelagem_projeto": "Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
+    "prototipacao": "Prototipação técnica",
+    "tdd": "Desenvolvimento orientado a testes (TDD)",
+    "integracao_continua": "Integração contínua (builds, pipelines)"
   },
+  "opcoes": {
+    "uso_atualmente": "Uso atualmente",
+    "nao_conhece": "Não uso porque não conheço bem",
+    "nao_util": "Não vejo utilidade para meus projetos",
+    "ja_tentou": "Já tentei usar, mas achei complicado ou exagerado",
+    "prefere_outros": "Prefiro focar em outras áreas do desenvolvimento"
+  }
+},
   "tipos_jogos_required": "Por favor, selecione pelo menos um tipo de jogo.",
   "tipos_jogos_outro_descricao": "Descreva o outro tipo:",
   "tipos_jogos_outro_required": "Por favor, descreva o outro tipo.",
@@ -208,148 +208,164 @@
     "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
     "nada": "Não utilizo motores de jogo (programação com libs básicas como SDL)"
   },
-    "asset_testes": "Como são testados os assets que você desenvolve?",
-    "asset_testes_required": "Selecione ao menos uma opção",
-    "asset_testes_outro_descricao":"Especifique o que é feito",
-    "asset_testes_outro_descricao_required":"Por favor descreva",
-    "asset_testes_automatizado_descricao":"Como você automatiza os testes dos assets? Se usar alguma ferramenta, qual?",
-    "asset_testes_automatizado_required":"Por favor, especifique.",
-    "asset_testes_options": {
-      "teste_visual_manual": "Eu mesmo(a) testo visualmente/auditivamente dentro do jogo",
-      "teste_com_equipe": "Testo junto com alguém da equipe (ex: game designer, programador)",
-      "teste_automatizado": "Há algum tipo de teste automatizado para validar os assets",
-      "teste_nao_sei": "Não sei como os assets são testados",
-      "teste_nao_sao_testados": "Os assets não são formalmente testados",
-      "teste_outro": "Outro"
-    },
-    "desistir": "Desistir",
-    "confirmReset": "Tem certeza que deseja sair?",
-    "confirmResetDescription": "Isso apagará suas respostas salvas. Se quiser continuar depois, basta voltar mais tarde enquanto não clicar aqui.",
-    "situacao": {
-      "label": "Qual é a sua principal forma de atuação no desenvolvimento de jogos digitais atualmente? (Marque a alternativa que melhor descreve sua situação atual.)",
-      "atuacao_industria_integral": "Trabalho em tempo integral em uma empresa da indústria de jogos digitais",
-      "atuacao_industria_parcial": "Trabalho em tempo parcial em uma empresa da indústria de jogos digitais",
-      "atuacao_freelancer": "Desenvolvo jogos como freelancer/autônomo regularmente",
-      "atuacao_indie_horas_vagas": "Desenvolvo jogos de forma independente nas horas vagas (sem remuneração ou com remuneração eventual)",
-      "atuacao_eventual": "Desenvolvo jogos eventualmente, em projetos pontuais ou colaborativos",
-      "atuacao_nao_envolvido": "Não estou atualmente envolvido com desenvolvimento de jogos digitais, mas pretendo voltar a atuar nesta área."
-    },
-    "design_modelagem": "Como você projeta o seu design?",
-    "design_modelagem_required": "Por favor, selecione pelo menos uma opção",
-    "design_modelagem_options": {
-      "uml": "Uso um modelo numa notação especial, ex UML",
-      "prototipo_real": "Uso um protótipo no mundo real",
-      "prototipo_ferramenta": "Uso um protótipo numa ferramenta",
-      "anotacoes_simples": "Anotações simples",
-      "mental": "Tudo da minha cabeça"
-    },
-    "design_modelagem_outro_descricao": "Descreva o outro método de modelagem",
-    "design_modelagem_outro_descricao_required": "Por favor, descreva o outro método",
-
-    "design_validacao": "Como você testa o seu design?",
-    "design_validacao_required": "Por favor, selecione pelo menos uma opção",
-    "design_validacao_options": {
-      "prototipo_simplificado": "Implementando num protótipo menos elaborado",
-      "prototipo_real": "Através de protótipos do mundo real",
-      "excel": "Simulação com Planilha",
-      "machinations": "Machinations",
-      "mental": "Simulo Mentalmente"
-    },
-    "design_validacao_outro_descricao": "Descreva o outro método de teste",
-    "design_validacao_outro_descricao_required": "Por favor, descreva o outro método",
-    "testes_jogo": "Como os jogos são testados?",
-    "testes_jogo_required": "Selecione pelo menos uma opção",
-    "testes_jogo_options": {
-      "exploratorio": "Testes exploratórios (navego livremente pelo jogo)",
-      "roteiro": "Testes seguindo um roteiro ou checklist",
-      "automatizado": "Testes automatizados"
-    },
-    "testes_jogo_outro": "Descreva outro método de teste utilizado",
-    "testes_jogo_outro_required": "Por favor, descreva o outro método",
-    "ferramentas_teste": "Quais ferramentas você já utilizou para automatizar testes? (deixe em branco se não usar)",
-    "ferramentas_teste_required": "Selecione pelo menos uma opção",
-    "ferramentas_teste_options": {
-      "robotframework": "Robot Framework",
-      "selenium": "Selenium",
-      "appium": "Appium",
-      "unity": "Unity Test Framework",
-      "unreal_functional": "Unreal Functional Testing Framework",
-      "unreal_gauntlet": "Unreal Gauntlet"
-    },
-    "ferramentas_teste_outro": "Descreva a outra ferramenta utilizada",
-    "ferramentas_teste_outro_required": "Por favor, descreva a ferramenta",
-    "conteudo_testado": "O que é testado nos testes automatizados? (deixe em branco se não usar)",
-    "conteudo_testado_required": "Selecione pelo menos uma opção",
-    "conteudo_testado_options": {
-      "componentes": "Componentes isolados",
-      "performance": "Performance básica (tempo de carregamento, FPS mínimo)",
-      "cenarios": "Cenários específicos do jogo",
-      "acoes_personagem": "Ações de um personagem",
-      "teste_fumaca": "Testes de fumaça (verifico se o jogo roda sem falhas críticas)"
-    },
-    "conteudo_testado_outro": "Descreva o que mais é testado",
-    "conteudo_testado_outro_required": "Por favor, descreva",
-    "etapa_testes": "Em que etapa os testes automatizados costumam ser criados? (deixe em branco se não usar)",
-    "etapa_testes_required": "Selecione pelo menos uma opção",
-    "etapa_testes_options": {
-      "antes_funcionalidade": "Antes da funcionalidade (Test Driven)",
-      "durante_funcionalidade": "Durante ou logo após a criação da funcionalidade",
-      "pos_prototipo": "Após a criação de um protótipo funcional",
-      "pos_funcionalidades": "Após as principais funcionalidades estarem implementadas",
-      "no_fim": "Somente ao final do projeto",
-      "quando_possivel": "Quando há oportunidade"
-    },
-    "etapa_testes_outro": "Descreva outra etapa",
-    "etapa_testes_outro_required": "Por favor, descreva a etapa",
-    "uso_testes": "Em quais situações os testes automatizados são ou já foram utilizados como requisito obrigatório nos seus projetos?(deixe em branco se não usar)",
-    "uso_testes_required": "Selecione pelo menos uma opção",
-    "uso_testes_options": {
-      "nao": "Nunca os usei como requisito",
-      "atualizacao": "Para aceitar atualizações feitas por colaboradores",
-      "proxima_fase": "Para definir se o jogo pode seguir para a próxima fase (alfa, beta, gold)",
-      "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade"
-    },
-    "uso_testes_outro": "Descreva outro uso como requisito",
-    "uso_testes_outro_required": "Por favor, descreva",
-    "dificuldades_testes": "Você já teve dificuldades com testes automatizados?",
-    "dificuldades_testes_required": "Selecione pelo menos uma opção",
-    "dificuldades_testes_options": {
-      "entendimento_frameworks": "Tive dificuldade de entender os frameworks",
-      "preferencia_humanos": "Prefiro testes humanos, acho mais úteis",
-      "implementacao_dificil": "Achei muito difícil de implementar",
-      "nao_encontram_erros_reais": "Os testes não encontram os erros que os jogadores realmente encontram"
-    },
-    "dificuldades_testes_outro": "Descreva outra dificuldade",
-    "dificuldades_testes_outro_required": "Por favor, descreva",
-    "areas_uso_ia": {
-      "label": "De que formas você tem utilizado IAs/LLMs generativas no desenvolvimento de jogos?",
-      "outro_descreva": "Descreva outra forma de uso:",
-      "required": "Por favor, selecione ao menos uma forma de uso",
-      "options": {
-        "ideias_criativas": "Para gerar ideias criativas (ex: personagens, mecânicas, narrativas, diálogos)",
-        "conteudo_visual_sonoro": "Para criar conteúdos visuais ou sonoros (ex: artes conceituais, vozes, trilhas, efeitos)",
-        "implementacao": "Para auxiliar na implementação (ex: escrever ou revisar código, sugerir soluções técnicas)",
-        "planejamento": "Para planejar ou estruturar o jogo (ex: documentação, arquitetura de sistemas, balanceamento)",
-        "testes": "Para criar ou sugerir testes automatizados (ex: geração de casos de teste, scripts de validação)",
-        "validacao": "Para revisar ou validar funcionalidades do jogo (ex: encontrar erros, verificar lógicas)",
-        "curioso": "Ainda não usei IA, mas tenho curiosidade ou interesse",
-        "nao_usado": "Não tenho utilizado IA nos meus projetos de jogos",
-        "outro": "Outra atividade"
-      }
-    },
-    "temores_uso_ia": {
-      "label": "Quais são suas principais preocupações em relação ao uso de IAs generativas no desenvolvimento de jogos? (Marque no máximo 2)",
-      "required": "Por favor, selecione até 2 preocupações",
-      "outro_descreva": "Descreva outra preocupação:",
-      "options": {
-        "dados_copyright": "Uso de dados protegidos por direitos autorais sem consentimento (para treinar a IA)",
-        "privacidade": "Preocupações com privacidade: minhas entradas podem ser reutilizadas sem controle",
-        "substituicao": "Medo de que profissionais da área sejam substituídos por IA",
-        "transparencia": "Falta de transparência sobre como a IA funciona ou toma decisões",
-        "originalidade": "Dificuldade em validar a originalidade ou a confiabilidade do que é gerado",
-        "etica": "Ética no uso da IA (ex: autoria, créditos, plágio)",
-        "outro": "Outro",
-        "sem_preocupacoes": "Não tenho preocupações significativas no momento"
-      }
+  "avaliacao_artefatos": {
+    "label": "Como você costuma avaliar a qualidade dos artefatos criativos que produz (imagens, sons, ícones, vídeos, layouts etc.)?",
+    "required": "Por favor, selecione ao menos uma opção",
+    "outro_required": "Descreva a outra forma de avaliação",
+    "outro_descricao": "Descreva a outra forma de avaliação:",
+    "options": {
+      "criterios_definidos": "Uso critérios definidos previamente (ex: estilo, clareza, adequação ao público)",
+      "avaliacao_subjetiva": "Faço uma avaliação mais subjetiva, baseada na minha própria percepção",
+      "testes_formais": "Realizo testes formais com usuários ou ferramentas específicas",
+      "avaliacao_por_outros": "A avaliação é feita principalmente por outras pessoas da equipe",
+      "sem_avaliacao_estruturada": "Não costumamos fazer uma avaliação estruturada"
     }
+  },
+  "percepcao_avaliacao_artefatos": "Gostaria de comentar sobre como você percebe ou vivencia a avaliação da qualidade dos elementos criativos no desenvolvimento de jogos?",
+
+
+    "responsavel_validacao_artefatos": {
+    "label": "Quem costuma ser responsável por testar ou validar os artefatos criativos que você produz?",
+    "required": "Por favor, selecione ao menos uma opção",
+    "outro_required": "Descreva a outra forma de validação",
+    "outro_descricao": "Descreva a outra forma de validação:",
+    "options": {
+      "eu": "Eu mesmo(a) realizo essa validação",
+      "qa": "A equipe de QA (qualidade/testes) realiza os testes",
+      "outros_membros": "Outros membros da equipe (ex: designers, programadores, líderes)",
+      "usuarios": "Usuários/jogadores (ex: playtests, testes de usabilidade)",
+      "nao_testamos": "Não costumamos realizar testes específicos para esses artefatos"
+    }
+  },
+
+  "desistir": "Desistir",
+  "confirmReset": "Tem certeza que deseja sair?",
+  "confirmResetDescription": "Isso apagará suas respostas salvas. Se quiser continuar depois, basta voltar mais tarde enquanto não clicar aqui.",
+  "situacao": {
+    "label": "Qual é a sua principal forma de atuação no desenvolvimento de jogos digitais atualmente? (Marque a alternativa que melhor descreve sua situação atual.)",
+    "atuacao_industria_integral": "Trabalho em tempo integral em uma empresa da indústria de jogos digitais",
+    "atuacao_industria_parcial": "Trabalho em tempo parcial em uma empresa da indústria de jogos digitais",
+    "atuacao_freelancer": "Desenvolvo jogos como freelancer/autônomo regularmente",
+    "atuacao_indie_horas_vagas": "Desenvolvo jogos de forma independente nas horas vagas (sem remuneração ou com remuneração eventual)",
+    "atuacao_eventual": "Desenvolvo jogos eventualmente, em projetos pontuais ou colaborativos",
+    "atuacao_nao_envolvido": "Não estou atualmente envolvido com desenvolvimento de jogos digitais, mas pretendo voltar a atuar nesta área."
+  },
+  "design_modelagem": "Como você costuma representar ou projetar suas ideias de design de jogo?",
+  "design_required": "Por favor, selecione pelo menos uma opção",
+  "design_modelagem_options": {
+    "uml": "Utilizo modelos com notações formais (ex: ex: diagramas de fluxo de gameplay, máquinas de estados, árvores de decisão, diagramas de mecânicas ou economia de jogo, UML)",
+    "prototipo_real": "Crio protótipos físicos ou no mundo real (ex: papel, tabuleiro, encenações)",
+    "prototipo_ferramenta": "Uso ferramentas digitais de prototipagem (ex: Figma, Construct, Twine, GrayBoxing)",
+    "anotacoes_simples": "Faço anotações simples (em texto, listas ou rabiscos)",
+    "mental": "Estruturo tudo mentalmente, sem registro formal"
+  },
+  "design_modelagem_outro_descricao": "Descreva o outro método de representar",
+  "design_outro_descricao_required": "Por favor, descreva o outro método",
+
+  "design_validacao": "Como você costuma testar ou validar o seu design antes da implementação completa?",
+  "design_required": "Por favor, selecione pelo menos uma opção",
+  "design_validacao_options": {
+    "prototipo_simplificado": "Por meio de protótipos jogáveis simplificados (digitais ou analógicos)",
+    "prototipo_real": "Com simulações físicas ou do mundo real (ex: com pessoas, objetos, encenações)",
+    "excel": "Usando planilhas para simular sistemas ou balanceamentos",
+    "machinations": "Utilizando ferramentas específicas (ex: Machinations)",
+    "mental": "Simulo mentalmente os cenários e interações"
+  },
+  "design_validacao_outro_descricao": "Descreva o outro método de teste/validação",
+
+  "testes_jogo": "Como os jogos são testados?",
+  "testes_jogo_required": "Selecione pelo menos uma opção",
+  "testes_jogo_options": {
+    "exploratorio": "Testes exploratórios (navego livremente pelo jogo)",
+    "roteiro": "Testes seguindo um roteiro ou checklist",
+    "automatizado": "Testes automatizados"
+  },
+  "testes_jogo_outro": "Descreva outro método de teste utilizado",
+  "testes_jogo_outro_required": "Por favor, descreva o outro método",
+  "ferramentas_teste": "Quais ferramentas você já utilizou para automatizar testes? (deixe em branco se não usar)",
+  "ferramentas_teste_required": "Selecione pelo menos uma opção",
+  "ferramentas_teste_options": {
+    "robotframework": "Robot Framework",
+    "selenium": "Selenium",
+    "appium": "Appium",
+    "unity": "Unity Test Framework",
+    "unreal_functional": "Unreal Functional Testing Framework",
+    "unreal_gauntlet": "Unreal Gauntlet"
+  },
+  "ferramentas_teste_outro": "Descreva a outra ferramenta utilizada",
+  "ferramentas_teste_outro_required": "Por favor, descreva a ferramenta",
+  "conteudo_testado": "O que é testado nos testes automatizados? (deixe em branco se não usar)",
+  "conteudo_testado_required": "Selecione pelo menos uma opção",
+  "conteudo_testado_options": {
+    "componentes": "Componentes isolados",
+    "performance": "Performance básica (tempo de carregamento, FPS mínimo)",
+    "cenarios": "Cenários específicos do jogo",
+    "acoes_personagem": "Ações de um personagem",
+    "teste_fumaca": "Testes de fumaça (verifico se o jogo roda sem falhas críticas)"
+  },
+  "conteudo_testado_outro": "Descreva o que mais é testado",
+  "conteudo_testado_outro_required": "Por favor, descreva",
+  "etapa_testes": "Em que etapa os testes automatizados costumam ser criados? (deixe em branco se não usar)",
+  "etapa_testes_required": "Selecione pelo menos uma opção",
+  "etapa_testes_options": {
+    "antes_funcionalidade": "Antes da funcionalidade (Test Driven)",
+    "durante_funcionalidade": "Durante ou logo após a criação da funcionalidade",
+    "pos_prototipo": "Após a criação de um protótipo funcional",
+    "pos_funcionalidades": "Após as principais funcionalidades estarem implementadas",
+    "no_fim": "Somente ao final do projeto",
+    "quando_possivel": "Quando há oportunidade"
+  },
+  "etapa_testes_outro": "Descreva outra etapa",
+  "etapa_testes_outro_required": "Por favor, descreva a etapa",
+  "uso_testes": "Em quais situações os testes automatizados são ou já foram utilizados como requisito obrigatório nos seus projetos?(deixe em branco se não usar)",
+  "uso_testes_required": "Selecione pelo menos uma opção",
+  "uso_testes_options": {
+    "nao": "Nunca os usei como requisito",
+    "atualizacao": "Para aceitar atualizações feitas por colaboradores",
+    "proxima_fase": "Para definir se o jogo pode seguir para a próxima fase (alfa, beta, gold)",
+    "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade"
+  },
+  "uso_testes_outro": "Descreva outro uso como requisito",
+  "uso_testes_outro_required": "Por favor, descreva",
+  "dificuldades_testes": "Você já teve dificuldades com testes automatizados?",
+  "dificuldades_testes_required": "Selecione pelo menos uma opção",
+  "dificuldades_testes_options": {
+    "entendimento_frameworks": "Tive dificuldade de entender os frameworks",
+    "preferencia_humanos": "Prefiro testes humanos, acho mais úteis",
+    "implementacao_dificil": "Achei muito difícil de implementar",
+    "nao_encontram_erros_reais": "Os testes não encontram os erros que os jogadores realmente encontram"
+  },
+  "dificuldades_testes_outro": "Descreva outra dificuldade",
+  "dificuldades_testes_outro_required": "Por favor, descreva",
+  "areas_uso_ia": {
+    "label": "De que formas você tem utilizado IAs/LLMs generativas no desenvolvimento de jogos?",
+    "outro_descreva": "Descreva outra forma de uso:",
+    "required": "Por favor, selecione ao menos uma forma de uso",
+    "options": {
+      "ideias_criativas": "Para gerar ideias criativas (ex: personagens, mecânicas, narrativas, diálogos)",
+      "conteudo_visual_sonoro": "Para criar conteúdos visuais ou sonoros (ex: artes conceituais, vozes, trilhas, efeitos)",
+      "implementacao": "Para auxiliar na implementação (ex: escrever ou revisar código, sugerir soluções técnicas)",
+      "planejamento": "Para planejar ou estruturar o jogo (ex: documentação, arquitetura de sistemas, balanceamento)",
+      "testes": "Para criar ou sugerir testes automatizados (ex: geração de casos de teste, scripts de validação)",
+      "validacao": "Para revisar ou validar funcionalidades do jogo (ex: encontrar erros, verificar lógicas)",
+      "curioso": "Ainda não usei IA, mas tenho curiosidade ou interesse",
+      "nao_usado": "Não tenho utilizado IA nos meus projetos de jogos",
+      "outro": "Outra atividade"
+    }
+  },
+  "temores_uso_ia": {
+    "label": "Quais são suas principais preocupações em relação ao uso de IAs generativas no desenvolvimento de jogos? (Marque no máximo 2)",
+    "required": "Por favor, selecione até 2 preocupações",
+    "outro_descreva": "Descreva outra preocupação:",
+    "options": {
+      "dados_copyright": "Uso de dados protegidos por direitos autorais sem consentimento (para treinar a IA)",
+      "privacidade": "Preocupações com privacidade: minhas entradas podem ser reutilizadas sem controle",
+      "substituicao": "Medo de que profissionais da área sejam substituídos por IA",
+      "transparencia": "Falta de transparência sobre como a IA funciona ou toma decisões",
+      "originalidade": "Dificuldade em validar a originalidade ou a confiabilidade do que é gerado",
+      "etica": "Ética no uso da IA (ex: autoria, créditos, plágio)",
+      "outro": "Outro",
+      "sem_preocupacoes": "Não tenho preocupações significativas no momento"
+    }
+  }
   }

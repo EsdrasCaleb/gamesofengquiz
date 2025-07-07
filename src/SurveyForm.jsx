@@ -45,8 +45,13 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             "dificuldades_manutencao","dificuldades_manutencao_outro","causas_problemas_tecnicos",
             "causas_problemas_tecnicos_outro","desafios_testes",
 
-            "asset_testes","asset_testes_outro_descricao","asset_testes_automatizado_descricao","design_modelagem",
-            "design_modelagem_outro_descricao","design_validacao","design_validacao_outro_descricao","testes_jogo",
+            "avaliacao_artefatos","avaliacao_artefatos_outro","responsavel_validacao_artefatos",
+            "responsavel_validacao_artefatos_outro","percepcao_avaliacao_artefatos",
+
+            "design_modelagem",
+            "design_modelagem_outro_descricao","design_validacao","design_validacao_outro_descricao",
+
+            "testes_jogo",
             "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro","ferramentas_teste",
             "ferramentas_teste_outro","conteudo_testado","conteudo_testado_outro","etapa_testes","etapa_testes_outro",
             "uso_testes","uso_testes_outro","consideracoes_finais",'contato_entrevista',"email",
@@ -603,39 +608,66 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Collapse.Panel header={!artist_selcted&&t("option_area")} 
                 showArrow={!artist_selcted} 
                 collapsible={artist_selcted&&"icon"} key="artista">
+
                 <Form.Item
-                    name="asset_testes"
-                    label={(index++)+"-"+t('asset_testes')}
-                    rules={[{ required: artist_selcted, message: t('asset_testes_required') }]}
+                    name="avaliacao_artefatos"
+                    label={(index++) + " - " + t('avaliacao_artefatos.label')}
+                    rules={[{ required: artist_selcted, message: t('avaliacao_artefatos.required') }]}
                 >
                     <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }} options={[
-                        { value: 'visual_manual', label: t('asset_testes_options.teste_visual_manual') },
-                        { value: 'com_equipe', label: t('asset_testes_options.teste_com_equipe') },
-                        { value: 'automatizado', label: t('asset_testes_options.teste_automatizado') },
-                        { value: 'nao_sei', label: t('asset_testes_options.teste_nao_sei') },
-                        { value: 'nao_sao_testados', label: t('asset_testes_options.teste_nao_sao_testados') },
-                        { value: 'outro', label: t('asset_testes_options.teste_outro') },
+                        { value: 'criterios_definidos', label: t('avaliacao_artefatos.options.criterios_definidos') },
+                        { value: 'avaliacao_subjetiva', label: t('avaliacao_artefatos.options.avaliacao_subjetiva') },
+                        { value: 'testes_formais', label: t('avaliacao_artefatos.options.testes_formais') },
+                        { value: 'avaliacao_por_outros', label: t('avaliacao_artefatos.options.avaliacao_por_outros') },
+                        { value: 'sem_avaliacao_estruturada', label: t('avaliacao_artefatos.options.sem_avaliacao_estruturada') },
+                        { value: 'outro', label: t('outro') },
                     ]} />
                 </Form.Item>
-                    {selecteds['asset_testes']?.includes('outro') && (
-                        <Form.Item
-                            name="asset_testes_outro_descricao"
-                            label={(index-1)+"a-"+t('asset_testes_outro_descricao')}
-                            rules={[{ required: true, message: t('asset_testes_outro_descricao_required') }]}
-                        >
-                            <Input />
-                        </Form.Item>
-                    )}
-                {selecteds['asset_testes']?.includes('automatizado') && (
+
+                {selecteds['avaliacao_artefatos']?.includes('outro') && (
                     <Form.Item
-                        name="asset_testes_automatizado_descricao"
-                        label={(index-1)+"b-"+t('asset_testes_automatizado_descricao')}
-                        rules={[{ required: true, message: t('asset_testes_automatizado_required') }]}
+                        name="avaliacao_artefatos_outro"
+                        label={(index - 1) + "a - " + t('avaliacao_artefatos.outro_descricao')}
+                        rules={[{ required: true, message: t('avaliacao_artefatos.outro_required') }]}
                     >
                         <Input />
                     </Form.Item>
                 )}
-                </Collapse.Panel>
+
+                <Form.Item
+                    name="responsavel_validacao_artefatos"
+                    label={(index++) + " - " + t('responsavel_validacao_artefatos.label')}
+                    rules={[{ required: artist_selcted, message: t('responsavel_validacao_artefatos.required') }]}
+                >
+                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }} options={[
+                        { value: 'eu', label: t('responsavel_validacao_artefatos.options.eu') },
+                        { value: 'qa', label: t('responsavel_validacao_artefatos.options.qa') },
+                        { value: 'outros_membros', label: t('responsavel_validacao_artefatos.options.outros_membros') },
+                        { value: 'usuarios', label: t('responsavel_validacao_artefatos.options.usuarios') },
+                        { value: 'nao_testamos', label: t('responsavel_validacao_artefatos.options.nao_testamos') },
+                        { value: 'outro', label: t('outro') },
+                    ]} />
+                </Form.Item>
+
+                {selecteds['responsavel_validacao_artefatos']?.includes('outro') && (
+                    <Form.Item
+                        name="responsavel_validacao_artefatos_outro"
+                        label={(index - 1) + "a - " + t('responsavel_validacao_artefatos.outro_descricao')}
+                        rules={[{ required: true, message: t('responsavel_validacao_artefatos.outro_required') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
+
+                <Form.Item
+                    name="percepcao_avaliacao_artefatos"
+                    label={(index++) + " - " + t('percepcao_avaliacao_artefatos')}
+                >
+                    <Input.TextArea autoSize={{ minRows: 3 }} />
+                </Form.Item>
+
+
+            </Collapse.Panel>
             </Collapse>
             </Card>
 
@@ -651,7 +683,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Form.Item
                     name="design_modelagem"
                     label={(index++)+"-"+t('design_modelagem')}
-                    rules={[{ required: design_selected, message: t('design_modelagem_required') }]}
+                    rules={[{ required: design_selected, message: t('design_required') }]}
                 >
                     <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }} options={[
                         { value: 'uml', label: t('design_modelagem_options.uml') },
@@ -667,7 +699,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Form.Item
                         name="design_modelagem_outro_descricao"
                         label={(index-1)+"a-"+t('design_modelagem_outro_descricao')}
-                        rules={[{ required: true, message: t('design_modelagem_outro_descricao_required') }]}
+                        rules={[{ required: true, message: t('design_outro_descricao_required') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -676,7 +708,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Form.Item
                     name="design_validacao"
                     label={(index++)+"-"+t('design_validacao')}
-                    rules={[{ required: design_selected, message: t('design_validacao_required') }]}
+                    rules={[{ required: design_selected, message: t('design_required') }]}
                 >
                     <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}  options={[
                         { value: 'prototipo_simplificado', label: t('design_validacao_options.prototipo_simplificado') },
@@ -692,7 +724,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Form.Item
                         name="design_validacao_outro_descricao"
                         label={(index-1)+"a-"+t('design_validacao_outro_descricao')}
-                        rules={[{ required: true, message: t('design_validacao_outro_descricao_required') }]}
+                        rules={[{ required: true, message: t('design_outro_descricao_required') }]}
                     >
                         <Input />
                     </Form.Item>
