@@ -1,23 +1,67 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Grid, Collapse, Table, Typography, Card, FloatButton, Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import RequiredFieldsSummary from "./RequiredFieldsSummary.jsx";
+import {debounce, isEqual} from 'lodash';
+
 
 
 const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const [form] = Form.useForm();
     const screens = Grid.useBreakpoint();
+    const [currentScreen, setCurrentScreen] = useState(screens);
     const { t, i18n } = useTranslation();
     
     const [loading, setLoading] = useState(false);
     const [requiredErrors, setRequiredErrors] = useState([]);
 
+    //initial data
+    useEffect(() => {
+        form.setFieldsValue(data);
+    }, [])
+    //changeData
+    const debouncedSetData = useCallback(
+        debounce((allValues) => {
+            setData(prev => {
+                if (isEqual(prev, allValues)) return prev;
+                return allValues;
+            });
+        }, 300),
+        []
+    );
+    useEffect(() => {
+        if (!isEqual(currentScreen, screens)) {
+            setCurrentScreen(screens);
+        }
+    }, [screens]);
+
+
     //seletores
-    const artist_selcted = ["artista","artista_som","roteiro_narrativa","design_ux"].some(role => data['papel']?.includes(role));
-    const design_selected = ["game_designer","level_designer"].some(role => data['papel']?.includes(role));
-    const tester_selected = ["programador","qa"].some(role => data['papel']?.includes(role));
-    const problemas_selected = ["gerente","programador","qa"].some(role => data['papel']?.includes(role));
+    const artist_selected = useMemo(() =>
+            ["artista", "artista_som", "roteiro_narrativa", "design_ux"].some(role =>
+                data.papel?.includes(role)
+            ),
+        [data.papel]
+    );
+    const design_selected = useMemo(() =>
+            ["game_designer", "level_designer"].some(role =>
+                data.papel?.includes(role)
+            ),
+        [data.papel]
+    );
+    const tester_selected = useMemo(() =>
+            ["programador", "qa"].some(role =>
+                data.papel?.includes(role)
+            ),
+        [data.papel]
+    );
+    const problemas_selected = useMemo(() =>
+            ["gerente", "programador", "qa"].some(role =>
+                data.papel?.includes(role)
+            ),
+        [data.papel]
+    );
 
     //opcoes
     const desafios_teste = [
@@ -64,11 +108,6 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         'sem_ferramentas',
         'outro'
     ];
-
-
-    useEffect(() => {
-        form.setFieldsValue(data);
-    }, [])
 
     const onFinish = async (values) => {
         setLoading(true)
@@ -158,7 +197,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Popconfirm>
         <Form
             onValuesChange={(changed, all) => {
-                setData(all);
+                debouncedSetData(all);
             }}
             onFinishFailed={({ errorFields }) => {
                 setRequiredErrors(errorFields.map(f => f.name.join('.')));
@@ -180,7 +219,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Input />
                 </Form.Item>
                 <Form.Item name="formacao" label={(index++)+"-"+t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
-                   <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                   <Radio.Group className="flex-column" >
                     <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
                     <Radio value="fundamental">{t('formacao_opcoes.fundamental')}</Radio>
                     <Radio value="medio">{t('formacao_opcoes.medio')}</Radio>
@@ -196,7 +235,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('area_formacao_descricao')}
                     rules={[{ required: true, message: t('area_formacao_required') }]}
                 >
-                    <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Radio.Group className="flex-column" >
                         <Radio value="computacao">{t('area_formacao.computacao')}</Radio>
                         <Radio value="engenharia">{t('area_formacao.engenharia')}</Radio>
                         <Radio value="jogos">{t('area_formacao.jogos')}</Radio>
@@ -229,7 +268,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('situacao.label')}
                     rules={[{ required: true, message: t('option_required') }]}
                 >
-                    <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Radio.Group className="flex-column" >
                         <Radio value="atuacao_industria_integral">
                             {t('situacao.atuacao_industria_integral')}
                         </Radio>
@@ -253,7 +292,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
 
                 <Form.Item name="tamanho_maior_time" label={(index++)+"-"+t('tamanho_maior_time')} rules={[{ required: true, message: t('option_required')  }]}>
-                    <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Radio.Group className="flex-column" >
                         <Radio value="individual">{t('situacao_equipe.individual')}</Radio>
                         <Radio value="pequena">{t('situacao_equipe.pequena')}</Radio>
                         <Radio value="media">{t('situacao_equipe.media')}</Radio>
@@ -264,7 +303,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 </Form.Item>
 
                 <Form.Item name="duracao_media_projetos" label={(index++) + '-' + t('duracao_media_projetos')} rules={[{ required: true, message: t('option_required')  }]}>
-                    <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Radio.Group className="flex-column" >
                         <Radio value="menos_1_mes">{t('duracao_projetos.menos_1_mes')}</Radio>
                         <Radio value="1a3_meses">{t('duracao_projetos.1a3_meses')}</Radio>
                         <Radio value="4a6_meses">{t('duracao_projetos.4a6_meses')}</Radio>
@@ -281,7 +320,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('papel')}
                     rules={[{ required: true, message: t('papel_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Checkbox.Group className="flex-column" >
                         <Checkbox value="gerente">{t('papel_gerente')}</Checkbox>
                         <Checkbox value="programador">{t('papel_programador')}</Checkbox>
                         <Checkbox value="artista">{t('papel_artista')}</Checkbox>
@@ -311,7 +350,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('tipos_jogos')}
                     rules={[{ required: true, message: t('tipos_jogos_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }} options={[
+                    <Checkbox.Group className="flex-column"  options={[
                         { label: t('tipos_jogos_options.fps'), value: 'fps' },
                         { label: t('tipos_jogos_options.educacional'), value: 'educacional' },
                         { label: t('tipos_jogos_options.rpg'), value: 'rpg' },
@@ -343,7 +382,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     rules={[{ required: true, message: t('plataformas_required') }]}
                 >
                     <Checkbox.Group
-                        style={{ display: 'flex', flexDirection: 'column' }}
+                        className="flex-column" 
                         options={[
                             { label: t('plataformas_options.pc'), value: 'pc' },
                             { label: t('plataformas_options.web'), value: 'web' },
@@ -373,7 +412,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     rules={[{ required: true, message: t('ferramentas_desenvolvimento_required') }]}
                 >
                     <Checkbox.Group
-                        style={{ display: 'flex', flexDirection: 'column' }}
+                        className="flex-column" 
                         options={[
                             { value: 'unity', label: t('ferramentas_options.unity') },
                             { value: 'unreal', label: t('ferramentas_options.unreal') },
@@ -402,7 +441,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Typography.Title level={5}>
                     {(index++) + ' - ' + t('uso_praticas.label')}
                 </Typography.Title>
-                {screens.xs ? (
+                {currentScreen.xs ? (
   praticas.map((key) => (
     <Card key={key} style={{ marginBottom: 12 }}>
       <Typography.Text strong>{t(`uso_praticas.praticas.${key}`)}</Typography.Text>
@@ -457,7 +496,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('areas_uso_ia.label')}
                     rules={[{ required: true, message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Checkbox.Group className="flex-column" >
                         <Checkbox value="ideias_criativas">{t('areas_uso_ia.options.ideias_criativas')}</Checkbox>
                         <Checkbox value="conteudo_visual_sonoro">{t('areas_uso_ia.options.conteudo_visual_sonoro')}</Checkbox>
                         <Checkbox value="implementacao">{t('areas_uso_ia.options.implementacao')}</Checkbox>
@@ -485,7 +524,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++) + " - " + t('temores_uso_ia.label')}
                     rules={[{ required: true, message: t('temores_uso_ia.required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Checkbox.Group className="flex-column" >
                         {problemas_ia.map((value) => (
                             <Checkbox
                                 key={value}
@@ -523,7 +562,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++) + '-' + t('dificuldades_manutencao.label')}
                     rules={[{ required: problemas_selected, message: t('dificuldades_manutencao.required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Checkbox.Group className="flex-column" >
                         {problemas_manutencao.map((value) => (
                             <Checkbox
                                 key={value}
@@ -554,7 +593,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++) + '-' + t('causas_problemas_tecnicos.label')}
                     rules={[{ required: problemas_selected, message: t('causas_problemas_tecnicos.required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Checkbox.Group className="flex-column" >
                         {problemas_causas.map((value) => (
                             <Checkbox
                                 key={value}
@@ -585,7 +624,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++) + '-' + t('desafios_testes.label')}
                     rules={[{ required: problemas_selected, message: t('desafios_testes.required') }]}
                 >
-                    <Checkbox.Group  style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Checkbox.Group  className="flex-column" >
                         {desafios_teste.map((value) => (
                             <Checkbox
                                 key={value}
@@ -605,19 +644,19 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Card>
             <Card title={t("artistis_profile")}>
             <Collapse 
-            {...(artist_selcted
+            {...(artist_selected
                     ? { activeKey: ['artista'] }
-                    : { defaultActiveKey: [] })} ghost={artist_selcted}>
-            <Collapse.Panel header={!artist_selcted&&t("option_area")} 
-                showArrow={!artist_selcted} 
-                collapsible={artist_selcted&&"icon"} key="artista">
+                    : { defaultActiveKey: [] })} ghost={artist_selected}>
+            <Collapse.Panel header={!artist_selected&&t("option_area")} 
+                showArrow={!artist_selected} 
+                collapsible={artist_selected&&"icon"} key="artista">
 
                 <Form.Item
                     name="avaliacao_artefatos"
                     label={(index++) + " - " + t('avaliacao_artefatos.label')}
-                    rules={[{ required: artist_selcted, message: t('option_required') }]}
+                    rules={[{ required: artist_selected, message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }} options={[
+                    <Checkbox.Group className="flex-column"  options={[
                         { value: 'criterios_definidos', label: t('avaliacao_artefatos.options.criterios_definidos') },
                         { value: 'avaliacao_subjetiva', label: t('avaliacao_artefatos.options.avaliacao_subjetiva') },
                         { value: 'testes_formais', label: t('avaliacao_artefatos.options.testes_formais') },
@@ -640,9 +679,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Form.Item
                     name="responsavel_validacao_artefatos"
                     label={(index++) + " - " + t('responsavel_validacao_artefatos.label')}
-                    rules={[{ required: artist_selcted, message: t('option_required') }]}
+                    rules={[{ required: artist_selected, message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }} options={[
+                    <Checkbox.Group className="flex-column"  options={[
                         { value: 'eu', label: t('responsavel_validacao_artefatos.options.eu') },
                         { value: 'qa', label: t('responsavel_validacao_artefatos.options.qa') },
                         { value: 'outros_membros', label: t('responsavel_validacao_artefatos.options.outros_membros') },
@@ -686,7 +725,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('design_modelagem')}
                     rules={[{ required: design_selected, message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }} options={[
+                    <Checkbox.Group className="flex-column"  options={[
                         { value: 'uml', label: t('design_modelagem_options.uml') },
                         { value: 'prototipo_real', label: t('design_modelagem_options.prototipo_real') },
                         { value: 'prototipo_ferramenta', label: t('design_modelagem_options.prototipo_ferramenta') },
@@ -711,7 +750,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('design_validacao')}
                     rules={[{ required: design_selected, message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}  options={[
+                    <Checkbox.Group className="flex-column"   options={[
                         { value: 'prototipo_simplificado', label: t('design_validacao_options.prototipo_simplificado') },
                         { value: 'prototipo_real', label: t('design_validacao_options.prototipo_real') },
                         { value: 'excel', label: t('design_validacao_options.excel') },
@@ -748,7 +787,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('testes_jogo')}
                     rules={[{ required: tester_selected, message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}  options={[
+                    <Checkbox.Group className="flex-column"   options={[
                         { value: 'exploratorio', label: t('testes_jogo_options.exploratorio') },
                         { value: 'roteiro', label: t('testes_jogo_options.roteiro') },
                         { value: 'automatizado', label: t('testes_jogo_options.automatizado') },
@@ -770,7 +809,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('dificuldades_testes')}
                     rules={[{ required: tester_selected, message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}  options={[
+                    <Checkbox.Group className="flex-column"   options={[
                         { value: 'entendimento_frameworks', label: t('dificuldades_testes_options.entendimento_frameworks') },
                         { value: 'preferencia_humanos', label: t('dificuldades_testes_options.preferencia_humanos') },
                         { value: 'implementacao_dificil', label: t('dificuldades_testes_options.implementacao_dificil') },
@@ -794,7 +833,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('ferramentas_teste')}
                     rules={[{ required: data['testes_jogo']?.includes('automatizado'), message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}  options={[
+                    <Checkbox.Group className="flex-column"   options={[
                         { value: 'robotframework', label: t('ferramentas_teste_options.robotframework') },
                         { value: 'selenium', label: t('ferramentas_teste_options.selenium') },
                         { value: 'appium', label: t('ferramentas_teste_options.appium') },
@@ -820,7 +859,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('conteudo_testado')}
                     rules={[{ required: data['testes_jogo']?.includes('automatizado'), message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}  options={[
+                    <Checkbox.Group className="flex-column"   options={[
                         { value: 'componentes', label: t('conteudo_testado_options.componentes') },
                         { value: 'performance', label: t('conteudo_testado_options.performance') },
                         { value: 'cenarios', label: t('conteudo_testado_options.cenarios') },
@@ -844,7 +883,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('etapa_testes')}
                     rules={[{ required: data['testes_jogo']?.includes('automatizado'), message: t('option_required') }]}
                 >
-                    <Radio.Group style={{ display: 'flex', flexDirection: 'column' }}  options={[
+                    <Radio.Group className="flex-column"   options={[
                         { value: 'antes_funcionalidade', label: t('etapa_testes_options.antes_funcionalidade') },
                         { value: 'durante_funcionalidade', label: t('etapa_testes_options.durante_funcionalidade') },
                         { value: 'pos_prototipo', label: t('etapa_testes_options.pos_prototipo') },
@@ -870,7 +909,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     label={(index++)+"-"+t('uso_testes')}
                     rules={[{ required: data['testes_jogo']?.includes('automatizado'), message: t('option_required') }]}
                 >
-                    <Checkbox.Group style={{ display: 'flex', flexDirection: 'column' }}  options={[
+                    <Checkbox.Group className="flex-column"   options={[
                         { value: 'nao', label: t('uso_testes_options.nao') },
                         { value: 'atualizacao', label: t('uso_testes_options.atualizacao') },
                         { value: 'proxima_fase', label: t('uso_testes_options.proxima_fase') },
