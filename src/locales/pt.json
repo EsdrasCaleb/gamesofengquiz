@@ -62,8 +62,9 @@
   "tipos_jogos": "Quais tipos de jogos você costuma desenvolver (gênero, estilo ou formato)?",
   "consideracoes_finais": "Gostaria de deixar algum comentário final sobre os testes nos projetos que você participa?",
   "contato_entrevista": "Nós gostariamos saber mais sobre os testes realizados no desenvolvimento de jogos. Você gostaria de ser contactado para uma entrevista?",
-  "email": "E-mail para referência (opcional):",
-  "email_contato": "E-mail para contato ou referência:",
+  "email": "E-mail para contato ou referência:",
+  "email_required": "Por favor nos dê um meio de contato.",
+  "email_contato": "E-mail para referência (opcional):",
   "enviar": "Enviar",
   "sim": "Sim",
   "nao": "Não",
@@ -78,8 +79,8 @@
   },
   "formacao_required": "Por favor, selecione sua formação.",
   "area_formacao_required": "Por favor, selecione sua área de formação.",
-  "area_formacao_descricao": "Qual a sua principal área de formação?",
-  "area_formacao": {
+  "area_formacao": "Qual a sua principal área de formação?",
+  "area_formacao_o": {
     "computacao": "Ciência da Computação / Engenharia de Software / Sistemas de Informação",
     "engenharia": "Engenharia (outras áreas)",
     "jogos": "Design de Jogos / Desenvolvimento de Jogos Digitais",
@@ -89,7 +90,7 @@
     "autodidata": "Autodidata (sem formação formal)",
     "outra": "Outra (especifique):"
   },
-  "area_formacao_outro_descreva": "Descreva sua área de formação",
+  "area_formacao_outro": "Descreva sua área de formação",
   "area_formacao_outro_required": "Por favor, descreva sua área de formação.",
   "papel_required": "Por favor, selecione uma função.",
   "papel_programador": "Programador",
@@ -103,12 +104,12 @@
   "papel_qa": "Testador (QA)",
   "papel_artista_som": "Artista de Som",
   "papel_animacao": "Animação",
-  "papel_outro_descreva": "Descreva a(s) outra(s)",
-  "papel_outro_required": "Por favor, especifique o outro(s).",
+  "papel_outro": "Descreva os(s) outro(s) papeis",
+  "outro_required": "Por favor, especifique o outro(s).",
   "ferramentas_desenvolvimento_required": "Por favor, informe pelo menos uma ferramenta.",
   "ferramentas_outro_descricao": "Qual a outra engine?",
   "ferramentas_outro_required": "Por favor, diga ao menos um nome.",
-  "plataformas": "Para quais plataformas você costuma desenvolver jogos?",
+  "plataformas_desenvolvimento": "Para quais plataformas você costuma desenvolver jogos?",
   "plataformas_required": "Por favor, selecione pelo menos uma plataforma.",
   "plataformas_outro_descricao": "Descreva a(s) outra(s) plataforma(s):",
   "plataformas_outro_required": "Por favor, descreva a(s) outra(s) plataforma(s).",
@@ -119,8 +120,9 @@
     "console": "Consoles (PlayStation, Xbox, Nintendo)",
     "xr": "Realidade virtual / aumentada"
   },
-  "dificuldades_manutencao": {
-    "label": "Na sua experiência com desenvolvimento de jogos, quais destes fatores mais dificultam a evolução e manutenção do projeto ao longo do tempo? (Escolha no máximo 3 opções)",
+  "dificuldades_manutencao": "Na sua experiência com desenvolvimento de jogos, quais destes fatores mais dificultam a evolução e manutenção do projeto ao longo do tempo? (Escolha no máximo 3 opções)",
+  "dificuldades_manutencao_outro": "Descreva o outro fator:",
+  "dificuldades_manutencao_o": {
     "required": "Por favor, selecione até 3 opções.",
     "options": {
       "codigo_dificil": "O código se torna difícil de entender com o tempo",
@@ -130,11 +132,11 @@
       "crescimento_ferramental": "As funcionalidades vão crescendo e fica difícil garantir estabilidade",
       "sem_dificuldades": "Não enfrento dificuldades significativas nesse aspecto",
       "outro": "Outro (especifique)"
-    },
-    "outro_descreva": "Descreva o outro fator:"
+    }
   },
-  "causas_problemas_tecnicos": {
-    "label": "Na sua opinião, o que mais contribui para o surgimento de problemas técnicos nos projetos de jogos que você desenvolve? (Escolha no máximo 3 opções)",
+  "causas_problemas_tecnicos": "Na sua opinião, o que mais contribui para o surgimento de problemas técnicos nos projetos de jogos que você desenvolve? (Escolha no máximo 3 opções)",
+  "causas_problemas_tecnicos_outro": "Descreva o outro fator:",
+  "causas_problemas_tecnicos_o": {
     "required": "Por favor, selecione até 3 opções.",
     "options": {
       "falta_tempo": "Falta de tempo ou prazos apertados",
@@ -144,11 +146,10 @@
       "mudancas_escopo": "Mudanças de escopo ou funcionalidades no meio do projeto",
       "sem_ferramentas": "Falta de ferramentas ou processos adequados",
       "outro": "Outro (especifique)"
-    },
-    "outro_descreva": "Descreva o outro fator:"
+    }
   },
-  "desafios_testes": {
-    "label": "Ao testar seus jogos durante o desenvolvimento, quais são os principais desafios que você costuma enfrentar? (Considere tanto testes manuais quanto automatizados. Escolha no máximo duas alternativas que mais representam sua situação.)",
+  "desafios_testes": "Ao testar seus jogos durante o desenvolvimento, quais são os principais desafios que você costuma enfrentar? (Considere tanto testes manuais quanto automatizados. Escolha no máximo duas alternativas que mais representam sua situação.)",
+  "desafios_testes_o": {
     "required": "Por favor, selecione até 2 alternativas.",
     "options": {
       "nao_testa": "Não costumo testar meus jogos (por falta de tempo, ferramentas ou conhecimento)",
@@ -160,17 +161,15 @@
       "sem_desafios": "Não enfrento grandes desafios com testes no momento"
     }
   },
+"uso_praticas_controle_versao":"Controle de versão (ex: Git)" ,
+"uso_praticas_padroes_design":"Padrões de design (ex: ECS, componentes)",
+"uso_praticas_modelagem_projeto":"Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
+"uso_praticas_prototipacao":"Prototipação técnica",
+"uso_praticas_tdd":"Desenvolvimento orientado a testes (TDD)",
+"uso_praticas_integracao_continua":"Integração contínua (builds, pipelines)",
 "uso_praticas": {
   "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",
   "required": "Por favor, selecione uma opção para cada prática.",
-  "praticas": {
-    "controle_versao": "Controle de versão (ex: Git)",
-    "padroes_design": "Padrões de design (ex: ECS, componentes)",
-    "modelagem_projeto": "Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
-    "prototipacao": "Prototipação técnica",
-    "tdd": "Desenvolvimento orientado a testes (TDD)",
-    "integracao_continua": "Integração contínua (builds, pipelines)"
-  },
   "opcoes": {
     "uso_atualmente": "Uso atualmente",
     "nao_conhece": "Não uso porque não conheço bem",
@@ -207,10 +206,10 @@
     "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
     "nada": "Não utilizo motores de jogo (programação com libs básicas como SDL)"
   },
-  "avaliacao_artefatos": {
-    "label": "Como você costuma avaliar a qualidade dos artefatos criativos que produz (imagens, sons, ícones, vídeos, layouts etc.)?",
+  "avaliacao_artefatos": "Como você costuma avaliar a qualidade dos artefatos criativos que produz (imagens, sons, ícones, vídeos, layouts etc.)?",
+  "avaliacao_artefatos_outro": "Descreva a outra forma de avaliação:",
+  "avaliacao_artefatos_o": {
     "outro_required": "Descreva a outra forma de avaliação",
-    "outro_descricao": "Descreva a outra forma de avaliação:",
     "options": {
       "criterios_definidos": "Uso critérios definidos previamente (ex: estilo, clareza, adequação ao público)",
       "avaliacao_subjetiva": "Faço uma avaliação mais subjetiva, baseada na minha própria percepção",
@@ -220,12 +219,10 @@
     }
   },
   "percepcao_avaliacao_artefatos": "Gostaria de comentar sobre como você percebe ou vivencia a avaliação da qualidade dos elementos criativos no desenvolvimento de jogos?",
-
-
-    "responsavel_validacao_artefatos": {
-    "label": "Quem costuma ser responsável por testar ou validar os artefatos criativos que você produz?",
+  "responsavel_validacao_artefatos": "Quem costuma ser responsável por testar ou validar os artefatos criativos que você produz?",
+  "responsavel_validacao_artefatos_outro": "Descreva a outra forma de validação:",
+  "responsavel_validacao_artefatos_o": {
     "outro_required": "Descreva a outra forma de validação",
-    "outro_descricao": "Descreva a outra forma de validação:",
     "options": {
       "eu": "Eu mesmo(a) realizo essa validação",
       "qa": "A equipe de QA (qualidade/testes) realiza os testes",
@@ -238,8 +235,8 @@
   "desistir": "Desistir",
   "confirmReset": "Tem certeza que deseja sair?",
   "confirmResetDescription": "Isso apagará suas respostas salvas. Se quiser continuar depois, basta voltar mais tarde enquanto não clicar aqui.",
-  "situacao": {
-    "label": "Qual é a sua principal forma de atuação no desenvolvimento de jogos digitais atualmente? (Marque a alternativa que melhor descreve sua situação atual.)",
+  "situacao": "Qual é a sua principal forma de atuação no desenvolvimento de jogos digitais atualmente? (Marque a alternativa que melhor descreve sua situação atual.)",
+  "situacao_o": {
     "atuacao_industria_integral": "Trabalho em tempo integral em uma empresa da indústria de jogos digitais",
     "atuacao_industria_parcial": "Trabalho em tempo parcial em uma empresa da indústria de jogos digitais",
     "atuacao_freelancer": "Desenvolvo jogos como freelancer/autônomo regularmente",
@@ -326,9 +323,9 @@
   },
   "dificuldades_testes_outro": "Descreva outra dificuldade",
   "dificuldades_testes_outro_required": "Por favor, descreva",
-  "areas_uso_ia": {
-    "label": "De que formas você tem utilizado IAs/LLMs generativas no desenvolvimento de jogos?",
-    "outro_descreva": "Descreva outra forma de uso:",
+  "areas_uso_ia": "De que formas você tem utilizado IAs/LLMs generativas no desenvolvimento de jogos?",
+  "areas_uso_ia_outro": "Descreva outra forma de uso:",
+  "areas_uso_ia_o": {
     "required": "Por favor, selecione ao menos uma forma de uso",
     "options": {
       "ideias_criativas": "Para gerar ideias criativas (ex: personagens, mecânicas, narrativas, diálogos)",
@@ -342,10 +339,10 @@
       "outro": "Outra atividade"
     }
   },
-  "temores_uso_ia": {
-    "label": "Quais são suas principais preocupações em relação ao uso de IAs generativas no desenvolvimento de jogos? (Marque no máximo 2)",
+  "temores_uso_ia": "Quais são suas principais preocupações em relação ao uso de IAs generativas no desenvolvimento de jogos? (Marque no máximo 2)",
+  "temores_uso_ia_outro": "Descreva outra preocupação:",
+  "temores_uso_ia_o": {
     "required": "Por favor, selecione até 2 preocupações",
-    "outro_descreva": "Descreva outra preocupação:",
     "options": {
       "dados_copyright": "Uso de dados protegidos por direitos autorais sem consentimento (para treinar a IA)",
       "privacidade": "Preocupações com privacidade: minhas entradas podem ser reutilizadas sem controle",
@@ -353,9 +350,9 @@
       "transparencia": "Falta de transparência sobre como a IA funciona ou toma decisões",
       "originalidade": "Dificuldade em validar a originalidade ou a confiabilidade do que é gerado",
       "etica": "Ética no uso da IA (ex: autoria, créditos, plágio)",
-      "outro": "Outro",
+      "outro": "Outra",
       "sem_preocupacoes": "Não tenho preocupações significativas no momento"
     }
   },
-  "required_fields_missing":"Campos obrigatórios não preenchidos"
+  "required_fields_missing":"Por favor, responda as seguintes perguntas:"
 }

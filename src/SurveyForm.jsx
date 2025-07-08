@@ -37,6 +37,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     }, [screens]);
 
 
+
+
     //seletores
     const artist_selected = useMemo(() =>
             ["artista", "artista_som", "roteiro_narrativa", "design_ux"].some(role =>
@@ -109,6 +111,13 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         'outro'
     ];
 
+    const isMissing = useMemo(() => {
+        return praticas.reduce((acc, pratica) => {
+            acc[pratica] = requiredErrors.includes("uso_praticas_" + pratica);
+            return acc;
+        }, {});
+    }, [requiredErrors]);
+    console.log(data)
     const onFinish = async (values) => {
         setLoading(true)
         const dataCollums = ['uid',"language",
@@ -120,7 +129,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             'papel','papel_outro',"tipos_jogos","tipos_jogos_outro_descricao","plataformas_desenvolvimento",
             "plataformas_outro_descricao",'ferramentas_desenvolvimento', "ferramentas_outro_descricao",
             "uso_praticas_controle_versao","uso_praticas_padroes_design","uso_praticas_modelagem_projeto",
-            ,"uso_praticas_prototipacao", "uso_praticas_tdd", "integracao_continua", 
+            "uso_praticas_prototipacao", "uso_praticas_tdd", "integracao_continua",
             
             "areas_uso_ia","areas_uso_ia_outro","temores_uso_ia","temores_uso_ia_outro",
 
@@ -200,7 +209,11 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 debouncedSetData(all);
             }}
             onFinishFailed={({ errorFields }) => {
-                setRequiredErrors(errorFields.map(f => f.name.join('.')));
+                const newErrors = errorFields.map(f => f.name.join('.'));
+                setRequiredErrors(prev => {
+                    if (isEqual(prev, newErrors)) return prev;
+                    return newErrors;
+                });
             }}
             form={form} layout="vertical" onFinish={onFinish}
         >
@@ -232,25 +245,25 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="area_formacao"
-                    label={(index++)+"-"+t('area_formacao_descricao')}
+                    label={(index++)+"-"+t('area_formacao')}
                     rules={[{ required: true, message: t('area_formacao_required') }]}
                 >
                     <Radio.Group className="flex-column" >
-                        <Radio value="computacao">{t('area_formacao.computacao')}</Radio>
-                        <Radio value="engenharia">{t('area_formacao.engenharia')}</Radio>
-                        <Radio value="jogos">{t('area_formacao.jogos')}</Radio>
-                        <Radio value="design">{t('area_formacao.design')}</Radio>
-                        <Radio value="musica">{t('area_formacao.musica')}</Radio>
-                        <Radio value="comunicacao">{t('area_formacao.comunicacao')}</Radio>
-                        <Radio value="autodidata">{t('area_formacao.autodidata')}</Radio>
-                        <Radio value="outro">{t('area_formacao.outra')}</Radio>
+                        <Radio value="computacao">{t('area_formacao_o.computacao')}</Radio>
+                        <Radio value="engenharia">{t('area_formacao_o.engenharia')}</Radio>
+                        <Radio value="jogos">{t('area_formacao_o.jogos')}</Radio>
+                        <Radio value="design">{t('area_formacao_o.design')}</Radio>
+                        <Radio value="musica">{t('area_formacao_o.musica')}</Radio>
+                        <Radio value="comunicacao">{t('area_formacao_o.comunicacao')}</Radio>
+                        <Radio value="autodidata">{t('area_formacao_o.autodidata')}</Radio>
+                        <Radio value="outro">{t('area_formacao_o.outra')}</Radio>
                     </Radio.Group>
                 </Form.Item>
 
                 {data['area_formacao']=='outro' && (
                     <Form.Item
                     name="area_formacao_outro"
-                    label={(index-1)+"a-"+t('area_formacao_outro_descreva')}
+                    label={(index-1)+"a-"+t('area_formacao_outro')}
                     rules={[{ required: true, message: t('area_formacao_outro_required') }]}
                     >
                     <Input />
@@ -265,27 +278,27 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="situacao"
-                    label={(index++)+"-"+t('situacao.label')}
+                    label={(index++)+"-"+t('situacao')}
                     rules={[{ required: true, message: t('option_required') }]}
                 >
                     <Radio.Group className="flex-column" >
                         <Radio value="atuacao_industria_integral">
-                            {t('situacao.atuacao_industria_integral')}
+                            {t('situacao_o.atuacao_industria_integral')}
                         </Radio>
                         <Radio value="atuacao_industria_parcial">
-                            {t('situacao.atuacao_industria_parcial')}
+                            {t('situacao_o.atuacao_industria_parcial')}
                         </Radio>
                         <Radio value="atuacao_freelancer">
-                            {t('situacao.atuacao_freelancer')}
+                            {t('situacao_o.atuacao_freelancer')}
                         </Radio>
                         <Radio value="atuacao_indie_horas_vagas">
-                            {t('situacao.atuacao_indie_horas_vagas')}
+                            {t('situacao_o.atuacao_indie_horas_vagas')}
                         </Radio>
                         <Radio value="atuacao_eventual">
-                            {t('situacao.atuacao_eventual')}
+                            {t('situacao_o.atuacao_eventual')}
                         </Radio>
                         <Radio value="atuacao_nao_envolvido">
-                            {t('situacao.atuacao_nao_envolvido')}
+                            {t('situacao_o.atuacao_nao_envolvido')}
                         </Radio>
                     </Radio.Group>
                 </Form.Item>
@@ -338,8 +351,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 {data['papel']?.includes('outro') && (
                     <Form.Item
                         name="papel_outro"
-                        label={(index-1)+"a-"+t('papel_outro_descreva')}
-                        rules={[{ required: true, message: t('papel_outro_required') }]}
+                        label={(index-1)+"a-"+t('papel_outro')}
+                        rules={[{ required: true, message: t('outro_required') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -378,7 +391,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="plataformas_desenvolvimento"
-                    label={(index++) + '-' + t('plataformas')}
+                    label={(index++) + '-' + t('plataformas_desenvolvimento')}
                     rules={[{ required: true, message: t('plataformas_required') }]}
                 >
                     <Checkbox.Group
@@ -439,81 +452,84 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </Form.Item>
                 )}
                 <Typography.Title level={5}>
-                    {(index++) + ' - ' + t('uso_praticas.label')}
+                    <span className="required-extra">* </span>
+                     {(index++) + ' - ' + t('uso_praticas.label')}
                 </Typography.Title>
                 {currentScreen.xs ? (
-  praticas.map((key) => (
-    <Card key={key} style={{ marginBottom: 12 }}>
-      <Typography.Text strong>{t(`uso_praticas.praticas.${key}`)}</Typography.Text>
-      <Form.Item
-        name={'uso_praticas_'+key}
-        rules={[{ required: true, message: t('option_required') }]}
-      >
-        <Radio.Group>
-          {problemas_praticas.map((optionKey) => (
-            <Radio  key={key+"_"+optionKey} value={optionKey}>{t(`uso_praticas.opcoes.${optionKey}`)}</Radio>
-          ))}
-        </Radio.Group>
-      </Form.Item>
-    </Card>
-  ))
-) : (
-        <Table
-            bordered
-            pagination={false}
-            dataSource={praticas.map((key) => ({ key }))}
-            rowKey="key"
-        >
-            <Table.Column
-                title=""
-                dataIndex="key"
-                key="pratica"
-                render={(key) => t(`uso_praticas.praticas.${key}`)}
-            />
-            {problemas_praticas.map((optionKey) => (
-                <Table.Column
-                    title={t(`uso_praticas.opcoes.${optionKey}`)}
-                    key={optionKey}
-                    render={(text, record) => (
+                  praticas.map((key) => (
+                    <Card key={key} style={{ marginBottom: 12 }}>
+                      <Typography.Text strong>{t(`uso_praticas_${key}`)}</Typography.Text>
+                      <Form.Item
+                        name={'uso_praticas_'+key}
+                        rules={[{ required: true, message: t('option_required') }]}
+                      >
+                        <Radio.Group>
+                          {problemas_praticas.map((optionKey) => (
+                            <Radio  key={key+"_"+optionKey} value={optionKey}>{t(`uso_praticas.opcoes.${optionKey}`)}</Radio>
+                          ))}
+                        </Radio.Group>
+                      </Form.Item>
+                    </Card>
+                  ))
+                ) : (
+                <table className="custom-table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        {problemas_praticas.map((optionKey) => (
+                            <th key={optionKey}>{t(`uso_praticas.opcoes.${optionKey}`)}</th>
+                        ))}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {praticas.map((key) => (
                         <Form.Item
-                            name={'uso_praticas_'+record.key}
+                            name={`uso_praticas_${key}`}
                             noStyle
+                            key={key}
                             rules={[{ required: true, message: t('uso_praticas.required') }]}
                         >
-                            <Radio.Group>
-                                <Radio value={optionKey} />
-                            </Radio.Group>
+
+                            <tr key={key} className={isMissing[key] ? 'highlight-missing' : ''}>
+                                <td>{t(`uso_praticas_${key}`)}</td>
+                                {problemas_praticas.map((optionKey) => (
+                                    <td align="center" key={optionKey}>
+                                        <Radio checked={data[`uso_praticas_${key}`]===optionKey} value={optionKey} />
+                                    </td>
+                                ))}
+                            </tr>
+
                         </Form.Item>
-                    )}
-                />
-            ))}
-        </Table>
-                )}
+                    ))}
+
+                    </tbody>
+                </table>
+            )}
             </Card>
             <Card title={t('uso_ia_generativa')}>
                 <Form.Item
                     name="areas_uso_ia"
-                    label={(index++)+"-"+t('areas_uso_ia.label')}
+                    label={(index++)+"-"+t('areas_uso_ia')}
                     rules={[{ required: true, message: t('option_required') }]}
                 >
                     <Checkbox.Group className="flex-column" >
-                        <Checkbox value="ideias_criativas">{t('areas_uso_ia.options.ideias_criativas')}</Checkbox>
-                        <Checkbox value="conteudo_visual_sonoro">{t('areas_uso_ia.options.conteudo_visual_sonoro')}</Checkbox>
-                        <Checkbox value="implementacao">{t('areas_uso_ia.options.implementacao')}</Checkbox>
-                        <Checkbox value="planejamento">{t('areas_uso_ia.options.planejamento')}</Checkbox>
-                        <Checkbox value="testes">{t('areas_uso_ia.options.testes')}</Checkbox>
-                        <Checkbox value="validacao">{t('areas_uso_ia.options.validacao')}</Checkbox>
-                        <Checkbox value="curioso">{t('areas_uso_ia.options.curioso')}</Checkbox>
-                        <Checkbox value="nao_usado">{t('areas_uso_ia.options.nao_usado')}</Checkbox>
-                        <Checkbox value="outro">{t('areas_uso_ia.options.outro')}</Checkbox>
+                        <Checkbox value="ideias_criativas">{t('areas_uso_ia_o.options.ideias_criativas')}</Checkbox>
+                        <Checkbox value="conteudo_visual_sonoro">{t('areas_uso_ia_o.options.conteudo_visual_sonoro')}</Checkbox>
+                        <Checkbox value="implementacao">{t('areas_uso_ia_o.options.implementacao')}</Checkbox>
+                        <Checkbox value="planejamento">{t('areas_uso_ia_o.options.planejamento')}</Checkbox>
+                        <Checkbox value="testes">{t('areas_uso_ia_o.options.testes')}</Checkbox>
+                        <Checkbox value="validacao">{t('areas_uso_ia_o.options.validacao')}</Checkbox>
+                        <Checkbox value="curioso">{t('areas_uso_ia_o.options.curioso')}</Checkbox>
+                        <Checkbox value="nao_usado">{t('areas_uso_ia_o.options.nao_usado')}</Checkbox>
+                        <Checkbox value="outro">{t('areas_uso_ia_o.options.outro')}</Checkbox>
                     </Checkbox.Group>
                 </Form.Item>
 
                 {data.areas_uso_ia?.includes('outro') && (
                     <Form.Item
                         name="areas_uso_ia_outro"
-                        label={(index-1)+"a-"+t('areas_uso_ia.outro_descreva')}
-                        rules={[{ required: true, message: t('areas_uso_ia.outro_descreva') }]}
+                        label={(index-1)+"a-"+t('areas_uso_ia_outro')}
+                        rules={[{ required: true, message: t('outro_required') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -521,8 +537,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="temores_uso_ia"
-                    label={(index++) + " - " + t('temores_uso_ia.label')}
-                    rules={[{ required: true, message: t('temores_uso_ia.required') }]}
+                    label={(index++) + " - " + t('temores_uso_ia')}
+                    rules={[{ required: true, message: t('temores_uso_ia_o.required') }]}
                 >
                     <Checkbox.Group className="flex-column" >
                         {problemas_ia.map((value) => (
@@ -534,7 +550,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                                     !data["temores_uso_ia"].includes(value)
                                 }
                             >
-                                {t(`temores_uso_ia.options.${value}`)}
+                                {t(`temores_uso_ia_o.options.${value}`)}
                             </Checkbox>
                         ))}
                     </Checkbox.Group>
@@ -543,8 +559,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 {data.temores_uso_ia?.includes('outro') && (
                     <Form.Item
                         name="temores_uso_ia_outro"
-                        label={(index - 1) + "a - " + t('temores_uso_ia.outro_descreva')}
-                        rules={[{ required: true, message: t('temores_uso_ia.outro_descreva') }]}
+                        label={(index - 1) + "a - " + t('temores_uso_ia_outro')}
+                        rules={[{ required: true, message: t('outro_required') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -559,8 +575,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Collapse.Panel header={!problemas_selected&&t("option_area")} showArrow={!problemas_selected} collapsible={problemas_selected&&"icon"} key="tecnico">
                 <Form.Item
                     name="dificuldades_manutencao"
-                    label={(index++) + '-' + t('dificuldades_manutencao.label')}
-                    rules={[{ required: problemas_selected, message: t('dificuldades_manutencao.required') }]}
+                    label={(index++) + '-' + t('dificuldades_manutencao')}
+                    rules={[{ required: problemas_selected, message: t('dificuldades_manutencao_o.required') }]}
                 >
                     <Checkbox.Group className="flex-column" >
                         {problemas_manutencao.map((value) => (
@@ -572,7 +588,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                                     !data["dificuldades_manutencao"].includes(value)
                                 }
                             >
-                                {t(`dificuldades_manutencao.options.${value}`)}
+                                {t(`dificuldades_manutencao_o.options.${value}`)}
                             </Checkbox>
                         ))}
                     </Checkbox.Group>
@@ -581,8 +597,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 {data.dificuldades_manutencao?.includes('outro') && (
                     <Form.Item
                         name="dificuldades_manutencao_outro"
-                        label={(index - 1) + 'a-' + t('dificuldades_manutencao.outro_descreva')}
-                        rules={[{ required: true, message: t('dificuldades_manutencao.outro_descreva') }]}
+                        label={(index - 1) + 'a-' + t('dificuldades_manutencao_outro')}
+                        rules={[{ required: true, message: t('outro_required') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -590,8 +606,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="causas_problemas_tecnicos"
-                    label={(index++) + '-' + t('causas_problemas_tecnicos.label')}
-                    rules={[{ required: problemas_selected, message: t('causas_problemas_tecnicos.required') }]}
+                    label={(index++) + '-' + t('causas_problemas_tecnicos')}
+                    rules={[{ required: problemas_selected, message: t('causas_problemas_tecnicos_o.required') }]}
                 >
                     <Checkbox.Group className="flex-column" >
                         {problemas_causas.map((value) => (
@@ -603,7 +619,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                                     !data["causas_problemas_tecnicos"].includes(value)
                                 }
                             >
-                                {t(`causas_problemas_tecnicos.options.${value}`)}
+                                {t(`causas_problemas_tecnicos_o.options.${value}`)}
                             </Checkbox>
                         ))}
                     </Checkbox.Group>
@@ -612,8 +628,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 {data.causas_problemas_tecnicos?.includes('outro') && (
                     <Form.Item
                         name="causas_problemas_tecnicos_outro"
-                        label={(index - 1) + 'a-' + t('causas_problemas_tecnicos.outro_descreva')}
-                        rules={[{ required: true, message: t('causas_problemas_tecnicos.outro_descreva') }]}
+                        label={(index - 1) + 'a-' + t('causas_problemas_tecnicos_outro')}
+                        rules={[{ required: true, message: t('outro_required') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -621,8 +637,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="desafios_testes"
-                    label={(index++) + '-' + t('desafios_testes.label')}
-                    rules={[{ required: problemas_selected, message: t('desafios_testes.required') }]}
+                    label={(index++) + '-' + t('desafios_testes')}
+                    rules={[{ required: problemas_selected, message: t('desafios_testes_o.required') }]}
                 >
                     <Checkbox.Group  className="flex-column" >
                         {desafios_teste.map((value) => (
@@ -634,7 +650,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                                     !data["desafios_testes"].includes(value)
                                 }
                             >
-                                {t(`desafios_testes.options.${value}`)}
+                                {t(`desafios_testes_o.options.${value}`)}
                             </Checkbox>
                         ))}
                     </Checkbox.Group>
@@ -653,15 +669,15 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="avaliacao_artefatos"
-                    label={(index++) + " - " + t('avaliacao_artefatos.label')}
+                    label={(index++) + " - " + t('avaliacao_artefatos')}
                     rules={[{ required: artist_selected, message: t('option_required') }]}
                 >
                     <Checkbox.Group className="flex-column"  options={[
-                        { value: 'criterios_definidos', label: t('avaliacao_artefatos.options.criterios_definidos') },
-                        { value: 'avaliacao_subjetiva', label: t('avaliacao_artefatos.options.avaliacao_subjetiva') },
-                        { value: 'testes_formais', label: t('avaliacao_artefatos.options.testes_formais') },
-                        { value: 'avaliacao_por_outros', label: t('avaliacao_artefatos.options.avaliacao_por_outros') },
-                        { value: 'sem_avaliacao_estruturada', label: t('avaliacao_artefatos.options.sem_avaliacao_estruturada') },
+                        { value: 'criterios_definidos', label: t('avaliacao_artefatos_o.options.criterios_definidos') },
+                        { value: 'avaliacao_subjetiva', label: t('avaliacao_artefatos_o.options.avaliacao_subjetiva') },
+                        { value: 'testes_formais', label: t('avaliacao_artefatos_o.options.testes_formais') },
+                        { value: 'avaliacao_por_outros', label: t('avaliacao_artefatos_o.options.avaliacao_por_outros') },
+                        { value: 'sem_avaliacao_estruturada', label: t('avaliacao_artefatos_o.options.sem_avaliacao_estruturada') },
                         { value: 'outro', label: t('outro') },
                     ]} />
                 </Form.Item>
@@ -669,8 +685,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 {data['avaliacao_artefatos']?.includes('outro') && (
                     <Form.Item
                         name="avaliacao_artefatos_outro"
-                        label={(index - 1) + "a - " + t('avaliacao_artefatos.outro_descricao')}
-                        rules={[{ required: true, message: t('avaliacao_artefatos.outro_required') }]}
+                        label={(index - 1) + "a - " + t('avaliacao_artefatos_outro')}
+                        rules={[{ required: true, message: t('avaliacao_artefatos_o.outro_required') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -678,15 +694,15 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="responsavel_validacao_artefatos"
-                    label={(index++) + " - " + t('responsavel_validacao_artefatos.label')}
+                    label={(index++) + " - " + t('responsavel_validacao_artefatos')}
                     rules={[{ required: artist_selected, message: t('option_required') }]}
                 >
                     <Checkbox.Group className="flex-column"  options={[
-                        { value: 'eu', label: t('responsavel_validacao_artefatos.options.eu') },
-                        { value: 'qa', label: t('responsavel_validacao_artefatos.options.qa') },
-                        { value: 'outros_membros', label: t('responsavel_validacao_artefatos.options.outros_membros') },
-                        { value: 'usuarios', label: t('responsavel_validacao_artefatos.options.usuarios') },
-                        { value: 'nao_testamos', label: t('responsavel_validacao_artefatos.options.nao_testamos') },
+                        { value: 'eu', label: t('responsavel_validacao_artefatos_o.options.eu') },
+                        { value: 'qa', label: t('responsavel_validacao_artefatos_o.options.qa') },
+                        { value: 'outros_membros', label: t('responsavel_validacao_artefatos_o.options.outros_membros') },
+                        { value: 'usuarios', label: t('responsavel_validacao_artefatos_o.options.usuarios') },
+                        { value: 'nao_testamos', label: t('responsavel_validacao_artefatos_o.options.nao_testamos') },
                         { value: 'outro', label: t('outro') },
                     ]} />
                 </Form.Item>
@@ -694,8 +710,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 {data['responsavel_validacao_artefatos']?.includes('outro') && (
                     <Form.Item
                         name="responsavel_validacao_artefatos_outro"
-                        label={(index - 1) + "a - " + t('responsavel_validacao_artefatos.outro_descricao')}
-                        rules={[{ required: true, message: t('responsavel_validacao_artefatos.outro_required') }]}
+                        label={(index - 1) + "a - " + t('responsavel_validacao_artefatos_outro')}
+                        rules={[{ required: true, message: t('responsavel_validacao_artefatos_o.outro_required') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -944,9 +960,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 </Radio.Group>
             </Form.Item>
 
-            <Form.Item name="email" required={data["contato_entrevista"]==="sim"}
+            <Form.Item name="email" rules={[{required:data["contato_entrevista"]==="sim", message: t('email_required')}]}
                        label={"35-"+
-                           (data["contato_entrevista"]==="sim"?t('email_contato'):t('email'))}>
+                           (data["contato_entrevista"]==="sim"?t('email'):t('ememail_contatoail'))}>
                 <Input type="email" />
             </Form.Item>
             </Card>
