@@ -117,8 +117,7 @@
     "web": "Web (navegadores)",
     "mobile": "Dispositivos móveis (Android, iOS)",
     "console": "Consoles (PlayStation, Xbox, Nintendo)",
-    "xr": "Realidade virtual / aumentada",
-    "outro": "Outras (especifique):"
+    "xr": "Realidade virtual / aumentada"
   },
   "dificuldades_manutencao": {
     "label": "Na sua experiência com desenvolvimento de jogos, quais destes fatores mais dificultam a evolução e manutenção do projeto ao longo do tempo? (Escolha no máximo 3 opções)",
@@ -210,7 +209,6 @@
   },
   "avaliacao_artefatos": {
     "label": "Como você costuma avaliar a qualidade dos artefatos criativos que produz (imagens, sons, ícones, vídeos, layouts etc.)?",
-    "required": "Por favor, selecione ao menos uma opção",
     "outro_required": "Descreva a outra forma de avaliação",
     "outro_descricao": "Descreva a outra forma de avaliação:",
     "options": {
@@ -226,7 +224,6 @@
 
     "responsavel_validacao_artefatos": {
     "label": "Quem costuma ser responsável por testar ou validar os artefatos criativos que você produz?",
-    "required": "Por favor, selecione ao menos uma opção",
     "outro_required": "Descreva a outra forma de validação",
     "outro_descricao": "Descreva a outra forma de validação:",
     "options": {
@@ -251,7 +248,6 @@
     "atuacao_nao_envolvido": "Não estou atualmente envolvido com desenvolvimento de jogos digitais, mas pretendo voltar a atuar nesta área."
   },
   "design_modelagem": "Como você costuma representar ou projetar suas ideias de design de jogo?",
-  "design_required": "Por favor, selecione pelo menos uma opção",
   "design_modelagem_options": {
     "uml": "Utilizo modelos com notações formais (ex: ex: diagramas de fluxo de gameplay, máquinas de estados, árvores de decisão, diagramas de mecânicas ou economia de jogo, UML)",
     "prototipo_real": "Crio protótipos físicos ou no mundo real (ex: papel, tabuleiro, encenações)",
@@ -263,7 +259,6 @@
   "design_outro_descricao_required": "Por favor, descreva o outro método",
 
   "design_validacao": "Como você costuma testar ou validar o seu design antes da implementação completa?",
-  "design_required": "Por favor, selecione pelo menos uma opção",
   "design_validacao_options": {
     "prototipo_simplificado": "Por meio de protótipos jogáveis simplificados (digitais ou analógicos)",
     "prototipo_real": "Com simulações físicas ou do mundo real (ex: com pessoas, objetos, encenações)",
@@ -273,67 +268,61 @@
   },
   "design_validacao_outro_descricao": "Descreva o outro método de teste/validação",
 
-  "testes_jogo": "Como os jogos são testados?",
-  "testes_jogo_required": "Selecione pelo menos uma opção",
+  "testes_jogo": "Quais formas de teste você costuma utilizar para verificar se o jogo está funcionando corretamente?",
   "testes_jogo_options": {
-    "exploratorio": "Testes exploratórios (navego livremente pelo jogo)",
-    "roteiro": "Testes seguindo um roteiro ou checklist",
-    "automatizado": "Testes automatizados"
+    "exploratorio": "Testes exploratórios — jogo livremente e observo se há falhas ou comportamentos estranhos",
+    "roteiro": "Testes com roteiro — sigo uma lista de passos ou checklist para verificar funcionalidades específicas",
+    "automatizado": "Testes automatizados — uso ferramentas ou scripts para testar partes do jogo sem intervenção manual"
   },
   "testes_jogo_outro": "Descreva outro método de teste utilizado",
   "testes_jogo_outro_required": "Por favor, descreva o outro método",
-  "ferramentas_teste": "Quais ferramentas você já utilizou para automatizar testes? (deixe em branco se não usar)",
-  "ferramentas_teste_required": "Selecione pelo menos uma opção",
+  "ferramentas_teste": "Quais ferramentas você já usou para criar testes automatizados nos seus projetos de jogos? (Deixe em branco se nunca usou)",
   "ferramentas_teste_options": {
-    "robotframework": "Robot Framework",
-    "selenium": "Selenium",
-    "appium": "Appium",
-    "unity": "Unity Test Framework",
-    "unreal_functional": "Unreal Functional Testing Framework",
-    "unreal_gauntlet": "Unreal Gauntlet"
+    "robotframework": "Robot Framework — usado para testes automatizados de forma genérica, com suporte a várias interfaces",
+    "selenium": "Selenium — voltado para testes de interface em aplicações web",
+    "appium": "Appium — utilizado para testes automatizados em aplicativos móveis (iOS e Android)",
+    "unity": "Unity Test Framework — ferramenta nativa da Unity para criação de testes unitários e de integração",
+    "unreal_functional": "Unreal Functional Testing Framework — sistema da Unreal Engine para testes funcionais dentro do editor",
+    "unreal_gauntlet": "Unreal Gauntlet — framework da Unreal Engine para automação de testes em builds e pacotes de jogo"
   },
   "ferramentas_teste_outro": "Descreva a outra ferramenta utilizada",
   "ferramentas_teste_outro_required": "Por favor, descreva a ferramenta",
-  "conteudo_testado": "O que é testado nos testes automatizados? (deixe em branco se não usar)",
-  "conteudo_testado_required": "Selecione pelo menos uma opção",
+  "conteudo_testado": "Quais aspectos do jogo você costuma cobrir nos testes automatizados? (Deixe em branco se não utiliza testes automatizados)",
   "conteudo_testado_options": {
-    "componentes": "Componentes isolados",
-    "performance": "Performance básica (tempo de carregamento, FPS mínimo)",
-    "cenarios": "Cenários específicos do jogo",
-    "acoes_personagem": "Ações de um personagem",
-    "teste_fumaca": "Testes de fumaça (verifico se o jogo roda sem falhas críticas)"
+    "componentes": "Componentes isolados — verifico se partes específicas do código funcionam corretamente de forma independente",
+    "performance": "Performance básica — avalio tempo de carregamento, taxa de quadros (FPS) ou consumo de recursos",
+    "cenarios": "Cenários específicos do jogo — simulo situações de gameplay para checar se o jogo responde como esperado",
+    "acoes_personagem": "Ações de um personagem — testo se movimentos, interações ou comportamentos estão funcionando corretamente",
+    "teste_fumaca": "Testes de fumaça — apenas verifico se o jogo inicia e roda sem falhas críticas"
   },
   "conteudo_testado_outro": "Descreva o que mais é testado",
   "conteudo_testado_outro_required": "Por favor, descreva",
-  "etapa_testes": "Em que etapa os testes automatizados costumam ser criados? (deixe em branco se não usar)",
-  "etapa_testes_required": "Selecione pelo menos uma opção",
+  "etapa_testes": "Em que momento do desenvolvimento os testes automatizados costumam ser criados nos seus projetos? (Deixe em branco se você não utiliza testes automatizados)",
   "etapa_testes_options": {
-    "antes_funcionalidade": "Antes da funcionalidade (Test Driven)",
-    "durante_funcionalidade": "Durante ou logo após a criação da funcionalidade",
-    "pos_prototipo": "Após a criação de um protótipo funcional",
-    "pos_funcionalidades": "Após as principais funcionalidades estarem implementadas",
-    "no_fim": "Somente ao final do projeto",
-    "quando_possivel": "Quando há oportunidade"
+    "antes_funcionalidade": "Antes de implementar a funcionalidade — sigo uma abordagem orientada a testes (Test-Driven Development)",
+    "durante_funcionalidade": "Durante ou logo após a implementação da funcionalidade — escrevo os testes junto com o código",
+    "pos_prototipo": "Depois de criar um protótipo funcional — testo quando já tenho algo jogável ou testável",
+    "pos_funcionalidades": "Depois que as principais funcionalidades do jogo já estão prontas",
+    "no_fim": "Somente no final do projeto — quando o jogo já está quase pronto ou em fase de revisão",
+    "quando_possivel": "Quando há tempo ou oportunidade — sem uma etapa definida no processo"
   },
   "etapa_testes_outro": "Descreva outra etapa",
   "etapa_testes_outro_required": "Por favor, descreva a etapa",
-  "uso_testes": "Em quais situações os testes automatizados são ou já foram utilizados como requisito obrigatório nos seus projetos?(deixe em branco se não usar)",
-  "uso_testes_required": "Selecione pelo menos uma opção",
+  "uso_testes": "Em quais situações os testes automatizados são usados como exigência obrigatória nos seus projetos? (Deixe em branco se você não utiliza testes automatizados)",
   "uso_testes_options": {
-    "nao": "Nunca os usei como requisito",
-    "atualizacao": "Para aceitar atualizações feitas por colaboradores",
-    "proxima_fase": "Para definir se o jogo pode seguir para a próxima fase (alfa, beta, gold)",
-    "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade"
+    "nao": "Nunca os usei como requisito — os testes automatizados não são exigidos nos projetos em que trabalho",
+    "atualizacao": "Para aceitar atualizações feitas por colaboradores — o código só é integrado após passar nos testes",
+    "proxima_fase": "Para permitir o avanço do projeto — os testes definem se o jogo pode passar para fases como alfa, beta ou gold",
+    "nova_funcionalidade": "Para iniciar uma nova funcionalidade — o desenvolvimento só começa após definir testes para o que será implementado"
   },
   "uso_testes_outro": "Descreva outro uso como requisito",
   "uso_testes_outro_required": "Por favor, descreva",
-  "dificuldades_testes": "Você já teve dificuldades com testes automatizados?",
-  "dificuldades_testes_required": "Selecione pelo menos uma opção",
+  "dificuldades_testes": "Quais dificuldades você já enfrentou ao tentar usar testes automatizados nos seus projetos?",
   "dificuldades_testes_options": {
-    "entendimento_frameworks": "Tive dificuldade de entender os frameworks",
-    "preferencia_humanos": "Prefiro testes humanos, acho mais úteis",
-    "implementacao_dificil": "Achei muito difícil de implementar",
-    "nao_encontram_erros_reais": "Os testes não encontram os erros que os jogadores realmente encontram"
+    "entendimento_frameworks": "Tive dificuldade para entender como funcionam as ferramentas e frameworks de teste",
+    "preferencia_humanos": "Prefiro fazer testes manualmente, pois sinto que eles são mais úteis na prática",
+    "implementacao_dificil": "Achei complicado implementar os testes no meu projeto, tanto tecnicamente quanto no fluxo de trabalho",
+    "nao_encontram_erros_reais": "Os testes automatizados não pegam os mesmos erros que os jogadores encontram jogando de verdade"
   },
   "dificuldades_testes_outro": "Descreva outra dificuldade",
   "dificuldades_testes_outro_required": "Por favor, descreva",
@@ -367,5 +356,6 @@
       "outro": "Outro",
       "sem_preocupacoes": "Não tenho preocupações significativas no momento"
     }
-  }
-  }
+  },
+  "required_fields_missing":"Campos obrigatórios não preenchidos"
+}
