@@ -969,7 +969,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
             <Form.Item name="email" rules={[{required:data["contato_entrevista"]==="sim", message: t('email_required')}]}
                        label={"35-"+
-                           (data["contato_entrevista"]==="sim"?t('email'):t('ememail_contatoail'))}>
+                           (data["contato_entrevista"]==="sim"?t('email'):t('email_contato'))}>
                 <Input type="email" />
             </Form.Item>
             </Card>
