@@ -505,6 +505,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </tbody>
                 </table>
             )}
+            <br/>
             <Form.Item
                 name="dificuldade_adocao_praticas"
                 label={(index++) + " - " + t('dificuldade_adocao_praticas')}
@@ -526,9 +527,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         <Checkbox value="planejamento">{t('areas_uso_ia_o.options.planejamento')}</Checkbox>
                         <Checkbox value="testes">{t('areas_uso_ia_o.options.testes')}</Checkbox>
                         <Checkbox value="validacao">{t('areas_uso_ia_o.options.validacao')}</Checkbox>
-                        <Checkbox value="curioso">{t('areas_uso_ia_o.options.curioso')}</Checkbox>
-                        <Checkbox value="nao_usado">{t('areas_uso_ia_o.options.nao_usado')}</Checkbox>
                         <Checkbox value="outro">{t('areas_uso_ia_o.options.outro')}</Checkbox>
+                        <Checkbox value="ainda_nao_usei">{t('areas_uso_ia_o.options.ainda_nao_usei')}</Checkbox>
+                        <Checkbox value="nao_usado">{t('areas_uso_ia_o.options.nao_usado')}</Checkbox>
                     </Checkbox.Group>
                 </Form.Item>
 
@@ -968,7 +969,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             </Form.Item>
 
             <Form.Item name="email" rules={[{required:data["contato_entrevista"]==="sim", message: t('email_required')}]}
-                       label={"35-"+
+                       label={(index++)+"-"+
                            (data["contato_entrevista"]==="sim"?t('email'):t('email_contato'))}>
                 <Input type="email" />
             </Form.Item>

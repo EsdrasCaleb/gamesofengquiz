@@ -5,7 +5,7 @@
       "Você está sendo convidado(a) a participar da pesquisa <strong>“Survey on Automated Tests in Game Development”</strong>, conduzida por Esdras Caleb Oliveira Silva (pesquisador responsável) e Lyrene Fernandes da Silva (oreientadora).",
       "Esta pesquisa é destinada exclusivamente a pessoas com <strong>18 anos ou mais, que atuam no desenvolvimento de jogos digitais</strong>.",
       "Buscamos identificar formas de integrar práticas de testes de testes automatizados no desenvolvimento de jogos, especialmente em contextos de equipes independentes.",
-      "Caso decida participar, você responderá a <strong>36 questões</strong> sobre seu perfil como desenvolvedor de jogos, as práticas de engenharia de software que utiliza e os tipos de testes empregados na validação dos jogos.",
+      "Caso decida participar, você responderá a <strong>34 questões</strong> sobre seu perfil como desenvolvedor de jogos, as práticas de engenharia de software que utiliza e os tipos de testes empregados na validação dos jogos.",
       "O tempo estimado para responder todas as perguntas é de 15 minutos. Você pode sentir um leve desconforto pelo tempo necessário para responder todas as perguntas, mas o formulário salva suas respostas automaticamente no navegador, permitindo você continuar posteriormente.",
       "Sua participação contribuirá para o desenvolvimento de um framework gratuito e de código aberto, voltado à melhoria dos processos de engenharia de software aplicados a jogos digitais.",
       "Em caso de dúvidas, entre em contato com:<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-970<br />E-mail: <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Telefone: +55 (84) 99688-8803",
@@ -324,7 +324,7 @@
   },
   "dificuldades_testes_outro": "Descreva outra dificuldade",
   "dificuldades_testes_outro_required": "Por favor, descreva",
-  "areas_uso_ia": "De que formas você tem utilizado IAs/LLMs generativas no desenvolvimento de jogos?",
+  "areas_uso_ia": "Considerando as atividades que você tem desempenhado no desenvolvimento de jogos, de que forma você tem usado IAs generativas, tais como Chatgpt, copilot, DALL-E, Midjounrney, dentre outras?",
   "areas_uso_ia_outro": "Descreva outra forma de uso:",
   "areas_uso_ia_o": {
     "required": "Por favor, selecione ao menos uma forma de uso",
@@ -335,7 +335,7 @@
       "planejamento": "Para planejar ou estruturar o jogo (ex: documentação, arquitetura de sistemas, balanceamento)",
       "testes": "Para criar ou sugerir testes automatizados (ex: geração de casos de teste, scripts de validação)",
       "validacao": "Para revisar ou validar funcionalidades do jogo (ex: encontrar erros, verificar lógicas)",
-      "curioso": "Ainda não usei IA, mas tenho curiosidade ou interesse",
+      "ainda_nao_usei": "Ainda não usei IA, mas tenho curiosidade ou interesse",
       "nao_usado": "Não tenho utilizado IA nos meus projetos de jogos",
       "outro": "Outra atividade"
     }
