@@ -178,6 +178,7 @@
     "prefere_outros": "Prefiro focar em outras áreas do desenvolvimento"
   }
 },
+  "dificuldade_adocao_praticas": "Existe algo, na sua opinião, que dificulta a adoção de práticas mais estruturadas de desenvolvimento (como testes automatizados, controle de versão, modelagem etc.) nos projetos de jogos que você participa? Sinta-se à vontade para compartilhar experiências, obstáculos práticos ou até mesmo percepções pessoais sobre o que funciona ou não no seu contexto de desenvolvimento de jogos.",
   "tipos_jogos_required": "Por favor, selecione pelo menos um tipo de jogo.",
   "tipos_jogos_outro_descricao": "Descreva o outro tipo:",
   "tipos_jogos_outro_required": "Por favor, descreva o outro tipo.",

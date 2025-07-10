@@ -129,7 +129,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             'papel','papel_outro',"tipos_jogos","tipos_jogos_outro_descricao","plataformas_desenvolvimento",
             "plataformas_outro_descricao",'ferramentas_desenvolvimento', "ferramentas_outro_descricao",
             "uso_praticas_controle_versao","uso_praticas_padroes_design","uso_praticas_modelagem_projeto",
-            "uso_praticas_prototipacao", "uso_praticas_tdd", "integracao_continua",
+            "uso_praticas_prototipacao", "uso_praticas_tdd", "uso_praticas_integracao_continua","dificuldade_adocao_praticas",
             
             "areas_uso_ia","areas_uso_ia_outro","temores_uso_ia","temores_uso_ia_outro",
 
@@ -505,6 +505,13 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </tbody>
                 </table>
             )}
+            <Form.Item
+                name="dificuldade_adocao_praticas"
+                label={(index++) + " - " + t('dificuldade_adocao_praticas')}
+            >
+                <Input.TextArea autoSize={{ minRows: 3 }} />
+            </Form.Item>
+
             </Card>
             <Card title={t('uso_ia_generativa')}>
                 <Form.Item
