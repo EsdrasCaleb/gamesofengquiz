@@ -228,9 +228,6 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Form.Item name="how_old" label={(index++)+"-"+t('howold')} >
                     <InputNumber />
                 </Form.Item>
-                <Form.Item name="where_from" label={(index++)+"-"+t('ufrom')} >
-                    <Input />
-                </Form.Item>
                 <Form.Item name="formacao" label={(index++)+"-"+t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
                    <Radio.Group className="flex-column" >
                     <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
@@ -241,6 +238,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <Radio value="mestrado">{t('formacao_opcoes.mestrado')}</Radio>
                     <Radio value="doutorado">{t('formacao_opcoes.doutorado')}</Radio>
                 </Radio.Group>
+                </Form.Item>
+                <Form.Item name="where_from" label={(index++)+"-"+t('ufrom')} >
+                    <Input />
                 </Form.Item>
 
                 <Form.Item
