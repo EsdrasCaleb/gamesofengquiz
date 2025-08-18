@@ -124,7 +124,11 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         const dataCollums = ["uid","language",
             //Perfil e Contexto Profissional
             "year_of_birth","country_work","formacao",'area_formacao','area_formacao_outro','anos_experiencia',
-            'qtd_projetos',"situacao","situacao_equipe","duracao_projetos","funcoes"
+            'qtd_projetos',"situacao","situacao_equipe","duracao_projetos","funcoes","foncoes_outro","tipos_jogos",
+            "tipos_jogos_outro","plataformas_desenvolvimento", "plataformas_outro",'ferramentas_desenvolvimento',
+            "ferramentas_outro","uso_praticas_controle_versao", "uso_praticas_padroes_design",
+            "uso_praticas_modelagem_projeto", "uso_praticas_prototipacao", "uso_praticas_tdd",
+            "uso_praticas_integracao_continua"
         ]
         const dataCollums_old = ['uid',"language","language_form",
 
@@ -343,7 +347,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 <Form.Item
                     name="funcoes"
                     label={(index++)+"-"+t('survey.personal_context.funcoes')}
-                    rules={[{ required: true, message: t('survey.common.required_option') }]}
+                    rules={[{ required: true, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column" >
                         <Checkbox value="gerente">{t('survey.personal_context.funcoes_o.gerente')}</Checkbox>
@@ -370,37 +374,31 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </Form.Item>
                 )}
 
-            </Card>
-
-            <Card title={t('game_dev_profile')}>
-
-
                 <Form.Item
                     name="tipos_jogos"
-                    label={(index++)+"-"+t('tipos_jogos')}
-                    rules={[{ required: true, message: t('tipos_jogos_required') }]}
+                    label={(index++)+"-"+t('survey.personal_context.tipos_jogos')}
+                    rules={[{ required: true, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"  options={[
-                        { label: t('tipos_jogos_options.fps'), value: 'fps' },
-                        { label: t('tipos_jogos_options.educacional'), value: 'educacional' },
-                        { label: t('tipos_jogos_options.rpg'), value: 'rpg' },
-                        { label: t('tipos_jogos_options.aventura_narrativa'), value: 'aventura_narrativa' },
-                        { label: t('tipos_jogos_options.2d'), value: '2d' },
-                        { label: t('tipos_jogos_options.3d'), value: '3d' },
-                        { label: t('tipos_jogos_options.plataforma'), value: 'plataforma' },
-                        { label: t('tipos_jogos_options.boardgame'), value: 'boardgame' },
-                        { label: t('tipos_jogos_options.puzzle'), value: 'puzzle' },
-                        { label: t('tipos_jogos_options.simulacao'), value: 'simulacao' },
-                        { label: t('tipos_jogos_options.manager'), value: 'manager' },
-                        { label: t('outro'), value: 'outro' },
+                        { label: t('survey.personal_context.tipos_jogos_options.fps'), value: 'fps' },
+                        { label: t('survey.personal_context.tipos_jogos_options.educacional'), value: 'educacional' },
+                        { label: t('survey.personal_context.tipos_jogos_options.rpg'), value: 'rpg' },
+                        { label: t('survey.personal_context.tipos_jogos_options.aventura_narrativa'), value: 'aventura_narrativa' },
+                        { label: t('survey.personal_context.tipos_jogos_options.2d'), value: '2d' },
+                        { label: t('survey.personal_context.tipos_jogos_options.3d'), value: '3d' },
+                        { label: t('survey.personal_context.tipos_jogos_options.plataforma'), value: 'plataforma' },
+                        { label: t('survey.personal_context.tipos_jogos_options.boardgame'), value: 'boardgame' },
+                        { label: t('survey.personal_context.tipos_jogos_options.puzzle'), value: 'puzzle' },
+                        { label: t('survey.personal_context.tipos_jogos_options.simulacao'), value: 'simulacao' },
+                        { label: t('survey.personal_context.tipos_jogos_options.manager'), value: 'manager' },
+                        { label: t('survey.common.outro'), value: 'outro' },
                     ]} />
                 </Form.Item>
-
                 {data['tipos_jogos']?.includes('outro') && (
                     <Form.Item
-                        name="tipos_jogos_outro_descricao"
-                        label={(index-1)+"a-"+t('tipos_jogos_outro_descricao')}
-                        rules={[{ required: true, message: t('tipos_jogos_outro_required') }]}
+                        name="tipos_jogos_outro"
+                        label={(index-1)+"a-"+t('survey.common.outro_describe')}
+                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -408,18 +406,18 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="plataformas_desenvolvimento"
-                    label={(index++) + '-' + t('plataformas_desenvolvimento')}
-                    rules={[{ required: true, message: t('plataformas_required') }]}
+                    label={(index++) + '-' + t('survey.personal_context.plataformas_desenvolvimento')}
+                    rules={[{ required: true, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group
-                        className="flex-column" 
+                        className="flex-column"
                         options={[
-                            { label: t('plataformas_options.pc'), value: 'pc' },
-                            { label: t('plataformas_options.web'), value: 'web' },
-                            { label: t('plataformas_options.mobile'), value: 'mobile' },
-                            { label: t('plataformas_options.console'), value: 'console' },
-                            { label: t('plataformas_options.xr'), value: 'xr' },
-                            { label: t('outro'), value: 'outro' },
+                            { label: t('survey.personal_context.plataformas_desenvolvimento_o.pc'), value: 'pc' },
+                            { label: t('survey.personal_context.plataformas_desenvolvimento_o.web'), value: 'web' },
+                            { label: t('survey.personal_context.plataformas_desenvolvimento_o.mobile'), value: 'mobile' },
+                            { label: t('survey.personal_context.plataformas_desenvolvimento_o.console'), value: 'console' },
+                            { label: t('survey.personal_context.plataformas_desenvolvimento_o.xr'), value: 'xr' },
+                            { label: t('survey.common.outra'), value: 'outro' },
                         ]}
                     />
                 </Form.Item>
@@ -427,9 +425,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 {data['plataformas_desenvolvimento']?.includes('outro') && (
                     <Form.Item
-                        name="plataformas_outro_descricao"
-                        label={(index-1)+"a-"+t('plataformas_outro_descricao')}
-                        rules={[{ required: true, message: t('plataformas_outro_required') }]}
+                        name="plataformas_outro"
+                        label={(index-1)+"a-"+t('survey.common.outra_describe')}
+                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
                     >
                         <Input />
                     </Form.Item>
@@ -438,22 +436,22 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 <Form.Item
                     name="ferramentas_desenvolvimento"
-                    label={(index++) + '-' + t('ferramentas_desenvolvimento')}
-                    rules={[{ required: true, message: t('ferramentas_desenvolvimento_required') }]}
+                    label={(index++) + '-' + t('survey.personal_context.ferramentas_desenvolvimento')}
+                    rules={[{ required: true, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group
-                        className="flex-column" 
+                        className="flex-column"
                         options={[
-                            { value: 'unity', label: t('ferramentas_options.unity') },
-                            { value: 'unreal', label: t('ferramentas_options.unreal') },
-                            { value: 'godot', label: t('ferramentas_options.godot') },
-                            { value: 'gamemaker', label: t('ferramentas_options.gamemaker') },
-                            { value: 'rpgmaker', label: t('ferramentas_options.rpgmaker') },
-                            { value: 'propria_pessoal', label: t('ferramentas_options.propria_pessoal') },
-                            { value: 'propria_corporativa', label: t('ferramentas_options.propria_corporativa') },
-                            { value: 'framework_baixo_nivel', label: t('ferramentas_options.framework_baixo_nivel') },
-                            { value: 'nada', label: t('ferramentas_options.nada') },
-                            { value: 'outro', label: t('outro') },
+                            { value: 'unity', label: t('survey.personal_context.ferramentas_desenvolvimento_options.unity') },
+                            { value: 'unreal', label: t('survey.personal_context.ferramentas_desenvolvimento_options.unreal') },
+                            { value: 'godot', label: t('survey.personal_context.ferramentas_desenvolvimento_options.godot') },
+                            { value: 'gamemaker', label: t('survey.personal_context.ferramentas_desenvolvimento_options.gamemaker') },
+                            { value: 'rpgmaker', label: t('survey.personal_context.ferramentas_desenvolvimento_options.rpgmaker') },
+                            { value: 'propria_pessoal', label: t('survey.personal_context.ferramentas_desenvolvimento_options.propria_pessoal') },
+                            { value: 'propria_corporativa', label: t('survey.personal_context.ferramentas_desenvolvimento_options.propria_corporativa') },
+                            { value: 'framework_baixo_nivel', label: t('survey.personal_context.ferramentas_desenvolvimento_options.framework_baixo_nivel') },
+                            { value: 'nada', label: t('survey.personal_context.ferramentas_desenvolvimento_options.nada') },
+                            { value: 'outro', label: t('survey.common.outra') },
                         ]}
                     />
                 </Form.Item>
@@ -461,28 +459,33 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                 {data['ferramentas_desenvolvimento']?.includes('outro') && (
                     <Form.Item
-                    name="ferramentas_outro_descricao"
-                    label={(index-1)+"a-"+t('ferramentas_outro_descricao')}
-                    rules={[{ required: true, message: t('ferramentas_outro_required') }]}
+                        name="ferramentas_outro"
+                        label={(index-1)+"a-"+t('survey.common.outra_describe')}
+                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
                     >
-                    <Input />
+                        <Input />
                     </Form.Item>
                 )}
+
+
+            </Card>
+
+            <Card title={t('survey.software_engeniring.header')}>
                 <Typography.Title level={5}>
                     <span className="required-extra">* </span>
-                     {(index++) + ' - ' + t('uso_praticas.label')}
+                    {(index++) + ' - ' + t('survey.software_engeniring.uso_praticas.label')}
                 </Typography.Title>
                 {currentScreen.xs ? (
                   praticas.map((key) => (
                     <Card key={key} style={{ marginBottom: 12 }}>
-                      <Typography.Text strong>{t(`uso_praticas_${key}`)}</Typography.Text>
+                      <Typography.Text strong>{t(`survey.software_engeniring.uso_praticas.${key}`)}</Typography.Text>
                       <Form.Item
                         name={'uso_praticas_'+key}
-                        rules={[{ required: true, message: t('option_required') }]}
+                        rules={[{ required: true, message: t('survey.common.required_option') }]}
                       >
                         <Radio.Group>
                           {problemas_praticas.map((optionKey) => (
-                            <Radio  key={key+"_"+optionKey} value={optionKey}>{t(`uso_praticas.opcoes.${optionKey}`)}</Radio>
+                            <Radio  key={key+"_"+optionKey} value={optionKey}>{t(`survey.software_engeniring.uso_praticas.opcoes.${optionKey}`)}</Radio>
                           ))}
                         </Radio.Group>
                       </Form.Item>
@@ -494,7 +497,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     <tr>
                         <th></th>
                         {problemas_praticas.map((optionKey) => (
-                            <th key={optionKey}>{t(`uso_praticas.opcoes.${optionKey}`)}</th>
+                            <th key={optionKey}>{t(`survey.software_engeniring.uso_praticas.opcoes.${optionKey}`)}</th>
                         ))}
                     </tr>
                     </thead>
@@ -504,11 +507,11 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                             name={`uso_praticas_${key}`}
                             noStyle
                             key={key}
-                            rules={[{ required: true, message: t('uso_praticas.required') }]}
+                            rules={[{ required: true, message: t('survey.common.required_option') }]}
                         >
 
                             <tr key={key} className={isMissing[key] ? 'highlight-missing' : ''}>
-                                <td>{t(`uso_praticas_${key}`)}</td>
+                                <td>{t(`survey.software_engeniring.uso_praticas.${key}`)}</td>
                                 {problemas_praticas.map((optionKey) => (
                                     <td align="center" key={optionKey}>
                                         <Radio checked={data[`uso_praticas_${key}`]===optionKey} value={optionKey} />

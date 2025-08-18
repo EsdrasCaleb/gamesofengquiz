@@ -34,9 +34,10 @@
       "sim": "Sim",
       "nao": "Não",
       "required_option": "Por favor, selecione uma opção.",
+      "required_one_option": "Por favor, selecione pelomenos uma opção.",
       "required_describe": "Por favor, especifique.",
       "outra": "Outra",
-      "outro": "Outra",
+      "outro": "Outro",
       "outra_describe": "Qual outra?",
       "outro_describe": "Qual outro?"
     },
@@ -105,6 +106,59 @@
         "qa": "Testador (QA)",
         "artista_som": "Artista de Som",
         "animacao": "Animação"
+      },
+      "tipos_jogos": "Que tipos de jogos você mais desenvolve?",
+      "tipos_jogos_options": {
+        "fps": "FPS",
+        "educacional": "Educacional",
+        "rpg": "RPG",
+        "aventura_narrativa": "Aventura Narrativa (Visual Novel)",
+        "2d": "2D",
+        "3d": "3D",
+        "plataforma": "Plataforma",
+        "boardgame": "BoardGame",
+        "puzzle": "Puzzle",
+        "simulacao": "Simulação",
+        "manager": "Manager"
+      },
+      "plataformas_desenvolvimento": "Para quais plataformas você costuma desenvolver jogos?",
+      "plataformas_desenvolvimento_o": {
+        "pc": "PC (Windows, Linux, Mac)",
+        "web": "Web (navegadores)",
+        "mobile": "Dispositivos móveis (Android, iOS)",
+        "console": "Consoles (PlayStation, Xbox, Nintendo)",
+        "xr": "Realidade virtual / aumentada"
+      },
+      "ferramentas_desenvolvimento": "Quais engines você costuma usar nos projetos em que trabalha ou já trabalhou?",
+      "ferramentas_desenvolvimento_options": {
+        "unity": "Unity",
+        "unreal": "Unreal",
+        "godot": "Godot",
+        "gamemaker": "Game Maker",
+        "rpgmaker": "RPG Maker",
+        "framework_baixo_nivel": "Framework de baixo nível (LOVE, MonoGame, Heaps  etc...)",
+        "propria_pessoal": "Engine Própria, feita por mim",
+        "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
+        "nada": "Não utilizo motores de jogo (programação com libs básicas como SDL)"
+      }
+    },
+    "software_engeniring": {
+      "header": "Práticas de Engenharia e Testes",
+      "uso_praticas":{
+        "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",
+        "controle_versao": "Controle de versão (ex: Git)",
+        "padroes_design": "Padrões de design (ex: ECS, componentes)",
+        "modelagem_projeto":"Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
+        "prototipacao":"Prototipação técnica",
+        "tdd":"Desenvolvimento orientado a testes (TDD)",
+        "integracao_continua":"Integração contínua (builds, pipelines)",
+        "opcoes": {
+          "uso_atualmente": "Uso atualmente",
+          "nao_conhece": "Não uso porque não conheço bem",
+          "nao_util": "Não vejo utilidade para meus projetos",
+          "ja_tentou": "Já tentei usar, mas achei complicado ou exagerado",
+          "prefere_outros": "Prefiro focar em outras áreas do desenvolvimento"
+        }
       }
     }
   }
