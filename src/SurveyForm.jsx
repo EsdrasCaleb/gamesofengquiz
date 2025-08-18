@@ -525,82 +525,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </tbody>
                 </table>
             )}
-            <br/>
-            <Form.Item
-                name="dificuldade_adocao_praticas"
-                label={(index++) + " - " + t('dificuldade_adocao_praticas')}
-            >
-                <Input.TextArea autoSize={{ minRows: 3 }} />
-            </Form.Item>
 
-            </Card>
-            <Card title={t('uso_ia_generativa')}>
-                <Form.Item
-                    name="areas_uso_ia"
-                    label={(index++)+"-"+t('areas_uso_ia')}
-                    rules={[{ required: true, message: t('option_required') }]}
-                >
-                    <Checkbox.Group className="flex-column" >
-                        <Checkbox value="ideias_criativas">{t('areas_uso_ia_o.options.ideias_criativas')}</Checkbox>
-                        <Checkbox value="conteudo_visual_sonoro">{t('areas_uso_ia_o.options.conteudo_visual_sonoro')}</Checkbox>
-                        <Checkbox value="implementacao">{t('areas_uso_ia_o.options.implementacao')}</Checkbox>
-                        <Checkbox value="planejamento">{t('areas_uso_ia_o.options.planejamento')}</Checkbox>
-                        <Checkbox value="testes">{t('areas_uso_ia_o.options.testes')}</Checkbox>
-                        <Checkbox value="validacao">{t('areas_uso_ia_o.options.validacao')}</Checkbox>
-                        <Checkbox value="outro">{t('areas_uso_ia_o.options.outro')}</Checkbox>
-                        <Checkbox value="ainda_nao_usei">{t('areas_uso_ia_o.options.ainda_nao_usei')}</Checkbox>
-                        <Checkbox value="nao_usado">{t('areas_uso_ia_o.options.nao_usado')}</Checkbox>
-                    </Checkbox.Group>
-                </Form.Item>
-
-                {data.areas_uso_ia?.includes('outro') && (
-                    <Form.Item
-                        name="areas_uso_ia_outro"
-                        label={(index-1)+"a-"+t('areas_uso_ia_outro')}
-                        rules={[{ required: true, message: t('outro_required') }]}
-                    >
-                        <Input />
-                    </Form.Item>
-                )}
-
-                <Form.Item
-                    name="temores_uso_ia"
-                    label={(index++) + " - " + t('temores_uso_ia')}
-                    rules={[{ required: true, message: t('temores_uso_ia_o.required') }]}
-                >
-                    <Checkbox.Group className="flex-column" >
-                        {problemas_ia.map((value) => (
-                            <Checkbox
-                                key={value}
-                                value={value}
-                                disabled={
-                                    data["temores_uso_ia"]?.length >= 2 &&
-                                    !data["temores_uso_ia"].includes(value)
-                                }
-                            >
-                                {t(`temores_uso_ia_o.options.${value}`)}
-                            </Checkbox>
-                        ))}
-                    </Checkbox.Group>
-                </Form.Item>
-
-                {data.temores_uso_ia?.includes('outro') && (
-                    <Form.Item
-                        name="temores_uso_ia_outro"
-                        label={(index - 1) + "a - " + t('temores_uso_ia_outro')}
-                        rules={[{ required: true, message: t('outro_required') }]}
-                    >
-                        <Input />
-                    </Form.Item>
-                )}
-            </Card>
-            <Card title={t('desafios')}>
-            <Collapse 
-            {...(problemas_selected
-                    ? { activeKey: ['tecnico'] }
-                    : { defaultActiveKey: [] })}
-                ghost={problemas_selected}>
-            <Collapse.Panel header={!problemas_selected&&t("option_area")} showArrow={!problemas_selected} collapsible={problemas_selected&&"icon"} key="tecnico">
                 <Form.Item
                     name="dificuldades_manutencao"
                     label={(index++) + '-' + t('dificuldades_manutencao')}
@@ -683,9 +608,68 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                         ))}
                     </Checkbox.Group>
                 </Form.Item>
-                </Collapse.Panel>
-            </Collapse>
             </Card>
+            <Card title={t('uso_ia_generativa')}>
+                <Form.Item
+                    name="areas_uso_ia"
+                    label={(index++)+"-"+t('areas_uso_ia')}
+                    rules={[{ required: true, message: t('option_required') }]}
+                >
+                    <Checkbox.Group className="flex-column" >
+                        <Checkbox value="ideias_criativas">{t('areas_uso_ia_o.options.ideias_criativas')}</Checkbox>
+                        <Checkbox value="conteudo_visual_sonoro">{t('areas_uso_ia_o.options.conteudo_visual_sonoro')}</Checkbox>
+                        <Checkbox value="implementacao">{t('areas_uso_ia_o.options.implementacao')}</Checkbox>
+                        <Checkbox value="planejamento">{t('areas_uso_ia_o.options.planejamento')}</Checkbox>
+                        <Checkbox value="testes">{t('areas_uso_ia_o.options.testes')}</Checkbox>
+                        <Checkbox value="validacao">{t('areas_uso_ia_o.options.validacao')}</Checkbox>
+                        <Checkbox value="outro">{t('areas_uso_ia_o.options.outro')}</Checkbox>
+                        <Checkbox value="ainda_nao_usei">{t('areas_uso_ia_o.options.ainda_nao_usei')}</Checkbox>
+                        <Checkbox value="nao_usado">{t('areas_uso_ia_o.options.nao_usado')}</Checkbox>
+                    </Checkbox.Group>
+                </Form.Item>
+
+                {data.areas_uso_ia?.includes('outro') && (
+                    <Form.Item
+                        name="areas_uso_ia_outro"
+                        label={(index-1)+"a-"+t('areas_uso_ia_outro')}
+                        rules={[{ required: true, message: t('outro_required') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
+
+                <Form.Item
+                    name="temores_uso_ia"
+                    label={(index++) + " - " + t('temores_uso_ia')}
+                    rules={[{ required: true, message: t('temores_uso_ia_o.required') }]}
+                >
+                    <Checkbox.Group className="flex-column" >
+                        {problemas_ia.map((value) => (
+                            <Checkbox
+                                key={value}
+                                value={value}
+                                disabled={
+                                    data["temores_uso_ia"]?.length >= 2 &&
+                                    !data["temores_uso_ia"].includes(value)
+                                }
+                            >
+                                {t(`temores_uso_ia_o.options.${value}`)}
+                            </Checkbox>
+                        ))}
+                    </Checkbox.Group>
+                </Form.Item>
+
+                {data.temores_uso_ia?.includes('outro') && (
+                    <Form.Item
+                        name="temores_uso_ia_outro"
+                        label={(index - 1) + "a - " + t('temores_uso_ia_outro')}
+                        rules={[{ required: true, message: t('outro_required') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
+            </Card>
+
             <Card title={t("artistis_profile")}>
             <Collapse 
             {...(artist_selected
