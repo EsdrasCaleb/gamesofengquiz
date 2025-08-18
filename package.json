@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "antd": "^5.26.1",
+    "i18n-iso-countries": "^7.14.0",
     "i18next": "^25.2.1",
     "i18next-browser-languagedetector": "^8.2.0",
     "lodash": "^4.17.21",

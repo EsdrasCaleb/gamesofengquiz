@@ -52,7 +52,7 @@ export default function App() {
     }
     if (status === 'accepted') {
         return <div style={{ padding: 24 }}><SurveyForm
-            onReset={()=>{setData({});setStatus(null); console.log("reset");}}
+            onReset={()=>{setData({});setStatus(null);}}
             onAnswer={()=>setStatus('concluded')}
             setData={setData} uiid={uid} data={data}/></div>;
     }

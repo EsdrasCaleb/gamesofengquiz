@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Grid, Collapse, Table, Typography, Card, FloatButton, Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import RequiredFieldsSummary from "./RequiredFieldsSummary.jsx";
+import {getCountryOptions} from "./utils.jsx";
 import {debounce, isEqual} from 'lodash';
 
 
@@ -12,7 +13,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const screens = Grid.useBreakpoint();
     const [currentScreen, setCurrentScreen] = useState(screens);
     const { t, i18n } = useTranslation();
-    
+
     const [loading, setLoading] = useState(false);
     const [requiredErrors, setRequiredErrors] = useState([]);
 
@@ -117,10 +118,15 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             return acc;
         }, {});
     }, [requiredErrors]);
-    console.log(data)
+
     const onFinish = async (values) => {
         setLoading(true)
-        const dataCollums = ['uid',"language",
+        const dataCollums = ["uid","language",
+            //Perfil e Contexto Profissional
+            "year_of_birth","country_work","formacao",'area_formacao','area_formacao_outro','anos_experiencia',
+            'qtd_projetos',"situacao","situacao_equipe","duracao_projetos","funcoes"
+        ]
+        const dataCollums_old = ['uid',"language","language_form",
 
             'where_from','how_old','formacao','area_formacao',
             'area_formacao_outro','anos_experiencia', 'qtd_projetos', 'situacao','tamanho_maior_time',
@@ -186,11 +192,11 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             style={{ maxWidth: "93%", margin: '2rem auto' }}
         >
             <Popconfirm
-                title={t('confirmReset')}
-                description={t('confirmResetDescription')}
+                title={t('survey.floatmenu.confirmReset')}
+                description={t('survey.floatmenu.confirmResetDescription')}
                 onConfirm={onReset}
-                okText={t('sim')}
-                cancelText={t('nao')}
+                okText={t('survey.common.sim')}
+                cancelText={t('survey.common.nao')}
                 okType={"danger"}
             >
                 <FloatButton
@@ -223,140 +229,151 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item name="language" initialValue={i18n.languages[0]} hidden>
                 <Input value={i18n.languages[0]} type="hidden" />
             </Form.Item>
+            <Form.Item name="language_form" initialValue={i18n.language} hidden>
+                <Input value={i18n.language} type="hidden" />
+            </Form.Item>
 
-            <Card  title={t("pessoal")} >
-                <Form.Item name="how_old" label={(index++)+"-"+t('howold')} >
+            <Card  title={t("survey.personal_context.header")} >
+                <Form.Item name="year_of_birth" label={(index++)+"-"+t('survey.personal_context.year_of_birth')} >
                     <InputNumber />
                 </Form.Item>
-                <Form.Item name="formacao" label={(index++)+"-"+t('formacao')} rules={[{ required: true, message: t('formacao_required') }]}>
-                   <Radio.Group className="flex-column" >
-                    <Radio value="nenhum">{t('formacao_opcoes.none')}</Radio>
-                    <Radio value="fundamental">{t('formacao_opcoes.fundamental')}</Radio>
-                    <Radio value="medio">{t('formacao_opcoes.medio')}</Radio>
-                    <Radio value="graduacao">{t('formacao_opcoes.graduacao')}</Radio>
-                    <Radio value="especializacao">{t('formacao_opcoes.especializacao')}</Radio>
-                    <Radio value="mestrado">{t('formacao_opcoes.mestrado')}</Radio>
-                    <Radio value="doutorado">{t('formacao_opcoes.doutorado')}</Radio>
-                </Radio.Group>
+                <Form.Item name="country_work" label={(index++)+"-"+t('survey.personal_context.country_work')} >
+                    <Select
+                        showSearch
+                        options={getCountryOptions(i18n.languages)}
+                        filterOption={(input, option) =>
+                            option?.label?.toLowerCase().includes(input.toLowerCase())
+                        }
+                    />
                 </Form.Item>
-                <Form.Item name="where_from" label={(index++)+"-"+t('ufrom')} >
-                    <Input />
+                <Form.Item name="formacao" label={(index++)+"-"+t('survey.personal_context.formacao')} rules={[{ required: true, message: t('survey.common.required_option') }]}>
+                   <Radio.Group className="flex-column" >
+                    <Radio value="nenhum">{t('survey.personal_context.formacao_opcoes.none')}</Radio>
+                    <Radio value="fundamental">{t('survey.personal_context.formacao_opcoes.fundamental')}</Radio>
+                    <Radio value="medio">{t('survey.personal_context.formacao_opcoes.medio')}</Radio>
+                    <Radio value="graduacao">{t('survey.personal_context.formacao_opcoes.graduacao')}</Radio>
+                    <Radio value="especializacao">{t('survey.personal_context.formacao_opcoes.especializacao')}</Radio>
+                    <Radio value="mestrado">{t('survey.personal_context.formacao_opcoes.mestrado')}</Radio>
+                    <Radio value="doutorado">{t('survey.personal_context.formacao_opcoes.doutorado')}</Radio>
+                </Radio.Group>
                 </Form.Item>
 
                 <Form.Item
                     name="area_formacao"
-                    label={(index++)+"-"+t('area_formacao')}
-                    rules={[{ required: true, message: t('area_formacao_required') }]}
+                    label={(index++)+"-"+t('survey.personal_context.area_formacao')}
+                    rules={[{ required: true, message: t('survey.common.required_option') }]}
                 >
                     <Radio.Group className="flex-column" >
-                        <Radio value="computacao">{t('area_formacao_o.computacao')}</Radio>
-                        <Radio value="engenharia">{t('area_formacao_o.engenharia')}</Radio>
-                        <Radio value="jogos">{t('area_formacao_o.jogos')}</Radio>
-                        <Radio value="design">{t('area_formacao_o.design')}</Radio>
-                        <Radio value="musica">{t('area_formacao_o.musica')}</Radio>
-                        <Radio value="comunicacao">{t('area_formacao_o.comunicacao')}</Radio>
-                        <Radio value="autodidata">{t('area_formacao_o.autodidata')}</Radio>
-                        <Radio value="outro">{t('area_formacao_o.outra')}</Radio>
+                        <Radio value="computacao">{t('survey.personal_context.area_formacao_o.computacao')}</Radio>
+                        <Radio value="engenharia">{t('survey.personal_context.area_formacao_o.engenharia')}</Radio>
+                        <Radio value="jogos">{t('survey.personal_context.area_formacao_o.jogos')}</Radio>
+                        <Radio value="design">{t('survey.personal_context.area_formacao_o.design')}</Radio>
+                        <Radio value="musica">{t('survey.personal_context.area_formacao_o.musica')}</Radio>
+                        <Radio value="comunicacao">{t('survey.personal_context.area_formacao_o.comunicacao')}</Radio>
+                        <Radio value="autodidata">{t('survey.personal_context.area_formacao_o.autodidata')}</Radio>
+                        <Radio value="outro">{t('survey.common.outra')}</Radio>
                     </Radio.Group>
                 </Form.Item>
 
                 {data['area_formacao']=='outro' && (
                     <Form.Item
                     name="area_formacao_outro"
-                    label={(index-1)+"a-"+t('area_formacao_outro')}
-                    rules={[{ required: true, message: t('area_formacao_outro_required') }]}
+                    label={(index-1)+"a-"+t('survey.common.outra_describe')}
+                    rules={[{ required: true, message: t('survey.common.required_describe') }]}
                     >
                     <Input />
                     </Form.Item>
                 )}
-                <Form.Item name="anos_experiencia" label={(index++)+"-"+t('anos_experiencia')} rules={[{ required: true, message: t('option_required')  }]}>
+                <Form.Item name="anos_experiencia" label={(index++)+"-"+t('survey.personal_context.anos_experiencia')} rules={[{ required: true, message: t('survey.common.required_describe')  }]}>
                     <InputNumber min={0} />
                 </Form.Item>
-                <Form.Item name="qtd_projetos" label={(index++)+"-"+t('qtd_projetos')} rules={[{ required: true, message: t('option_required')  }]}>
+                <Form.Item name="qtd_projetos" label={(index++)+"-"+t('survey.personal_context.qtd_projetos')} rules={[{ required: true, message: t('survey.common.required_describe')  }]}>
                     <InputNumber min={0} />
                 </Form.Item>
 
                 <Form.Item
                     name="situacao"
-                    label={(index++)+"-"+t('situacao')}
-                    rules={[{ required: true, message: t('option_required') }]}
+                    label={(index++)+"-"+t('survey.personal_context.situacao')}
+                    rules={[{ required: true, message: t('survey.common.required_option') }]}
                 >
                     <Radio.Group className="flex-column" >
                         <Radio value="atuacao_industria_integral">
-                            {t('situacao_o.atuacao_industria_integral')}
+                            {t('survey.personal_context.situacao_o.atuacao_industria_integral')}
                         </Radio>
                         <Radio value="atuacao_industria_parcial">
-                            {t('situacao_o.atuacao_industria_parcial')}
+                            {t('survey.personal_context.situacao_o.atuacao_industria_parcial')}
                         </Radio>
                         <Radio value="atuacao_freelancer">
-                            {t('situacao_o.atuacao_freelancer')}
+                            {t('survey.personal_context.situacao_o.atuacao_freelancer')}
                         </Radio>
                         <Radio value="atuacao_indie_horas_vagas">
-                            {t('situacao_o.atuacao_indie_horas_vagas')}
+                            {t('survey.personal_context.situacao_o.atuacao_indie_horas_vagas')}
                         </Radio>
                         <Radio value="atuacao_eventual">
-                            {t('situacao_o.atuacao_eventual')}
+                            {t('survey.personal_context.situacao_o.atuacao_eventual')}
                         </Radio>
                         <Radio value="atuacao_nao_envolvido">
-                            {t('situacao_o.atuacao_nao_envolvido')}
+                            {t('survey.personal_context.situacao_o.atuacao_nao_envolvido')}
                         </Radio>
                     </Radio.Group>
                 </Form.Item>
 
 
-                <Form.Item name="tamanho_maior_time" label={(index++)+"-"+t('tamanho_maior_time')} rules={[{ required: true, message: t('option_required')  }]}>
+                <Form.Item name="situacao_equipe" label={(index++)+"-"+t('survey.personal_context.situacao_equipe')} rules={[{ required: true, message: t('survey.common.required_option')  }]}>
                     <Radio.Group className="flex-column" >
-                        <Radio value="individual">{t('situacao_equipe.individual')}</Radio>
-                        <Radio value="pequena">{t('situacao_equipe.pequena')}</Radio>
-                        <Radio value="media">{t('situacao_equipe.media')}</Radio>
-                        <Radio value="grande">{t('situacao_equipe.grande')}</Radio>
-                        <Radio value="varia">{t('situacao_equipe.varia')}</Radio>
-                        <Radio value="nao_participa">{t('situacao_equipe.nao_participa')}</Radio>
+                        <Radio value="individual">{t('survey.personal_context.situacao_equipe_o.individual')}</Radio>
+                        <Radio value="pequena">{t('survey.personal_context.situacao_equipe_o.pequena')}</Radio>
+                        <Radio value="media">{t('survey.personal_context.situacao_equipe_o.media')}</Radio>
+                        <Radio value="grande">{t('survey.personal_context.situacao_equipe_o.grande')}</Radio>
+                        <Radio value="varia">{t('survey.personal_context.situacao_equipe_o.varia')}</Radio>
+                        <Radio value="nao_participa">{t('survey.personal_context.situacao_equipe_o.nao_participa')}</Radio>
                     </Radio.Group>
                 </Form.Item>
 
-                <Form.Item name="duracao_media_projetos" label={(index++) + '-' + t('duracao_media_projetos')} rules={[{ required: true, message: t('option_required')  }]}>
+                <Form.Item name="duracao_projetos" label={(index++) + '-' + t('survey.personal_context.duracao_projetos')} rules={[{ required: true, message: t('survey.common.required_option')  }]}>
                     <Radio.Group className="flex-column" >
-                        <Radio value="menos_1_mes">{t('duracao_projetos.menos_1_mes')}</Radio>
-                        <Radio value="1a3_meses">{t('duracao_projetos.1a3_meses')}</Radio>
-                        <Radio value="4a6_meses">{t('duracao_projetos.4a6_meses')}</Radio>
-                        <Radio value="7a12_meses">{t('duracao_projetos.7a12_meses')}</Radio>
-                        <Radio value="mais_1_ano">{t('duracao_projetos.mais_1_ano')}</Radio>
+                        <Radio value="menos_1_mes">{t('survey.personal_context.duracao_projetos_o.menos_1_mes')}</Radio>
+                        <Radio value="1a3_meses">{t('survey.personal_context.duracao_projetos_o.1a3_meses')}</Radio>
+                        <Radio value="4a6_meses">{t('survey.personal_context.duracao_projetos_o.4a6_meses')}</Radio>
+                        <Radio value="7a12_meses">{t('survey.personal_context.duracao_projetos_o.7a12_meses')}</Radio>
+                        <Radio value="mais_1_ano">{t('survey.personal_context.duracao_projetos_o.mais_1_ano')}</Radio>
                     </Radio.Group>
                 </Form.Item>
 
-            </Card>
-
-            <Card title={t('game_dev_profile')}>
                 <Form.Item
-                    name="papel"
-                    label={(index++)+"-"+t('papel')}
-                    rules={[{ required: true, message: t('papel_required') }]}
+                    name="funcoes"
+                    label={(index++)+"-"+t('survey.personal_context.funcoes')}
+                    rules={[{ required: true, message: t('survey.common.required_option') }]}
                 >
                     <Checkbox.Group className="flex-column" >
-                        <Checkbox value="gerente">{t('papel_gerente')}</Checkbox>
-                        <Checkbox value="programador">{t('papel_programador')}</Checkbox>
-                        <Checkbox value="artista">{t('papel_artista')}</Checkbox>
-                        <Checkbox value="animacao">{t('papel_animacao')}</Checkbox>
-                        <Checkbox value="design_ux">{t('papel_design_ux')}</Checkbox>
-                        <Checkbox value="game_designer">{t('papel_game_designer')}</Checkbox>
-                        <Checkbox value="level_designer">{t('papel_level_designer')}</Checkbox>
-                        <Checkbox value="qa">{t('papel_qa')}</Checkbox>
-                        <Checkbox value="artista_som">{t('papel_artista_som')}</Checkbox>
-                        <Checkbox value="roteiro_narrativa">{t('papel_roteiro_narrativa')}</Checkbox>
-                        <Checkbox value="marketing">{t('papel_marketing')}</Checkbox>
-                        <Checkbox value="outro">{t('outro')}</Checkbox>
+                        <Checkbox value="gerente">{t('survey.personal_context.funcoes_o.gerente')}</Checkbox>
+                        <Checkbox value="programador">{t('survey.personal_context.funcoes_o.programador')}</Checkbox>
+                        <Checkbox value="artista">{t('survey.personal_context.funcoes_o.artista')}</Checkbox>
+                        <Checkbox value="animacao">{t('survey.personal_context.funcoes_o.animacao')}</Checkbox>
+                        <Checkbox value="design_ux">{t('survey.personal_context.funcoes_o.design_ux')}</Checkbox>
+                        <Checkbox value="game_designer">{t('survey.personal_context.funcoes_o.game_designer')}</Checkbox>
+                        <Checkbox value="level_designer">{t('survey.personal_context.funcoes_o.level_designer')}</Checkbox>
+                        <Checkbox value="qa">{t('survey.personal_context.funcoes_o.qa')}</Checkbox>
+                        <Checkbox value="artista_som">{t('survey.personal_context.funcoes_o.artista_som')}</Checkbox>
+                        <Checkbox value="roteiro_narrativa">{t('survey.personal_context.funcoes_o.roteiro_narrativa')}</Checkbox>
+                        <Checkbox value="marketing">{t('survey.personal_context.funcoes_o.marketing')}</Checkbox>
+                        <Checkbox value="outro">{t('survey.common.outro')}</Checkbox>
                     </Checkbox.Group>
                 </Form.Item>
-                {data['papel']?.includes('outro') && (
+                {data['funcoes']?.includes('outro') && (
                     <Form.Item
-                        name="papel_outro"
-                        label={(index-1)+"a-"+t('papel_outro')}
-                        rules={[{ required: true, message: t('outro_required') }]}
+                        name="foncoes_outro"
+                        label={(index-1)+"a-"+t('survey.common.outro_describe')}
+                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
                     >
                         <Input />
                     </Form.Item>
                 )}
+
+            </Card>
+
+            <Card title={t('game_dev_profile')}>
+
 
                 <Form.Item
                     name="tipos_jogos"
@@ -963,8 +980,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
             <Form.Item name="contato_entrevista" label={(index++)+"-"+t('contato_entrevista')} rules={[{ required: true, message: t('option_required')  }]}>
                 <Radio.Group>
-                    <Radio value="sim">{t('sim')}</Radio>
-                    <Radio value="nao">{t('nao')}</Radio>
+                    <Radio value="sim">{t('survey.common.sim')}</Radio>
+                    <Radio value="nao">{t('survey.common.nao')}</Radio>
                 </Radio.Group>
             </Form.Item>
 
