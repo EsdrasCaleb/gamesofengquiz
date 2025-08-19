@@ -34,7 +34,7 @@
       "sim": "Sim",
       "nao": "Não",
       "required_option": "Por favor, selecione uma opção.",
-      "required_one_option": "Por favor, selecione pelomenos uma opção.",
+      "required_one_option": "Por favor, selecione pelo menos uma opção.",
       "required_describe": "Por favor, especifique.",
       "outra": "Outra",
       "outro": "Outro",
@@ -159,6 +159,15 @@
           "ja_tentou": "Já tentei usar, mas achei complicado ou exagerado",
           "prefere_outros": "Prefiro focar em outras áreas do desenvolvimento"
         }
+      },
+      "dificuldades_manutencao": "Na sua experiência, o que mais dificulta a evolução e manutenção dos projetos ao longo do tempo? (Escolha até 3 opções)",
+      "dificuldades_manutencao_o": {
+        "codigo_dificil": "O código se torna difícil de entender com o tempo",
+        "mudancas_quebram": "Fazer mudanças causa erros inesperados em outras partes do jogo",
+        "quebra_existente": "É difícil saber se uma funcionalidade nova quebra algo existente",
+        "teste_demorado": "Testar o jogo manualmente leva muito tempo",
+        "crescimento_ferramental": "As funcionalidades vão crescendo e fica difícil garantir estabilidade",
+        "sem_dificuldades": "Não enfrento dificuldades significativas nesse aspecto"
       }
     }
   }

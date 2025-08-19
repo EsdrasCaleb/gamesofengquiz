@@ -101,7 +101,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         'sem_preocupacoes'
     ];
     const problemas_manutencao = ['codigo_dificil', 'mudancas_quebram', 'quebra_existente', 'teste_demorado',
-        'crescimento_ferramental', 'sem_dificuldades', 'outro'];
+        'crescimento_ferramental', 'sem_dificuldades'];
     const problemas_causas = [
         'falta_tempo',
         'codigo_desorganizado',
@@ -128,7 +128,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             "tipos_jogos_outro","plataformas_desenvolvimento", "plataformas_outro",'ferramentas_desenvolvimento',
             "ferramentas_outro","uso_praticas_controle_versao", "uso_praticas_padroes_design",
             "uso_praticas_modelagem_projeto", "uso_praticas_prototipacao", "uso_praticas_tdd",
-            "uso_praticas_integracao_continua"
+            "uso_praticas_integracao_continua","dificuldades_manutencao","dificuldades_manutencao_outro"
         ]
         const dataCollums_old = ['uid',"language","language_form",
 
@@ -524,12 +524,13 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
 
                     </tbody>
                 </table>
-            )}
+                )}
+                <br/>
 
                 <Form.Item
                     name="dificuldades_manutencao"
-                    label={(index++) + '-' + t('dificuldades_manutencao')}
-                    rules={[{ required: problemas_selected, message: t('dificuldades_manutencao_o.required') }]}
+                    label={(index++) + '-' + t('survey.software_engeniring.dificuldades_manutencao')}
+                    rules={[{ required: problemas_selected, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column" >
                         {problemas_manutencao.map((value) => (
@@ -541,17 +542,27 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                                     !data["dificuldades_manutencao"].includes(value)
                                 }
                             >
-                                {t(`dificuldades_manutencao_o.options.${value}`)}
+                                {t(`survey.software_engeniring.dificuldades_manutencao_o.${value}`)}
                             </Checkbox>
                         ))}
+                        <Checkbox
+                            key="outro"
+                            value="outro"
+                            disabled={
+                                data["dificuldades_manutencao"]?.length >= 3 &&
+                                !data["dificuldades_manutencao"].includes("outro")
+                            }
+                        >
+                            {t('survey.common.outro')}
+                        </Checkbox>
                     </Checkbox.Group>
                 </Form.Item>
 
                 {data.dificuldades_manutencao?.includes('outro') && (
                     <Form.Item
                         name="dificuldades_manutencao_outro"
-                        label={(index - 1) + 'a-' + t('dificuldades_manutencao_outro')}
-                        rules={[{ required: true, message: t('outro_required') }]}
+                        label={(index - 1) + 'a-' + t('survey.common.outro_describe')}
+                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
                     >
                         <Input />
                     </Form.Item>
