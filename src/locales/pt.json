@@ -164,10 +164,25 @@
       "dificuldades_manutencao_o": {
         "codigo_dificil": "O código se torna difícil de entender com o tempo",
         "mudancas_quebram": "Fazer mudanças causa erros inesperados em outras partes do jogo",
-        "quebra_existente": "É difícil saber se uma funcionalidade nova quebra algo existente",
-        "teste_demorado": "Testar o jogo manualmente leva muito tempo",
-        "crescimento_ferramental": "As funcionalidades vão crescendo e fica difícil garantir estabilidade",
+        "comunicacao_dificil": "Dificuldade de comunicação entre os membros da equipe",
+        "prazo_curto": "Falta de tempo ou prazos apertados",
+        "mudancas_escopo": "Mudanças de escopo ou funcionalidades no meio do projeto",
+        "sem_boas_praticas": "Ausência de boas praticas de engenharia de software",
         "sem_dificuldades": "Não enfrento dificuldades significativas nesse aspecto"
+      },
+      "testes_jogo": "Quais formas de teste você costuma utilizar para verificar se o jogo está funcionando corretamente?",
+      "testes_jogo_options": {
+        "exploratorio": "Testes exploratórios — jogo livremente e observo se há falhas ou comportamentos estranhos",
+        "roteiro": "Testes com roteiro — sigo uma lista de passos ou checklist para verificar funcionalidades específicas",
+        "automatizado": "Testes automatizados — uso ferramentas ou scripts para testar partes do jogo sem intervenção manual"
+      },
+      "dificuldades_testes": "Se você já tentou usar testes automatizados, quais foram as principais dificuldades? (Marque as principais)",
+      "dificuldades_testes_options": {
+        "entendimento_frameworks": "Tive dificuldade para entender como funcionam as ferramentas e frameworks de teste",
+        "implementacao_dificil": "Achei complicado implementar os testes no meu projeto, tanto tecnicamente quanto no fluxo de trabalho",
+        "preferencia_humanos": "Prefiro fazer testes manualmente, pois sinto que eles são mais úteis na prática",
+        "nao_encontram_erros_reais": "Os testes automatizados não pegam os mesmos erros que os jogadores encontram jogando de verdade",
+        "nunca_usei": "Nunca tentei usar testes automatizados."
       }
     }
   }
