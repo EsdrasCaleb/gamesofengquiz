@@ -11,16 +11,24 @@ const RequiredFieldsSummary = ({ missingFields = [] }) => {
     return (
         <Alert
             type="warning"
-            message={t('required_fields_missing')}
+            message={t('survey.required_fields_missing')}
             description={
                 <ul style={{ margin: 0, paddingLeft: 20 }}>
-                    {missingFields.map((fieldName, idx) => (
-                        <li key={idx}>
-                            <Text strong>
-                                {t(fieldName)}
-                            </Text>
-                        </li>
-                    ))}
+                    {missingFields.map((fieldName, idx) => {
+                        let label;
+                        if (fieldName.endsWith("_outro")) {
+                            const baseName = fieldName.replace(/_outro$/, "");
+                            label = `${t("survey." + baseName)} - ${t("survey.common.outro")}`;
+                        } else {
+                            label = t("survey." + fieldName);
+                        }
+
+                        return (
+                            <li key={idx}>
+                                <Text strong>{label}</Text>
+                            </li>
+                        );
+                    })}
                 </ul>
             }
         />

@@ -274,15 +274,6 @@
   },
   "testes_jogo_outro": "Descreva outro método de teste utilizado",
   "testes_jogo_outro_required": "Por favor, descreva o outro método",
-  "ferramentas_teste": "Quais ferramentas você já usou para criar testes automatizados nos seus projetos de jogos? (Deixe em branco se nunca usou)",
-  "ferramentas_teste_options": {
-    "robotframework": "Robot Framework — usado para testes automatizados de forma genérica, com suporte a várias interfaces",
-    "selenium": "Selenium — voltado para testes de interface em aplicações web",
-    "appium": "Appium — utilizado para testes automatizados em aplicativos móveis (iOS e Android)",
-    "unity": "Unity Test Framework — ferramenta nativa da Unity para criação de testes unitários e de integração",
-    "unreal_functional": "Unreal Functional Testing Framework — sistema da Unreal Engine para testes funcionais dentro do editor",
-    "unreal_gauntlet": "Unreal Gauntlet — framework da Unreal Engine para automação de testes em builds e pacotes de jogo"
-  },
   "ferramentas_teste_outro": "Descreva a outra ferramenta utilizada",
   "ferramentas_teste_outro_required": "Por favor, descreva a ferramenta",
   "conteudo_testado": "Quais aspectos do jogo você costuma cobrir nos testes automatizados? (Deixe em branco se não utiliza testes automatizados)",
@@ -324,7 +315,7 @@
   },
   "dificuldades_testes_outro": "Descreva outra dificuldade",
   "dificuldades_testes_outro_required": "Por favor, descreva",
-  "areas_uso_ia": "Considerando as atividades que você tem desempenhado no desenvolvimento de jogos, de que forma você tem usado IAs generativas, tais como Chatgpt, copilot, DALL-E, Midjounrney, dentre outras?",
+  "areas_uso_ia": "De que forma você tem usado IAs generativas (ChatGPT, Copilot, Midjourney, etc.) no desenvolvimento de jogos?",
   "areas_uso_ia_outro": "Descreva outra forma de uso:",
   "areas_uso_ia_o": {
     "required": "Por favor, selecione ao menos uma forma de uso",

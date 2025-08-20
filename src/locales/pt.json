@@ -41,149 +41,220 @@
       "outra_describe": "Qual outra?",
       "outro_describe": "Qual outro?"
     },
-    "personal_context": {
-      "header": "Perfil e Contexto Profissional",
-      "year_of_birth": "Em que ano você nasceu?",
-      "country_work": "Em qual país você trabalha/atua principalmente no desenvolvimento de jogos?",
-      "formacao": "Qual o seu maior nível de formação?",
-      "formacao_opcoes": {
-        "none": "Nenhum",
-        "fundamental": "Fundamental",
-        "medio": "Médio",
-        "graduacao": "Graduação",
-        "especializacao": "Especialização",
-        "mestrado": "Mestrado",
-        "doutorado": "Doutorado"
-      },
-      "area_formacao": "Em qual área é o seu maior nível de formação?",
-      "area_formacao_o": {
-        "computacao": "Ciência da Computação / Engenharia de Software / Sistemas de Informação",
-        "engenharia": "Engenharia (outras áreas)",
-        "jogos": "Design de Jogos / Desenvolvimento de Jogos Digitais",
-        "design": "Design Gráfico / Artes Visuais / Animação",
-        "musica": "Música / Produção de Áudio",
-        "comunicacao": "Comunicação / Mídias Digitais / Multimídia",
-        "autodidata": "Autodidata (sem formação formal)"
-      },
-      "anos_experiencia": "Há quantos anos você atua na área de desenvolvimento de jogos digitais?",
-      "qtd_projetos": "Em quantos projetos de jogos (lançados ou não) você já trabalhou?",
-      "situacao": "Qual é a sua principal forma de atuação no desenvolvimento de jogos digitais atualmente? (Marque a alternativa que melhor descreve sua situação atual.)",
-      "situacao_o": {
-        "atuacao_industria_integral": "Trabalho em tempo integral em uma empresa da indústria de jogos digitais",
-        "atuacao_industria_parcial": "Trabalho em tempo parcial em uma empresa da indústria de jogos digitais",
-        "atuacao_freelancer": "Desenvolvo jogos como freelancer/autônomo regularmente",
-        "atuacao_indie_horas_vagas": "Desenvolvo jogos de forma independente nas horas vagas (sem remuneração ou com remuneração eventual)",
-        "atuacao_eventual": "Desenvolvo jogos eventualmente, em projetos pontuais ou colaborativos",
-        "atuacao_nao_envolvido": "Não estou atualmente envolvido com desenvolvimento de jogos digitais, mas pretendo voltar a atuar nesta área."
-      },
-      "situacao_equipe": "Com que tipo de equipe você costuma trabalhar nos projetos de desenvolvimento de jogos? Considere a maioria dos projetos em que você participa",
-      "situacao_equipe_o": {
-        "individual": "Trabalho sozinho (projetos individuais)",
-        "pequena": "Em equipe pequena (2 a 5 pessoas)",
-        "media": "Em equipe média (6 a 15 pessoas)",
-        "grande": "Em equipe grande (mais de 15 pessoas)",
-        "varia": "Varia bastante de projeto para projeto",
-        "nao_participa": "Trabalho de forma independente e não tenho contato direto com a equipe do projeto"
-      },
-      "duracao_projetos": "Em média, qual é a duração dos projetos em que você participa?",
-      "duracao_projetos_o": {
-        "menos_1_mes": "Menos de 1 mês",
-        "1a3_meses": "De 1 a 3 meses",
-        "4a6_meses": "De 4 a 6 meses",
-        "7a12_meses": "De 7 a 12 meses",
-        "mais_1_ano": "Mais de 1 ano"
-      },
-      "funcoes": "Quais papéis/funções você costuma desempenhar?",
-      "funcoes_o": {
-        "programador": "Programador",
-        "artista": "Artista Visual",
-        "desin_ux": "Design de Interface do Usuário",
-        "roteiro_narrativa": "Roteiro/Narrativa",
-        "gerente": "Gerenciamento de projeto",
-        "marketing": "Marketing/Publicação",
-        "game_designer": "Game Designer",
-        "level_designer": "Level Designer",
-        "qa": "Testador (QA)",
-        "artista_som": "Artista de Som",
-        "animacao": "Animação"
-      },
-      "tipos_jogos": "Que tipos de jogos você mais desenvolve?",
-      "tipos_jogos_options": {
-        "fps": "FPS",
-        "educacional": "Educacional",
-        "rpg": "RPG",
-        "aventura_narrativa": "Aventura Narrativa (Visual Novel)",
-        "2d": "2D",
-        "3d": "3D",
-        "plataforma": "Plataforma",
-        "boardgame": "BoardGame",
-        "puzzle": "Puzzle",
-        "simulacao": "Simulação",
-        "manager": "Manager"
-      },
-      "plataformas_desenvolvimento": "Para quais plataformas você costuma desenvolver jogos?",
-      "plataformas_desenvolvimento_o": {
-        "pc": "PC (Windows, Linux, Mac)",
-        "web": "Web (navegadores)",
-        "mobile": "Dispositivos móveis (Android, iOS)",
-        "console": "Consoles (PlayStation, Xbox, Nintendo)",
-        "xr": "Realidade virtual / aumentada"
-      },
-      "ferramentas_desenvolvimento": "Quais engines você costuma usar nos projetos em que trabalha ou já trabalhou?",
-      "ferramentas_desenvolvimento_options": {
-        "unity": "Unity",
-        "unreal": "Unreal",
-        "godot": "Godot",
-        "gamemaker": "Game Maker",
-        "rpgmaker": "RPG Maker",
-        "framework_baixo_nivel": "Framework de baixo nível (LOVE, MonoGame, Heaps  etc...)",
-        "propria_pessoal": "Engine Própria, feita por mim",
-        "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
-        "nada": "Não utilizo motores de jogo (programação com libs básicas como SDL)"
+    "year_of_birth": "Em que ano você nasceu?",
+    "country_work": "Em qual país você trabalha/atua principalmente no desenvolvimento de jogos?",
+    "formacao": "Qual o seu maior nível de formação?",
+    "formacao_opcoes": {
+      "none": "Nenhum",
+      "fundamental": "Fundamental",
+      "medio": "Médio",
+      "graduacao": "Graduação",
+      "especializacao": "Especialização",
+      "mestrado": "Mestrado",
+      "doutorado": "Doutorado"
+    },
+    "area_formacao": "Em qual área é o seu maior nível de formação?",
+    "area_formacao_o": {
+      "computacao": "Ciência da Computação / Engenharia de Software / Sistemas de Informação",
+      "engenharia": "Engenharia (outras áreas)",
+      "jogos": "Design de Jogos / Desenvolvimento de Jogos Digitais",
+      "design": "Design Gráfico / Artes Visuais / Animação",
+      "musica": "Música / Produção de Áudio",
+      "comunicacao": "Comunicação / Mídias Digitais / Multimídia",
+      "autodidata": "Autodidata (sem formação formal)"
+    },
+    "anos_experiencia": "Há quantos anos você atua na área de desenvolvimento de jogos digitais?",
+    "qtd_projetos": "Em quantos projetos de jogos (lançados ou não) você já trabalhou?",
+    "situacao": "Qual é a sua principal forma de atuação no desenvolvimento de jogos digitais atualmente? (Marque a alternativa que melhor descreve sua situação atual.)",
+    "situacao_o": {
+      "atuacao_industria_integral": "Trabalho em tempo integral em uma empresa da indústria de jogos digitais",
+      "atuacao_industria_parcial": "Trabalho em tempo parcial em uma empresa da indústria de jogos digitais",
+      "atuacao_freelancer": "Desenvolvo jogos como freelancer/autônomo regularmente",
+      "atuacao_indie_horas_vagas": "Desenvolvo jogos de forma independente nas horas vagas (sem remuneração ou com remuneração eventual)",
+      "atuacao_eventual": "Desenvolvo jogos eventualmente, em projetos pontuais ou colaborativos",
+      "atuacao_nao_envolvido": "Não estou atualmente envolvido com desenvolvimento de jogos digitais, mas pretendo voltar a atuar nesta área."
+    },
+    "situacao_equipe": "Com que tipo de equipe você costuma trabalhar nos projetos de desenvolvimento de jogos? Considere a maioria dos projetos em que você participa",
+    "situacao_equipe_o": {
+      "individual": "Trabalho sozinho (projetos individuais)",
+      "pequena": "Em equipe pequena (2 a 5 pessoas)",
+      "media": "Em equipe média (6 a 15 pessoas)",
+      "grande": "Em equipe grande (mais de 15 pessoas)",
+      "varia": "Varia bastante de projeto para projeto",
+      "nao_participa": "Trabalho de forma independente e não tenho contato direto com a equipe do projeto"
+    },
+    "duracao_projetos": "Em média, qual é a duração dos projetos em que você participa?",
+    "duracao_projetos_o": {
+      "menos_1_mes": "Menos de 1 mês",
+      "1a3_meses": "De 1 a 3 meses",
+      "4a6_meses": "De 4 a 6 meses",
+      "7a12_meses": "De 7 a 12 meses",
+      "mais_1_ano": "Mais de 1 ano"
+    },
+    "funcoes": "Quais papéis/funções você costuma desempenhar?",
+    "funcoes_o": {
+      "programador": "Programador",
+      "artista": "Artista Visual",
+      "design_ux": "Design de Interface do Usuário",
+      "roteiro_narrativa": "Roteiro/Narrativa",
+      "gerente": "Gerenciamento de projeto",
+      "marketing": "Marketing/Publicação",
+      "game_designer": "Game Designer",
+      "level_designer": "Level Designer",
+      "qa": "Testador (QA)",
+      "artista_som": "Artista de Som",
+      "animacao": "Animação"
+    },
+    "tipos_jogos": "Que tipos de jogos você mais desenvolve?",
+    "tipos_jogos_options": {
+      "fps": "FPS",
+      "educacional": "Educacional",
+      "rpg": "RPG",
+      "aventura_narrativa": "Aventura Narrativa (Visual Novel)",
+      "2d": "2D",
+      "3d": "3D",
+      "plataforma": "Plataforma",
+      "boardgame": "BoardGame",
+      "puzzle": "Puzzle",
+      "simulacao": "Simulação",
+      "manager": "Manager"
+    },
+    "plataformas_desenvolvimento": "Para quais plataformas você costuma desenvolver jogos?",
+    "plataformas_desenvolvimento_o": {
+      "pc": "PC (Windows, Linux, Mac)",
+      "web": "Web (navegadores)",
+      "mobile": "Dispositivos móveis (Android, iOS)",
+      "console": "Consoles (PlayStation, Xbox, Nintendo)",
+      "xr": "Realidade virtual / aumentada"
+    },
+    "ferramentas_desenvolvimento": "Quais engines você costuma usar nos projetos em que trabalha ou já trabalhou?",
+    "ferramentas_desenvolvimento_options": {
+      "unity": "Unity",
+      "unreal": "Unreal",
+      "godot": "Godot",
+      "gamemaker": "Game Maker",
+      "rpgmaker": "RPG Maker",
+      "framework_baixo_nivel": "Framework de baixo nível (LOVE, MonoGame, Heaps  etc...)",
+      "propria_pessoal": "Engine Própria, feita por mim",
+      "propria_corporativa": "Engine Própria, da empresa que trabalho/trabalhei",
+      "nada": "Não utilizo motores de jogo (programação com libs básicas como SDL)"
+    },
+    "personal_context": "Perfil e Contexto Profissional",
+    "uso_praticas_controle_versao": "Controle de versão (ex: Git)",
+    "uso_praticas_padroes_design": "Padrões de design (ex: ECS, componentes)",
+    "uso_praticas_modelagem_projeto":"Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
+    "uso_praticas_prototipacao":"Prototipação técnica",
+    "uso_praticas_tdd":"Desenvolvimento orientado a testes (TDD)",
+    "uso_praticas_integracao_continua":"Integração contínua (builds, pipelines)",
+    "uso_praticas":{
+      "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",
+      "opcoes": {
+        "uso_atualmente": "Uso atualmente",
+        "nao_conhece": "Não uso porque não conheço bem",
+        "nao_util": "Não vejo utilidade para meus projetos",
+        "ja_tentou": "Já tentei usar, mas achei complicado ou exagerado",
+        "prefere_outros": "Prefiro focar em outras áreas do desenvolvimento"
       }
     },
-    "software_engeniring": {
-      "header": "Práticas de Engenharia e Testes",
-      "uso_praticas":{
-        "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",
-        "controle_versao": "Controle de versão (ex: Git)",
-        "padroes_design": "Padrões de design (ex: ECS, componentes)",
-        "modelagem_projeto":"Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
-        "prototipacao":"Prototipação técnica",
-        "tdd":"Desenvolvimento orientado a testes (TDD)",
-        "integracao_continua":"Integração contínua (builds, pipelines)",
-        "opcoes": {
-          "uso_atualmente": "Uso atualmente",
-          "nao_conhece": "Não uso porque não conheço bem",
-          "nao_util": "Não vejo utilidade para meus projetos",
-          "ja_tentou": "Já tentei usar, mas achei complicado ou exagerado",
-          "prefere_outros": "Prefiro focar em outras áreas do desenvolvimento"
-        }
-      },
-      "dificuldades_manutencao": "Na sua experiência, o que mais dificulta a evolução e manutenção dos projetos ao longo do tempo? (Escolha até 3 opções)",
-      "dificuldades_manutencao_o": {
-        "codigo_dificil": "O código se torna difícil de entender com o tempo",
-        "mudancas_quebram": "Fazer mudanças causa erros inesperados em outras partes do jogo",
-        "comunicacao_dificil": "Dificuldade de comunicação entre os membros da equipe",
-        "prazo_curto": "Falta de tempo ou prazos apertados",
-        "mudancas_escopo": "Mudanças de escopo ou funcionalidades no meio do projeto",
-        "sem_boas_praticas": "Ausência de boas praticas de engenharia de software",
-        "sem_dificuldades": "Não enfrento dificuldades significativas nesse aspecto"
-      },
-      "testes_jogo": "Quais formas de teste você costuma utilizar para verificar se o jogo está funcionando corretamente?",
-      "testes_jogo_options": {
-        "exploratorio": "Testes exploratórios — jogo livremente e observo se há falhas ou comportamentos estranhos",
-        "roteiro": "Testes com roteiro — sigo uma lista de passos ou checklist para verificar funcionalidades específicas",
-        "automatizado": "Testes automatizados — uso ferramentas ou scripts para testar partes do jogo sem intervenção manual"
-      },
-      "dificuldades_testes": "Se você já tentou usar testes automatizados, quais foram as principais dificuldades? (Marque as principais)",
-      "dificuldades_testes_options": {
-        "entendimento_frameworks": "Tive dificuldade para entender como funcionam as ferramentas e frameworks de teste",
-        "implementacao_dificil": "Achei complicado implementar os testes no meu projeto, tanto tecnicamente quanto no fluxo de trabalho",
-        "preferencia_humanos": "Prefiro fazer testes manualmente, pois sinto que eles são mais úteis na prática",
-        "nao_encontram_erros_reais": "Os testes automatizados não pegam os mesmos erros que os jogadores encontram jogando de verdade",
-        "nunca_usei": "Nunca tentei usar testes automatizados."
-      }
-    }
+    "dificuldades_manutencao": "Na sua experiência, o que mais dificulta a evolução e manutenção dos projetos ao longo do tempo? (Escolha até 3 opções)",
+    "dificuldades_manutencao_o": {
+      "codigo_dificil": "O código se torna difícil de entender com o tempo",
+      "mudancas_quebram": "Fazer mudanças causa erros inesperados em outras partes do jogo",
+      "comunicacao_dificil": "Dificuldade de comunicação entre os membros da equipe",
+      "prazo_curto": "Falta de tempo ou prazos apertados",
+      "mudancas_escopo": "Mudanças de escopo ou funcionalidades no meio do projeto",
+      "sem_boas_praticas": "Ausência de boas praticas de engenharia de software",
+      "sem_dificuldades": "Não enfrento dificuldades significativas nesse aspecto"
+    },
+    "testes_jogo": "Quais formas de teste você costuma utilizar para verificar se o jogo está funcionando corretamente?",
+    "testes_jogo_options": {
+      "exploratorio": "Testes exploratórios — jogo livremente e observo se há falhas ou comportamentos estranhos",
+      "roteiro": "Testes com roteiro — sigo uma lista de passos ou checklist para verificar funcionalidades específicas",
+      "automatizado": "Testes automatizados — uso ferramentas ou scripts para testar partes do jogo sem intervenção manual"
+    },
+    "dificuldades_testes": "Se você já tentou usar testes automatizados, quais foram as principais dificuldades? (Marque as principais)",
+    "dificuldades_testes_options": {
+      "entendimento_frameworks": "Dificuldade para entender como as ferramentas de teste funcionam.",
+      "implementacao_dificil": "Complicação para integrar os testes no fluxo de trabalho do projeto.",
+      "preferencia_humanos": "A sensação de que testes manuais são mais práticos ou eficientes.",
+      "nao_encontram_erros_reais": " Percepção de que testes automatizados não encontram os \"bugs importantes\".",
+      "nunca_usei": "Nunca tentei usar testes automatizados."
+    },
+    "ferramentas_teste": "Quais ferramentas você já usou para criar testes automatizados nos seus projetos de jogos? (Deixe em branco se nunca usou)",
+    "ferramentas_teste_options": {
+      "unity": "Unity Test Framework",
+      "unreal": "Unreal Functional Testing Framework / Gauntlet",
+      "godot_tests": "One Godot Test Framework Plugin (ex: GUT or gdUnit)"
+    },
+    "conteudo_testado": "Quais aspectos do jogo você costuma cobrir nos testes automatizados? (Deixe em branco se não utiliza testes automatizados)",
+    "conteudo_testado_options": {
+      "componentes": "Componentes isolados — verifico se partes específicas do código funcionam corretamente de forma independente",
+      "performance": "Performance básica — avalio tempo de carregamento, taxa de quadros (FPS) ou consumo de recursos",
+      "cenarios": "Cenários específicos do jogo — simulo situações de gameplay para checar se o jogo responde como esperado",
+      "teste_fumaca": "Testes de fumaça — apenas verifico se o jogo inicia e roda sem falhas críticas"
+    },
+    "etapa_testes": "Em que momento do desenvolvimento eles são criados? (Deixe em branco se você não utiliza testes automatizados)",
+    "etapa_testes_options": {
+      "antes_funcionalidade": "Antes de implementar a funcionalidade — sigo uma abordagem orientada a testes (Test-Driven Development)",
+      "durante_funcionalidade": "Durante ou logo após a implementação da funcionalidade — escrevo os testes junto com o código",
+      "pos_prototipo": "Depois de criar um protótipo funcional — testo quando já tenho algo jogável ou testável",
+      "final": "Somente no final do projeto, em fase de revisãos",
+      "quando_possivel": "Quando há tempo ou oportunidade — sem uma etapa definida no processo"
+    },
+    "requisito_testes": "Em quais situações os testes automatizados são usados como exigência obrigatória nos seus projetos?",
+    "requisito_testes_options": {
+      "atualizacao": "Para aceitar atualizações de colaboradores (ex: pull requests)",
+      "proxima_fase": "Para permitir o avanço do projeto para a próxima fase (alfa, beta)",
+      "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade",
+      "nunca": "Não são um requisito obrigatório nos projetos"
+    },
+    "software_engeniring": "Práticas de Engenharia e Testes",
+    "avaliacao_artefatos": "Como você costuma avaliar a qualidade dos artefatos criativos que produz (imagens, sons, ícones, vídeos, layouts etc.)?",
+    "avaliacao_artefatos_o": {
+      "criterios_definidos": "Uso critérios definidos previamente (ex: estilo, clareza, adequação ao público)",
+      "avaliacao_subjetiva": "Faço uma avaliação mais subjetiva, baseada na minha própria percepção",
+      "testes_formais": "Realizo testes formais com usuários ou ferramentas específicas",
+      "avaliacao_por_outros": "A avaliação é feita principalmente por outras pessoas da equipe",
+      "sem_avaliacao_estruturada": "Não costumamos fazer uma avaliação estruturada"
+    },
+    "design_validacao": "Como você costuma testar ou validar o seu design antes da implementação completa?",
+    "design_validacao_options": {
+      "prototipo_simplificado": "Por meio de protótipos jogáveis simplificados (digitais ou analógicos)",
+      "prototipo_real": "Com simulações físicas ou do mundo real (ex: com pessoas, objetos, encenações)",
+      "excel": "Usando planilhas para simular sistemas ou balanceamentos",
+      "machinations": "Utilizando ferramentas específicas (ex: Machinations)",
+      "mental": "Simulo mentalmente os cenários e interações"
+    },
+    "creative_process": "Processos Criativos (Artista e Designer)",
+    "areas_uso_ia": "De que forma você tem usado IAs generativas (ChatGPT, Copilot, Midjourney, etc.) no desenvolvimento de jogos?",
+    "areas_uso_ia_o": {
+      "ideias_criativas": "Para gerar ideias criativas (ex: personagens, mecânicas, narrativas, diálogos)",
+      "conteudo_visual_sonoro": "Para criar conteúdos visuais ou sonoros (ex: artes conceituais, vozes, trilhas, efeitos)",
+      "implementacao": "Para auxiliar na implementação (ex: escrever ou revisar código, sugerir soluções técnicas)",
+      "planejamento": "Para planejar ou estruturar o jogo (ex: documentação, arquitetura de sistemas, balanceamento)",
+      "testes": "Para criar ou sugerir testes automatizados (ex: geração de casos de teste, scripts de validação)",
+      "validacao": "Para revisar ou validar funcionalidades do jogo (ex: encontrar erros, verificar lógicas)",
+      "ainda_nao_usei": "Ainda não usei IA, mas tenho curiosidade ou interesse",
+      "nao_usarei": "Não utilizo IA nos meus projetos de jogos"
+    },
+    "percepcao_uso_ia": "Quais são suas principais preocupações sobre o uso de IAs generativas na área? (Marque até 2 opções)",
+    "percepcao_uso_ia_options": {
+      "dados_copyright": "Uso de dados protegidos por direitos autorais sem consentimento (para treinar a IA)",
+      "privacidade": "Preocupações com privacidade: minhas entradas podem ser reutilizadas sem controle",
+      "substituicao": "Medo de que profissionais da área sejam substituídos por IA",
+      "transparencia": "Falta de transparência sobre como a IA funciona ou toma decisões",
+      "originalidade": "Dificuldade em validar a originalidade ou a confiabilidade do que é gerado",
+      "etica": "Ética no uso da IA (ex: autoria, créditos, plágio)",
+      "sem_preocupacoes": "Não tenho preocupações significativas no momento"
+    },
+    "generative_ia": "Aplicação de IAs Generativas",
+    "final_remarks":"Considerações Finais",
+    "any_comment": "Gostaria de deixar algum comentário final sobre os testes nos projetos que você participa?",
+    "email": "E-mail para contato ou referência:",
+    "contato_entrevista": "Nós gostariamos saber mais sobre os testes realizados no desenvolvimento de jogos. Você gostaria de ser contactado para uma entrevista?",
+    "email_required": "Por favor nos dê um meio de contato.",
+    "email_contato": "E-mail para referência (opcional):",
+    "enviar": "Enviar",
+    "required_fields_missing":"Por favor, responda as seguintes perguntas:"
   }
 }
