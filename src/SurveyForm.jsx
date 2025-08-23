@@ -788,7 +788,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     </Checkbox.Group>
                 </Form.Item>
 
-                {data.temores_uso_ia?.includes('outro') && (
+                {data.percepcao_uso_ia?.includes('outro') && (
                     <Form.Item
                         name="percepcao_uso_ia_outro"
                         label={(index-1)+"a-"+t('survey.common.outro_describe')}
