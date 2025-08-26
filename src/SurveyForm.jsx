@@ -1,6 +1,6 @@
 import React, { useState,useEffect,useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Grid, Collapse, Table, Typography, Card, FloatButton, Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
+import { Grid, Typography, Card, FloatButton, Popconfirm, Form, Input, Button, Checkbox, Select, Radio, InputNumber } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import RequiredFieldsSummary from "./RequiredFieldsSummary.jsx";
 import {getCountryOptions} from "./utils.jsx";
