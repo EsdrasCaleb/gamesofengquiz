@@ -1,6 +1,7 @@
 {
   "consent": {
     "title": "Termo de Consentimento",
+    "helper": "Se algum termo não estiver claro, tente ler em outro idioma.",
     "paragraphs": [
       "Você está sendo convidado(a) a participar da pesquisa <strong>“Survey on Automated Tests in Game Development”</strong>, conduzida por Esdras Caleb Oliveira Silva (pesquisador responsável) e Lyrene Fernandes da Silva (oreientadora).",
       "Esta pesquisa é destinada exclusivamente a pessoas com <strong>18 anos ou mais, que atuam no desenvolvimento de jogos digitais</strong>.",
@@ -17,6 +18,10 @@
     "agree": "Concordo e desejo participar da pesquisa",
     "decline": "Eu Recuso"
 },
+  "switcher": {
+    "share_browser_language": "Compartilhar idioma do navegador",
+    "share_survey_language": "Compartilhar idioma que o questionário foi respondido"
+  },
   "thankyou": {
     "title": "Obrigado pelo seu tempo",
     "text": "Sua decisão foi registrada. Agradecemos sua atenção.",

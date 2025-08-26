@@ -200,12 +200,13 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             <Form.Item name="uid" initialValue={uiid} hidden>
                 <Input value={uiid} type="hidden" />
             </Form.Item>
-            <Form.Item name="language" initialValue={i18n.languages[0]} hidden>
+            {data?.shareBrowser&&(<Form.Item name="language" initialValue={i18n.languages[0]} hidden>
                 <Input value={i18n.languages[0]} type="hidden" />
-            </Form.Item>
-            <Form.Item name="language_form" initialValue={i18n.language} hidden>
+            </Form.Item>)}
+            {data?.shareSurvey&&(<Form.Item name="language_form" initialValue={i18n.language} hidden>
                 <Input value={i18n.language} type="hidden" />
-            </Form.Item>
+            </Form.Item>)}
+
 
             <Card  title={t("survey.personal_context")} >
                 <Form.Item name="year_of_birth" label={(index++)+"-"+t('survey.year_of_birth')} >
