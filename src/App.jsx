@@ -1,85 +1,128 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from 'react-i18next';
+
+// Importando os componentes de tela
 import Acceptance from './Acceptance.jsx';
 import SurveyForm from './SurveyForm.jsx';
-import { Typography,Button, Popconfirm } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { v4 as uuidv4 } from 'uuid';
+import DeclinedScreen from './DeclinedScreen.jsx';
+import ConcludedScreen from './ConcludedScreen.jsx';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 
-const { Title, Paragraph } = Typography;
+// Constante para a chave do localStorage
+const STORAGE_KEY = 'survey_data';
+
+// Estado inicial para o reducer
+const initialState = {
+    status: null, // null | 'accepted' | 'declined' | 'concluded'
+    uid: null,
+    data: {shareSurvey:true,shareBrowser:true},
+};
+
+// Reducer para gerenciar todas as transições de estado
+function surveyReducer(state, action) {
+    switch (action.type) {
+        case 'ACCEPT':
+            return { ...state, status: 'accepted', uid: uuidv4() };
+        case 'DECLINE':
+            return { ...state, status: 'declined' };
+        case 'CONCLUDE':
+            return { ...state, status: 'concluded' };
+        case 'CHANGE_ANSWERS':
+            return { ...state, status: 'accepted' };
+        case 'SET_DATA':
+            return { ...state, data: action.payload };
+        case 'RESET':
+            return initialState;
+        case 'LOAD_FROM_STORAGE':
+            return { ...action.payload };
+        default:
+            throw new Error(`Ação desconhecida: ${action.type}`);
+    }
+}
 
 export default function App() {
-  const { t } = useTranslation();
-  const [status, setStatus] = useState(null); // null | 'accepted' | 'declined'
-  const [uid,setUid] = useState(null);
-  const [data, setData] = useState({});
+    const [state, dispatch] = useReducer(surveyReducer, initialState);
+    const { t, i18n } = useTranslation();
 
-  useEffect(() => {
-    const saved = localStorage.getItem("survey_data");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      setUid(parsed.uid);
-      setData(parsed.data || {});
-      setStatus(parsed.status);
-    }
-  }, []);
+    // Efeito para carregar dados do localStorage na montagem
+    useEffect(() => {
+        const savedData = localStorage.getItem(STORAGE_KEY);
+        if (savedData) {
+            dispatch({ type: 'LOAD_FROM_STORAGE', payload: JSON.parse(savedData) });
+        }
+    }, []);
 
-  useEffect(() => {
-    if (uid) {
-      const toSave = {
-        uid,
-        data,
-        status
-      };
-      localStorage.setItem("survey_data", JSON.stringify(toSave));
-    }
-  }, [uid, data]);
+    // Efeito para salvar dados no localStorage sempre que o estado mudar
+    useEffect(() => {
+        // Não salva o estado inicial (vazio) se o usuário resetar
+        if (state.status !== null) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } else {
+            localStorage.removeItem(STORAGE_KEY);
+        }
+    }, [state]);
 
+    // Função para renderizar o conteúdo principal com base no status
+    const renderContent = () => {
+        switch (state.status) {
+            case 'accepted':
+                return (
+                    <SurveyForm
+                        data={state.data}
+                        uid={state.uid}
+                        setData={(newData) => dispatch({ type: 'SET_DATA', payload: newData })}
+                        onAnswer={() => dispatch({ type: 'CONCLUDE' })}
+                        onReset={() => dispatch({ type: 'RESET' })}
+                    />
+                );
+            case 'declined':
+                return <DeclinedScreen onReset={() => dispatch({ type: 'RESET' })} />;
+            case 'concluded':
+                return (
+                    <ConcludedScreen
+                        uid={state.uid}
+                        onChangeAnswers={() => dispatch({ type: 'CHANGE_ANSWERS' })}
+                        onReset={() => dispatch({ type: 'RESET' })}
+                    />
+                );
+            default: // status === null
+                return (
+                    <Acceptance
+                        onAccept={() => dispatch({ type: 'ACCEPT' })}
+                        onDecline={() => dispatch({ type: 'DECLINE' })}
+                    />
+                );
+        }
+    };
 
-    if (status === null) {
-      return <Acceptance onAccept={() => {setStatus('accepted');setUid(uuidv4());}} onDecline={() => setStatus('declined')} />;
-    }
+    const languageSwitcherStyle = {
+        position: 'fixed', // Fixa o elemento na tela
+        top: '24px',       // 24px de distância do topo
+        left: '24px',      // 24px de distância da esquerda
+        zIndex: 10,        // Garante que fique acima de outros elementos
+    };
 
-    if (status === 'declined') {
-      return (
-        <div style={{ padding: 24 }}>
-          <Title>{t('thankyou.title')}</Title>
-          <Paragraph>{t('thankyou.text')}</Paragraph>
-           <Button danger onClick={()=>{setData({});setUid(null);setStatus(null)}}>
-              {t('thankyou.newSurvey')}
-            </Button>
-        </div>
-      );
-    }
-    if (status === 'accepted') {
-        return <div style={{ padding: 24 }}><SurveyForm
-            onReset={()=>{setData({});setStatus(null);}}
-            onAnswer={()=>setStatus('concluded')}
-            setData={setData} uiid={uid} data={data}/></div>;
-    }
-    if(status === 'concluded') {
-        return (
-            <div style={{padding: 24}}>
-                <Title>{t('thankyou.title')}</Title>
-                <Paragraph>{t('thankyou.text')}</Paragraph>
-                <Paragraph>{t('thankyou.removal', {uid})}</Paragraph>
-                <Button block onClick={()=>setStatus('accepted')} info>
-                    {t('thankyou.change')}
-                </Button>
-                <Popconfirm
-                    title={t('thankyou.confirmReset', {uid})}
-                    onConfirm={() => {
-                        setData(null);
-                        setUid(null);
-                        setStatus(null)
-                    }}
-                    okText="Sim"
-                    cancelText="Cancelar"
-                >
-                    <Button block danger>
-                        {t('thankyou.newSurvey')}
-                    </Button>
-                </Popconfirm>
+    const mainContainerStyle = {
+        padding: '24px',
+        paddingTop: '80px', // ALTERADO: Adiciona espaço no topo para não ficar atrás do switcher
+        maxWidth: 800,
+        margin: 'auto',
+    };
+
+    return (
+        // Usa o novo estilo para o container principal
+        <div style={mainContainerStyle}>
+            <div style={languageSwitcherStyle}>
+                <LanguageSwitcher
+                    i18n={i18n}
+                    data={state.data}
+                    setData={(newData) => dispatch({ type: 'SET_DATA', payload: newData })}
+                />
             </div>
-        )
-    }
+
+            {/* O conteúdo do formulário é renderizado aqui, já com o espaçamento correto */}
+            {renderContent()}
+        </div>
+    );
 }
