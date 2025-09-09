@@ -1,19 +1,19 @@
 {
   "consent": {
-    "title": "Consent Form",
+    "title": "Informed Consent Form",
     "helper":"If any term is not clear, try reading it in another language.",
     "paragraphs": [
-      "You are being invited to participate in the research <strong>“Survey on Automated Tests in Game Development”</strong>, conducted by Esdras Caleb Oliveira Silva (principal investigator) and Lyrene Fernandes da Silva (supervisor).",
-      "This research is intended exclusively for individuals <strong>18 years of age or older who work in digital game development</strong>.",
-      "We seek to identify ways to integrate automated testing practices into game development, especially in the context of independent teams.",
-      "If you decide to participate, you will answer <strong>34 questions</strong> about your profile as a game developer, the software engineering practices you use, and the types of tests employed in game validation.",
-      "The estimated time to answer all questions is 15 minutes. You may feel slight discomfort due to the time required to answer all questions, but the form saves your answers automatically in the browser, allowing you to continue later.",
-      "Your participation will contribute to the development of a free and open-source framework aimed at improving software engineering processes applied to digital games.",
-      "If you have any questions, please contact:<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-970<br />E-mail: <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Phone: +55 (84) 99688-8803",
-      "You may refuse to participate or withdraw at any time, without penalty or prejudice.",
-      "The data provided will be anonymous and confidential, used exclusively for academic purposes. No information will be collected that could identify you. The data will be stored for 5 years in a secure location under the responsibility of the researcher.",
-      "Ethical questions can be clarified with the UFRN Research Ethics Committee (CEP Central/UFRN):<br />WhatsApp: (84) 99193-6266<br />E-mail: <a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a><br />Address: UFRN – Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-900",
-      "You can also contact the National Research Ethics Commission (Conep):<br />Phone: (61) 3315-5877<br />E-mail: <a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
+      "You are invited to participate in the research project <strong>“Quality Promotion Practices in Game Development: An Observational Study”</strong>, conducted by Esdras Caleb Oliveira Silva (principal investigator) and Lyrene Fernandes da Silva (supervisor).",
+      "This research is intended exclusively for individuals <strong>aged 18 or older who work in digital game development</strong>.",
+      "We aim to identify ways to integrate automated testing practices into game development, especially in the context of independent teams.",
+      "If you decide to participate, you will answer <strong>28 questions</strong> about your profile as a game developer, the software engineering practices you use, and the types of testing employed in game validation.",
+      "The estimated time to answer all questions is 15 minutes. You may feel slight discomfort due to the time required to answer all the questions, but the form automatically saves your answers in your browser, allowing you to continue later.",
+      "<strong>Risks, Confidentiality, and Benefits:</strong><br />Your participation involves minimal risks. The main risk is fatigue from answering the questionnaire, which is mitigated by the option to save your answers and continue later. As an online survey, there are risks associated with the virtual environment, such as a breach of confidentiality. To protect your information, we, the researchers, have adopted the following measures:<br /><ul><li><strong>Data Collection:</strong> Your answers will be anonymous. We will collect your browser and form language for analysis. Providing your email is <strong>optional</strong> and will only be used if you wish to participate in an interview for the research.</li><li><strong>Security:</strong> We take responsibility for storing all data in a secure digital environment with restricted access to ensure its confidentiality.</li></ul><strong>Benefits:</strong> Directly, the questions can help you reflect on your work practices. Indirectly, your contribution will generate knowledge for the game development community and will aid in the creation of a future automated testing framework.",
+      "If you have any questions, please contact:<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-970<br />Email: <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Phone: +55 (84) 99688-8803",
+      "You can refuse to participate or withdraw at any time without penalty or prejudice.",
+      "The data provided, with the exception of the optional email, will be anonymous and confidential, used exclusively for academic purposes, and stored for 5 years.",
+      "Ethical questions can be clarified with the UFRN Research Ethics Committee (CEP Central/UFRN):<br />WhatsApp: (84) 99193-6266<br />Email: <a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a><br />Address: UFRN – Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-900",
+      "You can also contact the National Research Ethics Commission (Conep):<br />Phone: (61) 3315-5877<br />Email: <a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
     ],
     "agree": "I agree and wish to participate in the research",
     "decline": "I Decline"
