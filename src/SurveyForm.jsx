@@ -8,8 +8,7 @@ import {debounce, isEqual} from 'lodash';
 
 
 
-const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
-    const [form] = Form.useForm();
+const SurveyForm = ({ data, setData, uid, onAnswer,onReset }) => {
     const screens = Grid.useBreakpoint();
     const [currentScreen, setCurrentScreen] = useState(screens);
     const { t, i18n } = useTranslation();
@@ -18,24 +17,8 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     const [requiredErrors, setRequiredErrors] = useState([]);
 
 
-
-
-    //initial data
-    useEffect(() => {
-        form.setFieldsValue(data);
-    }, [])
-    //changeData
-    const debouncedSetData = useCallback(
-        debounce((allValues) => {
-            setData(prev => {
-                if (isEqual(prev, allValues)) return prev;
-                return allValues;
-            });
-        }, 300),
-        []
-    );
     const disableOption = (question, key, number = 3) => {
-        const val = form.getFieldValue(question);
+        const val = data[question];
         // garante array (evita undefined / null)
         const arr = Array.isArray(val) ? val : [];
         return arr.length >= number && !arr.includes(key);
@@ -76,6 +59,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
             ),
         [data.funcoes]
     );
+
 
 
     const praticas = ['controle_versao',
@@ -144,7 +128,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
         );
 
         const body_request = JSON.stringify(filteredValues);
-        const url = 'https://script.google.com/macros/s/AKfycbw3MdZWgRR5C5ETJLKsTITbsS_BnQAPeS1BbgG9glKm7DNYju93oeC4-VgI6vMenicn/exec';
+        const url = 'https://script.google.com/macros/s/AKfycbx8ju-mStYILe19EupRI1RxQhqkx15tQOp8QVwuNTYjcXg1anvPRoO_NPk0-oq1VqYt/exec';
 
         try {
             fetch(url, {
@@ -171,6 +155,21 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
     };
     let index = 1
 
+    const [form] = Form.useForm();
+    //initial data
+    useEffect(() => {
+        form.setFieldsValue(data);
+    }, [])
+
+    //changeData
+    const debouncedSetData = useMemo(
+        () =>
+            debounce((allValues) => {
+                setData({...data,...allValues});
+            }, 300),
+        []
+    );
+
 
     return (
         <Card
@@ -196,6 +195,7 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                 />
             </Popconfirm>
         <Form
+            form={form} layout="vertical" onFinish={onFinish}
             onValuesChange={(changed, all) => {
                 debouncedSetData(all);
             }}
@@ -206,10 +206,9 @@ const SurveyForm = ({ data, setData, uiid, onAnswer,onReset }) => {
                     return newErrors;
                 });
             }}
-            form={form} layout="vertical" onFinish={onFinish}
         >
-            <Form.Item name="uid" initialValue={uiid} hidden>
-                <Input value={uiid} type="hidden" />
+            <Form.Item name="uid" initialValue={uid} hidden>
+                <Input value={uid} type="hidden" />
             </Form.Item>
             {data?.shareBrowser&&(<Form.Item name="language" initialValue={i18n.languages[0]} hidden>
                 <Input value={i18n.languages[0]} type="hidden" />

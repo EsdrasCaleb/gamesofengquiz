@@ -18,8 +18,8 @@ return (
 <Popconfirm
     title={t('thankyou.confirmReset', { uid })}
     onConfirm={onReset}
-    okText={t('common.yes')}
-    cancelText={t('common.cancel')}
+    okText={t('survey.common.sim')}
+    cancelText={t('survey.common.nao')}
 >
     <Button block danger>
         {t('thankyou.newSurvey')}
