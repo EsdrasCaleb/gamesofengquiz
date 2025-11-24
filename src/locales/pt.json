@@ -6,13 +6,11 @@
       "Você está sendo convidado(a) a participar da pesquisa <strong>“Quality Promotion Practices in Game Development: An Observational Study”</strong>, conduzida por Esdras Caleb Oliveira Silva (pesquisador responsável) e Lyrene Fernandes da Silva (orientadora).",
       "Esta pesquisa é destinada exclusivamente a pessoas com <strong>18 anos ou mais, que atuam no desenvolvimento de jogos digitais</strong>.",
       "Buscamos identificar formas de integrar práticas de testes automatizados no desenvolvimento de jogos, especialmente em contextos de equipes independentes.",
-      "Caso decida participar, você responderá a <strong>28 questões</strong> sobre seu perfil como desenvolvedor de jogos, as práticas de engenharia de software que utiliza e os tipos de testes empregados na validação dos jogos.",
-      "O tempo estimado para responder todas as perguntas é de 15 minutos. Você pode sentir um leve desconforto pelo tempo necessário para responder todas as perguntas, mas o formulário salva suas respostas automaticamente no navegador, permitindo que você continue posteriormente.",
-      "<strong>Riscos, Confidencialidade e Benefícios:</strong><br />Sua participação envolve riscos mínimos. O principal risco é o cansaço ao responder o questionário, que é minimizado pela opção de salvar suas respostas para continuar depois. Por ser uma pesquisa online, existem riscos associados ao ambiente virtual, como a quebra de sigilo. Para proteger suas informações, nós, os pesquisadores, adotamos as seguintes medidas:<br /><ul><li><strong>Coleta de Dados:</strong> Suas respostas serão anônimas. Coletaremos o idioma do seu navegador e do formulário para análise. O fornecimento do seu e-mail é <strong>opcional</strong> e será usado apenas caso você deseje participar de uma entrevista para a pesquisa.</li><li><strong>Segurança:</strong> Assumimos a responsabilidade de armazenar todos os dados em um ambiente digital seguro e com acesso restrito para garantir sua confidencialidade.</li></ul><strong>Benefícios:</strong> De forma direta, as perguntas podem ajudá-lo(a) a refletir sobre suas práticas de trabalho. De forma indireta, sua contribuição gerará conhecimento para a comunidade de desenvolvimento de jogos e auxiliará na criação de um futuro framework de testes automatizados.",
-      "Em caso de dúvidas, entre em contato com:<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-970<br />E-mail: <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Telefone: +55 (84) 99688-8803",
-      "Você pode recusar sua participação ou desistir a qualquer momento, sem prejuízo ou penalização.",
-      "Os dados fornecidos, com exceção do e-mail opcional, serão anônimos e confidenciais, usados exclusivamente para fins acadêmicos e armazenados por 5 anos.",
-      "Dúvidas éticas podem ser esclarecidas com o Comitê de Ética em Pesquisa da UFRN (CEP Central/UFRN):<br />WhatsApp: (84) 99193-6266<br />E-mail: <a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a><br />Endereço: UFRN – Av. Sen. Salgado Filho, 3000, Lagoa Nova, Natal/RN, CEP 59078-900",
+      "Caso decida participar, você responderá a <strong>34 questões</strong> sobre seu perfil como desenvolvedor de jogos, as práticas de engenharia de software que utiliza e os tipos de testes empregados na validação dos jogos.",
+      "O tempo estimado para responder a todas as perguntas é de 15 minutos.",
+      "<strong>Riscos, Confidencialidade e Benefícios:</strong><br />Sua participação envolve riscos mínimos. O principal risco é o cansaço ao responder o questionário, que é minimizado pela opção de salvar suas respostas para continuar depois. Por ser uma pesquisa online, existem riscos associados ao ambiente virtual. Para proteger suas informações, nós, os pesquisadores, adotamos as seguintes medidas:<br /><ul><li><strong>Coleta de Dados:</strong> Suas respostas serão anônimas. Coletaremos o idioma do seu navegador e do formulário. O fornecimento do seu e-mail é <strong>opcional</strong> e será usado apenas caso você deseje participar de uma entrevista para a pesquisa. Os e-mails serão armazenados de forma separada das respostas do questionário.</li><li><strong>Segurança:</strong> Assumimos a responsabilidade de armazenar todos os dados em um ambiente digital seguro e com acesso restrito.</li></ul><strong>Benefícios:</strong> De forma indireta, sua contribuição gerará conhecimento para a comunidade de desenvolvimento de jogos.",
+      "<strong>Direito de Recusa e Retirada de Consentimento:</strong><br />Em conformidade com a Lei Geral de Proteção de Dados (LGPD), você pode recusar a participação ou desistir a qualquer momento, sem necessidade de justificativa e sem qualquer prejuízo. Para garantir seu direito de solicitar a remoção dos dados mesmo após o envio anônimo, ao finalizar o questionário, você receberá um <strong>código de identificação único</strong>. Guarde este código. Caso decida futuramente que seus dados não devem mais ser utilizados na pesquisa, basta entrar em contato conosco e informar o código para que sua resposta seja excluída da nossa base de dados.",      "Em caso de dúvidas, entre em contato com:<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />E-mail: <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Telefone: +55 (84) 99688-8803",
+      "Os dados fornecidos serão armazenados por 5 anos. Dúvidas éticas podem ser esclarecidas com o Comitê de Ética em Pesquisa da UFRN (CEP Central/UFRN):<br />WhatsApp: (84) 99193-6266<br />E-mail: <a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a>",
       "Também é possível contatar a Comissão Nacional de Ética em Pesquisa (Conep):<br />Telefone: (61) 3315-5877<br />E-mail: <a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
     ],
     "agree": "Concordo e desejo participar da pesquisa",
@@ -191,12 +189,21 @@
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "One Godot Test Framework Plugin (ex: GUT or gdUnit)"
     },
-    "conteudo_testado": "Quais aspectos do jogo você costuma cobrir nos testes automatizados? (Deixe em branco se não utiliza testes automatizados)",
+    "conteudo_testado": "Quais tipos de falhas você costuma cobrir nos seus testes? (Marque até 3)",
     "conteudo_testado_options": {
-      "componentes": "Componentes isolados — verifico se partes específicas do código funcionam corretamente de forma independente",
-      "performance": "Performance básica — avalio tempo de carregamento, taxa de quadros (FPS) ou consumo de recursos",
-      "cenarios": "Cenários específicos do jogo — simulo situações de gameplay para checar se o jogo responde como esperado",
-      "teste_fumaca": "Testes de fumaça — apenas verifico se o jogo inicia e roda sem falhas críticas"
+      "ambiental": "Ambiental — Stuck, problemas de alcançabilidade (reachability) e posicionamento incorreto",
+      "logica": "Lógica — implementação incorreta, falhas de balanceamento, deadlocks e softlocks",
+      "simulacao": "Simulação — erros de colisão, colisão ausente ou caixa/mesh incorreta",
+      "multimidia": "Multimídia — quedas de FPS, problemas de som, animação, renderização, HUD ou voz",
+      "producao": "Produção — crashes, freezes em plataformas específicas, regressões e problemas de recursos (Memória/CPU/Conexão)"
+    },
+    "objetivo_teste": "Qual é o principal objetivo dos testes que você realiza no jogo? (Marque até 3)",
+    "objetivo_teste_options": {
+      "corretude_funcional": "Corretude Funcional — garantir que o jogo funciona como deveria",
+      "experiencia_design": "Experiência e Design — verificar jogabilidade, equilíbrio e fluxo da experiência",
+      "visual_multimidia": "Visual e Multimídia — validar gráficos, UI, animações e áudio",
+      "desempenho_estabilidade": "Desempenho e Estabilidade — checar FPS, uso de recursos e estabilidade da execução",
+      "corretude_fisica": "Corretude Física — confirmar que colisões e comportamentos físicos estão corretos"
     },
     "etapa_testes": "Em que momento do desenvolvimento eles são criados? (Deixe em branco se você não utiliza testes automatizados)",
     "etapa_testes_options": {

@@ -96,12 +96,11 @@ export default function App() {
         }
     };
 
-    const languageSwitcherStyle = {
-        position: 'fixed', // Fixa o elemento na tela
-        top: '24px',       // 24px de distância do topo
-        left: '24px',      // 24px de distância da esquerda
-        zIndex: 10,        // Garante que fique acima de outros elementos
+    const languageSwitcherBase = {
+        zIndex: 10,
     };
+
+
 
     const mainContainerStyle = {
         padding: '24px',
@@ -113,13 +112,15 @@ export default function App() {
     return (
         // Usa o novo estilo para o container principal
         <div style={mainContainerStyle}>
-            <div style={languageSwitcherStyle}>
+
+            <div style={languageSwitcherBase} className="lang-switcher">
                 <LanguageSwitcher
                     i18n={i18n}
                     data={state.data}
                     setData={(newData) => dispatch({ type: 'SET_DATA', payload: newData })}
                 />
             </div>
+
 
             {/* O conteúdo do formulário é renderizado aqui, já com o espaçamento correto */}
             {renderContent()}

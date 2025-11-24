@@ -191,13 +191,24 @@
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "A Godot Test Framework Plugin (e.g., GUT or gdUnit)"
     },
-    "conteudo_testado": "What aspects of the game do you usually cover in automated tests? (Leave blank if you do not use automated tests)",
+    "conteudo_testado": "Which types of failures do your tests usually cover? (Select up to 3)",
     "conteudo_testado_options": {
-      "componentes": "Isolated components — I verify that specific parts of the code work correctly independently",
-      "performance": "Basic performance — I evaluate loading time, frame rate (FPS), or resource consumption",
-      "cenarios": "Specific game scenarios — I simulate gameplay situations to check if the game responds as expected",
-      "teste_fumaca": "Smoke tests — I just check if the game starts and runs without critical failures"
+      "ambiental": "Ambiental — Stuck, problemas de alcançabilidade (reachability) e posicionamento incorreto",
+      "logica": "Lógica — implementação incorreta, falhas de balanceamento, deadlocks e softlocks",
+      "simulacao": "Simulação — erros de colisão, colisão ausente ou caixa/mesh incorreta",
+      "multimidia": "Multimídia — quedas de FPS, problemas de som, animação, renderização, HUD ou voz",
+      "producao": "Produção — crashes, freezes em plataformas específicas, regressões e problemas de recursos (Memória/CPU/Conexão)"
     },
+
+    "objetivo_teste": "What is the main objective of the tests you perform in the game? (Select up to 3)",
+    "objetivo_teste_options": {
+      "corretude_funcional": "Corretude Funcional — garantir que o jogo funciona como deveria",
+      "experiencia_design": "Experiência e Design — verificar jogabilidade, equilíbrio e fluxo da experiência",
+      "visual_multimidia": "Visual e Multimídia — validar gráficos, UI, animações e áudio",
+      "desempenho_estabilidade": "Desempenho e Estabilidade — checar FPS, uso de recursos e estabilidade da execução",
+      "corretude_fisica": "Corretude Física — confirmar que colisões e comportamentos físicos estão corretos"
+    },
+
     "etapa_testes": "At what stage of development are they created? (Leave blank if you do not use automated tests)",
     "etapa_testes_options": {
       "antes_funcionalidade": "Before implementing the functionality — I follow a Test-Driven Development approach",

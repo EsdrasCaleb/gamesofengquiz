@@ -49,3 +49,23 @@
   color: #ff4d4f;
   marginLeft: 4;
 }
+
+@media (min-width: 1001px) {
+    .lang-switcher {
+        position: fixed;
+        top: 16px;
+        left: 16px;
+
+        max-width: calc((100vw - 800px) / 2);
+        width: max-content;          /* Mantém o tamanho natural */
+        overflow: hidden;            /* Evita estourar */
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .lang-switcher {
+        position: static;
+        margin-bottom: 16px;
+    }
+}

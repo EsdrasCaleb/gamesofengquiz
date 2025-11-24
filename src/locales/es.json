@@ -191,13 +191,23 @@
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "Un plugin de framework de pruebas para Godot (ej., GUT o gdUnit)"
     },
-    "conteudo_testado": "¿Qué aspectos del videojuego suele cubrir en las pruebas automatizadas? (Deje en blanco si no utiliza pruebas automatizadas)",
+    "conteudo_testado": "¿Qué tipos de fallos sueles cubrir en tus pruebas? (Marca hasta 3)",
     "conteudo_testado_options": {
-      "componentes": "Componentes aislados: verifico que partes específicas del código funcionen correctamente de forma independiente",
-      "performance": "Rendimiento básico: evalúo el tiempo de carga, la tasa de fotogramas (FPS) o el consumo de recursos",
-      "cenarios": "Escenarios de juego específicos: simulo situaciones de juego para comprobar si el videojuego responde como se espera",
-      "teste_fumaca": "Pruebas de humo (Smoke tests): solo compruebo si el videojuego se inicia y se ejecuta sin fallos críticos"
+      "ambiental": "Ambiental — Stuck, problemas de alcanzabilidad (reachability) y posicionamiento incorrecto",
+      "logica": "Lógica — implementación incorrecta, fallos de balanceo, deadlocks y softlocks",
+      "simulacao": "Simulación — errores de colisión, ausencia de colisión o caja/mesh incorrecta",
+      "multimidia": "Multimedia — caídas de FPS, problemas de sonido, animación, renderizado, HUD o voz",
+      "producao": "Producción — crashes, freezes en plataformas específicas, regresiones y problemas de recursos (Memoria/CPU/Conexión)"
     },
+    "objetivo_teste": "¿Cuál es el objetivo principal de las pruebas que realizas en el juego? (Marca hasta 3)",
+    "objetivo_teste_options": {
+      "corretude_funcional": "Corrección Funcional — garantizar que el juego funciona como debería",
+      "experiencia_design": "Experiencia y Diseño — verificar jugabilidad, equilibrio y flujo de la experiencia",
+      "visual_multimidia": "Visual y Multimedia — validar gráficos, UI, animaciones y audio",
+      "desempenho_estabilidade": "Desempeño y Estabilidad — revisar FPS, uso de recursos y estabilidad de la ejecución",
+      "corretude_fisica": "Corrección Física — confirmar que las colisiones y comportamientos físicos son correctos"
+    },
+
     "etapa_testes": "¿En qué etapa del desarrollo se crean? (Deje en blanco si no utiliza pruebas automatizadas)",
     "etapa_testes_options": {
       "antes_funcionalidade": "Antes de implementar la funcionalidad: sigo un enfoque de Desarrollo Guiado por Pruebas (TDD)",
