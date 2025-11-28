@@ -8,7 +8,7 @@ import {debounce, isEqual} from 'lodash';
 
 
 
-const SurveyForm = ({ data, setData, uid, onAnswer,onReset }) => {
+const SurveyForm = ({ data, setData, uid, onAnswer }) => {
     const screens = Grid.useBreakpoint();
     const [currentScreen, setCurrentScreen] = useState(screens);
     const { t, i18n } = useTranslation();
@@ -170,30 +170,10 @@ const SurveyForm = ({ data, setData, uid, onAnswer,onReset }) => {
         []
     );
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (
-        <Card
-            style={{ maxWidth: "93%", margin: '2rem auto' }}
-        >
-            <Popconfirm
-                title={t('survey.floatmenu.confirmReset')}
-                description={t('survey.floatmenu.confirmResetDescription')}
-                onConfirm={onReset}
-                okText={t('survey.common.sim')}
-                cancelText={t('survey.common.nao')}
-                okType={"danger"}
-            >
-                <FloatButton
-                    icon={<CloseOutlined />}
-                    tooltip={t('desistir')}
-                    style={{
-                        backgroundColor: '#ff4d4f',
-                        color: '#fff',
-                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-                    }}
-                    className="float-button-danger"
-                />
-            </Popconfirm>
+        <Card>
         <Form
             form={form} layout="vertical" onFinish={onFinish}
             onValuesChange={(changed, all) => {

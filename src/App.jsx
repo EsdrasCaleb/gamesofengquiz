@@ -2,28 +2,27 @@ import { useEffect, useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useTranslation } from 'react-i18next';
 
-// Importando os componentes de tela
 import Acceptance from './Acceptance.jsx';
 import SurveyForm from './SurveyForm.jsx';
 import DeclinedScreen from './DeclinedScreen.jsx';
 import ConcludedScreen from './ConcludedScreen.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 
-// Constante para a chave do localStorage
 const STORAGE_KEY = 'survey_data';
 
-// Estado inicial para o reducer
 const initialState = {
-    status: null, // null | 'accepted' | 'declined' | 'concluded'
+    status: null,
     uid: null,
-    data: {shareSurvey:true,shareBrowser:true},
+    data: { shareSurvey: true, shareBrowser: true },
 };
 
-// Reducer para gerenciar todas as transições de estado
 function surveyReducer(state, action) {
     switch (action.type) {
         case 'ACCEPT':
-            return { ...state, status: 'accepted', uid: uuidv4() };
+            if(!state.uid){
+                state.uid = uuidv4()
+            }
+            return { ...state, status: 'accepted' };
         case 'DECLINE':
             return { ...state, status: 'declined' };
         case 'CONCLUDE':
@@ -33,8 +32,10 @@ function surveyReducer(state, action) {
         case 'SET_DATA':
             return { ...state, data: action.payload };
         case 'RESET':
-            return initialState;
+            return { ...state,status:null };
         case 'LOAD_FROM_STORAGE':
+            if (action.payload.status =='accepted' || action.payload.status =='declined')
+                action.payload.status = null
             return { ...action.payload };
         default:
             throw new Error(`Ação desconhecida: ${action.type}`);
@@ -43,27 +44,24 @@ function surveyReducer(state, action) {
 
 export default function App() {
     const [state, dispatch] = useReducer(surveyReducer, initialState);
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
-    // Efeito para carregar dados do localStorage na montagem
+    // Carrega uid + data do storage
     useEffect(() => {
-        const savedData = localStorage.getItem(STORAGE_KEY);
-        if (savedData) {
-            dispatch({ type: 'LOAD_FROM_STORAGE', payload: JSON.parse(savedData) });
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            dispatch({ type: 'LOAD_FROM_STORAGE', payload: JSON.parse(saved) });
         }
     }, []);
 
-    // Efeito para salvar dados no localStorage sempre que o estado mudar
+    // Salva sempre que uid ou data mudarem
     useEffect(() => {
         // Não salva o estado inicial (vazio) se o usuário resetar
         if (state.status !== null) {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        } else {
-            localStorage.removeItem(STORAGE_KEY);
         }
     }, [state]);
 
-    // Função para renderizar o conteúdo principal com base no status
     const renderContent = () => {
         switch (state.status) {
             case 'accepted':
@@ -73,20 +71,21 @@ export default function App() {
                         uid={state.uid}
                         setData={(newData) => dispatch({ type: 'SET_DATA', payload: newData })}
                         onAnswer={() => dispatch({ type: 'CONCLUDE' })}
-                        onReset={() => dispatch({ type: 'RESET' })}
                     />
                 );
+
             case 'declined':
                 return <DeclinedScreen onReset={() => dispatch({ type: 'RESET' })} />;
+
             case 'concluded':
                 return (
                     <ConcludedScreen
                         uid={state.uid}
                         onChangeAnswers={() => dispatch({ type: 'CHANGE_ANSWERS' })}
-                        onReset={() => dispatch({ type: 'RESET' })}
                     />
                 );
-            default: // status === null
+
+            default:
                 return (
                     <Acceptance
                         onAccept={() => dispatch({ type: 'ACCEPT' })}
@@ -96,24 +95,29 @@ export default function App() {
         }
     };
 
-    const languageSwitcherBase = {
-        zIndex: 10,
+    const fixedTopBar = {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        background: 'white',
+        padding: '12px 16px',
+        zIndex: 999,
+        boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
     };
 
-
-
-    const mainContainerStyle = {
+    const mainContainer = {
+        width: '100%',
+        maxWidth: '100%',
+        margin: '0 auto',
         padding: '24px',
-        paddingTop: '80px', // ALTERADO: Adiciona espaço no topo para não ficar atrás do switcher
-        maxWidth: 800,
-        margin: 'auto',
+        paddingTop: '80px',
+        minHeight: '95vh',
     };
 
     return (
-        // Usa o novo estilo para o container principal
-        <div style={mainContainerStyle}>
-
-            <div style={languageSwitcherBase} className="lang-switcher">
+        <>
+            <div style={fixedTopBar}>
                 <LanguageSwitcher
                     i18n={i18n}
                     data={state.data}
@@ -121,9 +125,9 @@ export default function App() {
                 />
             </div>
 
-
-            {/* O conteúdo do formulário é renderizado aqui, já com o espaçamento correto */}
-            {renderContent()}
-        </div>
+            <div style={mainContainer}>
+                {renderContent()}
+            </div>
+        </>
     );
 }

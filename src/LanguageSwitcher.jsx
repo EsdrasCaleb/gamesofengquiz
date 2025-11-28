@@ -18,7 +18,16 @@ const LanguageSwitcher = ({ i18n, data, setData }) => {
     };
 
     return (
-        <Flex className="flex" gap="middle" vertical>
+        <Flex className="flex" gap="middle" justify="center" horizontal>
+            <Select
+                defaultValue={i18n.language}
+                style={{ width: 120 }}
+                onChange={handleLanguageChange}
+            >
+                <Option value="en">English</Option>
+                <Option value="pt-BR">Português</Option>
+                <Option value="es">Español</Option>
+            </Select>
             <Checkbox
                 checked={data?.shareBrowser || false}
                 onChange={handleCheckboxChange("shareBrowser")}
@@ -32,16 +41,6 @@ const LanguageSwitcher = ({ i18n, data, setData }) => {
             >
                 {t("switcher.share_survey_language")}
             </Checkbox>
-
-            <Select
-                defaultValue={i18n.language}
-                style={{ width: 120 }}
-                onChange={handleLanguageChange}
-            >
-                <Option value="en">English</Option>
-                <Option value="pt-BR">Português</Option>
-                <Option value="es">Español</Option>
-            </Select>
         </Flex>
     );
 };

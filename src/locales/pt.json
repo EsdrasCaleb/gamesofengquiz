@@ -24,15 +24,10 @@
     "title": "Obrigado pelo seu tempo",
     "text": "Sua decisão foi registrada. Agradecemos sua atenção.",
     "removal": "Se quiser remover seus dados, entre em contato com acheicaleb@gmail.com e envie o seu ID único: {{uid}}.",
-    "newSurvey": "Fazer uma nova pesquisa",
-    "change": "Alterar Respostas",
-    "confirmReset": "Tem certeza? Isso apagará os dados anteriores do seu navegador (incluindo o ID {{uid}}) e não será possível recuperá-los."
+    "newSurvey": "Responder a pesquisa",
+    "change": "Alterar Respostas"
   },
   "survey": {
-    "floatmenu": {
-      "confirmReset": "Tem certeza que deseja sair?",
-      "confirmResetDescription": "Isso apagará suas respostas salvas. Se quiser continuar depois, basta voltar mais tarde enquanto não clicar aqui."
-    },
     "common": {
       "sim": "Sim",
       "nao": "Não",
