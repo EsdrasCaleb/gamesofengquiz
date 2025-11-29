@@ -19,6 +19,9 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
 
     const disableOption = (question, key, number = 3) => {
         const val = data[question];
+        console.log(key)
+        console.log(question)
+        console.log(data[question])
         // garante array (evita undefined / null)
         const arr = Array.isArray(val) ? val : [];
         return arr.length >= number && !arr.includes(key);
@@ -506,7 +509,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                                 key={value}
                                 value={value}
                                 disabled={
-                                disableOption('dificuldades_manutencao',value)&&
+                                disableOption('dificuldades_manutencao',value)||
                                     (value!='sem_dificuldades'&&
                                         data['dificuldades_manutencao']?.includes('sem_dificuldades'))
                                 }
@@ -518,7 +521,8 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                             key="outro"
                             value="outro"
                             disabled={
-                                disableOption('dificuldades_manutencao','outro')&&data['dificuldades_manutencao']?.includes('sem_dificuldades')
+                                disableOption('dificuldades_manutencao','outro')||
+                                data['dificuldades_manutencao']?.includes('sem_dificuldades')
                             }
                         >
                             {t('survey.common.outro')}
