@@ -494,7 +494,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     rules={[{ required: problemas_selected, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column" onChange={(values) => {
-                        if (values.includes('nunca_usei')) {
+                        if (values.includes('sem_dificuldades')) {
                             // força ficar só "nenhuma"
                             form.setFieldsValue({ dificuldades_manutencao: ['sem_dificuldades'] });
                         } else {
