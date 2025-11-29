@@ -18,7 +18,7 @@ const LanguageSwitcher = ({ i18n, data, setData }) => {
     };
 
     return (
-        <Flex className="flex" gap="middle" justify="center" horizontal>
+        <Flex className="flex" gap="middle" justify="center" orientation="horizontal">
             <Select
                 defaultValue={i18n.language}
                 style={{ width: 120 }}

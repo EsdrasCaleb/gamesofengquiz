@@ -142,7 +142,7 @@
     "uso_praticas_padroes_design": "Padrões de design (ex: ECS, componentes)",
     "uso_praticas_modelagem_projeto":"Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
     "uso_praticas_prototipacao":"Prototipação técnica",
-    "uso_praticas_tdd":"Desenvolvimento orientado a testes (TDD)",
+    "uso_praticas_tdd":"Testes Automatizados",
     "uso_praticas_integracao_continua":"Integração contínua (builds, pipelines)",
     "uso_praticas":{
       "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",
@@ -178,34 +178,37 @@
       "nao_encontram_erros_reais": " Percepção de que testes automatizados não encontram os \"bugs importantes\".",
       "nunca_usei": "Nunca tentei usar testes automatizados."
     },
-    "ferramentas_teste": "Quais ferramentas você já usou para criar testes automatizados nos seus projetos de jogos? (Deixe em branco se nunca usou)",
+    "ferramentas_teste": "Quais ferramentas você já usou para criar testes automatizados nos seus projetos de jogos?",
     "ferramentas_teste_options": {
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
-      "godot_tests": "One Godot Test Framework Plugin (ex: GUT or gdUnit)"
+      "godot_tests": "One Godot Test Framework Plugin (ex: GUT or gdUnit)",
+      "nenhuma": "Nunca usei ferramentas de testes automatizados."
     },
-    "conteudo_testado": "Quais tipos de falhas você costuma cobrir nos seus testes? (Marque até 3)",
+    "conteudo_testado": "Quais aspectos do jogo você costuma cobrir nos testes automatizados?",
     "conteudo_testado_options": {
-      "ambiental": "Ambiental — Stuck, problemas de alcançabilidade (reachability) e posicionamento incorreto",
-      "logica": "Lógica — implementação incorreta, falhas de balanceamento, deadlocks e softlocks",
-      "simulacao": "Simulação — erros de colisão, colisão ausente ou caixa/mesh incorreta",
-      "multimidia": "Multimídia — quedas de FPS, problemas de som, animação, renderização, HUD ou voz",
-      "producao": "Produção — crashes, freezes em plataformas específicas, regressões e problemas de recursos (Memória/CPU/Conexão)"
+      "componentes": "Componentes isolados — verifico se partes específicas do código funcionam corretamente de forma independente",
+      "performance": "Performance básica — avalio tempo de carregamento, taxa de quadros (FPS) ou consumo de recursos",
+      "cenarios": "Cenários específicos do jogo — simulo situações de gameplay para checar se o jogo responde como esperado",
+      "teste_fumaca": "Testes de fumaça — apenas verifico se o jogo inicia e roda sem falhas críticas",
+      "nao_uso": "Não uso testes automatizados"
     },
-    "objetivo_teste": "Qual é o principal objetivo dos testes que você realiza no jogo? (Marque até 3)",
-    "objetivo_teste_options": {
-      "corretude_funcional": "Corretude Funcional — garantir que o jogo funciona como deveria",
-      "experiencia_design": "Experiência e Design — verificar jogabilidade, equilíbrio e fluxo da experiência",
-      "visual_multimidia": "Visual e Multimídia — validar gráficos, UI, animações e áudio",
-      "desempenho_estabilidade": "Desempenho e Estabilidade — checar FPS, uso de recursos e estabilidade da execução",
-      "corretude_fisica": "Corretude Física — confirmar que colisões e comportamentos físicos estão corretos"
+    "tipo_falha": "Quais são as falhas mais graves que um jogo pode apresentar? (Escolha até 3)",
+    "tipo_falha_options": {
+      "stuck": "Stuck – jogador fica preso sem conseguir sair",
+      "crash": "Crash – jogo fecha, trava ou congela",
+      "visual_multimidia": "Glitches visuais ou ruídos estranhos de áudio",
+      "desempenho_estabilidade": "Queda de desempenho ou framerate",
+      "corretude_fisica": "Erros de colisão (colisões falhando ou exageradas)",
+      "balanceamento": "Balanceamento desequilibrado – desafio fácil demais ou difícil demais"
     },
-    "etapa_testes": "Em que momento do desenvolvimento eles são criados? (Deixe em branco se você não utiliza testes automatizados)",
+    "etapa_testes": "Em que momento do desenvolvimento eles são criados?",
     "etapa_testes_options": {
       "antes_funcionalidade": "Antes de implementar a funcionalidade — sigo uma abordagem orientada a testes (Test-Driven Development)",
       "durante_funcionalidade": "Durante ou logo após a implementação da funcionalidade — escrevo os testes junto com o código",
       "pos_prototipo": "Depois de criar um protótipo funcional — testo quando já tenho algo jogável ou testável",
       "final": "Somente no final do projeto, em fase de revisãos",
+      "nunca": "Não uso testes automatizados",
       "quando_possivel": "Quando há tempo ou oportunidade — sem uma etapa definida no processo"
     },
     "requisito_testes": "Em quais situações os testes automatizados são usados como exigência obrigatória nos seus projetos?",
@@ -215,7 +218,8 @@
       "nova_funcionalidade": "Para iniciar o desenvolvimento de uma nova funcionalidade",
       "nunca": "Não são um requisito obrigatório nos projetos"
     },
-    "software_engeniring": "Práticas de Engenharia e Testes",
+    "software_engeniring": "Práticas de Engenharia de Software",
+    "testing": "Práticas de Teste",
     "avaliacao_artefatos": "Como você costuma avaliar a qualidade dos artefatos criativos que produz (imagens, sons, ícones, vídeos, layouts etc.)?",
     "avaliacao_artefatos_o": {
       "criterios_definidos": "Uso critérios definidos previamente (ex: estilo, clareza, adequação ao público)",

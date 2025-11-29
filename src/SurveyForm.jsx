@@ -33,7 +33,6 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
 
 
 
-
     //seletores
     const artist_selected = useMemo(() =>
             ["artista", "artista_som", "roteiro_narrativa", "design_ux"].some(role =>
@@ -109,8 +108,8 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             "uso_praticas_modelagem_projeto", "uso_praticas_prototipacao", "uso_praticas_tdd",
             "uso_praticas_integracao_continua","dificuldades_manutencao","dificuldades_manutencao_outro","testes_jogo",
             "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro","ferramentas_teste",
-            "ferramentas_teste_outro","conteudo_testado","conteudo_testado_outro","objetivo_teste",
-            "objetivo_teste_outro", "etapa_testes","etapa_testes_outro", "requisito_testes","requisito_testes_outro",
+            "ferramentas_teste_outro","conteudo_testado","conteudo_testado_outro","tipo_falha",
+            "tipo_falha_outro", "etapa_testes","etapa_testes_outro", "requisito_testes","requisito_testes_outro",
 
             //Desiner
             "avaliacao_artefatos","avaliacao_artefatos_outro","design_validacao","design_validacao_outro",
@@ -159,6 +158,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
     //initial data
     useEffect(() => {
         form.setFieldsValue(data);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [])
 
     //changeData
@@ -170,10 +170,10 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
         []
     );
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
 
     return (
-        <Card>
+        <Card >
         <Form
             form={form} layout="vertical" onFinish={onFinish}
             onValuesChange={(changed, all) => {
@@ -198,7 +198,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             </Form.Item>)}
 
 
-            <Card  title={t("survey.personal_context")} >
+            <Card type="inner" title={t("survey.personal_context")} >
                 <Form.Item name="year_of_birth" label={(index++)+"-"+t('survey.year_of_birth')} >
                     <InputNumber />
                 </Form.Item>
@@ -431,7 +431,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
 
             </Card>
 
-            <Card title={t('survey.software_engeniring')}>
+            <Card type="inner" title={t('survey.software_engeniring')}>
                 <Typography.Title level={5}>
                     <span className="required-extra">* </span>
                     {(index++) + ' - ' + t('survey.uso_praticas.label')}
@@ -493,13 +493,22 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     label={(index++) + '-' + t('survey.dificuldades_manutencao')}
                     rules={[{ required: problemas_selected, message: t('survey.common.required_one_option') }]}
                 >
-                    <Checkbox.Group className="flex-column" >
+                    <Checkbox.Group className="flex-column" onChange={(values) => {
+                        if (values.includes('nunca_usei')) {
+                            // força ficar só "nenhuma"
+                            form.setFieldsValue({ dificuldades_manutencao: ['sem_dificuldades'] });
+                        } else {
+                            form.setFieldsValue({ dificuldades_manutencao: values });
+                        }
+                    }} >
                         {problemas_manutencao.map((value) => (
                             <Checkbox
                                 key={value}
                                 value={value}
                                 disabled={
-                                disableOption('dificuldades_manutencao',value)
+                                disableOption('dificuldades_manutencao',value)&&
+                                    (value!='sem_dificuldades'&&
+                                        data['dificuldades_manutencao']?.includes('sem_dificuldades'))
                                 }
                             >
                                 {t(`survey.dificuldades_manutencao_o.${value}`)}
@@ -509,7 +518,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                             key="outro"
                             value="outro"
                             disabled={
-                                disableOption('dificuldades_manutencao','outro')
+                                disableOption('dificuldades_manutencao','outro')&&data['dificuldades_manutencao']?.includes('sem_dificuldades')
                             }
                         >
                             {t('survey.common.outro')}
@@ -526,7 +535,8 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         <Input />
                     </Form.Item>
                 )}
-
+            </Card>
+            <Card type="inner" title={t('survey.testing')}>
                 <Form.Item
                     name="testes_jogo"
                     label={(index++)+"-"+t('survey.testes_jogo')}
@@ -556,13 +566,25 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     rules={[{ required: tester_selected, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"   options={[
-                        { value: 'entendimento_frameworks', label: t('survey.dificuldades_testes_options.entendimento_frameworks') },
-                        { value: 'implementacao_dificil', label: t('survey.dificuldades_testes_options.implementacao_dificil') },
-                        { value: 'preferencia_humanos', label: t('survey.dificuldades_testes_options.preferencia_humanos') },
-                        { value: 'nao_encontram_erros_reais', label: t('survey.dificuldades_testes_options.nao_encontram_erros_reais') },
+                        { value: 'entendimento_frameworks',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                            label: t('survey.dificuldades_testes_options.entendimento_frameworks') },
+                        { value: 'implementacao_dificil',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                            label: t('survey.dificuldades_testes_options.implementacao_dificil') },
+                        { value: 'preferencia_humanos',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                            label: t('survey.dificuldades_testes_options.preferencia_humanos') },
+                        { value: 'nao_encontram_erros_reais',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                            label: t('survey.dificuldades_testes_options.nao_encontram_erros_reais') },
                         { value: 'nunca_usei', label: t('survey.dificuldades_testes_options.nunca_usei') },
-                        { value: 'outro', label: t('survey.common.outro') }
-                    ]} />
+                        { value: 'outro',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                            label: t('survey.common.outro') }
+                    ]} onChange={(values) => {
+                        if (values.includes('nunca_usei')) {
+                            // força ficar só "nenhuma"
+                            form.setFieldsValue({ dificuldades_testes: ['nunca_usei'] });
+                        } else {
+                            form.setFieldsValue({ dificuldades_testes: values });
+                        }
+                    }}/>
                 </Form.Item>
 
                 {data['dificuldades_testes']?.includes('outro') && (
@@ -581,11 +603,19 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     rules={[{ required: data['testes_jogo']?.includes('automatizado'), message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"   options={[
-                        { value: 'unity', label: t('survey.ferramentas_teste_options.unity') },
-                        { value: 'unreal', label: t('survey.ferramentas_teste_options.unreal') },
-                        { value: 'godot_test_plugin', label: t('survey.ferramentas_teste_options.godot_tests') },
-                        { value: 'outro', label: t('survey.common.outro') }
-                    ]} />
+                        { value: 'unity',disabled: data['ferramentas_teste']?.includes('nenhuma'), label: t('survey.ferramentas_teste_options.unity') },
+                        { value: 'unreal',disabled: data['ferramentas_teste']?.includes('nenhuma'), label: t('survey.ferramentas_teste_options.unreal') },
+                        { value: 'godot_test_plugin',disabled: data['ferramentas_teste']?.includes('nenhuma'), label: t('survey.ferramentas_teste_options.godot_tests') },
+                        { value: 'nenhuma', label: t('survey.ferramentas_teste_options.nenhuma') },
+                        { value: 'outro',disabled: data['ferramentas_teste']?.includes('nenhuma'), label: t('survey.common.outro') }
+                    ]}  onChange={(values) => {
+                        if (values.includes('nenhuma')) {
+                            // força ficar só "nenhuma"
+                            form.setFieldsValue({ ferramentas_teste: ['nenhuma'] });
+                        } else {
+                            form.setFieldsValue({ ferramentas_teste: values });
+                        }
+                    }} />
                 </Form.Item>
 
                 {data['ferramentas_teste']?.includes('outro') && (
@@ -606,37 +636,48 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 >
                     <Checkbox.Group className="flex-column"   options={[
                         {
-                            value: 'ambiental',
-                            disabled: disableOption('conteudo_testado', 'ambiental',3),
-                            label: t('survey.conteudo_testado_options.ambiental')
+                            value: 'componentes',
+                            disabled: data['conteudo_testado']?.includes('nao_uso'),
+                            label: t('survey.conteudo_testado_options.componentes')
                         },
                         {
-                            value: 'logica',
-                            disabled: disableOption('conteudo_testado', 'logica',3),
-                            label: t('survey.conteudo_testado_options.logica')
+                            value: 'performance',
+                            disabled: data['conteudo_testado']?.includes('nao_uso'),
+                            label: t('survey.conteudo_testado_options.performance')
+                        },
+                        {
+                            value: 'cenarios',
+                            disabled: data['conteudo_testado']?.includes('nao_uso'),
+                            label: t('survey.conteudo_testado_options.cenarios')
                         },
                         {
                             value: 'simulacao',
-                            disabled: disableOption('conteudo_testado', 'simulacao',3),
+                            disabled: data['conteudo_testado']?.includes('nao_uso'),
                             label: t('survey.conteudo_testado_options.simulacao')
                         },
                         {
-                            value: 'multimidia',
-                            disabled: disableOption('conteudo_testado', 'multimidia',3),
-                            label: t('survey.conteudo_testado_options.multimidia')
+                            value: 'teste_fumaca',
+                            disabled: data['conteudo_testado']?.includes('nao_uso'),
+                            label: t('survey.conteudo_testado_options.teste_fumaca')
                         },
                         {
-                            value: 'producao',
-                            disabled: disableOption('conteudo_testado', 'producao',3),
-                            label: t('survey.conteudo_testado_options.producao')
+                            value: 'nao_uso',
+                            label: t('survey.conteudo_testado_options.nao_uso')
                         },
                         {
                             value: 'outro',
-                            disabled: disableOption('conteudo_testado', 'outro',3),
+                            disabled: data['conteudo_testado']?.includes('nao_uso'),
                             label: t('survey.common.outro')
                         }
 
-                    ]} />
+                    ]} onChange={(values) => {
+                        if (values.includes('nao_uso')) {
+                            // força ficar só "nenhuma"
+                            form.setFieldsValue({ conteudo_testado: ['nao_uso'] });
+                        } else {
+                            form.setFieldsValue({ conteudo_testado: values });
+                        }
+                    }}/>
                 </Form.Item>
 
                 {data['conteudo_testado']?.includes('outro') && (
@@ -650,49 +691,54 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 )}
 
                 <Form.Item
-                    name="objetivo_teste"
-                    label={(index++)+"-"+t('survey.objetivo_teste')}
+                    name="tipo_falha"
+                    label={(index++)+"-"+t('survey.tipo_falha')}
                     rules={[{ required: true,
                         message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"   options={[
                         {
-                            value: 'corretude_funcional',
-                            disabled: disableOption('objetivo_teste', 'corretude_funcional',3),
-                            label: t('survey.objetivo_teste_options.corretude_funcional')
+                            value: 'stuck',
+                            disabled: disableOption('tipo_falha', 'stuck',3),
+                            label: t('survey.tipo_falha_options.stuck')
                         },
                         {
-                            value: 'experiencia_design',
-                            disabled: disableOption('objetivo_teste', 'experiencia_design',3),
-                            label: t('survey.objetivo_teste_options.experiencia_design')
+                            value: 'crash',
+                            disabled: disableOption('tipo_falha', 'crash',3),
+                            label: t('survey.tipo_falha_options.crash')
                         },
                         {
                             value: 'visual_multimidia',
-                            disabled: disableOption('objetivo_teste', 'visual_multimidia',3),
-                            label: t('survey.objetivo_teste_options.visual_multimidia')
+                            disabled: disableOption('tipo_falha', 'visual_multimidia',3),
+                            label: t('survey.tipo_falha_options.visual_multimidia')
                         },
                         {
                             value: 'desempenho_estabilidade',
-                            disabled: disableOption('objetivo_teste', 'desempenho_estabilidade',3),
-                            label: t('survey.objetivo_teste_options.desempenho_estabilidade')
+                            disabled: disableOption('tipo_falha', 'desempenho_estabilidade',3),
+                            label: t('survey.tipo_falha_options.desempenho_estabilidade')
                         },
                         {
                             value: 'corretude_fisica',
-                            disabled: disableOption('objetivo_teste', 'corretude_fisica',3),
-                            label: t('survey.objetivo_teste_options.corretude_fisica')
+                            disabled: disableOption('tipo_falha', 'corretude_fisica',3),
+                            label: t('survey.tipo_falha_options.corretude_fisica')
+                        },
+                        {
+                            value: 'balanceamento',
+                            disabled: disableOption('tipo_falha', 'balanceamento',3),
+                            label: t('survey.tipo_falha_options.balanceamento')
                         },
                         {
                             value: 'outro',
-                            disabled: disableOption('objetivo_teste', 'outro',3),
+                            disabled: disableOption('tipo_falha', 'outro',3),
                             label: t('survey.common.outro')
                         }
 
                     ]} />
                 </Form.Item>
 
-                {data['objetivo_teste']?.includes('outro') && (
+                {data['tipo_falha']?.includes('outro') && (
                     <Form.Item
-                        name="objetivo_teste_outro"
+                        name="tipo_falha_outro"
                         label={(index-1)+"a-"+t('survey.common.outro_describe')}
                         rules={[{ required: true, message: t('survey.common.required_describe') }]}
                     >
@@ -712,6 +758,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         { value: 'pos_prototipo', label: t('survey.etapa_testes_options.pos_prototipo') },
                         { value: 'final', label: t('survey.etapa_testes_options.final') },
                         { value: 'quando_possivel', label: t('survey.etapa_testes_options.quando_possivel') },
+                        { value: 'nunca', label: t('survey.etapa_testes_options.nunca') },
                         { value: 'outro', label: t('survey.common.outro') }
                     ]} />
                 </Form.Item>
@@ -733,12 +780,18 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"   options={[
-                        { value: 'atualizacao', label: t('survey.requisito_testes_options.atualizacao') },
-                        { value: 'proxima_fase', label: t('survey.requisito_testes_options.proxima_fase') },
-                        { value: 'nova_funcionalidade', label: t('survey.requisito_testes_options.nova_funcionalidade') },
+                        { value: 'atualizacao',disabled:data['requisito_testes']?.includes('nunca'), label: t('survey.requisito_testes_options.atualizacao') },
+                        { value: 'proxima_fase',disabled:data['requisito_testes']?.includes('nunca'), label: t('survey.requisito_testes_options.proxima_fase') },
+                        { value: 'nova_funcionalidade',disabled:data['requisito_testes']?.includes('nunca'), label: t('survey.requisito_testes_options.nova_funcionalidade') },
                         { value: 'nunca', label: t('survey.requisito_testes_options.nunca') },
-                        { value: 'outro', label: t('survey.common.outro') }
-                    ]} />
+                        { value: 'outro',disabled:data['requisito_testes']?.includes('nunca'), label: t('survey.common.outro') }
+                    ]} onChange={(values) => {
+                        if (values.includes('nunca')) {
+                            form.setFieldsValue({ requisito_testes: ['nunca'] });
+                        } else {
+                            form.setFieldsValue({ requisito_testes: values });
+                        }
+                    }}/>
                 </Form.Item>
 
                 {data['requisito_testes']?.includes('outro') && (
@@ -752,7 +805,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 )}
 
             </Card>
-            <Card title={t('survey.creative_process')}>
+            <Card type="inner" title={t('survey.creative_process')}>
                 <Form.Item
                     name="avaliacao_artefatos"
                     label={(index++) + " - " + t('survey.avaliacao_artefatos')}
@@ -803,7 +856,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     </Form.Item>
                 )}
             </Card>
-            <Card title={t('survey.generative_ia')}>
+            <Card type="inner" title={t('survey.generative_ia')}>
                 <Form.Item
                     name="areas_uso_ia"
                     label={(index++)+"-"+t('survey.areas_uso_ia')}
@@ -865,7 +918,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             </Card>
 
 
-            <Card title={t("survey.final_remarks")}>
+            <Card type="inner" title={t("survey.final_remarks")}>
             <Form.Item name="consideracoes_finais" label={(index++)+"-"+t('survey.any_comment')}>
                 <Input.TextArea rows={2} />
             </Form.Item>
