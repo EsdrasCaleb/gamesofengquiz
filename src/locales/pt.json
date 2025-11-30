@@ -70,7 +70,7 @@
       "atuacao_freelancer": "Desenvolvo jogos como freelancer/autônomo regularmente",
       "atuacao_indie_horas_vagas": "Desenvolvo jogos de forma independente nas horas vagas (sem remuneração ou com remuneração eventual)",
       "atuacao_eventual": "Desenvolvo jogos eventualmente, em projetos pontuais ou colaborativos",
-      "atuacao_nao_envolvido": "Não estou atualmente envolvido com desenvolvimento de jogos digitais, mas pretendo voltar a atuar nesta área."
+      "atuacao_nao_envolvido": "Atualmente não desenvolvo jogos digitais, mas já trabalhei na área"
     },
     "situacao_equipe": "Com que tipo de equipe você costuma trabalhar nos projetos de desenvolvimento de jogos? Considere a maioria dos projetos em que você participa",
     "situacao_equipe_o": {
@@ -95,13 +95,15 @@
       "artista": "Artista Visual",
       "design_ux": "Design de Interface do Usuário",
       "roteiro_narrativa": "Roteiro/Narrativa",
-      "gerente": "Gerenciamento de projeto",
+      "tec_lead": "Lider Técnico",
       "marketing": "Marketing/Publicação",
       "game_designer": "Game Designer",
       "level_designer": "Level Designer",
       "qa": "Testador (QA)",
       "artista_som": "Artista de Som",
-      "animacao": "Animação"
+      "animacao": "Animador",
+      "produtor": "Produtor",
+      "roterista": "Roterista"
     },
     "tipos_jogos": "Que tipos de jogos você mais desenvolve?",
     "tipos_jogos_options": {
@@ -122,7 +124,9 @@
       "pc": "PC (Windows, Linux, Mac)",
       "web": "Web (navegadores)",
       "mobile": "Dispositivos móveis (Android, iOS)",
-      "console": "Consoles (PlayStation, Xbox, Nintendo)",
+      "console_psx": "Consoles Sony/PlayStation",
+      "console_xbox": "Consoles Microsoft/Xbox",
+      "console_nintendo": "Consoles Nintendo",
       "xr": "Realidade virtual / aumentada"
     },
     "ferramentas_desenvolvimento": "Quais engines você costuma usar nos projetos em que trabalha ou já trabalhou?",
@@ -139,7 +143,7 @@
     },
     "personal_context": "Perfil e Contexto Profissional",
     "uso_praticas_controle_versao": "Controle de versão (ex: Git)",
-    "uso_praticas_padroes_design": "Padrões de design (ex: ECS, componentes)",
+    "uso_praticas_padroes_design": "Boas práticas de código (ex: SOLID, KISS, DRY, Clean Code)",
     "uso_praticas_modelagem_projeto":"Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
     "uso_praticas_prototipacao":"Prototipação técnica",
     "uso_praticas_tdd":"Testes Automatizados",
@@ -168,9 +172,10 @@
     "testes_jogo_options": {
       "exploratorio": "Testes exploratórios — jogo livremente e observo se há falhas ou comportamentos estranhos",
       "roteiro": "Testes com roteiro — sigo uma lista de passos ou checklist para verificar funcionalidades específicas",
-      "automatizado": "Testes automatizados — uso ferramentas ou scripts para testar partes do jogo sem intervenção manual"
+      "automatizado": "Testes automatizados — uso ferramentas ou scripts para testar partes do jogo sem intervenção manual",
+      "agentes": "Agentes simulados — uso bots ou scripts que imitam o comportamento do jogador para testar o jogo"
     },
-    "dificuldades_testes": "Se você já tentou usar testes automatizados, quais foram as principais dificuldades? (Marque as principais)",
+    "dificuldades_testes": "Se você já tentou usar testes automatizados, quais foram as principais dificuldades? (Marque as 3 principais)",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "Dificuldade para entender como as ferramentas de teste funcionam.",
       "implementacao_dificil": "Complicação para integrar os testes no fluxo de trabalho do projeto.",
@@ -202,7 +207,7 @@
       "corretude_fisica": "Erros de colisão (colisões falhando ou exageradas)",
       "balanceamento": "Balanceamento desequilibrado – desafio fácil demais ou difícil demais"
     },
-    "etapa_testes": "Em que momento do desenvolvimento eles são criados?",
+    "etapa_testes": "Em que momento do desenvolvimento testes automatizados são criados?",
     "etapa_testes_options": {
       "antes_funcionalidade": "Antes de implementar a funcionalidade — sigo uma abordagem orientada a testes (Test-Driven Development)",
       "durante_funcionalidade": "Durante ou logo após a implementação da funcionalidade — escrevo os testes junto com o código",
@@ -228,15 +233,16 @@
       "avaliacao_por_outros": "A avaliação é feita principalmente por outras pessoas da equipe",
       "sem_avaliacao_estruturada": "Não costumamos fazer uma avaliação estruturada"
     },
-    "design_validacao": "Como você costuma testar ou validar o seu design antes da implementação completa?",
+    "design_validacao": "Como você costuma testar ou avaliar o seu design antes da implementação completa?",
     "design_validacao_options": {
       "prototipo_simplificado": "Por meio de protótipos jogáveis simplificados (digitais ou analógicos)",
       "prototipo_real": "Com simulações físicas ou do mundo real (ex: com pessoas, objetos, encenações)",
       "excel": "Usando planilhas para simular sistemas ou balanceamentos",
       "machinations": "Utilizando ferramentas específicas (ex: Machinations)",
-      "mental": "Simulo mentalmente os cenários e interações"
+      "mental": "Simulo mentalmente os cenários e interações",
+      "nenhum": "Normalmente implemento direto, sem fazer validação prévia do design."
     },
-    "creative_process": "Processos Criativos (Artista e Designer)",
+    "creative_process": "Processos Criativos",
     "areas_uso_ia": "De que forma você tem usado IAs generativas (ChatGPT, Copilot, Midjourney, etc.) no desenvolvimento de jogos?",
     "areas_uso_ia_o": {
       "ideias_criativas": "Para gerar ideias criativas (ex: personagens, mecânicas, narrativas, diálogos)",
@@ -246,25 +252,22 @@
       "testes": "Para criar ou sugerir testes automatizados (ex: geração de casos de teste, scripts de validação)",
       "validacao": "Para revisar ou validar funcionalidades do jogo (ex: encontrar erros, verificar lógicas)",
       "ainda_nao_usei": "Ainda não usei IA, mas tenho curiosidade ou interesse",
-      "nao_usarei": "Não utilizo IA nos meus projetos de jogos"
+      "nao_usarei": "Não uso IA nos meus projetos de jogos e não pretendo usar."
     },
-    "percepcao_uso_ia": "Quais são suas principais preocupações sobre o uso de IAs generativas na área? (Marque até 2 opções)",
+    "percepcao_uso_ia": "Quais são suas principais preocupações sobre o uso de IAs generativas na área? (Marque até 3 opções)",
     "percepcao_uso_ia_options": {
-      "dados_copyright": "Uso de dados protegidos por direitos autorais sem consentimento (para treinar a IA)",
+      "etica_dados": "Uso não autorizado de dados e questões éticas (direitos autorais, autoria, créditos, plágio)",
       "privacidade": "Preocupações com privacidade: minhas entradas podem ser reutilizadas sem controle",
       "substituicao": "Medo de que profissionais da área sejam substituídos por IA",
-      "transparencia": "Falta de transparência sobre como a IA funciona ou toma decisões",
-      "originalidade": "Dificuldade em validar a originalidade ou a confiabilidade do que é gerado",
+      "confiabilidade_transparencia": "Falta de transparência e dificuldade em verificar originalidade ou confiabilidade do que a IA produz",
       "etica": "Ética no uso da IA (ex: autoria, créditos, plágio)",
       "sem_preocupacoes": "Não tenho preocupações significativas no momento"
     },
     "generative_ia": "Aplicação de IAs Generativas",
     "final_remarks":"Considerações Finais",
-    "any_comment": "Gostaria de deixar algum comentário final sobre os testes nos projetos que você participa?",
+    "any_comment": "Sua experiência e percepção são fundamentais para esta pesquisa. Utilize o espaço abaixo para adicionar comentários, sugestões ou reflexões sobre como os testes são realizados nos de jogos dos quais você participa.",
     "email": "E-mail para contato ou referência:",
-    "contato_entrevista": "Nós gostariamos saber mais sobre os testes realizados no desenvolvimento de jogos. Você gostaria de ser contactado para uma entrevista?",
-    "email_required": "Por favor nos dê um meio de contato.",
-    "email_contato": "E-mail para referência (opcional):",
+    "email_contato": "Deixe seu e-mail caso queira ser contatado para uma entrevista sobre testes no desenvolvimento de jogos.",
     "enviar": "Enviar",
     "required_fields_missing":"Por favor, responda as seguintes perguntas:"
   }

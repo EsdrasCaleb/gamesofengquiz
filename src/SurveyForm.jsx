@@ -78,12 +78,10 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
         'prefere_outros'
     ];
     const problemas_ia = [
-        'dados_copyright',
+        'etica_dados',
         'privacidade',
         'substituicao',
-        'transparencia',
-        'originalidade',
-        'etica',
+        'confiabilidade_transparencia',
         'sem_preocupacoes'
     ];
     const problemas_manutencao = ['codigo_dificil', 'mudancas_quebram', 'comunicacao_dificil', 'prazo_curto',
@@ -102,17 +100,20 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
         const dataCollums = ["uid","language",
             //Perfil e Contexto Profissional
             "year_of_birth","country_work","formacao",'area_formacao','area_formacao_outro','anos_experiencia',
-            'qtd_projetos',"situacao","situacao_equipe","duracao_projetos","funcoes","foncoes_outro","tipos_jogos",
-            "tipos_jogos_outro","plataformas_desenvolvimento", "plataformas_desenvolvimento_outro",
-            'ferramentas_desenvolvimento', "ferramentas_desenvolvimento_outro",
+            'qtd_projetos',"situacao","situacao_outro","situacao_equipe", "situacao_equipe_outro","duracao_projetos",
+            "funcoes", "foncoes_outro","tipos_jogos", "tipos_jogos_outro","plataformas_desenvolvimento",
+            "plataformas_desenvolvimento_outro", 'ferramentas_desenvolvimento', "ferramentas_desenvolvimento_outro",
 
-            //Praticas de Engenharia e teste
+            //Praticas de Engenharia
             "uso_praticas_controle_versao", "uso_praticas_padroes_design",
             "uso_praticas_modelagem_projeto", "uso_praticas_prototipacao", "uso_praticas_tdd",
-            "uso_praticas_integracao_continua","dificuldades_manutencao","dificuldades_manutencao_outro","testes_jogo",
-            "testes_jogo_outro","dificuldades_testes","dificuldades_testes_outro","ferramentas_teste",
-            "ferramentas_teste_outro","conteudo_testado","conteudo_testado_outro","tipo_falha",
-            "tipo_falha_outro", "etapa_testes","etapa_testes_outro", "requisito_testes","requisito_testes_outro",
+            "uso_praticas_integracao_continua","dificuldades_manutencao","dificuldades_manutencao_outro",
+
+            //testes
+            "tipo_falha", "tipo_falha_outro","testes_jogo", "testes_jogo_outro",
+            "dificuldades_testes","dificuldades_testes_outro","ferramentas_teste",
+            "ferramentas_teste_outro","conteudo_testado","conteudo_testado_outro","etapa_testes","etapa_testes_outro",
+            "requisito_testes","requisito_testes_outro",
 
             //Desiner
             "avaliacao_artefatos","avaliacao_artefatos_outro","design_validacao","design_validacao_outro",
@@ -121,7 +122,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             "areas_uso_ia","areas_uso_ia_outro","percepcao_uso_ia","percepcao_uso_ia_outro",
 
             //Consideracao final
-            "consideracoes_finais",'contato_entrevista',"email"
+            "consideracoes_finais","email"
 
         ]
         // Filtrar os valores para manter apenas as chaves de dataCollums
@@ -283,8 +284,20 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         <Radio value="atuacao_nao_envolvido">
                             {t('survey.situacao_o.atuacao_nao_envolvido')}
                         </Radio>
+                        <Radio value="outro">
+                            {t('survey.common.outro')}
+                        </Radio>
                     </Radio.Group>
                 </Form.Item>
+                {data['situacao']?.includes('outro') && (
+                    <Form.Item
+                        name="situacao_outro"
+                        label={(index-1)+"a-"+t('survey.common.outro_describe')}
+                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
 
 
                 <Form.Item name="situacao_equipe" label={(index++)+"-"+t('survey.situacao_equipe')} rules={[{ required: true, message: t('survey.common.required_option')  }]}>
@@ -295,8 +308,18 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         <Radio value="grande">{t('survey.situacao_equipe_o.grande')}</Radio>
                         <Radio value="varia">{t('survey.situacao_equipe_o.varia')}</Radio>
                         <Radio value="nao_participa">{t('survey.situacao_equipe_o.nao_participa')}</Radio>
+                        <Radio value="outro">{t('survey.common.outro')}</Radio>
                     </Radio.Group>
                 </Form.Item>
+                {data['situacao_equipe']?.includes('outro') && (
+                    <Form.Item
+                        name="situacao_equipe_outro"
+                        label={(index-1)+"a-"+t('survey.common.outro_describe')}
+                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
 
                 <Form.Item name="duracao_projetos" label={(index++) + '-' + t('survey.duracao_projetos')} rules={[{ required: true, message: t('survey.common.required_option')  }]}>
                     <Radio.Group className="flex-column" >
@@ -314,10 +337,12 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     rules={[{ required: true, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column" >
-                        <Checkbox value="gerente">{t('survey.funcoes_o.gerente')}</Checkbox>
+                        <Checkbox value="produtor">{t('survey.funcoes_o.produtor')}</Checkbox>
+                        <Checkbox value="tec_lead">{t('survey.funcoes_o.tec_lead')}</Checkbox>
                         <Checkbox value="programador">{t('survey.funcoes_o.programador')}</Checkbox>
                         <Checkbox value="artista">{t('survey.funcoes_o.artista')}</Checkbox>
                         <Checkbox value="animacao">{t('survey.funcoes_o.animacao')}</Checkbox>
+                        <Checkbox value="roterista">{t('survey.funcoes_o.roterista')}</Checkbox>
                         <Checkbox value="design_ux">{t('survey.funcoes_o.design_ux')}</Checkbox>
                         <Checkbox value="game_designer">{t('survey.funcoes_o.game_designer')}</Checkbox>
                         <Checkbox value="level_designer">{t('survey.funcoes_o.level_designer')}</Checkbox>
@@ -379,7 +404,9 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                             { label: t('survey.plataformas_desenvolvimento_o.pc'), value: 'pc' },
                             { label: t('survey.plataformas_desenvolvimento_o.web'), value: 'web' },
                             { label: t('survey.plataformas_desenvolvimento_o.mobile'), value: 'mobile' },
-                            { label: t('survey.plataformas_desenvolvimento_o.console'), value: 'console' },
+                            { label: t('survey.plataformas_desenvolvimento_o.console_psx'), value: 'console_psx' },
+                            { label: t('survey.plataformas_desenvolvimento_o.console_xbox'), value: 'console_xbox' },
+                            { label: t('survey.plataformas_desenvolvimento_o.console_nintendo'), value: 'console_nintendo' },
                             { label: t('survey.plataformas_desenvolvimento_o.xr'), value: 'xr' },
                             { label: t('survey.common.outra'), value: 'outro' },
                         ]}
@@ -542,6 +569,62 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             </Card>
             <Card type="inner" title={t('survey.testing')}>
                 <Form.Item
+                    name="tipo_falha"
+                    label={(index++)+"-"+t('survey.tipo_falha')}
+                    rules={[{ required: true,
+                        message: t('survey.common.required_one_option') }]}
+                >
+                    <Checkbox.Group className="flex-column"   options={[
+                        {
+                            value: 'stuck',
+                            disabled: disableOption('tipo_falha', 'stuck',3),
+                            label: t('survey.tipo_falha_options.stuck')
+                        },
+                        {
+                            value: 'crash',
+                            disabled: disableOption('tipo_falha', 'crash',3),
+                            label: t('survey.tipo_falha_options.crash')
+                        },
+                        {
+                            value: 'visual_multimidia',
+                            disabled: disableOption('tipo_falha', 'visual_multimidia',3),
+                            label: t('survey.tipo_falha_options.visual_multimidia')
+                        },
+                        {
+                            value: 'desempenho_estabilidade',
+                            disabled: disableOption('tipo_falha', 'desempenho_estabilidade',3),
+                            label: t('survey.tipo_falha_options.desempenho_estabilidade')
+                        },
+                        {
+                            value: 'corretude_fisica',
+                            disabled: disableOption('tipo_falha', 'corretude_fisica',3),
+                            label: t('survey.tipo_falha_options.corretude_fisica')
+                        },
+                        {
+                            value: 'balanceamento',
+                            disabled: disableOption('tipo_falha', 'balanceamento',3),
+                            label: t('survey.tipo_falha_options.balanceamento')
+                        },
+                        {
+                            value: 'outro',
+                            disabled: disableOption('tipo_falha', 'outro',3),
+                            label: t('survey.common.outro')
+                        }
+
+                    ]} />
+                </Form.Item>
+
+                {data['tipo_falha']?.includes('outro') && (
+                    <Form.Item
+                        name="tipo_falha_outro"
+                        label={(index-1)+"a-"+t('survey.common.outro_describe')}
+                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
+                    >
+                        <Input />
+                    </Form.Item>
+                )}
+
+                <Form.Item
                     name="testes_jogo"
                     label={(index++)+"-"+t('survey.testes_jogo')}
                     rules={[{ required: tester_selected, message: t('survey.common.required_one_option') }]}
@@ -550,6 +633,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         { value: 'exploratorio', label: t('survey.testes_jogo_options.exploratorio') },
                         { value: 'roteiro', label: t('survey.testes_jogo_options.roteiro') },
                         { value: 'automatizado', label: t('survey.testes_jogo_options.automatizado') },
+                        { value: 'agentes', label: t('survey.testes_jogo_options.agentes') },
                         { value: 'outro', label: t('survey.common.outro') },
                     ]} />
                 </Form.Item>
@@ -567,19 +651,31 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 <Form.Item
                     name="dificuldades_testes"
                     label={(index++)+"-"+t('survey.dificuldades_testes')}
-                    rules={[{ required: tester_selected, message: t('survey.common.required_one_option') }]}
+                    rules={[{ required: data['testes_jogo']?.includes('automatizado'), message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"   options={[
-                        { value: 'entendimento_frameworks',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                        { value: 'entendimento_frameworks',
+                            disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
+                            data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.entendimento_frameworks') },
-                        { value: 'implementacao_dificil',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                        { value: 'implementacao_dificil',
+                            disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
+                                data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.implementacao_dificil') },
-                        { value: 'preferencia_humanos',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                        { value: 'preferencia_humanos',
+                            disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
+                                data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.preferencia_humanos') },
-                        { value: 'nao_encontram_erros_reais',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                        { value: 'nao_encontram_erros_reais',
+                            disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
+                                data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.nao_encontram_erros_reais') },
-                        { value: 'nunca_usei', label: t('survey.dificuldades_testes_options.nunca_usei') },
-                        { value: 'outro',disabled: data['dificuldades_testes']?.includes('nunca_usei'),
+                        { value: 'nunca_usei',
+                            disabled: disableOption('dificuldades_manutencao','entendimento_frameworks'),
+                            label: t('survey.dificuldades_testes_options.nunca_usei') },
+                        { value: 'outro',
+                            disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
+                                data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.common.outro') }
                     ]} onChange={(values) => {
                         if (values.includes('nunca_usei')) {
@@ -635,7 +731,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 <Form.Item
                     name="conteudo_testado"
                     label={(index++)+"-"+t('survey.conteudo_testado')}
-                    rules={[{ required: true,
+                    rules={[{  required: data['testes_jogo']?.includes('automatizado'),
                         message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"   options={[
@@ -687,62 +783,6 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 {data['conteudo_testado']?.includes('outro') && (
                     <Form.Item
                         name="conteudo_testado_outro"
-                        label={(index-1)+"a-"+t('survey.common.outro_describe')}
-                        rules={[{ required: true, message: t('survey.common.required_describe') }]}
-                    >
-                        <Input />
-                    </Form.Item>
-                )}
-
-                <Form.Item
-                    name="tipo_falha"
-                    label={(index++)+"-"+t('survey.tipo_falha')}
-                    rules={[{ required: true,
-                        message: t('survey.common.required_one_option') }]}
-                >
-                    <Checkbox.Group className="flex-column"   options={[
-                        {
-                            value: 'stuck',
-                            disabled: disableOption('tipo_falha', 'stuck',3),
-                            label: t('survey.tipo_falha_options.stuck')
-                        },
-                        {
-                            value: 'crash',
-                            disabled: disableOption('tipo_falha', 'crash',3),
-                            label: t('survey.tipo_falha_options.crash')
-                        },
-                        {
-                            value: 'visual_multimidia',
-                            disabled: disableOption('tipo_falha', 'visual_multimidia',3),
-                            label: t('survey.tipo_falha_options.visual_multimidia')
-                        },
-                        {
-                            value: 'desempenho_estabilidade',
-                            disabled: disableOption('tipo_falha', 'desempenho_estabilidade',3),
-                            label: t('survey.tipo_falha_options.desempenho_estabilidade')
-                        },
-                        {
-                            value: 'corretude_fisica',
-                            disabled: disableOption('tipo_falha', 'corretude_fisica',3),
-                            label: t('survey.tipo_falha_options.corretude_fisica')
-                        },
-                        {
-                            value: 'balanceamento',
-                            disabled: disableOption('tipo_falha', 'balanceamento',3),
-                            label: t('survey.tipo_falha_options.balanceamento')
-                        },
-                        {
-                            value: 'outro',
-                            disabled: disableOption('tipo_falha', 'outro',3),
-                            label: t('survey.common.outro')
-                        }
-
-                    ]} />
-                </Form.Item>
-
-                {data['tipo_falha']?.includes('outro') && (
-                    <Form.Item
-                        name="tipo_falha_outro"
                         label={(index-1)+"a-"+t('survey.common.outro_describe')}
                         rules={[{ required: true, message: t('survey.common.required_describe') }]}
                     >
@@ -816,13 +856,31 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     rules={[{ required: artist_selected, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"  options={[
-                        { value: 'criterios_definidos', label: t('survey.avaliacao_artefatos_o.criterios_definidos') },
-                        { value: 'avaliacao_subjetiva', label: t('survey.avaliacao_artefatos_o.avaliacao_subjetiva') },
-                        { value: 'testes_formais', label: t('survey.avaliacao_artefatos_o.testes_formais') },
-                        { value: 'avaliacao_por_outros', label: t('survey.avaliacao_artefatos_o.avaliacao_por_outros') },
+                        { value: 'criterios_definidos',
+                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            label: t('survey.avaliacao_artefatos_o.criterios_definidos') },
+                        { value: 'avaliacao_subjetiva',
+                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            label: t('survey.avaliacao_artefatos_o.avaliacao_subjetiva') },
+                        { value: 'testes_formais',
+                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            label: t('survey.avaliacao_artefatos_o.testes_formais') },
+                        { value: 'avaliacao_por_outros',
+                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            label: t('survey.avaliacao_artefatos_o.avaliacao_por_outros') },
                         { value: 'sem_avaliacao_estruturada', label: t('survey.avaliacao_artefatos_o.sem_avaliacao_estruturada') },
-                        { value: 'outro', label: t('survey.common.outro') },
-                    ]} />
+                        { value: 'outro',
+                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            label: t('survey.common.outro') },
+                    ]}
+                    onChange={(values) => {
+                        if (values.includes('sem_avaliacao_estruturada')) {
+                            form.setFieldsValue({ avaliacao_artefatos: ['sem_avaliacao_estruturada'] });
+                        } else {
+                            form.setFieldsValue({ avaliacao_artefatos: values });
+                        }
+                    }}
+                    />
                 </Form.Item>
 
                 {data['avaliacao_artefatos']?.includes('outro') && (
@@ -840,13 +898,34 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     label={(index++)+"-"+t('survey.design_validacao')}
                     rules={[{ required: design_selected, message: t('survey.common.required_one_option') }]}
                 >
-                    <Checkbox.Group className="flex-column"   options={[
-                        { value: 'prototipo_simplificado', label: t('survey.design_validacao_options.prototipo_simplificado') },
-                        { value: 'prototipo_real', label: t('survey.design_validacao_options.prototipo_real') },
-                        { value: 'excel', label: t('survey.design_validacao_options.excel') },
-                        { value: 'machinations', label: t('survey.design_validacao_options.machinations') },
-                        { value: 'mental', label: t('survey.design_validacao_options.mental') },
-                        { value: 'outro', label: t('survey.common.outro') },
+                    <Checkbox.Group className="flex-column"
+                        onChange={(values) => {
+                            if (values.includes('nenhum')) {
+                                form.setFieldsValue({ design_validacao: ['nenhum'] });
+                            } else {
+                                form.setFieldsValue({ design_validacao: values });
+                            }
+                        }}
+                        options={[
+                            { value: 'prototipo_simplificado',
+                                disabled:data['design_validacao']?.includes('nenhum'),
+                                label: t('survey.design_validacao_options.prototipo_simplificado') },
+                            { value: 'prototipo_real',
+                                disabled:data['design_validacao']?.includes('nenhum'),
+                                label: t('survey.design_validacao_options.prototipo_real') },
+                            { value: 'excel',
+                                disabled:data['design_validacao']?.includes('nenhum'),
+                                label: t('survey.design_validacao_options.excel') },
+                            { value: 'machinations',
+                                disabled:data['design_validacao']?.includes('nenhum'),
+                                label: t('survey.design_validacao_options.machinations') },
+                            { value: 'mental',
+                                disabled:data['design_validacao']?.includes('nenhum'),
+                                label: t('survey.design_validacao_options.mental') },
+                            { value: 'nenhum', label: t('survey.design_validacao_options.nenhum') },
+                            { value: 'outro',
+                                disabled:data['design_validacao']?.includes('nenhum'),
+                                label: t('survey.common.outro') },
                     ]} />
                 </Form.Item>
 
@@ -866,16 +945,43 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     label={(index++)+"-"+t('survey.areas_uso_ia')}
                     rules={[{ required: true, message: t('survey.common.required_one_option') }]}
                 >
-                    <Checkbox.Group className="flex-column" >
-                        <Checkbox value="ideias_criativas">{t('survey.areas_uso_ia_o.ideias_criativas')}</Checkbox>
-                        <Checkbox value="conteudo_visual_sonoro">{t('survey.areas_uso_ia_o.conteudo_visual_sonoro')}</Checkbox>
-                        <Checkbox value="implementacao">{t('survey.areas_uso_ia_o.implementacao')}</Checkbox>
-                        <Checkbox value="planejamento">{t('survey.areas_uso_ia_o.planejamento')}</Checkbox>
-                        <Checkbox value="testes">{t('survey.areas_uso_ia_o.testes')}</Checkbox>
-                        <Checkbox value="validacao">{t('survey.areas_uso_ia_o.validacao')}</Checkbox>
-                        <Checkbox value="ainda_nao_usei">{t('survey.areas_uso_ia_o.ainda_nao_usei')}</Checkbox>
-                        <Checkbox value="nao_usarei">{t('survey.areas_uso_ia_o.nao_usarei')}</Checkbox>
-                        <Checkbox value='outro'>{t('survey.common.outro') }</Checkbox>
+                    <Checkbox.Group className="flex-column"
+                        onChange={(values) => {
+                            if (values.includes('ainda_nao_usei')) {
+                                form.setFieldsValue({ areas_uso_ia: ['ainda_nao_usei'] });
+                            } else if(values.includes('nao_usarei')) {
+                                form.setFieldsValue({ areas_uso_ia: ['nao_usarei'] });
+                            }
+                            else {
+                                form.setFieldsValue({ areas_uso_ia: values });
+                            }
+                        }}
+                    >
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('ainda_nao_usei')
+                            ||data['areas_uso_ia']?.includes('nao_usarei')}
+                            value="ideias_criativas">{t('survey.areas_uso_ia_o.ideias_criativas')}</Checkbox>
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('ainda_nao_usei')
+                            ||data['areas_uso_ia']?.includes('nao_usarei')}
+                            value="conteudo_visual_sonoro">{t('survey.areas_uso_ia_o.conteudo_visual_sonoro')}</Checkbox>
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('ainda_nao_usei')
+                            ||data['areas_uso_ia']?.includes('nao_usarei')}
+                            value="implementacao">{t('survey.areas_uso_ia_o.implementacao')}</Checkbox>
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('ainda_nao_usei')
+                            ||data['areas_uso_ia']?.includes('nao_usarei')}
+                            value="planejamento">{t('survey.areas_uso_ia_o.planejamento')}</Checkbox>
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('ainda_nao_usei')
+                            ||data['areas_uso_ia']?.includes('nao_usarei')}
+                            value="testes">{t('survey.areas_uso_ia_o.testes')}</Checkbox>
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('ainda_nao_usei')
+                            ||data['areas_uso_ia']?.includes('nao_usarei')}
+                            value="validacao">{t('survey.areas_uso_ia_o.validacao')}</Checkbox>
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('nao_usarei')}
+                            value="ainda_nao_usei">{t('survey.areas_uso_ia_o.ainda_nao_usei')}</Checkbox>
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('ainda_nao_usei')}
+                            value="nao_usarei">{t('survey.areas_uso_ia_o.nao_usarei')}</Checkbox>
+                        <Checkbox disabled={data['areas_uso_ia']?.includes('ainda_nao_usei')
+                            ||data['areas_uso_ia']?.includes('nao_usarei')}
+                            value='outro'>{t('survey.common.outro') }</Checkbox>
                     </Checkbox.Group>
                 </Form.Item>
 
@@ -894,19 +1000,32 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     label={(index++) + " - " + t('survey.percepcao_uso_ia')}
                     rules={[{ required: true, message: t('survey.common.required_one_option') }]}
                 >
-                    <Checkbox.Group className="flex-column" >
+                    <Checkbox.Group className="flex-column"
+                        onChange={(values) => {
+                            if (values.includes('sem_preocupacoes')) {
+                                form.setFieldsValue({ percepcao_uso_ia: ['sem_preocupacoes'] });
+                            }
+                            else {
+                                form.setFieldsValue({ percepcao_uso_ia: values });
+                            }
+                        }}
+                    >
                         {problemas_ia.map((value) => (
                             <Checkbox
                                 key={value}
                                 value={value}
                                 disabled={
-                                    disableOption('percepcao_uso_ia',value)
+                                    disableOption('percepcao_uso_ia',value)||
+                                    (value!='sem_preocupacoes'&&data['percepcao_uso_ia']?.includes('sem_preocupacoes'))
                                 }
                             >
                                 {t(`survey.percepcao_uso_ia_options.${value}`)}
                             </Checkbox>
                         ))}
-                        <Checkbox value='outro' disabled={disableOption('percepcao_uso_ia','outro')}>{t('survey.common.outro') }</Checkbox>
+                        <Checkbox value='outro' disabled={disableOption('percepcao_uso_ia','outro')
+                            || data['percepcao_uso_ia']?.includes('sem_preocupacoes')}>
+                            {t('survey.common.outro') }
+                        </Checkbox>
                     </Checkbox.Group>
                 </Form.Item>
 
@@ -927,16 +1046,8 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 <Input.TextArea rows={2} />
             </Form.Item>
 
-            <Form.Item name="contato_entrevista" label={(index++)+"-"+t('survey.contato_entrevista')} rules={[{ required: true, message: t('survey.common.required_option')  }]}>
-                <Radio.Group>
-                    <Radio value="sim">{t('survey.common.sim')}</Radio>
-                    <Radio value="nao">{t('survey.common.nao')}</Radio>
-                </Radio.Group>
-            </Form.Item>
-
-            <Form.Item name="email" rules={[{required:data["contato_entrevista"]==="sim", message: t('survey.email_required')}]}
-                       label={(index++)+"-"+
-                           (data["contato_entrevista"]==="sim"?t('survey.email'):t('survey.email_contato'))}>
+            <Form.Item name="email"
+                       label={(index++)+"-"+ t('survey.email_contato')}>
                 <Input type="email" />
             </Form.Item>
             </Card>
