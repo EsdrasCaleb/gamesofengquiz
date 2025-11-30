@@ -1,1 +1,274 @@
-{}
+{
+  "consent": {
+    "title": "知情同意书 (Informed Consent Form)",
+    "helper": "如果某些术语不清楚，请尝试阅读其他语言版本。",
+    "paragraphs": [
+      "诚挚邀请您参与由 Esdras Caleb Oliveira Silva（主要研究员）和 Lyrene Fernandes da Silva（导师）开展的研究项目<strong>“游戏开发中的质量提升实践：一项观察性研究 (Quality Promotion Practices in Game Development: An Observational Study)”</strong>。",
+      "本研究专门面向<strong>年满 18 岁且从事数字游戏开发工作的人士</strong>。",
+      "我们旨在探索将自动化测试实践整合到游戏开发中的方法，特别是在独立开发团队的背景下。",
+      "如果您决定参与，您将回答 <strong>34 个问题</strong>，内容涵盖您的游戏开发者概况、您使用的软件工程实践以及用于游戏验证的测试类型。",
+      "回答所有问题预计需要 15 分钟。",
+      "<strong>风险、保密性与收益：</strong><br />您的参与涉及的风险极小。主要风险是回答问卷时的疲劳，但您可以选择保存答案稍后继续，从而将此风险降至最低。作为一项在线调查，存在与虚拟环境相关的潜在风险。为了保护您的信息，我们研究人员采取了以下措施：<br /><ul><li><strong>数据收集：</strong> 您的回答将是匿名的。我们将收集您的浏览器语言和表单语言。提供您的电子邮件是<strong>自愿的</strong>，仅在您愿意参与后续采访时使用。电子邮件将与问卷回答分开存储。</li><li><strong>安全性：</strong> 我们承诺将所有数据存储在访问受限的安全数字环境中。</li></ul><strong>收益：</strong> 您的贡献将间接为游戏开发社区创造知识。",
+      "<strong>拒绝权与撤回同意：</strong><br />根据《通用数据保护法》(LGPD)，您可以随时拒绝参与或退出，无需理由且不会受到任何惩罚。为确保您在匿名提交后仍有权要求删除数据，完成问卷后，您将收到一个<strong>唯一的识别码</strong>。请妥善保存此代码。如果您将来决定不再允许我们在研究中使用您的数据，只需联系我们并提供该代码，我们将从数据库中删除您的回答。",
+      "如有疑问，请联系：<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />电子邮箱：<a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />电话：+55 (84) 99688-8803",
+      "所提供的数据将保存 5 年。有关伦理问题，可咨询 UFRN 研究伦理委员会 (CEP Central/UFRN)：<br />WhatsApp：(84) 99193-6266<br />电子邮箱：<a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a>",
+      "您也可以联系巴西国家研究伦理委员会 (Conep)：<br />电话：+55 (61) 3315-5877<br />电子邮箱：<a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
+    ],
+    "agree": "我同意并希望参与研究",
+    "decline": "我拒绝"
+  },
+  "switcher": {
+    "share_browser_language": "共享浏览器语言"
+  },
+  "thankyou": {
+    "title": "感谢您的时间",
+    "text": "您的决定已记录。感谢您的关注。",
+    "removal": "如果您希望删除您的数据，请联系 acheicaleb@gmail.com 并发送您的唯一 ID：{{uid}}。",
+    "newSurvey": "参与调查",
+    "change": "修改回答"
+  },
+  "survey": {
+    "common": {
+      "sim": "是",
+      "nao": "否",
+      "required_option": "请选择一个选项。",
+      "required_one_option": "请至少选择一个选项。",
+      "required_describe": "请具体说明。",
+      "outra": "其他",
+      "outro": "其他",
+      "outra_describe": "哪一个？",
+      "outro_describe": "哪一个？"
+    },
+    "year_of_birth": "您出生于哪一年？",
+    "country_work": "您主要在哪个国家从事游戏开发工作？",
+    "formacao": "您的最高学历是什么？",
+    "formacao_opcoes": {
+      "none": "无",
+      "fundamental": "小学/初中",
+      "medio": "高中/中专",
+      "graduacao": "本科 (学士学位)",
+      "especializacao": "研究生课程 / 专业进修",
+      "mestrado": "硕士",
+      "doutorado": "博士"
+    },
+    "area_formacao": "您的最高学历属于哪个领域？",
+    "area_formacao_o": {
+      "computacao": "计算机科学 / 软件工程 / 信息系统",
+      "engenharia": "工程学 (其他领域)",
+      "jogos": "游戏设计 / 数字游戏开发",
+      "design": "平面设计 / 视觉艺术 / 动画",
+      "musica": "音乐 / 音频制作",
+      "comunicacao": "传播学 / 数字媒体 / 多媒体",
+      "autodidata": "自学 (无相关正规教育)"
+    },
+    "anos_experiencia": "您在数字游戏开发领域工作了多少年？",
+    "qtd_projetos": "您参与过多少个游戏项目 (无论是否发布)？",
+    "situacao": "您目前参与数字游戏开发的主要形式是什么？(请选择最能描述您现状的选项)",
+    "situacao_o": {
+      "atuacao_industria_integral": "我在游戏行业的公司全职工作",
+      "atuacao_industria_parcial": "我在游戏行业的公司兼职工作",
+      "atuacao_freelancer": "我作为自由职业者/外包人员定期开发游戏",
+      "atuacao_indie_horas_vagas": "我在业余时间独立开发游戏 (无报酬或偶尔有收入)",
+      "atuacao_eventual": "我偶尔开发游戏，参与短期或合作项目 (如 Game Jam)",
+      "atuacao_nao_envolvido": "我目前不开发游戏，但曾在该领域工作过"
+    },
+    "situacao_equipe": "在游戏开发项目中，您通常与哪种类型的团队合作？请考虑您参与的大多数项目。",
+    "situacao_equipe_o": {
+      "individual": "我独自工作 (个人项目)",
+      "pequena": "小型团队 (2 到 5 人)",
+      "media": "中型团队 (6 到 15 人)",
+      "grande": "大型团队 (15 人以上)",
+      "varia": "因项目而异",
+      "nao_participa": "我独立工作，与项目团队没有直接接触"
+    },
+    "duracao_projetos": "平均而言，您参与的项目的周期是多久？",
+    "duracao_projetos_o": {
+      "menos_1_mes": "少于 1 个月",
+      "1a3_meses": "1 到 3 个月",
+      "4a6_meses": "4 到 6 个月",
+      "7a12_meses": "7 到 12 个月",
+      "mais_1_ano": "超过 1 年"
+    },
+    "funcoes": "您通常担任什么角色/职能？",
+    "funcoes_o": {
+      "programador": "程序员 (Programmer)",
+      "artista": "美术 / 视觉艺术家",
+      "design_ux": "UI/UX 设计师",
+      "roteiro_narrativa": "编剧 / 叙事设计",
+      "tec_lead": "技术主管 (Tech Lead)",
+      "marketing": "市场营销 / 发行",
+      "game_designer": "游戏策划 / 游戏设计师 (Game Designer)",
+      "level_designer": "关卡设计师 (Level Designer)",
+      "qa": "测试人员 (QA)",
+      "artista_som": "音效师 / 作曲家",
+      "animacao": "动画师",
+      "produtor": "制作人 (Producer)",
+      "roterista": "编剧"
+    },
+    "tipos_jogos": "您主要开发什么类型的游戏？",
+    "tipos_jogos_options": {
+      "fps": "第一人称射击 (FPS)",
+      "educacional": "教育类",
+      "rpg": "角色扮演 (RPG)",
+      "aventura_narrativa": "叙事冒险 / 视觉小说 (Visual Novel)",
+      "2d": "2D 游戏",
+      "3d": "3D 游戏",
+      "plataforma": "平台跳跃 (Platformer)",
+      "boardgame": "数字桌游 (BoardGame)",
+      "puzzle": "解谜 / 益智 (Puzzle)",
+      "simulacao": "模拟类 (Simulation)",
+      "manager": "经营管理类 (Manager)"
+    },
+    "plataformas_desenvolvimento": "您通常为哪些平台开发游戏？",
+    "plataformas_desenvolvimento_o": {
+      "pc": "PC (Windows, Linux, Mac)",
+      "web": "Web (浏览器)",
+      "mobile": "移动设备 (Android, iOS)",
+      "console_psx": "索尼主机 (PlayStation)",
+      "console_xbox": "微软主机 (Xbox)",
+      "console_nintendo": "任天堂主机 (Switch等)",
+      "xr": "虚拟现实 / 增强现实 (XR)"
+    },
+    "ferramentas_desenvolvimento": "在您参与的项目中，通常使用哪些游戏引擎？",
+    "ferramentas_desenvolvimento_options": {
+      "unity": "Unity",
+      "unreal": "Unreal Engine (虚幻引擎)",
+      "godot": "Godot",
+      "gamemaker": "Game Maker",
+      "rpgmaker": "RPG Maker",
+      "framework_baixo_nivel": "低级框架 (LOVE, MonoGame, Heaps 等)",
+      "propria_pessoal": "自研引擎 (我自己制作的)",
+      "propria_corporativa": "自研引擎 (公司内部使用的)",
+      "nada": "我不使用游戏引擎 (使用 SDL 等基础库编程)"
+    },
+    "personal_context": "个人资料与职业背景",
+    "uso_praticas_controle_versao": "版本控制 (例如: Git)",
+    "uso_praticas_padroes_design": "代码规范/设计模式 (例如: SOLID, KISS, DRY, Clean Code)",
+    "uso_praticas_modelagem_projeto": "项目建模 (例如: 流程图, 状态图等)",
+    "uso_praticas_prototipacao": "技术原型制作",
+    "uso_praticas_tdd": "自动化测试",
+    "uso_praticas_integracao_continua": "持续集成 (Builds, Pipelines)",
+    "uso_praticas": {
+      "label": "对于以下每种实践，请选择最能代表您游戏开发经验的选项。",
+      "opcoes": {
+        "uso_atualmente": "我目前正在使用",
+        "nao_conhece": "我不使用，因为不太了解",
+        "nao_util": "我觉得对我的项目没用",
+        "ja_tentou": "我尝试过，但觉得太复杂或没必要",
+        "prefere_outros": "我更愿意专注于开发的其他方面"
+      }
+    },
+    "dificuldades_manutencao": "根据您的经验，随着时间的推移，是什么让项目的迭代和维护变得最困难？(最多选择 3 项)",
+    "dificuldades_manutencao_o": {
+      "codigo_dificil": "随着时间推移，代码变得难以理解",
+      "mudancas_quebram": "修改代码会导致游戏其他部分出现意外错误 (回归 Bug)",
+      "comunicacao_dificil": "团队成员之间沟通困难",
+      "prazo_curto": "时间不足或截止日期紧迫",
+      "mudancas_escopo": "项目中期需求变更或范围蔓延 (Scope Creep)",
+      "sem_boas_praticas": "缺乏良好的软件工程实践",
+      "sem_dificuldades": "在这方面我没有遇到重大困难"
+    },
+    "testes_jogo": "您通常使用哪种测试形式来验证游戏是否运行正常？",
+    "testes_jogo_options": {
+      "exploratorio": "探索性测试 — 自由游玩，观察是否有故障或异常行为",
+      "roteiro": "脚本化测试 — 按照步骤列表或检查清单 (Checklist) 验证特定功能",
+      "automatizado": "自动化测试 — 使用工具或脚本测试游戏部分内容，无需人工干预",
+      "agentes": "模拟代理 (Agents) — 使用模仿玩家行为的机器人或脚本进行测试"
+    },
+    "dificuldades_testes": "如果您曾尝试使用自动化测试，主要的困难是什么？(选择最重要的 3 项)",
+    "dificuldades_testes_options": {
+      "entendimento_frameworks": "难以理解测试工具的工作原理。",
+      "implementacao_dificil": "难以将测试集成到项目工作流中。",
+      "preferencia_humanos": "感觉人工测试更实用或更高效。",
+      "nao_encontram_erros_reais": "认为自动化测试找不到“关键 Bug”。",
+      "nunca_usei": "我从未尝试过自动化测试。"
+    },
+    "ferramentas_teste": "您在游戏项目中曾使用过哪些工具来创建自动化测试？",
+    "ferramentas_teste_options": {
+      "unity": "Unity Test Framework",
+      "unreal": "Unreal Functional Testing Framework / Gauntlet",
+      "godot_tests": "Godot 测试插件 (例如: GUT 或 gdUnit)",
+      "nenhuma": "我从未使用过自动化测试工具。"
+    },
+    "conteudo_testado": "您通常在自动化测试中覆盖游戏的哪些方面？",
+    "conteudo_testado_options": {
+      "componentes": "独立组件 — 验证代码的特定部分是否能独立正常工作 (单元测试)",
+      "performance": "基础性能 — 评估加载时间、帧率 (FPS) 或资源消耗",
+      "cenarios": "特定游戏场景 — 模拟游戏玩法情境，检查游戏是否按预期响应",
+      "teste_fumaca": "冒烟测试 (Smoke Tests) — 仅检查游戏是否能启动且无严重崩溃",
+      "nao_uso": "我不使用自动化测试"
+    },
+    "tipo_falha": "游戏可能出现的最严重的故障是什么？(最多选择 3 项)",
+    "tipo_falha_options": {
+      "stuck": "卡死 (Stuck) — 玩家被困住无法退出 (软锁/Softlock)",
+      "crash": "崩溃 (Crash) — 游戏关闭、闪退或死机",
+      "visual_multimidia": "视觉故障 (Glitches) 或奇怪的音频噪音",
+      "desempenho_estabilidade": "性能下降或帧率不稳定",
+      "corretude_fisica": "物理错误 (碰撞失效或夸张)",
+      "balanceamento": "平衡性差 — 挑战太简单或太难"
+    },
+    "etapa_testes": "自动化测试是在开发的哪个阶段创建的？",
+    "etapa_testes_options": {
+      "antes_funcionalidade": "在实现功能之前 — 我遵循测试驱动开发 (TDD) 方法",
+      "durante_funcionalidade": "在实现功能期间或紧随其后 — 我与代码一起编写测试",
+      "pos_prototipo": "在创建功能原型之后 — 当我有可玩或可测的东西时进行测试",
+      "final": "仅在项目结束时的审查阶段",
+      "nunca": "我不使用自动化测试",
+      "quando_possivel": "有时间或机会时 — 流程中没有固定的步骤"
+    },
+    "requisito_testes": "在您的项目中，哪些情况下自动化测试是强制性要求？",
+    "requisito_testes_options": {
+      "atualizacao": "接受协作者的代码贡献时 (例如: Pull Requests)",
+      "proxima_fase": "允许项目进入下一阶段 (Alpha, Beta) 时",
+      "nova_funcionalidade": "开始开发新功能时",
+      "nunca": "在项目中不是强制性要求"
+    },
+    "software_engeniring": "软件工程实践",
+    "testing": "测试实践",
+    "avaliacao_artefatos": "您通常如何评估您制作的创意资产 (图像、声音、图标、视频、布局等) 的质量？",
+    "avaliacao_artefatos_o": {
+      "criterios_definidos": "我使用预先定义的标准 (例如: 风格、清晰度、受众适应性)",
+      "avaliacao_subjetiva": "我根据自己的感知进行更主观的评估",
+      "testes_formais": "我使用特定工具或针对用户进行正式测试",
+      "avaliacao_por_outros": "主要由团队中的其他人进行评估",
+      "sem_avaliacao_estruturada": "我们通常不进行结构化评估"
+    },
+    "design_validacao": "在完全实现之前，您通常如何测试或评估您的设计？",
+    "design_validacao_options": {
+      "prototipo_simplificado": "通过简化的可玩原型 (数字版或纸面原型)",
+      "prototipo_real": "通过物理或现实模拟 (例如: 真人扮演、实物模拟)",
+      "excel": "使用电子表格模拟系统或数值平衡",
+      "machinations": "使用特定工具 (例如: Machinations)",
+      "mental": "我在脑海中模拟场景和交互",
+      "nenhum": "我通常直接实现，不进行事先的设计验证。"
+    },
+    "creative_process": "创作过程",
+    "areas_uso_ia": "您在游戏开发中以何种方式使用生成式 AI (ChatGPT, Copilot, Midjourney 等)？",
+    "areas_uso_ia_o": {
+      "ideias_criativas": "产生创意构思 (例如: 角色、机制、叙事、对话)",
+      "conteudo_visual_sonoro": "创建视觉或音频内容 (例如: 概念图、配音、配乐、音效)",
+      "implementacao": "辅助实现 (例如: 编写或审查代码、建议技术解决方案)",
+      "planejamento": "规划或构建游戏 (例如: 文档、系统架构、数值平衡)",
+      "testes": "创建或建议自动化测试 (例如: 生成测试用例、验证脚本)",
+      "validacao": "审查或验证游戏功能 (例如: 查找错误、检查逻辑)",
+      "ainda_nao_usei": "我还没用过 AI，但很好奇或感兴趣",
+      "nao_usarei": "我不在游戏项目中使用 AI，也不打算使用。"
+    },
+    "percepcao_uso_ia": "您对该领域使用生成式 AI 的主要担忧是什么？(最多选择 3 项)",
+    "percepcao_uso_ia_options": {
+      "etica_dados": "未经授权的数据使用和伦理问题 (版权、署名权、抄袭)",
+      "privacidade": "隐私问题：我的输入可能会在不受控制的情况下被重复使用",
+      "substituicao": "担心该领域的专业人员被 AI 取代",
+      "confiabilidade_transparencia": "缺乏透明度，且难以验证 AI 产出的原创性或可靠性",
+      "etica": "AI 使用的伦理道德 (例如: 作者身份、积分、剽窃)",
+      "sem_preocupacoes": "目前我没有特别的担忧"
+    },
+    "generative_ia": "生成式 AI 的应用",
+    "final_remarks": "结语",
+    "any_comment": "您的经验和看法对本研究至关重要。请使用下方空间添加评论、建议或思考，谈谈您参与的游戏项目是如何进行测试的。",
+    "email": "联系或参考电子邮件：",
+    "email_contato": "如果您愿意接受关于游戏开发测试的采访，请留下您的电子邮件。",
+    "enviar": "提交",
+    "required_fields_missing": "请回答以下问题："
+  }
+}

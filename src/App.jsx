@@ -13,7 +13,7 @@ const STORAGE_KEY = 'survey_data';
 const initialState = {
     status: null,
     uid: null,
-    data: { shareSurvey: true, shareBrowser: true },
+    data: { shareBrowser: true },
 };
 
 function surveyReducer(state, action) {

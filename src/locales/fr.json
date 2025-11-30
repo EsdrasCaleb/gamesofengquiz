@@ -1,1 +1,274 @@
-{}
+{
+  "consent": {
+    "title": "Formulaire de Consentement Libre et Éclairé",
+    "helper": "Si un terme n'est pas clair, essayez de lire dans une autre langue.",
+    "paragraphs": [
+      "Vous êtes invité(e) à participer à la recherche <strong>“Quality Promotion Practices in Game Development: An Observational Study”</strong> (Pratiques de Promotion de la Qualité dans le Développement de Jeux : Une Étude Observationnelle), menée par Esdras Caleb Oliveira Silva (chercheur responsable) et Lyrene Fernandes da Silva (directrice de thèse).",
+      "Cette recherche est destinée exclusivement aux personnes <strong>âgées de 18 ans ou plus, travaillant dans le développement de jeux vidéo numériques</strong>.",
+      "Nous cherchons à identifier des moyens d'intégrer des pratiques de tests automatisés dans le développement de jeux, en particulier dans le contexte des équipes indépendantes.",
+      "Si vous décidez de participer, vous répondrez à <strong>34 questions</strong> sur votre profil de développeur de jeux, les pratiques d'ingénierie logicielle que vous utilisez et les types de tests employés pour la validation des jeux.",
+      "Le temps estimé pour répondre à toutes les questions est de 15 minutes.",
+      "<strong>Risques, Confidentialité et Bénéfices :</strong><br />Votre participation comporte des risques minimes. Le risque principal est la fatigue lors de la réponse au questionnaire, minimisée par l'option de sauvegarder vos réponses pour continuer plus tard. S'agissant d'une enquête en ligne, il existe des risques associés à l'environnement virtuel. Pour protéger vos informations, nous, les chercheurs, avons adopté les mesures suivantes :<br /><ul><li><strong>Collecte de Données :</strong> Vos réponses seront anonymes. Nous collecterons la langue de votre navigateur et du formulaire. La fourniture de votre e-mail est <strong>facultative</strong> et ne sera utilisée que si vous souhaitez participer à un entretien pour la recherche. Les e-mails seront stockés séparément des réponses au questionnaire.</li><li><strong>Sécurité :</strong> Nous assumons la responsabilité de stocker toutes les données dans un environnement numérique sécurisé et à accès restreint.</li></ul><strong>Bénéfices :</strong> Indirectement, votre contribution générera des connaissances pour la communauté du développement de jeux.",
+      "<strong>Droit de Refus et Retrait du Consentement :</strong><br />Conformément à la Loi Générale sur la Protection des Données (LGPD), vous pouvez refuser de participer ou vous retirer à tout moment, sans justification et sans aucun préjudice. Pour garantir votre droit de demander la suppression des données même après l'envoi anonyme, vous recevrez à la fin du questionnaire un <strong>code d'identification unique</strong>. Conservez ce code. Si vous décidez à l'avenir que vos données ne doivent plus être utilisées dans la recherche, contactez-nous simplement en fournissant ce code pour que votre réponse soit supprimée de notre base de données.",
+      "En cas de doute, veuillez contacter :<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />E-mail : <a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />Téléphone : +55 (84) 99688-8803",
+      "Les données fournies seront conservées pendant 5 ans. Les questions éthiques peuvent être clarifiées auprès du Comité d'Éthique de la Recherche de l'UFRN (CEP Central/UFRN) :<br />WhatsApp : (84) 99193-6266<br />E-mail : <a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a>",
+      "Il est également possible de contacter la Commission Nationale d'Éthique de la Recherche (Conep - Brésil) :<br />Téléphone : +55 (61) 3315-5877<br />E-mail : <a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
+    ],
+    "agree": "J'accepte et je souhaite participer à la recherche",
+    "decline": "Je refuse"
+  },
+  "switcher": {
+    "share_browser_language": "Partager la langue du navigateur"
+  },
+  "thankyou": {
+    "title": "Merci de votre temps",
+    "text": "Votre décision a été enregistrée. Nous vous remercions de votre attention.",
+    "removal": "Si vous souhaitez supprimer vos données, veuillez contacter acheicaleb@gmail.com et envoyer votre ID unique : {{uid}}.",
+    "newSurvey": "Répondre à l'enquête",
+    "change": "Modifier les réponses"
+  },
+  "survey": {
+    "common": {
+      "sim": "Oui",
+      "nao": "Non",
+      "required_option": "Veuillez sélectionner une option.",
+      "required_one_option": "Veuillez sélectionner au moins une option.",
+      "required_describe": "Veuillez préciser.",
+      "outra": "Autre",
+      "outro": "Autre",
+      "outra_describe": "Laquelle ?",
+      "outro_describe": "Lequel ?"
+    },
+    "year_of_birth": "En quelle année êtes-vous né(e) ?",
+    "country_work": "Dans quel pays travaillez-vous principalement dans le développement de jeux ?",
+    "formacao": "Quel est votre niveau d'études le plus élevé ?",
+    "formacao_opcoes": {
+      "none": "Aucun",
+      "fundamental": "Collège / Primaire",
+      "medio": "Lycée / Secondaire",
+      "graduacao": "Licence / Bac+3",
+      "especializacao": "Spécialisation / Certificat post-grade",
+      "mestrado": "Master",
+      "doutorado": "Doctorat"
+    },
+    "area_formacao": "Dans quel domaine avez-vous obtenu votre diplôme le plus élevé ?",
+    "area_formacao_o": {
+      "computacao": "Informatique / Génie Logiciel / Systèmes d'Information",
+      "engenharia": "Ingénierie (autres domaines)",
+      "jogos": "Game Design / Développement de Jeux Numériques",
+      "design": "Graphisme / Arts Visuels / Animation",
+      "musica": "Musique / Production Audio",
+      "comunicacao": "Communication / Médias Numériques / Multimédia",
+      "autodidata": "Autodidacte (sans formation formelle)"
+    },
+    "anos_experiencia": "Depuis combien d'années travaillez-vous dans le domaine du développement de jeux vidéo ?",
+    "qtd_projetos": "Sur combien de projets de jeux (publiés ou non) avez-vous travaillé ?",
+    "situacao": "Quelle est votre principale forme d'activité dans le développement de jeux actuellement ? (Cochez l'alternative qui décrit le mieux votre situation.)",
+    "situacao_o": {
+      "atuacao_industria_integral": "Je travaille à temps plein dans une entreprise de l'industrie du jeu",
+      "atuacao_industria_parcial": "Je travaille à temps partiel dans une entreprise de l'industrie du jeu",
+      "atuacao_freelancer": "Je développe des jeux en tant que freelance/indépendant régulièrement",
+      "atuacao_indie_horas_vagas": "Je développe des jeux de manière indépendante sur mon temps libre (sans rémunération ou rémunération occasionnelle)",
+      "atuacao_eventual": "Je développe des jeux occasionnellement, sur des projets ponctuels ou collaboratifs",
+      "atuacao_nao_envolvido": "Actuellement, je ne développe pas de jeux, mais j'ai déjà travaillé dans ce domaine"
+    },
+    "situacao_equipe": "Avec quel type d'équipe avez-vous l'habitude de travailler sur les projets de développement ? Considérez la majorité des projets auxquels vous participez.",
+    "situacao_equipe_o": {
+      "individual": "Je travaille seul(e) (projets individuels)",
+      "pequena": "En petite équipe (2 à 5 personnes)",
+      "media": "En équipe moyenne (6 à 15 personnes)",
+      "grande": "En grande équipe (plus de 15 personnes)",
+      "varia": "Cela varie beaucoup d'un projet à l'autre",
+      "nao_participa": "Je travaille de manière indépendante et je n'ai pas de contact direct avec l'équipe du projet"
+    },
+    "duracao_projetos": "En moyenne, quelle est la durée des projets auxquels vous participez ?",
+    "duracao_projetos_o": {
+      "menos_1_mes": "Moins d'1 mois",
+      "1a3_meses": "De 1 à 3 mois",
+      "4a6_meses": "De 4 à 6 mois",
+      "7a12_meses": "De 7 à 12 mois",
+      "mais_1_ano": "Plus d'1 an"
+    },
+    "funcoes": "Quels rôles/fonctions occupez-vous habituellement ?",
+    "funcoes_o": {
+      "programador": "Programmeur",
+      "artista": "Artiste Visuel",
+      "design_ux": "Designer UI/UX",
+      "roteiro_narrativa": "Scénario/Narrative Designer",
+      "tec_lead": "Lead Technique (Tech Lead)",
+      "marketing": "Marketing/Édition",
+      "game_designer": "Game Designer",
+      "level_designer": "Level Designer",
+      "qa": "Testeur (QA)",
+      "artista_som": "Sound Designer / Compositeur",
+      "animacao": "Animateur",
+      "produtor": "Producteur",
+      "roterista": "Scénariste"
+    },
+    "tipos_jogos": "Quels types de jeux développez-vous le plus ?",
+    "tipos_jogos_options": {
+      "fps": "FPS",
+      "educacional": "Éducatif",
+      "rpg": "RPG",
+      "aventura_narrativa": "Aventure Narrative (Visual Novel)",
+      "2d": "2D",
+      "3d": "3D",
+      "plataforma": "Plateforme",
+      "boardgame": "Jeu de Plateau Numérique (BoardGame)",
+      "puzzle": "Puzzle / Casse-tête",
+      "simulacao": "Simulation",
+      "manager": "Gestion / Manager"
+    },
+    "plataformas_desenvolvimento": "Pour quelles plateformes avez-vous l'habitude de développer des jeux ?",
+    "plataformas_desenvolvimento_o": {
+      "pc": "PC (Windows, Linux, Mac)",
+      "web": "Web (navigateurs)",
+      "mobile": "Appareils mobiles (Android, iOS)",
+      "console_psx": "Consoles Sony/PlayStation",
+      "console_xbox": "Consoles Microsoft/Xbox",
+      "console_nintendo": "Consoles Nintendo",
+      "xr": "Réalité virtuelle / augmentée (XR)"
+    },
+    "ferramentas_desenvolvimento": "Quels moteurs (engines) utilisez-vous habituellement dans vos projets ?",
+    "ferramentas_desenvolvimento_options": {
+      "unity": "Unity",
+      "unreal": "Unreal",
+      "godot": "Godot",
+      "gamemaker": "Game Maker",
+      "rpgmaker": "RPG Maker",
+      "framework_baixo_nivel": "Framework de bas niveau (LOVE, MonoGame, Heaps, etc.)",
+      "propria_pessoal": "Moteur propriétaire (fait par moi-même)",
+      "propria_corporativa": "Moteur propriétaire (de l'entreprise)",
+      "nada": "Je n'utilise pas de moteur de jeu (programmation avec des bibliothèques comme SDL)"
+    },
+    "personal_context": "Profil et Contexte Professionnel",
+    "uso_praticas_controle_versao": "Contrôle de version (ex: Git)",
+    "uso_praticas_padroes_design": "Bonnes pratiques de code (ex: SOLID, KISS, DRY, Clean Code)",
+    "uso_praticas_modelagem_projeto": "Modélisation de projet (ex: diagrammes de flux, diagrammes d'états, etc.)",
+    "uso_praticas_prototipacao": "Prototypage technique",
+    "uso_praticas_tdd": "Tests Automatisés",
+    "uso_praticas_integracao_continua": "Intégration continue (builds, pipelines)",
+    "uso_praticas": {
+      "label": "Pour chacune des pratiques ci-dessous, sélectionnez l'option qui représente le mieux votre expérience.",
+      "opcoes": {
+        "uso_atualmente": "J'utilise actuellement",
+        "nao_conhece": "Je n'utilise pas car je ne connais pas bien",
+        "nao_util": "Je ne vois pas l'utilité pour mes projets",
+        "ja_tentou": "J'ai déjà essayé, mais j'ai trouvé ça compliqué ou excessif",
+        "prefere_outros": "Je préfère me concentrer sur d'autres aspects du développement"
+      }
+    },
+    "dificuldades_manutencao": "D'après votre expérience, qu'est-ce qui rend l'évolution et la maintenance des projets les plus difficiles au fil du temps ? (Choisissez jusqu'à 3 options)",
+    "dificuldades_manutencao_o": {
+      "codigo_dificil": "Le code devient difficile à comprendre avec le temps",
+      "mudancas_quebram": "Faire des changements provoque des erreurs inattendues ailleurs (régressions)",
+      "comunicacao_dificil": "Difficultés de communication au sein de l'équipe",
+      "prazo_curto": "Manque de temps ou délais serrés",
+      "mudancas_escopo": "Changements de périmètre ou de fonctionnalités en cours de projet",
+      "sem_boas_praticas": "Absence de bonnes pratiques d'ingénierie logicielle",
+      "sem_dificuldades": "Je ne rencontre pas de difficultés significatives sur cet aspect"
+    },
+    "testes_jogo": "Quelles formes de tests utilisez-vous habituellement pour vérifier si le jeu fonctionne correctement ?",
+    "testes_jogo_options": {
+      "exploratorio": "Tests exploratoires — je joue librement et j'observe s'il y a des failles ou des comportements étranges",
+      "roteiro": "Tests scénarisés — je suis une liste d'étapes ou une checklist pour vérifier des fonctionnalités spécifiques",
+      "automatizado": "Tests automatisés — j'utilise des outils ou des scripts pour tester des parties du jeu sans intervention manuelle",
+      "agentes": "Agents simulés — j'utilise des bots ou des scripts qui imitent le comportement du joueur"
+    },
+    "dificuldades_testes": "Si vous avez déjà essayé d'utiliser des tests automatisés, quelles ont été les principales difficultés ? (Cochez les 3 principales)",
+    "dificuldades_testes_options": {
+      "entendimento_frameworks": "Difficulté à comprendre le fonctionnement des outils de test.",
+      "implementacao_dificil": "Complication pour intégrer les tests dans le flux de travail du projet.",
+      "preferencia_humanos": "Le sentiment que les tests manuels sont plus pratiques ou efficaces.",
+      "nao_encontram_erros_reais": "Perception que les tests automatisés ne trouvent pas les \"bugs importants\".",
+      "nunca_usei": "Je n'ai jamais essayé d'utiliser des tests automatisés."
+    },
+    "ferramentas_teste": "Quels outils avez-vous déjà utilisés pour créer des tests automatisés dans vos projets ?",
+    "ferramentas_teste_options": {
+      "unity": "Unity Test Framework",
+      "unreal": "Unreal Functional Testing Framework / Gauntlet",
+      "godot_tests": "Un plugin de test pour Godot (ex: GUT ou gdUnit)",
+      "nenhuma": "Je n'ai jamais utilisé d'outils de tests automatisés."
+    },
+    "conteudo_testado": "Quels aspects du jeu couvrez-vous habituellement avec les tests automatisés ?",
+    "conteudo_testado_options": {
+      "componentes": "Composants isolés — je vérifie si des parties spécifiques du code fonctionnent correctement de manière indépendante",
+      "performance": "Performance de base — j'évalue le temps de chargement, le taux de rafraîchissement (FPS) ou la consommation de ressources",
+      "cenarios": "Scénarios de jeu spécifiques — je simule des situations de gameplay pour voir si le jeu répond comme prévu",
+      "teste_fumaca": "Tests de fumée (Smoke tests) — je vérifie seulement si le jeu démarre et tourne sans plantages critiques",
+      "nao_uso": "Je n'utilise pas de tests automatisés"
+    },
+    "tipo_falha": "Quelles sont les défaillances les plus graves qu'un jeu peut présenter ? (Choisissez jusqu'à 3)",
+    "tipo_falha_options": {
+      "stuck": "Stuck — le joueur reste coincé sans pouvoir sortir (Softlock)",
+      "crash": "Crash — le jeu se ferme, se fige ou plante",
+      "visual_multimidia": "Glitches visuels ou bruits audio étranges",
+      "desempenho_estabilidade": "Chute de performance ou instabilité du framerate",
+      "corretude_fisica": "Erreurs de physique (collisions manquantes ou exagérées)",
+      "balanceamento": "Mauvais équilibrage — défi trop facile ou trop difficile"
+    },
+    "etapa_testes": "À quel moment du développement les tests automatisés sont-ils créés ?",
+    "etapa_testes_options": {
+      "antes_funcionalidade": "Avant d'implémenter la fonctionnalité — je suis une approche pilotée par les tests (TDD)",
+      "durante_funcionalidade": "Pendant ou juste après l'implémentation — j'écris les tests en même temps que le code",
+      "pos_prototipo": "Après la création d'un prototype fonctionnel — je teste quand j'ai déjà quelque chose de jouable",
+      "final": "Seulement à la fin du projet, en phase de révision",
+      "nunca": "Je n'utilise pas de tests automatisés",
+      "quando_possivel": "Quand il y a du temps ou l'opportunité — sans étape définie dans le processus"
+    },
+    "requisito_testes": "Dans quelles situations les tests automatisés sont-ils une exigence obligatoire dans vos projets ?",
+    "requisito_testes_options": {
+      "atualizacao": "Pour accepter les contributions des collaborateurs (ex: pull requests)",
+      "proxima_fase": "Pour permettre le passage du projet à la phase suivante (alpha, bêta)",
+      "nova_funcionalidade": "Pour commencer le développement d'une nouvelle fonctionnalité",
+      "nunca": "Ce n'est pas une exigence obligatoire dans les projets"
+    },
+    "software_engeniring": "Pratiques d'Ingénierie Logicielle",
+    "testing": "Pratiques de Test",
+    "avaliacao_artefatos": "Comment évaluez-vous habituellement la qualité des artefacts créatifs que vous produisez (images, sons, icônes, vidéos, interfaces, etc.) ?",
+    "avaliacao_artefatos_o": {
+      "criterios_definidos": "J'utilise des critères définis au préalable (ex: style, clarté, adéquation au public)",
+      "avaliacao_subjetiva": "Je fais une évaluation plus subjective, basée sur ma propre perception",
+      "testes_formais": "Je réalise des tests formels avec des utilisateurs ou des outils spécifiques",
+      "avaliacao_por_outros": "L'évaluation est faite principalement par d'autres personnes de l'équipe",
+      "sem_avaliacao_estruturada": "Nous n'avons pas l'habitude de faire une évaluation structurée"
+    },
+    "design_validacao": "Comment testez-vous ou évaluez-vous votre design avant l'implémentation complète ?",
+    "design_validacao_options": {
+      "prototipo_simplificado": "Via des prototypes jouables simplifiés (numériques ou analogiques)",
+      "prototipo_real": "Avec des simulations physiques ou réelles (ex: avec des personnes, des objets, jeux de rôle)",
+      "excel": "En utilisant des tableurs pour simuler des systèmes ou l'équilibrage",
+      "machinations": "En utilisant des outils spécifiques (ex: Machinations)",
+      "mental": "Je simule mentalement les scénarios et les interactions",
+      "nenhum": "Normalement j'implémente directement, sans validation préalable du design."
+    },
+    "creative_process": "Processus Créatifs",
+    "areas_uso_ia": "De quelle manière utilisez-vous les IA génératives (ChatGPT, Copilot, Midjourney, etc.) dans le développement de jeux ?",
+    "areas_uso_ia_o": {
+      "ideias_criativas": "Pour générer des idées créatives (ex: personnages, mécaniques, narration, dialogues)",
+      "conteudo_visual_sonoro": "Pour créer du contenu visuel ou sonore (ex: concept art, voix, musiques, effets)",
+      "implementacao": "Pour aider à l'implémentation (ex: écrire ou réviser du code, suggérer des solutions techniques)",
+      "planejamento": "Pour planifier ou structurer le jeu (ex: documentation, architecture système, équilibrage)",
+      "testes": "Pour créer ou suggérer des tests automatisés (ex: génération de cas de test, scripts de validation)",
+      "validacao": "Pour réviser ou valider des fonctionnalités (ex: trouver des erreurs, vérifier la logique)",
+      "ainda_nao_usei": "Je n'ai pas encore utilisé d'IA, mais je suis curieux(se) ou intéressé(e)",
+      "nao_usarei": "Je n'utilise pas d'IA dans mes projets et je ne compte pas le faire."
+    },
+    "percepcao_uso_ia": "Quelles sont vos principales préoccupations concernant l'utilisation des IA génératives dans le domaine ? (Cochez jusqu'à 3 options)",
+    "percepcao_uso_ia_options": {
+      "etica_dados": "Utilisation non autorisée de données et questions éthiques (droits d'auteur, plagiat)",
+      "privacidade": "Problèmes de confidentialité : mes données peuvent être réutilisées sans contrôle",
+      "substituicao": "Peur que les professionnels du domaine soient remplacés par l'IA",
+      "confiabilidade_transparencia": "Manque de transparence et difficulté à vérifier l'originalité ou la fiabilité de ce que l'IA produit",
+      "etica": "Éthique de l'utilisation de l'IA (ex: paternité, crédits, plagiat)",
+      "sem_preocupacoes": "Je n'ai pas de préoccupations significatives pour le moment"
+    },
+    "generative_ia": "Application des IA Génératives",
+    "final_remarks": "Remarques Finales",
+    "any_comment": "Votre expérience et votre perception sont fondamentales pour cette recherche. Utilisez l'espace ci-dessous pour ajouter des commentaires, suggestions ou réflexions sur la façon dont les tests sont réalisés dans les jeux auxquels vous participez.",
+    "email": "E-mail de contact ou référence :",
+    "email_contato": "Laissez votre e-mail si vous souhaitez être contacté(e) pour un entretien sur les tests dans le développement de jeux.",
+    "enviar": "Envoyer",
+    "required_fields_missing": "Veuillez répondre aux questions suivantes :"
+  }
+}

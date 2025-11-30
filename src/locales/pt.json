@@ -17,8 +17,7 @@
     "decline": "Eu Recuso"
 },
   "switcher": {
-    "share_browser_language": "Compartilhar idioma do navegador",
-    "share_survey_language": "Compartilhar idioma que o questionário foi respondido"
+    "share_browser_language": "Compartilhar idioma do navegador"
   },
   "thankyou": {
     "title": "Obrigado pelo seu tempo",

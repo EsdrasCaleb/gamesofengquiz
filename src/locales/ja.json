@@ -1,1 +1,274 @@
-{}
+{
+  "consent": {
+    "title": "自由意思による同意説明書 (Informed Consent Form)",
+    "helper": "用語が不明確な場合は、他の言語で読んでみてください。",
+    "paragraphs": [
+      "あなたは、Esdras Caleb Oliveira Silva（研究責任者）および Lyrene Fernandes da Silva（指導教員）が実施する研究プロジェクト<strong>「ゲーム開発における品質向上プラクティス：観察研究 (Quality Promotion Practices in Game Development: An Observational Study)」</strong>への参加を招待されています。",
+      "本研究は、<strong>18歳以上で、デジタルゲーム開発に従事している方</strong>を対象としています。",
+      "私たちは、特にインディー開発チームの文脈において、自動テストのプラクティスをゲーム開発に統合する方法を特定することを目指しています。",
+      "参加に同意された場合、ゲーム開発者としてのプロフィール、使用しているソフトウェアエンジニアリングの手法、およびゲームの検証に使用されているテストの種類に関する<strong>34の質問</strong>にお答えいただきます。",
+      "すべての質問に回答するための所要時間は約15分です。",
+      "<strong>リスク、機密性、および利益：</strong><br />参加に伴うリスクは最小限です。主なリスクはアンケート回答時の疲労ですが、回答を保存して後で再開できるため、負担は軽減されます。オンライン調査であるため、仮想環境に関連するリスクが存在します。情報の保護のために、私たち研究者は以下の対策を講じています：<br /><ul><li><strong>データ収集：</strong> 回答は匿名で行われます。ブラウザの言語とフォームの言語情報を収集します。メールアドレスの提供は<strong>任意</strong>であり、本研究に関するインタビューへの参加を希望される場合にのみ使用されます。メールアドレスはアンケートの回答とは別に保管されます。</li><li><strong>セキュリティ：</strong> すべてのデータは、アクセスが制限された安全なデジタル環境で保管する責任を負います。</li></ul><strong>利益：</strong> 間接的に、あなたの貢献はゲーム開発コミュニティのための知識創出につながります。",
+      "<strong>拒否権および同意の撤回：</strong><br />ブラジルの一般データ保護法（LGPD）に基づき、あなたは理由の如何を問わず、不利益を被ることなく、いつでも参加を拒否または辞退することができます。匿名送信後もデータ削除を要求できる権利を保証するため、アンケート終了時に<strong>固有の識別コード（ID）</strong>が発行されます。このコードを保存してください。将来、ご自身のデータを研究に使用されたくないと判断された場合は、ご連絡の上、このコードを提示していただければ、データベースから回答を削除いたします。",
+      "ご不明な点がございましたら、以下までお問い合わせください：<br /><strong>Esdras Caleb Oliveira Silva</strong> – SEDIS/UFRN<br />メール：<a href=\"mailto:acheicaleb@gmail.com\">acheicaleb@gmail.com</a><br />電話：+55 (84) 99688-8803",
+      "提供されたデータは5年間保存されます。倫理的な問題については、UFRN研究倫理委員会（CEP Central/UFRN）にお問い合わせいただけます：<br />WhatsApp：(84) 99193-6266<br />メール：<a href=\"mailto:cepufrn@propesq.ufrn.br\">cepufrn@propesq.ufrn.br</a>",
+      "また、ブラジル国家研究倫理委員会（Conep）への連絡も可能です：<br />電話：+55 (61) 3315-5877<br />メール：<a href=\"mailto:conep@saude.gov.br\">conep@saude.gov.br</a>"
+    ],
+    "agree": "同意して、研究に参加します",
+    "decline": "辞退します"
+  },
+  "switcher": {
+    "share_browser_language": "ブラウザの言語を共有する"
+  },
+  "thankyou": {
+    "title": "お時間をいただきありがとうございます",
+    "text": "あなたの決定は記録されました。ご協力に感謝いたします。",
+    "removal": "データの削除をご希望の場合は、acheicaleb@gmail.com までご連絡の上、固有IDをお送りください：{{uid}}。",
+    "newSurvey": "アンケートに回答する",
+    "change": "回答を修正する"
+  },
+  "survey": {
+    "common": {
+      "sim": "はい",
+      "nao": "いいえ",
+      "required_option": "選択肢を選んでください。",
+      "required_one_option": "少なくとも1つの選択肢を選んでください。",
+      "required_describe": "具体的に記述してください。",
+      "outra": "その他",
+      "outro": "その他",
+      "outra_describe": "具体的に？",
+      "outro_describe": "具体的に？"
+    },
+    "year_of_birth": "生まれた年は西暦何年ですか？",
+    "country_work": "主にどの国でゲーム開発を行っていますか？",
+    "formacao": "最終学歴を教えてください。",
+    "formacao_opcoes": {
+      "none": "なし",
+      "fundamental": "中学校 / 初等教育",
+      "medio": "高等学校 / 中等教育",
+      "graduacao": "大学（学士）",
+      "especializacao": "専門職学位 / ポストグラデュエート",
+      "mestrado": "大学院（修士）",
+      "doutorado": "大学院（博士）"
+    },
+    "area_formacao": "最終学歴の専攻分野は何ですか？",
+    "area_formacao_o": {
+      "computacao": "コンピュータサイエンス / ソフトウェア工学 / 情報システム",
+      "engenharia": "工学（その他の分野）",
+      "jogos": "ゲームデザイン / デジタルゲーム開発",
+      "design": "グラフィックデザイン / ビジュアルアーツ / アニメーション",
+      "musica": "音楽 / 音響制作",
+      "comunicacao": "コミュニケーション / デジタルメディア / マルチメディア",
+      "autodidata": "独学（関連する正規の教育を受けていない）"
+    },
+    "anos_experiencia": "デジタルゲーム開発の分野で何年活動していますか？",
+    "qtd_projetos": "これまでにいくつのゲームプロジェクト（リリース有無問わず）に関わりましたか？",
+    "situacao": "現在、どのような形態でデジタルゲーム開発に関わっていますか？（現在の状況を最もよく表すものを選んでください）",
+    "situacao_o": {
+      "atuacao_industria_integral": "ゲーム業界の企業でフルタイム（正社員等）として働いている",
+      "atuacao_industria_parcial": "ゲーム業界の企業でパートタイムとして働いている",
+      "atuacao_freelancer": "フリーランス／個人事業主として定期的にゲームを開発している",
+      "atuacao_indie_horas_vagas": "空き時間に個人／インディーでゲームを開発している（無報酬または不定期な収入）",
+      "atuacao_eventual": "短期プロジェクトやコラボレーション（Game Jam等）で、不定期にゲームを開発している",
+      "atuacao_nao_envolvido": "現在はゲーム開発をしていないが、過去に経験がある"
+    },
+    "situacao_equipe": "ゲーム開発プロジェクトでは、通常どのようなチームで作業しますか？（主に参加するプロジェクトを基準にしてください）",
+    "situacao_equipe_o": {
+      "individual": "一人で作業する（個人開発）",
+      "pequena": "小規模チーム（2〜5人）",
+      "media": "中規模チーム（6〜15人）",
+      "grande": "大規模チーム（15人以上）",
+      "varia": "プロジェクトによって大きく異なる",
+      "nao_participa": "独立して作業しており、プロジェクトチームとの直接的な接触はない"
+    },
+    "duracao_projetos": "平均して、参加するプロジェクトの期間はどれくらいですか？",
+    "duracao_projetos_o": {
+      "menos_1_mes": "1ヶ月未満",
+      "1a3_meses": "1ヶ月〜3ヶ月",
+      "4a6_meses": "4ヶ月〜6ヶ月",
+      "7a12_meses": "7ヶ月〜12ヶ月",
+      "mais_1_ano": "1年以上"
+    },
+    "funcoes": "通常、どのような役割・職種を担当していますか？",
+    "funcoes_o": {
+      "programador": "プログラマー",
+      "artista": "ビジュアルアーティスト / デザイナー",
+      "design_ux": "UI/UXデザイナー",
+      "roteiro_narrativa": "シナリオ / ナラティブデザイン",
+      "tec_lead": "テックリード (Tech Lead)",
+      "marketing": "マーケティング / パブリッシング",
+      "game_designer": "ゲームデザイナー / プランナー",
+      "level_designer": "レベルデザイナー",
+      "qa": "テスター (QA)",
+      "artista_som": "サウンドアーティスト / コンポーザー",
+      "animacao": "アニメーター",
+      "produtor": "プロデューサー",
+      "roterista": "シナリオライター"
+    },
+    "tipos_jogos": "主にどのような種類のゲームを開発していますか？",
+    "tipos_jogos_options": {
+      "fps": "FPS",
+      "educacional": "教育用ゲーム",
+      "rpg": "RPG",
+      "aventura_narrativa": "ナラティブアドベンチャー / ビジュアルノベル",
+      "2d": "2Dゲーム",
+      "3d": "3Dゲーム",
+      "plataforma": "プラットフォーマー (アクション)",
+      "boardgame": "デジタルボードゲーム",
+      "puzzle": "パズル",
+      "simulacao": "シミュレーション",
+      "manager": "経営シミュレーション (Manager)"
+    },
+    "plataformas_desenvolvimento": "通常、どのプラットフォーム向けにゲームを開発していますか？",
+    "plataformas_desenvolvimento_o": {
+      "pc": "PC (Windows, Linux, Mac)",
+      "web": "Web (ブラウザ)",
+      "mobile": "モバイル端末 (Android, iOS)",
+      "console_psx": "ソニー製コンソール (PlayStation)",
+      "console_xbox": "マイクロソフト製コンソール (Xbox)",
+      "console_nintendo": "任天堂製コンソール (Switch等)",
+      "xr": "VR (仮想現実) / AR (拡張現実)"
+    },
+    "ferramentas_desenvolvimento": "プロジェクトでは通常、どのゲームエンジンを使用していますか？",
+    "ferramentas_desenvolvimento_options": {
+      "unity": "Unity",
+      "unreal": "Unreal Engine",
+      "godot": "Godot",
+      "gamemaker": "Game Maker",
+      "rpgmaker": "RPG Maker (ツクール)",
+      "framework_baixo_nivel": "低レイヤーフレームワーク (LOVE, MonoGame, Heaps 等)",
+      "propria_pessoal": "自作エンジン（個人製作）",
+      "propria_corporativa": "社内エンジン（独自エンジン）",
+      "nada": "ゲームエンジンを使用しない (SDL等のライブラリでプログラミング)"
+    },
+    "personal_context": "プロフィールと職業的背景",
+    "uso_praticas_controle_versao": "バージョン管理 (例: Git)",
+    "uso_praticas_padroes_design": "コードのベストプラクティス (例: SOLID, KISS, DRY, Clean Code)",
+    "uso_praticas_modelagem_projeto": "プロジェクトモデリング (例: フローチャート, 状態遷移図など)",
+    "uso_praticas_prototipacao": "技術的プロトタイピング",
+    "uso_praticas_tdd": "自動テスト",
+    "uso_praticas_integracao_continua": "継続的インテグレーション (CI / ビルドパイプライン)",
+    "uso_praticas": {
+      "label": "以下の各プラクティスについて、あなたのゲーム開発経験を最もよく表す選択肢を選んでください。",
+      "opcoes": {
+        "uso_atualmente": "現在使用している",
+        "nao_conhece": "よく知らないため使用していない",
+        "nao_util": "自分のプロジェクトには有用だと思わない",
+        "ja_tentou": "試したことはあるが、複雑すぎるか過剰だと感じた",
+        "prefere_outros": "開発の他の分野に注力したい"
+      }
+    },
+    "dificuldades_manutencao": "経験上、長期的にプロジェクトを進化・維持する上で最も困難なことは何ですか？（3つまで選択）",
+    "dificuldades_manutencao_o": {
+      "codigo_dificil": "時間の経過とともにコードが理解しにくくなる（属人化・複雑化）",
+      "mudancas_quebram": "変更を加えると、予期せぬ場所でエラーが発生する（デグレ／回帰バグ）",
+      "comunicacao_dificil": "チームメンバー間のコミュニケーションが難しい",
+      "prazo_curto": "時間不足や締め切りが厳しい",
+      "mudancas_escopo": "プロジェクト途中での仕様変更やスコープの拡大",
+      "sem_boas_praticas": "適切なソフトウェアエンジニアリングの実践不足",
+      "sem_dificuldades": "この点に関して大きな困難には直面していない"
+    },
+    "testes_jogo": "ゲームが正しく動作しているか確認するために、通常どのようなテスト手法を使用しますか？",
+    "testes_jogo_options": {
+      "exploratorio": "探索的テスト — 自由にプレイして、不具合や奇妙な挙動がないか観察する",
+      "roteiro": "シナリオテスト — 手順リストやチェックリストに従って特定の機能を確認する",
+      "automatizado": "自動テスト — ツールやスクリプトを使用して、手動介入なしにゲームの一部をテストする",
+      "agentes": "エージェントシミュレーション — プレイヤーの行動を模倣するボットやスクリプトを使用する"
+    },
+    "dificuldades_testes": "自動テストを試みたことがある場合、主な困難は何でしたか？（上位3つを選択）",
+    "dificuldades_testes_options": {
+      "entendimento_frameworks": "テストツールの仕組みを理解するのが難しい。",
+      "implementacao_dificil": "プロジェクトのワークフローにテストを統合するのが複雑。",
+      "preferencia_humanos": "手動テストの方が実用的または効率的だと感じる。",
+      "nao_encontram_erros_reais": "自動テストでは「重要なバグ」が見つからないという認識。",
+      "nunca_usei": "自動テストを試したことがない。"
+    },
+    "ferramentas_teste": "ゲームプロジェクトで自動テストを作成するために使用したツールはありますか？",
+    "ferramentas_teste_options": {
+      "unity": "Unity Test Framework",
+      "unreal": "Unreal Functional Testing Framework / Gauntlet",
+      "godot_tests": "Godot用テストプラグイン (例: GUT または gdUnit)",
+      "nenhuma": "自動テストツールを使用したことがない。"
+    },
+    "conteudo_testado": "自動テストでは、通常ゲームのどの側面をカバーしていますか？",
+    "conteudo_testado_options": {
+      "componentes": "コンポーネント単体 — コードの特定部分が独立して正しく動作するか確認する (単体テスト)",
+      "performance": "基本的なパフォーマンス — ロード時間、フレームレート (FPS)、リソース消費を評価する",
+      "cenarios": "特定のゲームシナリオ — ゲームプレイの状況をシミュレートし、期待通りに応答するか確認する",
+      "teste_fumaca": "スモークテスト — ゲームが起動し、致命的なクラッシュなしに動作することのみを確認する",
+      "nao_uso": "自動テストは使用していない"
+    },
+    "tipo_falha": "ゲームにおける最も深刻な不具合は何だと思いますか？（3つまで選択）",
+    "tipo_falha_options": {
+      "stuck": "スタック (Stuck) — プレイヤーが動けなくなり進行不能になる (ハマり/Softlock)",
+      "crash": "クラッシュ (Crash) — ゲームが終了、フリーズ、または固まる",
+      "visual_multimidia": "表示崩れや音声の異常 (グリッチ)",
+      "desempenho_estabilidade": "パフォーマンスの低下やフレームレートの不安定化",
+      "corretude_fisica": "物理演算のエラー (当たり判定のすり抜けや過剰反応)",
+      "balanceamento": "バランス崩壊 — 難易度が簡単すぎる、または難しすぎる"
+    },
+    "etapa_testes": "開発のどの段階で自動テストを作成しますか？",
+    "etapa_testes_options": {
+      "antes_funcionalidade": "機能を実装する前 — テスト駆動開発 (TDD) アプローチに従う",
+      "durante_funcionalidade": "機能の実装中または直後 — コードと一緒にテストを書く",
+      "pos_prototipo": "機能的なプロトタイプ作成後 — プレイ可能またはテスト可能な状態になってからテストする",
+      "final": "プロジェクト終盤のレビュー段階でのみ",
+      "nunca": "自動テストは使用していない",
+      "quando_possivel": "時間や機会があるとき — プロセス上の決まった段階はない"
+    },
+    "requisito_testes": "どのような状況で、プロジェクトにおいて自動テストが必須要件となりますか？",
+    "requisito_testes_options": {
+      "atualizacao": "協力者からの貢献を受け入れるため (例: プルリクエストのマージ条件)",
+      "proxima_fase": "プロジェクトを次のフェーズ (アルファ、ベータ) に進めるため",
+      "nova_funcionalidade": "新機能の開発を開始するため",
+      "nunca": "プロジェクトにおいて必須要件ではない"
+    },
+    "software_engeniring": "ソフトウェア工学の実践",
+    "testing": "テストの実践",
+    "avaliacao_artefatos": "制作したクリエイティブな成果物（画像、音声、アイコン、動画、レイアウトなど）の品質をどのように評価していますか？",
+    "avaliacao_artefatos_o": {
+      "criterios_definidos": "事前に定義された基準（スタイル、明瞭さ、ターゲット層への適合性など）を使用する",
+      "avaliacao_subjetiva": "自分の感覚に基づき、主観的な評価を行う",
+      "testes_formais": "ユーザーテストや特定のツールを使用して正式なテストを行う",
+      "avaliacao_por_outros": "主にチームの他のメンバーが評価を行う",
+      "sem_avaliacao_estruturada": "体系的な評価は通常行っていない"
+    },
+    "design_validacao": "完全な実装を行う前に、デザインをどのようにテストまたは評価しますか？",
+    "design_validacao_options": {
+      "prototipo_simplificado": "簡略化されたプレイアブルプロトタイプ（デジタルまたはアナログ）を使用する",
+      "prototipo_real": "物理的または現実世界のシミュレーション（人、物体、演技など）を使用する",
+      "excel": "スプレッドシート（Excel等）を使用してシステムやバランスをシミュレーションする",
+      "machinations": "専用ツール（Machinationsなど）を使用する",
+      "mental": "シナリオやインタラクションを頭の中でシミュレーションする",
+      "nenhum": "通常、事前のデザイン検証を行わずに直接実装する"
+    },
+    "creative_process": "制作プロセス",
+    "areas_uso_ia": "ゲーム開発において、生成AI（ChatGPT, Copilot, Midjourney等）をどのように使用していますか？",
+    "areas_uso_ia_o": {
+      "ideias_criativas": "クリエイティブなアイデア出し（キャラクター、メカニクス、物語、セリフ）",
+      "conteudo_visual_sonoro": "ビジュアルまたは音声コンテンツの作成（コンセプトアート、音声、BGM、効果音）",
+      "implementacao": "実装の補助（コードの記述・レビュー、技術的解決策の提案）",
+      "planejamento": "ゲームの計画や構造化（ドキュメント作成、システム設計、バランス調整）",
+      "testes": "自動テストの作成または提案（テストケース生成、検証スクリプト）",
+      "validacao": "ゲーム機能のレビューまたは検証（エラー発見、ロジック確認）",
+      "ainda_nao_usei": "まだAIを使用していないが、興味や関心はある",
+      "nao_usarei": "ゲームプロジェクトでAIを使用しておらず、今後も使用するつもりはない"
+    },
+    "percepcao_uso_ia": "この分野での生成AIの使用について、主な懸念事項は何ですか？（3つまで選択）",
+    "percepcao_uso_ia_options": {
+      "etica_dados": "データの不正使用および倫理的問題（著作権、著作者人格権、盗用）",
+      "privacidade": "プライバシーへの懸念：入力内容が管理されずに再利用される可能性がある",
+      "substituicao": "この分野の専門家がAIに取って代わられることへの恐怖",
+      "confiabilidade_transparencia": "透明性の欠如、およびAI生成物のオリジナリティや信頼性の検証が困難であること",
+      "etica": "AI使用における倫理（著作者表示、クレジット、剽窃など）",
+      "sem_preocupacoes": "現時点では大きな懸念はない"
+    },
+    "generative_ia": "生成AIの適用",
+    "final_remarks": "最後に",
+    "any_comment": "あなたの経験と認識はこの研究にとって不可欠です。参加しているゲームプロジェクトでどのようにテストが行われているかについて、コメント、提案、または感想があれば、以下のスペースに記入してください。",
+    "email": "連絡先または参照用メールアドレス：",
+    "email_contato": "ゲーム開発におけるテストについてのインタビューにご協力いただける場合は、メールアドレスをご記入ください。",
+    "enviar": "送信",
+    "required_fields_missing": "以下の質問に回答してください："
+  }
+}

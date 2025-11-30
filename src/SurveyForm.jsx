@@ -19,9 +19,6 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
 
     const disableOption = (question, key, number = 3) => {
         const val = data[question];
-        console.log(key)
-        console.log(question)
-        console.log(data[question])
         // garante array (evita undefined / null)
         const arr = Array.isArray(val) ? val : [];
         return arr.length >= number && !arr.includes(key);
@@ -196,9 +193,6 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             </Form.Item>
             {data?.shareBrowser&&(<Form.Item name="language" initialValue={i18n.languages[0]} hidden>
                 <Input value={i18n.languages[0]} type="hidden" />
-            </Form.Item>)}
-            {data?.shareSurvey&&(<Form.Item name="language_form" initialValue={i18n.language} hidden>
-                <Input value={i18n.language} type="hidden" />
             </Form.Item>)}
 
 

@@ -6,6 +6,24 @@ const { Option } = Select;
 
 const LanguageSwitcher = ({ i18n, data, setData }) => {
     const { t } = useTranslation();
+
+    const stable = ["en", "es","pt-BR"];
+    const experimental = {
+        fr: "Français (expérimental)",
+        it: "Italiano (sperimentale)",
+        zh: "普通话（实验性）",
+        ja: "日本語（試験的）",
+        ko: "한국어(시험용)"
+    };
+
+    const candidates = i18n.languages || [];
+
+    const safeLang =
+        candidates.find(l => stable.includes(l)) ||
+        candidates.find(l => Object.keys(experimental).includes(l)) ||
+        "en";
+
+
     const handleLanguageChange = (value) => {
         i18n.changeLanguage(value);
     };
@@ -20,26 +38,23 @@ const LanguageSwitcher = ({ i18n, data, setData }) => {
     return (
         <Flex className="flex" gap="middle" justify="center" orientation="horizontal">
             <Select
-                defaultValue={i18n.language}
+                defaultValue={safeLang}
                 style={{ width: 120 }}
                 onChange={handleLanguageChange}
             >
                 <Option value="en">English</Option>
                 <Option value="pt-BR">Português</Option>
                 <Option value="es">Español</Option>
+
+                {experimental[safeLang] && (
+                    <Option value={safeLang}>{experimental[safeLang]}</Option>
+                )}
             </Select>
             <Checkbox
                 checked={data?.shareBrowser || false}
                 onChange={handleCheckboxChange("shareBrowser")}
             >
                 {t("switcher.share_browser_language")}
-            </Checkbox>
-
-            <Checkbox
-                checked={data?.shareSurvey || false}
-                onChange={handleCheckboxChange("shareSurvey")}
-            >
-                {t("switcher.share_survey_language")}
             </Checkbox>
         </Flex>
     );
