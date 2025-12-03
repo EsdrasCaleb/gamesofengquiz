@@ -7,6 +7,7 @@ import SurveyForm from './SurveyForm.jsx';
 import DeclinedScreen from './DeclinedScreen.jsx';
 import ConcludedScreen from './ConcludedScreen.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
+import UsePageTimer from "./UsePageTimer.jsx";
 
 const STORAGE_KEY = 'survey_data';
 
@@ -17,6 +18,7 @@ const initialState = {
 };
 
 function surveyReducer(state, action) {
+    console.log(state)
     switch (action.type) {
         case 'ACCEPT':
             if(!state.uid){
@@ -36,7 +38,7 @@ function surveyReducer(state, action) {
         case 'LOAD_FROM_STORAGE':
             if (action.payload.status =='accepted' || action.payload.status =='declined')
                 action.payload.status = null
-            return { ...action.payload };
+            return { ...state,data:{...state.data,...action.payload.data} };
         default:
             throw new Error(`Ação desconhecida: ${action.type}`);
     }
@@ -128,6 +130,10 @@ export default function App() {
             <div style={mainContainer}>
                 {renderContent()}
             </div>
+            <UsePageTimer
+                data={state.data}
+                setData={(newData) => dispatch({ type: 'SET_DATA', payload: newData })}
+          />
         </>
     );
 }

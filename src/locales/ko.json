@@ -179,7 +179,8 @@
     "dificuldades_testes": "자동화 테스트를 시도해 본 적이 있다면, 주요 어려움은 무엇이었습니까? (상위 3개 선택)",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "테스트 도구의 작동 방식을 이해하기 어려움.",
-      "implementacao_dificil": "프로젝트 워크플로에 테스트를 통합하는 것이 복잡함.",
+      "integracao_dificil": "프로젝트 워크플로에 테스트를 통합하는 것이 복잡함.",
+      "criacao_dificil": "테스트를 개발하고 최신 상태로 유지하는 것이 어렵습니다.",
       "preferencia_humanos": "수동 테스트가 더 실용적이거나 효율적이라는 느낌.",
       "nao_encontram_erros_reais": "자동화 테스트가 \"중요한 버그\"를 찾지 못한다는 인식.",
       "nunca_usei": "자동화 테스트를 시도해 본 적이 없음."
@@ -189,7 +190,7 @@
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "Godot 테스트 플러그인 (예: GUT 또는 gdUnit)",
-      "nenhuma": "자동화 테스트 도구를 사용해 본 적이 없음."
+      "nenhuma": "자동화 테스트 도구를 사용해 본 적이 없음"
     },
     "conteudo_testado": "자동화 테스트에서 주로 게임의 어떤 측면을 다루십니까?",
     "conteudo_testado_options": {
@@ -199,13 +200,13 @@
       "teste_fumaca": "스모크 테스트 (Smoke tests) — 게임이 실행되고 치명적인 충돌 없이 돌아가는지만 확인",
       "nao_uso": "자동화 테스트를 사용하지 않음"
     },
-    "tipo_falha": "게임에서 발생할 수 있는 가장 심각한 결함은 무엇이라고 생각하십니까? (최대 3개 선택)",
+    "tipo_falha": "당신이 만드는 게임에서 어떤 단점을 최대한 피하려고 노력하시나요? (최대 3개 선택)",
     "tipo_falha_options": {
       "stuck": "진행 불가 (Stuck) — 플레이어가 갇혀서 빠져나올 수 없음 (소프트락/Softlock)",
       "crash": "크래시 (Crash) — 게임이 종료되거나 멈춤(Freezing)",
       "visual_multimidia": "그래픽 깨짐(Glitch) 또는 이상한 오디오 잡음",
       "desempenho_estabilidade": "성능 저하 또는 프레임 레이트 불안정",
-      "corretude_fisica": "물리 엔진 오류 (충돌 판정 실패 또는 과도한 반응)",
+      "corretude_fisica": "충돌 오류 및 물리학",
       "balanceamento": "밸런스 붕괴 — 난이도가 너무 쉽거나 너무 어려움"
     },
     "etapa_testes": "개발의 어느 단계에서 자동화 테스트를 작성하십니까?",

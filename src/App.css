@@ -44,7 +44,9 @@
 .highlight-missing td:first-child {
   background-color: #ff4d4f; /* amarelo claro tipo warning */
 }
-
+.inner-card .ant-card-head {
+    background-color: #D5D5D5;
+}
 .required-extra{
   color: #ff4d4f;
   marginLeft: 4;

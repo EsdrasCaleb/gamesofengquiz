@@ -178,8 +178,9 @@
     "dificuldades_testes": "如果您曾尝试使用自动化测试，主要的困难是什么？(选择最重要的 3 项)",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "难以理解测试工具的工作原理。",
-      "implementacao_dificil": "难以将测试集成到项目工作流中。",
+      "integracao_dificil": "难以将测试集成到项目工作流中。",
       "preferencia_humanos": "感觉人工测试更实用或更高效。",
+      "criacao_dificil": "开发和更新测试很困难。",
       "nao_encontram_erros_reais": "认为自动化测试找不到“关键 Bug”。",
       "nunca_usei": "我从未尝试过自动化测试。"
     },
@@ -188,7 +189,7 @@
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "Godot 测试插件 (例如: GUT 或 gdUnit)",
-      "nenhuma": "我从未使用过自动化测试工具。"
+      "nenhuma": "我从未使用过自动化测试工具"
     },
     "conteudo_testado": "您通常在自动化测试中覆盖游戏的哪些方面？",
     "conteudo_testado_options": {
@@ -198,13 +199,13 @@
       "teste_fumaca": "冒烟测试 (Smoke Tests) — 仅检查游戏是否能启动且无严重崩溃",
       "nao_uso": "我不使用自动化测试"
     },
-    "tipo_falha": "游戏可能出现的最严重的故障是什么？(最多选择 3 项)",
+    "tipo_falha": "在你创作的游戏中，你会尽力避免哪些缺陷？（最多选择3个）",
     "tipo_falha_options": {
       "stuck": "卡死 (Stuck) — 玩家被困住无法退出 (软锁/Softlock)",
       "crash": "崩溃 (Crash) — 游戏关闭、闪退或死机",
       "visual_multimidia": "视觉故障 (Glitches) 或奇怪的音频噪音",
       "desempenho_estabilidade": "性能下降或帧率不稳定",
-      "corretude_fisica": "物理错误 (碰撞失效或夸张)",
+      "corretude_fisica": "碰撞误差和物理学",
       "balanceamento": "平衡性差 — 挑战太简单或太难"
     },
     "etapa_testes": "自动化测试是在开发的哪个阶段创建的？",

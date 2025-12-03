@@ -179,8 +179,9 @@
     "dificuldades_testes": "If you have tried using automated tests, what were the main difficulties? (Select the top 3)",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "Difficulty understanding how testing tools work.",
-      "implementacao_dificil": "Complication integrating tests into the project workflow.",
+      "integracao_dificil": "Complication integrating tests into the project workflow.",
       "preferencia_humanos": "The feeling that manual tests are more practical or efficient.",
+      "criacao_dificil": "Difficult to develop and keep the tests up-to-date.",
       "nao_encontram_erros_reais": "Perception that automated tests do not find the \"bugs that matter\".",
       "nunca_usei": "I have never tried using automated tests."
     },
@@ -189,7 +190,7 @@
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "A Godot Test Framework Plugin (e.g., GUT or gdUnit)",
-      "nenhuma": "I have never used automated testing tools."
+      "nenhuma": "I have never used automated testing tools"
     },
     "conteudo_testado": "Which aspects of the game do you usually cover in automated tests?",
     "conteudo_testado_options": {
@@ -199,13 +200,13 @@
       "teste_fumaca": "Smoke tests — I only check if the game starts and runs without critical crashes",
       "nao_uso": "I do not use automated tests"
     },
-    "tipo_falha": "What are the most serious failures a game can present? (Choose up to 3)",
+    "tipo_falha": "In the games you create, what flaws do you try your best to avoid? (Choose up to 3)",
     "tipo_falha_options": {
       "stuck": "Stuck — player gets stuck without being able to exit (Softlock)",
       "crash": "Crash — game closes, freezes, or hangs",
       "visual_multimidia": "Visual glitches or strange audio noises",
       "desempenho_estabilidade": "Performance drops or framerate instability",
-      "corretude_fisica": "Physics errors (collisions failing or exaggerated)",
+      "corretude_fisica": "Collision errors and physics",
       "balanceamento": "Poor balancing — challenge is too easy or too hard"
     },
     "etapa_testes": "At what stage of development are automated tests created?",

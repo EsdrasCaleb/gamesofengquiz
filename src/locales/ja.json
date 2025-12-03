@@ -178,7 +178,8 @@
     "dificuldades_testes": "自動テストを試みたことがある場合、主な困難は何でしたか？（上位3つを選択）",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "テストツールの仕組みを理解するのが難しい。",
-      "implementacao_dificil": "プロジェクトのワークフローにテストを統合するのが複雑。",
+      "integracao_dificil": "プロジェクトのワークフローにテストを統合するのが複雑。",
+      "criacao_dificil": "テストを開発し、最新の状態に保つのは困難です。",
       "preferencia_humanos": "手動テストの方が実用的または効率的だと感じる。",
       "nao_encontram_erros_reais": "自動テストでは「重要なバグ」が見つからないという認識。",
       "nunca_usei": "自動テストを試したことがない。"
@@ -188,7 +189,7 @@
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "Godot用テストプラグイン (例: GUT または gdUnit)",
-      "nenhuma": "自動テストツールを使用したことがない。"
+      "nenhuma": "自動テストツールを使用したことがない"
     },
     "conteudo_testado": "自動テストでは、通常ゲームのどの側面をカバーしていますか？",
     "conteudo_testado_options": {
@@ -198,13 +199,13 @@
       "teste_fumaca": "スモークテスト — ゲームが起動し、致命的なクラッシュなしに動作することのみを確認する",
       "nao_uso": "自動テストは使用していない"
     },
-    "tipo_falha": "ゲームにおける最も深刻な不具合は何だと思いますか？（3つまで選択）",
+    "tipo_falha": "あなたが作成するゲームでは、どのような欠陥を避けるように最善を尽くしていますか? (最大 3 つ選択してください)",
     "tipo_falha_options": {
       "stuck": "スタック (Stuck) — プレイヤーが動けなくなり進行不能になる (ハマり/Softlock)",
       "crash": "クラッシュ (Crash) — ゲームが終了、フリーズ、または固まる",
       "visual_multimidia": "表示崩れや音声の異常 (グリッチ)",
       "desempenho_estabilidade": "パフォーマンスの低下やフレームレートの不安定化",
-      "corretude_fisica": "物理演算のエラー (当たり判定のすり抜けや過剰反応)",
+      "corretude_fisica": "衝突エラーと物理学",
       "balanceamento": "バランス崩壊 — 難易度が簡単すぎる、または難しすぎる"
     },
     "etapa_testes": "開発のどの段階で自動テストを作成しますか？",

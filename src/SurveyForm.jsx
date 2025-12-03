@@ -16,7 +16,6 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
     const [loading, setLoading] = useState(false);
     const [requiredErrors, setRequiredErrors] = useState([]);
 
-
     const disableOption = (question, key, number = 3) => {
         const val = data[question];
         // garante array (evita undefined / null)
@@ -94,7 +93,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
 
     const onFinish = async (values) => {
         setLoading(true)
-        const dataCollums = ["uid","language",
+        const dataCollums = ["uid","language","form_language","time",
             //Perfil e Contexto Profissional
             "year_of_birth","country_work","formacao",'area_formacao','area_formacao_outro','anos_experiencia',
             'qtd_projetos',"situacao","situacao_outro","situacao_equipe", "situacao_equipe_outro","duracao_projetos",
@@ -122,10 +121,12 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             "consideracoes_finais","email"
 
         ]
+        console.log(values)
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
             dataCollums.map(key => [key, values[key]])
         );
+        console.log(filteredValues)
 
         const body_request = JSON.stringify(filteredValues);
         const url = 'https://script.google.com/macros/s/AKfycbx8ju-mStYILe19EupRI1RxQhqkx15tQOp8QVwuNTYjcXg1anvPRoO_NPk0-oq1VqYt/exec';
@@ -194,9 +195,14 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             {data?.shareBrowser&&(<Form.Item name="language" initialValue={i18n.languages[0]} hidden>
                 <Input value={i18n.languages[0]} type="hidden" />
             </Form.Item>)}
+            <Form.Item name="time" initialValue={uid} hidden>
+                <Input value={data.time} type="hidden" />
+            </Form.Item>
+            <Form.Item name="form_language" initialValue={uid} hidden>
+                <Input value={data.form_language} type="hidden" />
+            </Form.Item>
 
-
-            <Card type="inner" title={t("survey.personal_context")} >
+            <Card type="inner" className="inner-card" title={t("survey.personal_context")} >
                 <Form.Item name="year_of_birth" label={(index++)+"-"+t('survey.year_of_birth')} >
                     <InputNumber />
                 </Form.Item>
@@ -455,7 +461,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
 
             </Card>
 
-            <Card type="inner" title={t('survey.software_engeniring')}>
+            <Card type="inner" className="inner-card" title={t('survey.software_engeniring')}>
                 <Typography.Title level={5}>
                     <span className="required-extra">* </span>
                     {(index++) + ' - ' + t('survey.uso_praticas.label')}
@@ -561,7 +567,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     </Form.Item>
                 )}
             </Card>
-            <Card type="inner" title={t('survey.testing')}>
+            <Card type="inner" className="inner-card" title={t('survey.testing')}>
                 <Form.Item
                     name="tipo_falha"
                     label={(index++)+"-"+t('survey.tipo_falha')}
@@ -652,14 +658,18 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                             disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
                             data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.entendimento_frameworks') },
-                        { value: 'implementacao_dificil',
+                        { value: 'integracao_dificil',
                             disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
                                 data['dificuldades_testes']?.includes('nunca_usei'),
-                            label: t('survey.dificuldades_testes_options.implementacao_dificil') },
+                            label: t('survey.dificuldades_testes_options.integracao_dificil') },
                         { value: 'preferencia_humanos',
                             disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
                                 data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.preferencia_humanos') },
+                        { value: 'criacao_dificil',
+                            disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
+                                data['dificuldades_testes']?.includes('nunca_usei'),
+                            label: t('survey.dificuldades_testes_options.criacao_dificil') },
                         { value: 'nao_encontram_erros_reais',
                             disabled: disableOption('dificuldades_manutencao','entendimento_frameworks')||
                                 data['dificuldades_testes']?.includes('nunca_usei'),
@@ -843,7 +853,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 )}
 
             </Card>
-            <Card type="inner" title={t('survey.creative_process')}>
+            <Card type="inner" className="inner-card" title={t('survey.creative_process')}>
                 <Form.Item
                     name="avaliacao_artefatos"
                     label={(index++) + " - " + t('survey.avaliacao_artefatos')}
@@ -933,7 +943,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     </Form.Item>
                 )}
             </Card>
-            <Card type="inner" title={t('survey.generative_ia')}>
+            <Card type="inner" className="inner-card" title={t('survey.generative_ia')}>
                 <Form.Item
                     name="areas_uso_ia"
                     label={(index++)+"-"+t('survey.areas_uso_ia')}
@@ -1035,9 +1045,9 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             </Card>
 
 
-            <Card type="inner" title={t("survey.final_remarks")}>
+            <Card type="inner" className="inner-card" title={t("survey.final_remarks")}>
             <Form.Item name="consideracoes_finais" label={(index++)+"-"+t('survey.any_comment')}>
-                <Input.TextArea rows={2} />
+                <Input.TextArea rows={5} />
             </Form.Item>
 
             <Form.Item name="email"

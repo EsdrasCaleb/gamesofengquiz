@@ -178,8 +178,9 @@
     "dificuldades_testes": "Si vous avez déjà essayé d'utiliser des tests automatisés, quelles ont été les principales difficultés ? (Cochez les 3 principales)",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "Difficulté à comprendre le fonctionnement des outils de test.",
-      "implementacao_dificil": "Complication pour intégrer les tests dans le flux de travail du projet.",
+      "integracao_dificil": "Complication pour intégrer les tests dans le flux de travail du projet.",
       "preferencia_humanos": "Le sentiment que les tests manuels sont plus pratiques ou efficaces.",
+      "criacao_dificil": "Difficult to develop and keep the tests up-to-date.",
       "nao_encontram_erros_reais": "Perception que les tests automatisés ne trouvent pas les \"bugs importants\".",
       "nunca_usei": "Je n'ai jamais essayé d'utiliser des tests automatisés."
     },
@@ -188,7 +189,7 @@
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "Un plugin de test pour Godot (ex: GUT ou gdUnit)",
-      "nenhuma": "Je n'ai jamais utilisé d'outils de tests automatisés."
+      "nenhuma": "Je n'ai jamais utilisé d'outils de tests automatisés"
     },
     "conteudo_testado": "Quels aspects du jeu couvrez-vous habituellement avec les tests automatisés ?",
     "conteudo_testado_options": {
@@ -198,13 +199,13 @@
       "teste_fumaca": "Tests de fumée (Smoke tests) — je vérifie seulement si le jeu démarre et tourne sans plantages critiques",
       "nao_uso": "Je n'utilise pas de tests automatisés"
     },
-    "tipo_falha": "Quelles sont les défaillances les plus graves qu'un jeu peut présenter ? (Choisissez jusqu'à 3)",
+    "tipo_falha": "Nos jeux créés par vous, qu'est-ce que vous avez fait, vous tentez de l'éviter au maximum? (Escolha até 3)",
     "tipo_falha_options": {
       "stuck": "Stuck — le joueur reste coincé sans pouvoir sortir (Softlock)",
       "crash": "Crash — le jeu se ferme, se fige ou plante",
       "visual_multimidia": "Glitches visuels ou bruits audio étranges",
       "desempenho_estabilidade": "Chute de performance ou instabilité du framerate",
-      "corretude_fisica": "Erreurs de physique (collisions manquantes ou exagérées)",
+      "corretude_fisica": "Erreurs de collision et physique",
       "balanceamento": "Mauvais équilibrage — défi trop facile ou trop difficile"
     },
     "etapa_testes": "À quel moment du développement les tests automatisés sont-ils créés ?",

@@ -177,8 +177,9 @@
     "dificuldades_testes": "Se você já tentou usar testes automatizados, quais foram as principais dificuldades? (Marque as 3 principais)",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "Dificuldade para entender como as ferramentas de teste funcionam.",
-      "implementacao_dificil": "Complicação para integrar os testes no fluxo de trabalho do projeto.",
+      "integracao_dificil": "Complicação para integrar os testes no fluxo de trabalho do projeto.",
       "preferencia_humanos": "A sensação de que testes manuais são mais práticos ou eficientes.",
+      "criacao_dificil": "Dificil de elaborar e manter os testes atualizados.",
       "nao_encontram_erros_reais": " Percepção de que testes automatizados não encontram os \"bugs importantes\".",
       "nunca_usei": "Nunca tentei usar testes automatizados."
     },
@@ -186,24 +187,25 @@
     "ferramentas_teste_options": {
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
-      "godot_tests": "One Godot Test Framework Plugin (ex: GUT or gdUnit)",
-      "nenhuma": "Nunca usei ferramentas de testes automatizados."
+      "godot_tests": "Um Plugin de Testes da Godot (ex: GUT or gdUnit)",
+      "nenhuma": "Nunca usei ferramentas de testes automatizados"
     },
     "conteudo_testado": "Quais aspectos do jogo você costuma cobrir nos testes automatizados?",
     "conteudo_testado_options": {
       "componentes": "Componentes isolados — verifico se partes específicas do código funcionam corretamente de forma independente",
       "performance": "Performance básica — avalio tempo de carregamento, taxa de quadros (FPS) ou consumo de recursos",
       "cenarios": "Cenários específicos do jogo — simulo situações de gameplay para checar se o jogo responde como esperado",
+      "simulacao": "Simulação — simulo o comportamento de um jogador atraves de um agente",
       "teste_fumaca": "Testes de fumaça — apenas verifico se o jogo inicia e roda sem falhas críticas",
       "nao_uso": "Não uso testes automatizados"
     },
-    "tipo_falha": "Quais são as falhas mais graves que um jogo pode apresentar? (Escolha até 3)",
+    "tipo_falha": "Nos seus jogos quais falhas você tenta ao máximo evitar? (Escolha até 3)",
     "tipo_falha_options": {
-      "stuck": "Stuck – jogador fica preso sem conseguir sair",
+      "stuck": "Stuck – jogador fica preso sem conseguir sair de uma parte do jogo",
       "crash": "Crash – jogo fecha, trava ou congela",
       "visual_multimidia": "Glitches visuais ou ruídos estranhos de áudio",
       "desempenho_estabilidade": "Queda de desempenho ou framerate",
-      "corretude_fisica": "Erros de colisão (colisões falhando ou exageradas)",
+      "corretude_fisica": "Erros de colisão e física",
       "balanceamento": "Balanceamento desequilibrado – desafio fácil demais ou difícil demais"
     },
     "etapa_testes": "Em que momento do desenvolvimento testes automatizados são criados?",

@@ -178,7 +178,8 @@
     "dificuldades_testes": "Se hai provato a usare test automatizzati, quali sono state le principali difficoltà? (Seleziona le 3 principali)",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "Difficoltà a capire come funzionano gli strumenti di test.",
-      "implementacao_dificil": "Complicazione nell'integrare i test nel flusso di lavoro del progetto.",
+      "integracao_dificil": "Complicazione nell'integrare i test nel flusso di lavoro del progetto.",
+      "criacao_dificil": "Difficile sviluppare e mantenere aggiornati i test.",
       "preferencia_humanos": "La sensazione che i test manuali siano più pratici o efficienti.",
       "nao_encontram_erros_reais": "Percezione che i test automatizzati non trovino i \"bug importanti\".",
       "nunca_usei": "Non ho mai provato a usare test automatizzati."
@@ -188,7 +189,7 @@
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "Un plugin di test per Godot (es: GUT o gdUnit)",
-      "nenhuma": "Non ho mai usato strumenti di test automatizzati."
+      "nenhuma": "Non ho mai usato strumenti di test automatizzati"
     },
     "conteudo_testado": "Quali aspetti del gioco copri solitamente con i test automatizzati?",
     "conteudo_testado_options": {
@@ -198,13 +199,13 @@
       "teste_fumaca": "Smoke tests — verifico solo se il gioco si avvia e gira senza crash critici",
       "nao_uso": "Non uso test automatizzati"
     },
-    "tipo_falha": "Quali sono i guasti più gravi che un gioco può presentare? (Scegli fino a 3)",
+    "tipo_falha": "Nei giochi che crei, quali difetti cerchi di evitare? (Scegli fino a 3)",
     "tipo_falha_options": {
       "stuck": "Stuck — il giocatore rimane bloccato senza poter uscire (Softlock)",
       "crash": "Crash — il gioco si chiude, si blocca o congela",
       "visual_multimidia": "Glitch visivi o strani rumori audio",
       "desempenho_estabilidade": "Calo delle prestazioni o instabilità del framerate",
-      "corretude_fisica": "Errori di fisica (collisioni mancanti o esagerate)",
+      "corretude_fisica": "Errori di collisione e fisica",
       "balanceamento": "Bilanciamento errato — sfida troppo facile o troppo difficile"
     },
     "etapa_testes": "In quale momento dello sviluppo vengono creati i test automatizzati?",

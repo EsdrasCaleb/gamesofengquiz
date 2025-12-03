@@ -178,8 +178,9 @@
     "dificuldades_testes": "Si ya intentó usar pruebas automatizadas, ¿cuáles fueron las principales dificultades? (Marque las 3 principales)",
     "dificuldades_testes_options": {
       "entendimento_frameworks": "Dificultad para entender cómo funcionan las herramientas de prueba.",
-      "implementacao_dificil": "Complicación para integrar las pruebas en el flujo de trabajo del proyecto.",
+      "integracao_dificil": "Complicación para integrar las pruebas en el flujo de trabajo del proyecto.",
       "preferencia_humanos": "La sensación de que las pruebas manuales son más prácticas o eficientes.",
+      "criacao_dificil": "Es difícil desarrollar y mantener las pruebas actualizadas.",
       "nao_encontram_erros_reais": "Percepción de que las pruebas automatizadas no encuentran los \"bugs importantes\".",
       "nunca_usei": "Nunca intenté usar pruebas automatizadas."
     },
@@ -188,7 +189,7 @@
       "unity": "Unity Test Framework",
       "unreal": "Unreal Functional Testing Framework / Gauntlet",
       "godot_tests": "Un Plugin de Pruebas para Godot (ej: GUT o gdUnit)",
-      "nenhuma": "Nunca he usado herramientas de pruebas automatizadas."
+      "nenhuma": "Nunca he usado herramientas de pruebas automatizadas"
     },
     "conteudo_testado": "¿Qué aspectos del juego suele cubrir en las pruebas automatizadas?",
     "conteudo_testado_options": {
@@ -198,13 +199,13 @@
       "teste_fumaca": "Pruebas de humo (Smoke tests) — solo verifico si el juego inicia y corre sin fallos críticos",
       "nao_uso": "No uso pruebas automatizadas"
     },
-    "tipo_falha": "¿Cuáles son los fallos más graves que un juego puede presentar? (Elija hasta 3)",
+    "tipo_falha": "En los juegos que creas, ¿qué defectos intentas evitar al máximo? (Elige hasta 3)",
     "tipo_falha_options": {
       "stuck": "Stuck — el jugador se queda atrapado sin poder salir (Softlock)",
       "crash": "Crash — el juego se cierra, se traba o se congela",
       "visual_multimidia": "Glitches visuales o ruidos extraños de audio",
       "desempenho_estabilidade": "Caída de rendimiento o inestabilidad de framerate",
-      "corretude_fisica": "Errores de física (colisiones fallando o exageradas)",
+      "corretude_fisica": "Errores de colisión y física",
       "balanceamento": "Balance desequilibrado — desafío demasiado fácil o demasiado difícil"
     },
     "etapa_testes": "¿En qué momento del desarrollo se crean las pruebas automatizadas?",

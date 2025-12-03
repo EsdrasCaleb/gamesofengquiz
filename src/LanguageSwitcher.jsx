@@ -1,5 +1,5 @@
-import React from "react";
-import { Select, Checkbox, Flex } from "antd";
+import React, {useEffect} from "react";
+import {Select, Checkbox, Flex, Typography} from "antd";
 import {useTranslation} from "react-i18next";
 
 const { Option } = Select;
@@ -9,11 +9,11 @@ const LanguageSwitcher = ({ i18n, data, setData }) => {
 
     const stable = ["en", "es","pt-BR"];
     const experimental = {
-        fr: "Français (expérimental)",
-        it: "Italiano (sperimentale)",
-        zh: "普通话（实验性）",
-        ja: "日本語（試験的）",
-        ko: "한국어(시험용)"
+        fr: "Français (auto-traduit)",
+        it: "Italiano (tradotto automaticamente)",
+        zh: "普通话（自动翻译）",
+        ja: "日本語（自動翻訳）",
+        ko: "한국어 (자동 번역)"
     };
 
     const candidates = i18n.languages || [];
@@ -23,9 +23,19 @@ const LanguageSwitcher = ({ i18n, data, setData }) => {
         candidates.find(l => Object.keys(experimental).includes(l)) ||
         "en";
 
+    useEffect(() => {
+        setData({
+            ...data,
+            "form_language": stable.includes(safeLang)?safeLang:safeLang+' translated',
+        });
+    }, []);
 
     const handleLanguageChange = (value) => {
         i18n.changeLanguage(value);
+        setData({
+            ...data,
+            "form_language": stable.includes(value)?value:value+' translated',
+        });
     };
 
     const handleCheckboxChange = (field) => (e) => {
@@ -37,6 +47,7 @@ const LanguageSwitcher = ({ i18n, data, setData }) => {
 
     return (
         <Flex className="flex" gap="middle" justify="center" orientation="horizontal">
+            <Typography.Text strong={5} >Survey on Quality in Game Development</Typography.Text>
             <Select
                 defaultValue={safeLang}
                 style={{ width: 120 }}
