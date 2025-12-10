@@ -148,7 +148,8 @@
     "uso_praticas": {
       "label": "Para cada una de las prácticas a continuación, seleccione la alternativa que mejor representa su experiencia en el desarrollo de juegos.",
       "opcoes": {
-        "uso_atualmente": "Lo uso actualmente",
+        "sempre_uso": "Es fundamental para mi flujo de trabajo",
+        "uso_as_vezes": "Lo uso ocasionalmente",
         "nao_conhece": "No lo uso porque no lo conozco bien",
         "nao_util": "No veo utilidad para mis proyectos",
         "ja_tentou": "Ya intenté usarlo, pero me pareció complicado o exagerado",

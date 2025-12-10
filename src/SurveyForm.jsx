@@ -67,7 +67,8 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
         'tdd',
         'integracao_continua'];
     const problemas_praticas = [
-        'uso_atualmente',
+        'sempre_uso',
+        'uso_as_vezes',
         'nao_conhece',
         'nao_util',
         'ja_tentou',

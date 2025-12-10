@@ -149,7 +149,8 @@
     "uso_praticas": {
       "label": "For each of the practices below, select the option that best represents your experience in game development.",
       "opcoes": {
-        "uso_atualmente": "I use it currently",
+        "sempre_uso": "It is core to my workflow",
+        "uso_as_vezes": "I use it occasionally",
         "nao_conhece": "I don't use it because I don't know it well",
         "nao_util": "I don't see the utility for my projects",
         "ja_tentou": "I tried using it, but found it complicated or overkill",
