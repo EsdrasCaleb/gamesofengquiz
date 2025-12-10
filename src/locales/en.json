@@ -103,22 +103,19 @@
       "qa": "Tester (QA)",
       "artista_som": "Sound Artist / Composer",
       "animacao": "Animator",
-      "produtor": "Producer",
-      "roterista": "Scriptwriter"
+      "produtor": "Producer"
     },
     "tipos_jogos": "What types of games do you develop most?",
     "tipos_jogos_options": {
-      "fps": "FPS",
-      "educacional": "Educational",
-      "rpg": "RPG",
-      "aventura_narrativa": "Narrative Adventure (Visual Novel)",
-      "2d": "2D",
-      "3d": "3D",
-      "plataforma": "Platformer",
-      "boardgame": "Digital Board Game",
-      "puzzle": "Puzzle",
-      "simulacao": "Simulation",
-      "manager": "Manager"
+      "action": "Action Games",
+      "strategy": "Strategy Games",
+      "rpg": "Role-Playing Games",
+      "sports": "Sports Games",
+      "vehicle_sim": "Vehicle Simulations",
+      "construction_management": "Construction and Management Simulations",
+      "adventure": "Adventure Games",
+      "artificial_life_puzzle": "Artificial Life and Puzzle Games",
+      "online": "Online Gaming"
     },
     "plataformas_desenvolvimento": "For which platforms do you usually develop games?",
     "plataformas_desenvolvimento_o": {
@@ -198,6 +195,7 @@
       "performance": "Basic performance — I evaluate load times, frame rate (FPS), or resource consumption",
       "cenarios": "Specific game scenarios — I simulate gameplay situations to check if the game responds as expected",
       "teste_fumaca": "Smoke tests — I only check if the game starts and runs without critical crashes",
+      "simulacao": "Simulation — I simulate a player's behavior through an agent",
       "nao_uso": "I do not use automated tests"
     },
     "tipo_falha": "In the games you create, what flaws do you try your best to avoid? (Choose up to 3)",
@@ -230,10 +228,9 @@
     "avaliacao_artefatos": "How do you usually evaluate the quality of the creative artifacts you produce (images, sounds, icons, videos, layouts, etc.)?",
     "avaliacao_artefatos_o": {
       "criterios_definidos": "I use previously defined criteria (e.g., style, clarity, audience suitability)",
-      "avaliacao_subjetiva": "I make a more subjective evaluation, based on my own perception",
+      "avaliacao_subjetiva": "I rely on informal or subjective evaluation, without a structured evaluation process",
       "testes_formais": "I perform formal tests with users or specific tools",
-      "avaliacao_por_outros": "The evaluation is done mainly by other people on the team",
-      "sem_avaliacao_estruturada": "We usually do not perform a structured evaluation"
+      "avaliacao_por_outros": "The evaluation is done mainly by other people on the team"
     },
     "design_validacao": "How do you usually test or evaluate your design before full implementation?",
     "design_validacao_options": {

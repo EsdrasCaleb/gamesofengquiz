@@ -101,22 +101,19 @@
       "qa": "Testador (QA)",
       "artista_som": "Artista de Som",
       "animacao": "Animador",
-      "produtor": "Produtor",
-      "roterista": "Roterista"
+      "produtor": "Produtor"
     },
-    "tipos_jogos": "Que tipos de jogos você mais desenvolve?",
+    "tipos_jogos": "Que tipos de jogos vocês mais desenvolvem?",
     "tipos_jogos_options": {
-      "fps": "FPS",
-      "educacional": "Educacional",
+      "action": "Ação",
+      "strategy": "Estratégia",
       "rpg": "RPG",
-      "aventura_narrativa": "Aventura Narrativa (Visual Novel)",
-      "2d": "2D",
-      "3d": "3D",
-      "plataforma": "Plataforma",
-      "boardgame": "BoardGame",
-      "puzzle": "Puzzle",
-      "simulacao": "Simulação",
-      "manager": "Manager"
+      "sports": "Esportes",
+      "vehicle_sim": "Simulações de Veículos",
+      "construction_management": "Simulações de Construção e Gerenciamento",
+      "adventure": "Aventura",
+      "artificial_life_puzzle": "Vida Artificial e Quebra-Cabeças",
+      "online": "Jogos Online"
     },
     "plataformas_desenvolvimento": "Para quais plataformas você costuma desenvolver jogos?",
     "plataformas_desenvolvimento_o": {
@@ -229,10 +226,9 @@
     "avaliacao_artefatos": "Como você costuma avaliar a qualidade dos artefatos criativos que produz (imagens, sons, ícones, vídeos, layouts etc.)?",
     "avaliacao_artefatos_o": {
       "criterios_definidos": "Uso critérios definidos previamente (ex: estilo, clareza, adequação ao público)",
-      "avaliacao_subjetiva": "Faço uma avaliação mais subjetiva, baseada na minha própria percepção",
       "testes_formais": "Realizo testes formais com usuários ou ferramentas específicas",
       "avaliacao_por_outros": "A avaliação é feita principalmente por outras pessoas da equipe",
-      "sem_avaliacao_estruturada": "Não costumamos fazer uma avaliação estruturada"
+      "avaliacao_subjetiva": "Eu me baseio em avaliações informais ou subjetivas, sem um processo de avaliação estruturado"
     },
     "design_validacao": "Como você costuma testar ou avaliar o seu design antes da implementação completa?",
     "design_validacao_options": {

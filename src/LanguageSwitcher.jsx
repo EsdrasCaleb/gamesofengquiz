@@ -9,11 +9,11 @@ const LanguageSwitcher = ({ i18n, data, setData }) => {
 
     const stable = ["en", "es","pt-BR"];
     const experimental = {
-        fr: "Français (auto-traduit)",
+        /*fr: "Français (auto-traduit)",
         it: "Italiano (tradotto automaticamente)",
         zh: "普通话（自动翻译）",
         ja: "日本語（自動翻訳）",
-        ko: "한국어 (자동 번역)"
+        ko: "한국어 (자동 번역)"*/
     };
 
     const candidates = i18n.languages || [];

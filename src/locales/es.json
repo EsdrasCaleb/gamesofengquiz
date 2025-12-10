@@ -102,22 +102,19 @@
       "qa": "Tester (QA)",
       "artista_som": "Artista de Sonido / Compositor",
       "animacao": "Animador",
-      "produtor": "Productor",
-      "roterista": "Guionista"
+      "produtor": "Productor"
     },
-    "tipos_jogos": "¿Qué tipos de juegos desarrolla más?",
+    "tipos_jogos": "¿Qué tipos de juegos desarrollas con más frecuencia?",
     "tipos_jogos_options": {
-      "fps": "FPS",
-      "educacional": "Educativo",
+      "action": "Acción",
+      "strategy": "Estrategia",
       "rpg": "RPG",
-      "aventura_narrativa": "Aventura Narrativa (Visual Novel)",
-      "2d": "2D",
-      "3d": "3D",
-      "plataforma": "Plataformas",
-      "boardgame": "Juegos de Mesa Digitales (BoardGame)",
-      "puzzle": "Puzzle / Rompecabezas",
-      "simulacao": "Simulación",
-      "manager": "Gestión / Manager"
+      "sports": "Deportes",
+      "vehicle_sim": "Simulaciones de vehículos",
+      "construction_management": "Simulaciones de construcción y gestión",
+      "adventure": "Aventura",
+      "artificial_life_puzzle": "Vida artificial y rompecabezas",
+      "online": "Juegos en línea"
     },
     "plataformas_desenvolvimento": "¿Para qué plataformas suele desarrollar juegos?",
     "plataformas_desenvolvimento_o": {
@@ -197,6 +194,7 @@
       "performance": "Rendimiento básico — evalúo tiempo de carga, tasa de cuadros (FPS) o consumo de recursos",
       "cenarios": "Escenarios específicos del juego — simulo situaciones de gameplay para comprobar si el juego responde como se espera",
       "teste_fumaca": "Pruebas de humo (Smoke tests) — solo verifico si el juego inicia y corre sin fallos críticos",
+      "simulacao": "Simulación: Simulo el comportamiento de un jugador a través de un agente",
       "nao_uso": "No uso pruebas automatizadas"
     },
     "tipo_falha": "En los juegos que creas, ¿qué defectos intentas evitar al máximo? (Elige hasta 3)",
@@ -229,10 +227,9 @@
     "avaliacao_artefatos": "¿Cómo suele evaluar la calidad de los artefactos creativos que produce (imágenes, sonidos, íconos, videos, diseños, etc.)?",
     "avaliacao_artefatos_o": {
       "criterios_definidos": "Uso criterios definidos previamente (ej: estilo, claridad, adecuación al público)",
-      "avaliacao_subjetiva": "Hago una evaluación más subjetiva, basada en mi propia percepción",
       "testes_formais": "Realizo pruebas formales con usuarios o herramientas específicas",
       "avaliacao_por_outros": "La evaluación la realizan principalmente otras personas del equipo",
-      "sem_avaliacao_estruturada": "No solemos hacer una evaluación estructurada"
+      "avaliacao_subjetiva": "Me baso en una evaluación informal o subjetiva, sin un proceso de evaluación estructurado"
     },
     "design_validacao": "¿Cómo suele probar o evaluar su diseño antes de la implementación completa?",
     "design_validacao_options": {

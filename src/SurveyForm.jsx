@@ -342,7 +342,6 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         <Checkbox value="programador">{t('survey.funcoes_o.programador')}</Checkbox>
                         <Checkbox value="artista">{t('survey.funcoes_o.artista')}</Checkbox>
                         <Checkbox value="animacao">{t('survey.funcoes_o.animacao')}</Checkbox>
-                        <Checkbox value="roterista">{t('survey.funcoes_o.roterista')}</Checkbox>
                         <Checkbox value="design_ux">{t('survey.funcoes_o.design_ux')}</Checkbox>
                         <Checkbox value="game_designer">{t('survey.funcoes_o.game_designer')}</Checkbox>
                         <Checkbox value="level_designer">{t('survey.funcoes_o.level_designer')}</Checkbox>
@@ -369,17 +368,15 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                     rules={[{ required: true, message: t('survey.common.required_one_option') }]}
                 >
                     <Checkbox.Group className="flex-column"  options={[
-                        { label: t('survey.tipos_jogos_options.fps'), value: 'fps' },
-                        { label: t('survey.tipos_jogos_options.educacional'), value: 'educacional' },
+                        { label: t('survey.tipos_jogos_options.action'), value: 'action' },
+                        { label: t('survey.tipos_jogos_options.strategy'), value: 'strategy' },
                         { label: t('survey.tipos_jogos_options.rpg'), value: 'rpg' },
-                        { label: t('survey.tipos_jogos_options.aventura_narrativa'), value: 'aventura_narrativa' },
-                        { label: t('survey.tipos_jogos_options.2d'), value: '2d' },
-                        { label: t('survey.tipos_jogos_options.3d'), value: '3d' },
-                        { label: t('survey.tipos_jogos_options.plataforma'), value: 'plataforma' },
-                        { label: t('survey.tipos_jogos_options.boardgame'), value: 'boardgame' },
-                        { label: t('survey.tipos_jogos_options.puzzle'), value: 'puzzle' },
-                        { label: t('survey.tipos_jogos_options.simulacao'), value: 'simulacao' },
-                        { label: t('survey.tipos_jogos_options.manager'), value: 'manager' },
+                        { label: t('survey.tipos_jogos_options.sports'), value: 'sports' },
+                        { label: t('survey.tipos_jogos_options.vehicle_sim'), value: 'vehicle_sim' },
+                        { label: t('survey.tipos_jogos_options.construction_management'), value: 'construction_management' },
+                        { label: t('survey.tipos_jogos_options.adventure'), value: 'adventure' },
+                        { label: t('survey.tipos_jogos_options.artificial_life_puzzle'), value: 'artificial_life_puzzle' },
+                        { label: t('survey.tipos_jogos_options.online'), value: 'online' },
                         { label: t('survey.common.outro'), value: 'outro' },
                     ]} />
                 </Form.Item>
@@ -861,25 +858,23 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 >
                     <Checkbox.Group className="flex-column"  options={[
                         { value: 'criterios_definidos',
-                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            disabled:data['avaliacao_artefatos']?.includes('avaliacao_subjetiva'),
                             label: t('survey.avaliacao_artefatos_o.criterios_definidos') },
                         { value: 'avaliacao_subjetiva',
-                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
                             label: t('survey.avaliacao_artefatos_o.avaliacao_subjetiva') },
                         { value: 'testes_formais',
-                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            disabled:data['avaliacao_artefatos']?.includes('avaliacao_subjetiva'),
                             label: t('survey.avaliacao_artefatos_o.testes_formais') },
                         { value: 'avaliacao_por_outros',
-                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            disabled:data['avaliacao_artefatos']?.includes('avaliacao_subjetiva'),
                             label: t('survey.avaliacao_artefatos_o.avaliacao_por_outros') },
-                        { value: 'sem_avaliacao_estruturada', label: t('survey.avaliacao_artefatos_o.sem_avaliacao_estruturada') },
                         { value: 'outro',
-                            disabled:data['avaliacao_artefatos']?.includes('sem_avaliacao_estruturada'),
+                            disabled:data['avaliacao_artefatos']?.includes('avaliacao_subjetiva'),
                             label: t('survey.common.outro') },
                     ]}
                     onChange={(values) => {
-                        if (values.includes('sem_avaliacao_estruturada')) {
-                            form.setFieldsValue({ avaliacao_artefatos: ['sem_avaliacao_estruturada'] });
+                        if (values.includes('avaliacao_subjetiva')) {
+                            form.setFieldsValue({ avaliacao_artefatos: ['avaliacao_subjetiva'] });
                         } else {
                             form.setFieldsValue({ avaliacao_artefatos: values });
                         }
