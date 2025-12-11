@@ -63,14 +63,13 @@
     },
     "anos_experiencia": "¿Hace cuántos años trabaja en el área de desarrollo de juegos digitales?",
     "qtd_projetos": "¿En cuántos proyectos de juegos (lanzados o no) ha trabajado?",
-    "situacao": "¿Cuál es su principal forma de actuación en el desarrollo de juegos digitales actualmente? (Marque la alternativa que mejor describe su situación actual)",
+    "situacao": "¿En qué tipo de puesto has pasado la mayor parte del tiempo trabajando en el desarrollo de videojuegos digitales? (Selecciona la opción que mejor refleje tu experiencia).",
     "situacao_o": {
       "atuacao_industria_integral": "Trabajo a tiempo completo en una empresa de la industria de juegos",
       "atuacao_industria_parcial": "Trabajo a tiempo parcial en una empresa de la industria de juegos",
       "atuacao_freelancer": "Desarrollo juegos como freelancer/autónomo regularmente",
       "atuacao_indie_horas_vagas": "Desarrollo juegos de forma independiente en mis horas libres (sin remuneración o con remuneración eventual)",
-      "atuacao_eventual": "Desarrollo juegos eventualmente, en proyectos puntuales o colaborativos",
-      "atuacao_nao_envolvido": "Actualmente no desarrollo juegos digitales, pero ya he trabajado en el área"
+      "atuacao_eventual": "Desarrollo juegos eventualmente, en proyectos puntuales o colaborativos"
     },
     "situacao_equipe": "¿Con qué tipo de equipo suele trabajar en los proyectos de desarrollo de juegos? Considere la mayoría de los proyectos en los que participa.",
     "situacao_equipe_o": {

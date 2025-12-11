@@ -64,14 +64,13 @@
     },
     "anos_experiencia": "How many years have you been working in digital game development?",
     "qtd_projetos": "How many game projects (released or not) have you worked on?",
-    "situacao": "What is your main form of engagement in digital game development currently? (Select the option that best describes your current situation.)",
+    "situacao": "In which type of engagement did you spend most of your time working on digital game development? (Select the option that best reflects your experience.)",
     "situacao_o": {
       "atuacao_industria_integral": "I work full-time at a game industry company",
       "atuacao_industria_parcial": "I work part-time at a game industry company",
       "atuacao_freelancer": "I develop games as a freelancer/contractor regularly",
       "atuacao_indie_horas_vagas": "I develop independent games in my spare time (hobbyist/unpaid or occasional revenue)",
-      "atuacao_eventual": "I develop games occasionally, in one-off or collaborative projects (e.g., Game Jams)",
-      "atuacao_nao_envolvido": "I am not currently developing games, but have worked in the area before"
+      "atuacao_eventual": "I develop games occasionally, in one-off or collaborative projects (e.g., Game Jams)"
     },
     "situacao_equipe": "What type of team do you usually work with on game development projects? Consider the majority of projects you participate in.",
     "situacao_equipe_o": {
