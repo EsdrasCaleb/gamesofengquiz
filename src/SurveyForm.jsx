@@ -281,9 +281,6 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         <Radio value="atuacao_eventual">
                             {t('survey.situacao_o.atuacao_eventual')}
                         </Radio>
-                        <Radio value="atuacao_nao_envolvido">
-                            {t('survey.situacao_o.atuacao_nao_envolvido')}
-                        </Radio>
                         <Radio value="outro">
                             {t('survey.common.outro')}
                         </Radio>
