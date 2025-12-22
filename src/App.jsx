@@ -18,7 +18,6 @@ const initialState = {
 };
 
 function surveyReducer(state, action) {
-    console.log(state)
     switch (action.type) {
         case 'ACCEPT':
             if(!state.uid){

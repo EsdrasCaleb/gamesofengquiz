@@ -64,7 +64,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
         'padroes_design',
         'modelagem_projeto',
         'prototipacao',
-        'tdd',
+        'testes_automatizados',
         'integracao_continua'];
     const problemas_praticas = [
         'sempre_uso',
@@ -103,7 +103,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
 
             //Praticas de Engenharia
             "uso_praticas_controle_versao", "uso_praticas_padroes_design",
-            "uso_praticas_modelagem_projeto", "uso_praticas_prototipacao", "uso_praticas_tdd",
+            "uso_praticas_modelagem_projeto", "uso_praticas_prototipacao", "uso_praticas_testes_automatizados",
             "uso_praticas_integracao_continua","dificuldades_manutencao","dificuldades_manutencao_outro",
 
             //testes
@@ -122,12 +122,11 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             "consideracoes_finais","email"
 
         ]
-        console.log(values)
+
         // Filtrar os valores para manter apenas as chaves de dataCollums
         const filteredValues = Object.fromEntries(
             dataCollums.map(key => [key, values[key]])
         );
-        console.log(filteredValues)
 
         const body_request = JSON.stringify(filteredValues);
         const url = 'https://script.google.com/macros/s/AKfycbx8ju-mStYILe19EupRI1RxQhqkx15tQOp8QVwuNTYjcXg1anvPRoO_NPk0-oq1VqYt/exec';

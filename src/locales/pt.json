@@ -142,7 +142,7 @@
     "uso_praticas_padroes_design": "Boas práticas de código (ex: SOLID, KISS, DRY, Clean Code)",
     "uso_praticas_modelagem_projeto":"Modelagem de projeto (ex: diagramas de fluxo, diagrama de estados, etc)",
     "uso_praticas_prototipacao":"Prototipação técnica",
-    "uso_praticas_tdd":"Testes Automatizados",
+    "uso_praticas_testes_automatizados":"Testes Automatizados",
     "uso_praticas_integracao_continua":"Integração contínua (builds, pipelines)",
     "uso_praticas":{
       "label": "Para cada uma das práticas abaixo, selecione a alternativa que melhor representa sua experiência no desenvolvimento de jogos.",

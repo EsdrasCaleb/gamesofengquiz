@@ -144,7 +144,7 @@
     "uso_praticas_padroes_design": "Code best practices (e.g., SOLID, KISS, DRY, Clean Code)",
     "uso_praticas_modelagem_projeto": "Project modeling (e.g., flowcharts, state diagrams, etc.)",
     "uso_praticas_prototipacao": "Technical prototyping",
-    "uso_praticas_tdd": "Automated Testing",
+    "uso_praticas_testes_automatizados": "Automated Testing",
     "uso_praticas_integracao_continua": "Continuous integration (builds, pipelines)",
     "uso_praticas": {
       "label": "For each of the practices below, select the option that best represents your experience in game development.",
