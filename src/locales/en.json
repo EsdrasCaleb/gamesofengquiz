@@ -74,20 +74,22 @@
     },
     "situacao_equipe": "What type of team do you usually work with on game development projects? Consider the majority of projects you participate in.",
     "situacao_equipe_o": {
-      "individual": "I work alone (solo projects)",
-      "pequena": "Small team (2 to 5 people)",
-      "media": "Medium team (6 to 15 people)",
-      "grande": "Large team (more than 15 people)",
-      "varia": "Varies significantly from project to project",
+      "individual": "Work alone (individual projects)",
+      "pequena": "In a Small Team (2 to 15 people)",
+      "media": "In a Medium Team (15 to 60 people)",
+      "grande": "In a Large Team (60 to 120 people)",
+      "muito_grande": "In a Very Large Team (120+ people)",
+      "varia": "Varia bastante de projeto para projeto",
       "nao_participa": "I work independently and do not have direct contact with the project team"
     },
     "duracao_projetos": "On average, what is the duration of the projects you participate in?",
     "duracao_projetos_o": {
       "menos_1_mes": "Less than 1 month",
-      "1a3_meses": "1 to 3 months",
-      "4a6_meses": "4 to 6 months",
-      "7a12_meses": "7 to 12 months",
-      "mais_1_ano": "More than 1 year"
+      "1a6_meses": "From 1 to 6 months",
+      "6a12_meses": "From 6 to 12 months",
+      "2anos": "2 years",
+      "4anos": "4 years",
+      "mais_4_ano": "More than 4 years"
     },
     "funcoes": "What roles/functions do you usually perform?",
     "funcoes_o": {

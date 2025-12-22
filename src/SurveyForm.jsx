@@ -295,14 +295,13 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                         <Input />
                     </Form.Item>
                 )}
-
-
                 <Form.Item name="situacao_equipe" label={(index++)+"-"+t('survey.situacao_equipe')} rules={[{ required: true, message: t('survey.common.required_option')  }]}>
                     <Radio.Group className="flex-column" >
                         <Radio value="individual">{t('survey.situacao_equipe_o.individual')}</Radio>
                         <Radio value="pequena">{t('survey.situacao_equipe_o.pequena')}</Radio>
                         <Radio value="media">{t('survey.situacao_equipe_o.media')}</Radio>
                         <Radio value="grande">{t('survey.situacao_equipe_o.grande')}</Radio>
+                        <Radio value="muito_grande">{t('survey.situacao_equipe_o.muito_grande')}</Radio>
                         <Radio value="varia">{t('survey.situacao_equipe_o.varia')}</Radio>
                         <Radio value="nao_participa">{t('survey.situacao_equipe_o.nao_participa')}</Radio>
                         <Radio value="outro">{t('survey.common.outro')}</Radio>
@@ -319,12 +318,25 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 )}
 
                 <Form.Item name="duracao_projetos" label={(index++) + '-' + t('survey.duracao_projetos')} rules={[{ required: true, message: t('survey.common.required_option')  }]}>
-                    <Radio.Group className="flex-column" >
-                        <Radio value="menos_1_mes">{t('survey.duracao_projetos_o.menos_1_mes')}</Radio>
-                        <Radio value="1a3_meses">{t('survey.duracao_projetos_o.1a3_meses')}</Radio>
-                        <Radio value="4a6_meses">{t('survey.duracao_projetos_o.4a6_meses')}</Radio>
-                        <Radio value="7a12_meses">{t('survey.duracao_projetos_o.7a12_meses')}</Radio>
-                        <Radio value="mais_1_ano">{t('survey.duracao_projetos_o.mais_1_ano')}</Radio>
+                    <Radio.Group className="flex-column">
+                        <Radio value="menos_1_mes">
+                            {t('survey.duracao_projetos_o.menos_1_mes')}
+                        </Radio>
+                        <Radio value="1a6_meses">
+                            {t('survey.duracao_projetos_o.1a6_meses')}
+                        </Radio>
+                        <Radio value="6a12_meses">
+                            {t('survey.duracao_projetos_o.6a12_meses')}
+                        </Radio>
+                        <Radio value="2anos">
+                            {t('survey.duracao_projetos_o.2anos')}
+                        </Radio>
+                        <Radio value="4anos">
+                            {t('survey.duracao_projetos_o.4anos')}
+                        </Radio>
+                        <Radio value="mais_4_ano">
+                            {t('survey.duracao_projetos_o.mais_4_ano')}
+                        </Radio>
                     </Radio.Group>
                 </Form.Item>
 

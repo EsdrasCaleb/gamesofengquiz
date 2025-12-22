@@ -73,19 +73,21 @@
     "situacao_equipe": "Com que tipo de equipe você costuma trabalhar nos projetos de desenvolvimento de jogos? Considere a maioria dos projetos em que você participa",
     "situacao_equipe_o": {
       "individual": "Trabalho sozinho (projetos individuais)",
-      "pequena": "Em equipe pequena (2 a 5 pessoas)",
-      "media": "Em equipe média (6 a 15 pessoas)",
-      "grande": "Em equipe grande (mais de 15 pessoas)",
+      "pequena": "Em Equipe Pequena (2 a 15 pessoas)",
+      "media": "Em Equipe Média (15 a 60 pessoas)",
+      "grande": "Em Equipe Grande (60 a 120 pessoas)",
+      "muito_grande": "Em Equipe Muito Grande (120+ pessoas)",
       "varia": "Varia bastante de projeto para projeto",
       "nao_participa": "Trabalho de forma independente e não tenho contato direto com a equipe do projeto"
     },
     "duracao_projetos": "Em média, qual é a duração dos projetos em que você participa?",
     "duracao_projetos_o": {
       "menos_1_mes": "Menos de 1 mês",
-      "1a3_meses": "De 1 a 3 meses",
-      "4a6_meses": "De 4 a 6 meses",
-      "7a12_meses": "De 7 a 12 meses",
-      "mais_1_ano": "Mais de 1 ano"
+      "1a6_meses": "De 1 a 6 meses",
+      "6a12_meses": "De 6 a 12 meses",
+      "2anos": "2 anos",
+      "4anos": "4 anos",
+      "mais_4_ano": "Mais de 4 anos"
     },
     "funcoes": "Quais papéis/funções você costuma desempenhar?",
     "funcoes_o": {

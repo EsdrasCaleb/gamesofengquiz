@@ -72,13 +72,13 @@
       "atuacao_eventual": "Desarrollo juegos eventualmente, en proyectos puntuales o colaborativos"
     },
     "situacao_equipe": "¿Con qué tipo de equipo suele trabajar en los proyectos de desarrollo de juegos? Considere la mayoría de los proyectos en los que participa.",
-    "situacao_equipe_o": {
-      "individual": "Trabajo solo (proyectos individuales)",
-      "pequena": "En equipo pequeño (2 a 5 personas)",
-      "media": "En equipo mediano (6 a 15 personas)",
-      "grande": "En equipo grande (más de 15 personas)",
-      "varia": "Varía bastante de un proyecto a otro",
-      "nao_participa": "Trabajo de forma independiente y no tengo contacto directo con el equipo del proyecto"
+    "duracao_projetos_o": {
+      "menos_1_mes": "Menos de 1 mes",
+      "1a6_meses": "De 1 a 6 meses",
+      "6a12_meses": "De 6 a 12 meses",
+      "2anos": "2 años",
+      "4anos": "4 años",
+      "mais_4_ano": "Más de 4 años"
     },
     "duracao_projetos": "En promedio, ¿cuál es la duración de los proyectos en los que participa?",
     "duracao_projetos_o": {
