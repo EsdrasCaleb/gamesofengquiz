@@ -37,7 +37,7 @@ function surveyReducer(state, action) {
         case 'LOAD_FROM_STORAGE':
             if (action.payload.status =='accepted' || action.payload.status =='declined')
                 action.payload.status = null
-            return { ...state,data:{...state.data,...action.payload.data} };
+            return { ...state,uid:action.payload.uid,data:{...state.data,...action.payload.data} };
         default:
             throw new Error(`Ação desconhecida: ${action.type}`);
     }

@@ -128,7 +128,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             dataCollums.map(key => [key, values[key]])
         );
         filteredValues['uid'] = uid;
-        console.log(filteredValues);
+
         const body_request = JSON.stringify(filteredValues);
 
         const url = 'https://script.google.com/macros/s/AKfycbx8ju-mStYILe19EupRI1RxQhqkx15tQOp8QVwuNTYjcXg1anvPRoO_NPk0-oq1VqYt/exec';
