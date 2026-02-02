@@ -7,7 +7,7 @@ export default function UsePageTimer({ data, setData }) {
 
     useEffect(() => {
         // ao montar, pegar o tempo já salvo (em segundos) e converter para ms
-        accumulatedRef.current = (data?.time || 0) * 1000;
+        accumulatedRef.current = (data?.time || 0);
 
         function startTimer() {
             if (timerRef.current) return;
@@ -18,7 +18,7 @@ export default function UsePageTimer({ data, setData }) {
                     accumulatedRef.current + (Date.now() - startTimeRef.current);
 
                 // converte pra segundos antes de gravar
-                const seconds = Math.floor(elapsed / 1000);
+                const seconds = elapsed;
                 setData({ ...data, time: seconds });
             }, 1000);
         }
