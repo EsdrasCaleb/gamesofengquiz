@@ -63,7 +63,7 @@
     },
     "anos_experiencia": "¿Hace cuántos años trabaja en el área de desarrollo de juegos digitales?",
     "qtd_projetos": "¿En cuántos proyectos de juegos (lanzados o no) ha trabajado?",
-    "situacao": "¿En qué tipo de puesto has pasado la mayor parte del tiempo trabajando en el desarrollo de videojuegos digitales? (Selecciona la opción que mejor refleje tu experiencia).",
+    "situacao": "Actualmente, ¿en qué tipo de actuación dedicas la mayor parte de tu tiempo en el desarrollo de juegos digitales? (Considera dónde realmente trabajas más horas, incluso si desempeñas más de una modalidad.)",
     "situacao_o": {
       "atuacao_industria_integral": "Trabajo a tiempo completo en una empresa de la industria de juegos",
       "atuacao_industria_parcial": "Trabajo a tiempo parcial en una empresa de la industria de juegos",
@@ -71,7 +71,7 @@
       "atuacao_indie_horas_vagas": "Desarrollo juegos de forma independiente en mis horas libres (sin remuneración o con remuneración eventual)",
       "atuacao_eventual": "Desarrollo juegos eventualmente, en proyectos puntuales o colaborativos"
     },
-    "situacao_equipe": "¿Con qué tipo de equipo suele trabajar en los proyectos de desarrollo de juegos? Considere la mayoría de los proyectos en los que participa.",
+    "situacao_equipe":  "En la mayoría de los proyectos en los que trabajas actualmente, ¿cómo está conformado el equipo de desarrollo de juegos? (Considera el tipo de equipo con el que pasas más tiempo trabajando.)",
     "duracao_projetos_o": {
       "menos_1_mes": "Menos de 1 mes",
       "1a6_meses": "De 1 a 6 meses",
@@ -204,7 +204,7 @@
       "visual_multimidia": "Glitches visuales o ruidos extraños de audio",
       "desempenho_estabilidade": "Caída de rendimiento o inestabilidad de framerate",
       "corretude_fisica": "Errores de colisión y física",
-      "balanceamento": "Balance desequilibrado — desafío demasiado fácil o demasiado difícil"
+      "balanceamento": "Balanceo del juego fuera del nivel planificado (demasiado fácil, demasiado difícil o incoherente)"
     },
     "etapa_testes": "¿En qué momento del desarrollo se crean las pruebas automatizadas?",
     "etapa_testes_options": {

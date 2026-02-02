@@ -64,7 +64,7 @@
     },
     "anos_experiencia": "How many years have you been working in digital game development?",
     "qtd_projetos": "How many game projects (released or not) have you worked on?",
-    "situacao": "In which type of engagement did you spend most of your time working on digital game development? (Select the option that best reflects your experience.)",
+    "situacao": "Currently, which type of role do you spend most of your time on in digital game development? (Consider where you actually work the most hours, even if you have more than one type of role.)",
     "situacao_o": {
       "atuacao_industria_integral": "I work full-time at a game industry company",
       "atuacao_industria_parcial": "I work part-time at a game industry company",
@@ -72,7 +72,7 @@
       "atuacao_indie_horas_vagas": "I develop independent games in my spare time (hobbyist/unpaid or occasional revenue)",
       "atuacao_eventual": "I develop games occasionally, in one-off or collaborative projects (e.g., Game Jams)"
     },
-    "situacao_equipe": "What type of team do you usually work with on game development projects? Consider the majority of projects you participate in.",
+    "situacao_equipe": "In most of the projects you are currently involved in, how is the game development team structured? (Consider the type of team you spend the most time working with.)",
     "situacao_equipe_o": {
       "individual": "Work alone (individual projects)",
       "pequena": "In a Small Team (2 to 15 people)",
@@ -207,7 +207,7 @@
       "visual_multimidia": "Visual glitches or strange audio noises",
       "desempenho_estabilidade": "Performance drops or framerate instability",
       "corretude_fisica": "Collision errors and physics",
-      "balanceamento": "Poor balancing — challenge is too easy or too hard"
+      "balanceamento": "Game balance outside the planned level (too easy, too hard, or inconsistent)"
     },
     "etapa_testes": "At what stage of development are automated tests created?",
     "etapa_testes_options": {
