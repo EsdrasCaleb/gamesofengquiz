@@ -43,7 +43,7 @@ export default function UsePageTimer({ data, setData, status }) {
 
                 // AQUI ESTÁ A CORREÇÃO PRINCIPAL:
                 // Criamos o objeto completo usando o valor atual da Ref + o novo tempo
-                const newData = { ...dataRef.current, time: Math.floor(elapsed/1000) };
+                const newData = { ...dataRef.current, time: elapsed/1000 };
 
                 // Passamos o OBJETO direto, pois seu reducer não aceita função (prev => ...)
                 setData(newData);
