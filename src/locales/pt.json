@@ -198,7 +198,7 @@
       "teste_fumaca": "Testes de fumaça — apenas verifico se o jogo inicia e roda sem falhas críticas",
       "nao_uso": "Não uso testes automatizados"
     },
-    "tipo_falha": "Nos seus jogos quais falhas você tenta ao máximo evitar? (Escolha até 3)",
+    "tipo_falha": "Nos jogos que você desenvolve, quais problemas você prioriza evitar? (Escolha até 3)",
     "tipo_falha_options": {
       "stuck": "Stuck – jogador fica preso sem conseguir sair de uma parte do jogo",
       "crash": "Crash – jogo fecha, trava ou congela",

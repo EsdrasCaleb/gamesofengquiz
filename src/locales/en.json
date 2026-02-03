@@ -200,7 +200,7 @@
       "simulacao": "Simulation — I simulate a player's behavior through an agent",
       "nao_uso": "I do not use automated tests"
     },
-    "tipo_falha": "In the games you create, what flaws do you try your best to avoid? (Choose up to 3)",
+    "tipo_falha": "In the games you develop, which problems do you prioritize avoiding? (Choose up to 3)",
     "tipo_falha_options": {
       "stuck": "Stuck — player gets stuck without being able to exit (Softlock)",
       "crash": "Crash — game closes, freezes, or hangs",

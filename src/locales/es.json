@@ -197,7 +197,7 @@
       "simulacao": "Simulación: Simulo el comportamiento de un jugador a través de un agente",
       "nao_uso": "No uso pruebas automatizadas"
     },
-    "tipo_falha": "En los juegos que creas, ¿qué defectos intentas evitar al máximo? (Elige hasta 3)",
+    "tipo_falha": "En los juegos que desarrollas, ¿qué problemas priorizas evitar? (Elige hasta 3)",
     "tipo_falha_options": {
       "stuck": "Stuck — el jugador se queda atrapado sin poder salir (Softlock)",
       "crash": "Crash — el juego se cierra, se traba o se congela",

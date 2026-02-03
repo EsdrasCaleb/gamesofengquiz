@@ -173,7 +173,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
             }, 300),
         []
     );
-
+    console.log(Math.round(data.time/1000))
     return (
         <Card >
         <Form
