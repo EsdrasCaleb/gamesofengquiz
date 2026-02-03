@@ -193,7 +193,7 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                 <Input value={i18n.languages[0]} type="hidden" />
             </Form.Item>)}
             <Form.Item name="time" initialValue={uid} hidden>
-                <Input value={Math.round(parseInt(data.time)/1000)} type="hidden" />
+                <Input value={Math.round((data.time || 0) / 1000)} type="hidden" />
             </Form.Item>
             <Form.Item name="form_language" initialValue={uid} hidden>
                 <Input value={data.form_language} type="hidden" />
