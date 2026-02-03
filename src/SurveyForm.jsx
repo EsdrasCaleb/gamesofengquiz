@@ -678,7 +678,6 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                                 data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.nao_encontram_erros_reais') },
                         { value: 'nunca_usei',
-                            disabled: disableOption('dificuldades_testes','entendimento_frameworks'),
                             label: t('survey.dificuldades_testes_options.nunca_usei') },
                         { value: 'outro',
                             disabled: disableOption('dificuldades_testes','entendimento_frameworks')||
