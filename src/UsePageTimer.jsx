@@ -21,7 +21,7 @@ export default function UsePageTimer({ data, setData, status }) {
     useEffect(() => {
         // Inicializa o acumulador com o valor que veio do banco/storage (apenas na montagem)
         // Assume que o valor salvo já está em milissegundos (conforme seu último código)
-        accumulatedRef.current = dataRef.current?.time || 0;
+        accumulatedRef.current = (dataRef.current?.time|| 0)*1000 ;
 
         function startTimer() {
             if (timerRef.current) return;
@@ -43,7 +43,7 @@ export default function UsePageTimer({ data, setData, status }) {
 
                 // AQUI ESTÁ A CORREÇÃO PRINCIPAL:
                 // Criamos o objeto completo usando o valor atual da Ref + o novo tempo
-                const newData = { ...dataRef.current, time: elapsed };
+                const newData = { ...dataRef.current, time: Math.floor(elapsed/1000) };
 
                 // Passamos o OBJETO direto, pois seu reducer não aceita função (prev => ...)
                 setData(newData);
