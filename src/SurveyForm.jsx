@@ -662,25 +662,26 @@ const SurveyForm = ({ data, setData, uid, onAnswer }) => {
                             data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.entendimento_frameworks') },
                         { value: 'integracao_dificil',
-                            disabled: disableOption('dificuldades_testes','entendimento_frameworks')||
+                            disabled: disableOption('dificuldades_testes','integracao_dificil')||
                                 data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.integracao_dificil') },
                         { value: 'preferencia_humanos',
-                            disabled: disableOption('dificuldades_testes','entendimento_frameworks')||
+                            disabled: disableOption('dificuldades_testes','preferencia_humanos')||
                                 data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.preferencia_humanos') },
                         { value: 'criacao_dificil',
-                            disabled: disableOption('dificuldades_testes','entendimento_frameworks')||
+                            disabled: disableOption('dificuldades_testes','criacao_dificil')||
                                 data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.criacao_dificil') },
                         { value: 'nao_encontram_erros_reais',
-                            disabled: disableOption('dificuldades_testes','entendimento_frameworks')||
+                            disabled: disableOption('dificuldades_testes','nao_encontram_erros_reais')||
                                 data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.dificuldades_testes_options.nao_encontram_erros_reais') },
                         { value: 'nunca_usei',
+                            disabled: disableOption('dificuldades_testes','nunca_usei'),
                             label: t('survey.dificuldades_testes_options.nunca_usei') },
                         { value: 'outro',
-                            disabled: disableOption('dificuldades_testes','entendimento_frameworks')||
+                            disabled: disableOption('dificuldades_testes','outro')||
                                 data['dificuldades_testes']?.includes('nunca_usei'),
                             label: t('survey.common.outro') }
                     ]} onChange={(values) => {
