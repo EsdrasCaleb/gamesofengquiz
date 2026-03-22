@@ -22,7 +22,7 @@
   },
   "thankyou": {
     "title": "Gracias por su tiempo",
-    "text": "Su decisión ha sido registrada. Agradecemos su atención.",
+    "text": "La encuesta ha finalizado. Agradecemos su atención.",
     "removal": "Si desea eliminar sus datos, contáctenos en acheicaleb@gmail.com y envíe su ID único: {{uid}}.",
     "newSurvey": "Responder la encuesta",
     "change": "Cambiar respuestas"

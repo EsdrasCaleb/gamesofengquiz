@@ -64,6 +64,11 @@ export default function App() {
     }, [state]);
 
     const renderContent = () => {
+        return <ConcludedScreen
+            uid={state.uid}
+            onChangeAnswers={() => dispatch({ type: 'CHANGE_ANSWERS' })}
+        />
+        /*
         switch (state.status) {
             case 'accepted':
                 return (
@@ -94,6 +99,8 @@ export default function App() {
                     />
                 );
         }
+        */
+
     };
 
     const fixedTopBar = {

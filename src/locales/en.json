@@ -23,7 +23,7 @@
   },
   "thankyou": {
     "title": "Thank you for your time",
-    "text": "Your decision has been recorded. We appreciate your attention.",
+    "text": "The survey has ended. We appreciate your attention.",
     "removal": "If you wish to remove your data, please contact acheicaleb@gmail.com and send your unique ID: {{uid}}.",
     "newSurvey": "Take the survey",
     "change": "Change Answers"

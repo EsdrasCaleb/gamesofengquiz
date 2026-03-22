@@ -10,12 +10,13 @@ return (
 <>
     <Title>{t('thankyou.title')}</Title>
     <Paragraph>{t('thankyou.text')}</Paragraph>
-    <Paragraph>{t('thankyou.removal', { uid })}</Paragraph>
+        {uid?<Paragraph>{t('thankyou.removal', { uid })}</Paragraph>:''}
+        {/*
     <Space direction="vertical" style={{ width: '100%' }}>
         <Button block onClick={onChangeAnswers}>
             {t('thankyou.change')}
         </Button>
-    </Space>
+    </Space>*/}
 </>
 );
 }

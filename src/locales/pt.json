@@ -21,7 +21,7 @@
   },
   "thankyou": {
     "title": "Obrigado pelo seu tempo",
-    "text": "Sua decisão foi registrada. Agradecemos sua atenção.",
+    "text": "A pesquisa foi ecerrada. Agradecemos sua atenção.",
     "removal": "Se quiser remover seus dados, entre em contato com acheicaleb@gmail.com e envie o seu ID único: {{uid}}.",
     "newSurvey": "Responder a pesquisa",
     "change": "Alterar Respostas"
